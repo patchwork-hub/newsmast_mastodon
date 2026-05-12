@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
 
   # Runtime dependencies (union of all 7 source gems)
   spec.add_dependency "rails",            ">= 7.1", "< 9.0"
-  spec.add_dependency "byebug",           "~> 11.1"
+  spec.add_dependency "byebug",           ">= 11.1", "< 14.0"
   spec.add_dependency "googleauth",       "~> 1.13", ">= 1.13.1"
   spec.add_dependency "httparty",         "~> 0.23.1"
   spec.add_dependency "link_thumbnailer", "~> 3.4"
