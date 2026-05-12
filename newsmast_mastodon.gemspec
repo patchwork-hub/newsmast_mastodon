@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   # Development / test dependencies (Phase 12)
   spec.add_development_dependency "rspec-rails",               "~> 7.0"
   spec.add_development_dependency "factory_bot_rails",         "~> 6.4"
-  spec.add_development_dependency "shoulda-matchers",          "~> 6.4"
+  spec.add_development_dependency "shoulda-matchers",          "~> 7.0"
   spec.add_development_dependency "database_cleaner-active_record", "~> 2.2"
   spec.add_development_dependency "webmock",                   "~> 3.24"
   spec.add_development_dependency "vcr",                       "~> 6.3"
