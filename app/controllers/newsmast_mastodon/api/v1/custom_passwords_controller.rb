@@ -5,7 +5,7 @@ module NewsmastMastodon::Api::V1
     include ::NewsmastMastodon::Concerns::ApiResponseHelper
 
     ACCESS_TOKEN_SCOPES = "read write follow push profile"
-    skip_before_action :require_authenticated_user!, except: [ :change_password, :change_email ]
+    skip_before_action :require_authenticated_user!, except: [ :change_password, :change_email ], raise: false
     before_action :require_authenticated_user!, only: [ :change_password, :change_email ]
     before_action :set_user, only: [ :update, :verify_otp, :request_otp ]
 

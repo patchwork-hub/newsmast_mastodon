@@ -70,9 +70,17 @@ module NewsmastMastodon
     end
 
     # --- Autoload paths for services, workers, presenters ---
-    config.autoload_paths << File.expand_path("../app/services", __FILE__)
-    config.autoload_paths << File.expand_path("../app/workers", __FILE__)
-    config.autoload_paths += %W[#{config.root}/app/presenters]
+    initializer "newsmast_mastodon.add_autoload_paths", before: :set_autoload_paths do |app|
+      extra_paths = [
+        root.join("app", "services").to_s,
+        root.join("app", "workers").to_s,
+        root.join("app", "presenters").to_s
+      ]
+
+      extra_paths.each do |path|
+        app.config.autoload_paths << path unless app.config.autoload_paths.include?(path)
+      end
+    end
 
     # --- Ghost & WordPress webhook host allowlisting ---
     initializer "newsmast_mastodon.extend_allowed_hosts" do |app|
