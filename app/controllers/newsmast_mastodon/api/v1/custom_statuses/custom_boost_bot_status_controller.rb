@@ -1,6 +1,6 @@
 module NewsmastMastodon::Api::V1::CustomStatuses
   class CustomBoostBotStatusController < ::Api::BaseController
-    include Redisable
+    include Redisable if defined?(Redisable)
 
     before_action :require_auth!
 

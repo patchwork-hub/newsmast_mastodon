@@ -2,7 +2,7 @@
 
 module NewsmastMastodon::Api::V1
   class ChannelsController < ::Api::BaseController
-    include Redisable
+    include Redisable if defined?(Redisable)
 
     before_action :require_user!
     before_action -> { doorkeeper_authorize! :read, :write }

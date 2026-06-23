@@ -1,6 +1,6 @@
 module NewsmastMastodon::Api::V1
   class LocalOnlyPostsController < ::Api::BaseController
-    include Authorization
+    include Authorization if defined?(Authorization)
     before_action :require_user!, only: [ :getLocalOnlySetting ]
 
     def getLocalOnlySetting

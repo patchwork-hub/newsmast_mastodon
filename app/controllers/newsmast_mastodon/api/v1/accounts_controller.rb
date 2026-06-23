@@ -2,7 +2,7 @@
 
 module NewsmastMastodon::Api::V1
   class AccountsController < ::Api::BaseController
-    include Redisable
+    include Redisable if defined?(Redisable)
     include ::NewsmastMastodon::Concerns::ApiResponseHelper
 
     before_action :require_user!
