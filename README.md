@@ -5,6 +5,18 @@ host app with Newsmast features across accounts, content filtering,
 conversations, custom feeds, local-only posts, posting workflows, and timeline
 behavior.
 
+## Project scope
+
+This gem is maintained by Patchwork Hub and targets deployments that need the
+Newsmast feature set on top of Mastodon.
+
+- Intended audience: teams running a Mastodon host app aligned with Newsmast behavior.
+- Runtime target: Mastodon 4.5.11.
+- Compatibility strategy: use exact gem version pinning and upgrade intentionally.
+
+If you need a generic Mastodon extension point without Newsmast-specific
+behavior, review your requirements before adopting this gem.
+
 ## What this gem adds
 
 - API endpoints under `api/v1` for Newsmast account and feed workflows
@@ -57,6 +69,12 @@ yarn build:production
 - Ruby: `>= 3.1.0`
 - Rails: `>= 7.1`, `< 9.0`
 - Host app: Mastodon 4.5.11 runtime target
+
+### Tested compatibility matrix
+
+| Gem version | Mastodon | Ruby | Rails | Support |
+| --- | --- | --- | --- | --- |
+| 4.5.11 | 4.5.11 | 3.1 - 3.3 | 7.1 - 8.x | Active |
 
 This gem is maintained against Mastodon 4.5.11. Use exact gem version pinning
 in your host app Gemfile to avoid unplanned compatibility drift.
@@ -297,6 +315,15 @@ BASE_URL=http://localhost:3000 ACCESS_TOKEN=... bundle exec rake api:full_check
 
 Contribution process and standards are documented in `CONTRIBUTING.md`.
 
+## Community and support
+
+- Support and help channels: `SUPPORT.md`
+- Contribution workflow and policy: `CONTRIBUTING.md`
+- Security reporting process: `SECURITY.md`
+- Community code of conduct: `CODE_OF_CONDUCT.md`
+- Maintainer roles and ownership: `MAINTAINERS.md`
+- Project governance and merge policy: `GOVERNANCE.md`
+
 ## Changelog
 
 See `CHANGELOG.md` for release notes.
@@ -304,4 +331,4 @@ See `CHANGELOG.md` for release notes.
 ## License
 
 This project is licensed under the GNU Affero General Public License v3.0.
-See `LICENSE.txt` for details.
+See `LICENSE.txt` for details, and `NOTICE` for attribution guidance.
