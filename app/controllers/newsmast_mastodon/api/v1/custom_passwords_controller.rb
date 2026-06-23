@@ -9,7 +9,7 @@ module NewsmastMastodon::Api::V1
     before_action :require_authenticated_user!, only: [ :change_password, :change_email ]
     before_action :set_user, only: [ :update, :verify_otp, :request_otp ]
 
-    include AccountableConcern
+    include AccountableConcern if defined?(AccountableConcern)
     include NonChannelHelper
     layout "email"
 
