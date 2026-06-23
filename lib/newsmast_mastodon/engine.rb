@@ -69,12 +69,14 @@ module NewsmastMastodon
       end
     end
 
-    # --- Autoload paths for services, workers, presenters ---
+    # --- Autoload paths for services, workers, presenters, serializers, validators ---
     initializer "newsmast_mastodon.add_autoload_paths", before: :set_autoload_paths do |app|
       extra_paths = [
         root.join("app", "services").to_s,
         root.join("app", "workers").to_s,
-        root.join("app", "presenters").to_s
+        root.join("app", "presenters").to_s,
+        root.join("app", "serializers").to_s,
+        root.join("app", "validators").to_s
       ]
 
       extra_paths.each do |path|
