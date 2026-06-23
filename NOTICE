@@ -1,0 +1,16 @@
+newsmast_mastodon
+Copyright (c) Patchwork Hub and contributors.
+
+License
+- This project is licensed under AGPL-3.0-only. See LICENSE.txt.
+
+Dependency attribution
+- This gem depends on open-source Ruby libraries distributed under their own
+  licenses (for example MIT, Apache-2.0, and others).
+- Refer to Gemfile and Gemfile.lock for the full dependency list and versions.
+- Downstream distributors are responsible for honoring license obligations of
+  bundled dependencies in their deployment context.
+
+Project metadata
+- Source: https://github.com/patchwork-hub/newsmast_mastodon
+- Changelog: https://github.com/patchwork-hub/newsmast_mastodon/blob/main/CHANGELOG.md
