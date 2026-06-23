@@ -15,13 +15,15 @@ ENV["RAILS_ENV"] ||= "test"
 #      Boots Mastodon's full Rails environment so DB, autoloading, and all
 #      Mastodon constants are available.
 
-MASTODON_ROOT = ENV.fetch("MASTODON_ROOT") do
-  gemfile = ENV["BUNDLE_GEMFILE"].to_s
-  gemfile_dir = File.dirname(gemfile)
-  # Only treat as host mode when the Gemfile lives directly inside a directory
-  # named "mastodon" (e.g. /workspaces/mastodon/Gemfile).
-  # This avoids false-positives for our own gem path (.../newsmast_mastodon/Gemfile).
-  gemfile_dir if File.basename(gemfile) == "Gemfile" && File.basename(gemfile_dir) == "mastodon"
+unless defined?(MASTODON_ROOT)
+  MASTODON_ROOT = ENV.fetch("MASTODON_ROOT") do
+    gemfile = ENV["BUNDLE_GEMFILE"].to_s
+    gemfile_dir = File.dirname(gemfile)
+    # Only treat as host mode when the Gemfile lives directly inside a directory
+    # named "mastodon" (e.g. /workspaces/mastodon/Gemfile).
+    # This avoids false-positives for our own gem path (.../newsmast_mastodon/Gemfile).
+    gemfile_dir if File.basename(gemfile) == "Gemfile" && File.basename(gemfile_dir) == "mastodon"
+  end
 end
 
 if defined?(Rails) && Rails.application && Rails.application.initialized?
