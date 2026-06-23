@@ -3,7 +3,7 @@ module NewsmastMastodon::Api::V1::Timelines
     before_action -> { doorkeeper_authorize! :read, :'read:statuses' }
     before_action :require_user!
 
-    PERMITTED_PARAMS = %i(local remote limit only_media grouped_admin_statuses exclude_direct_statuses exclude_replies).freeze
+    PERMITTED_PARAMS = %i[local remote limit only_media grouped_admin_statuses exclude_direct_statuses exclude_replies].freeze
 
     def show
       cache_if_unauthenticated!

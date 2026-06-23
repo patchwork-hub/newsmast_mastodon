@@ -3,13 +3,13 @@
 
 module NewsmastMastodon
   class ReblogPostService < BaseService
-    CACHE_KEY = 'reblog_access_token'
+    CACHE_KEY = "reblog_access_token"
 
     def initialize(status_url)
       @status_url = status_url
-      @base_url = ENV['REBLOG_INSTANCE_URL']
-      @email = ENV['REBLOG_EMAIL']
-      @password = ENV['REBLOG_PASSWORD']
+      @base_url = ENV["REBLOG_INSTANCE_URL"]
+      @email = ENV["REBLOG_EMAIL"]
+      @password = ENV["REBLOG_PASSWORD"]
     end
 
     def call

@@ -44,11 +44,11 @@ def bootstrap_standalone_test_database!
 
   sqlite_config = {
     adapter: "sqlite3",
-    database: sqlite_database,
+    database: sqlite_database
   }
 
   ActiveRecord::Base.configurations = {
-    Rails.env => sqlite_config.stringify_keys,
+    Rails.env => sqlite_config.stringify_keys
   }
   ActiveRecord::Base.establish_connection(sqlite_config)
 
@@ -131,7 +131,7 @@ if defined?(VCR)
 end
 
 RSpec.configure do |config|
-  config.fixture_paths = [NewsmastMastodon::Engine.root.join("spec/fixtures").to_s]
+  config.fixture_paths = [ NewsmastMastodon::Engine.root.join("spec/fixtures").to_s ]
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!

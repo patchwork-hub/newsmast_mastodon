@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.

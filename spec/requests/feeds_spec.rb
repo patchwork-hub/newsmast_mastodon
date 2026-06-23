@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -25,7 +26,7 @@ RSpec.describe "CustomFeed timelines/@username/feed", type: :request do
     get "/api/v1/timelines/@#{user.account.username}/feed", headers: headers
 
     # Returns 200 when ContentFilters gem is loaded and account is a boost bot, 404 otherwise
-    expect(response.status).to be_in([200, 404])
+    expect(response.status).to be_in([ 200, 404 ])
     expect(response.parsed_body).to be_an(Array).or have_key("error")
   end
 
@@ -37,7 +38,7 @@ RSpec.describe "CustomFeed timelines/@username/feed", type: :request do
       params:  { max_id: "999999", min_id: "1", limit: 20 }
 
     # Returns 200 when ContentFilters gem is loaded and account is a boost bot, 404 otherwise
-    expect(response.status).to be_in([200, 404])
+    expect(response.status).to be_in([ 200, 404 ])
   end
 
   it "GET /api/v1/timelines/@username/feed returns 404 for non-existent user" do

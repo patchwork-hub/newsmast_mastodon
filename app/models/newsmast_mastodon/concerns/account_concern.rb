@@ -7,19 +7,19 @@ module NewsmastMastodon
 
       included do
         has_many :notification_tokens,
-                 class_name: 'NewsmastMastodon::NotificationToken',
+                 class_name: "NewsmastMastodon::NotificationToken",
                  dependent: :delete_all,
                  inverse_of: :account
 
         has_many :patchwork_settings,
-                 class_name: 'NewsmastMastodon::PatchworkSetting',
+                 class_name: "NewsmastMastodon::PatchworkSetting",
                  foreign_key: :account_id,
                  dependent: :destroy
 
         has_many :patchwork_drafted_statuses,
                  inverse_of: :account,
                  dependent: :destroy,
-                 class_name: 'NewsmastMastodon::DraftedStatus'
+                 class_name: "NewsmastMastodon::DraftedStatus"
 
         # Tag follows (via TagFollow model) — followed tags convenience association.
         has_many :followed_tags, through: :tag_follows, source: :tag

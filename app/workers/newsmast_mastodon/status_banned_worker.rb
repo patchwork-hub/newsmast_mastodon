@@ -11,10 +11,10 @@ module NewsmastMastodon
 
       begin
         keyword_filters = NewsmastMastodon::KeywordFilter.all
-        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, filter_type: 'filter_out')
+        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, filter_type: "filter_out")
 
         if keyword_filters.empty? && community_keyword_filters.empty?
-          Rails.logger.info 'No keyword filters found. Exiting.'
+          Rails.logger.info "No keyword filters found. Exiting."
           return
         end
 
@@ -22,13 +22,13 @@ module NewsmastMastodon
 
         combined_keywords = keyword_filters.pluck(:keyword) + community_keyword_filters.pluck(:keyword)
 
-        filter_keywords = combined_keywords.compact.map { |k| k.to_s.downcase.gsub('#', '').strip }.uniq
+        filter_keywords = combined_keywords.compact.map { |k| k.to_s.downcase.gsub("#", "").strip }.uniq
 
         banned_count = 0
         error_count = 0
         processed_count = 0
 
-        statuses_scope = Status.where(is_banned: [false, nil]).where('text IS NOT NULL AND text != ?', '')
+        statuses_scope = Status.where(is_banned: [ false, nil ]).where("text IS NOT NULL AND text != ?", "")
         total_statuses = statuses_scope.size
         Rails.logger.info "Checking #{total_statuses} non-banned statuses..."
 
@@ -60,7 +60,7 @@ module NewsmastMastodon
                 if status.local?
                   status.update!(
                     sensitive: true,
-                    spoiler_text: 'Sensitive content!!!'
+                    spoiler_text: "Sensitive content!!!"
                   )
                 end
 
@@ -84,14 +84,14 @@ module NewsmastMastodon
         end_time = Time.current
         duration = (end_time - start_time).round(2)
 
-        Rails.logger.info "\n" + '=' * 50
-        Rails.logger.info 'SUMMARY:'
+        Rails.logger.info "\n" + "=" * 50
+        Rails.logger.info "SUMMARY:"
         Rails.logger.info "Total statuses processed: #{processed_count}"
         Rails.logger.info "Statuses banned: #{banned_count}"
         Rails.logger.info "Errors encountered: #{error_count}"
         Rails.logger.info "Duration: #{duration} seconds"
         Rails.logger.info "Average: #{(processed_count.to_f / duration).round(2)} statuses/second"
-        Rails.logger.info '=' * 50
+        Rails.logger.info "=" * 50
       rescue => e
         Rails.logger.error "Fatal error in status banned worker: #{e.message}"
         Rails.logger.error "Fatal error in status banned worker: #{e.message}\n#{e.backtrace.join("\n")}"

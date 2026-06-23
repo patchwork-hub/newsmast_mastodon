@@ -4,7 +4,7 @@ module NewsmastMastodon::Api::V1::Patchwork
 
     before_action -> { doorkeeper_authorize! :read, :write }
     before_action :require_user!
-    before_action :set_account, only: [:destroy]
+    before_action :set_account, only: [ :destroy ]
 
     def destroy
       if @account.nil?
@@ -13,7 +13,7 @@ module NewsmastMastodon::Api::V1::Patchwork
       end
 
       DeleteAccountService.new.call(@account, reserve_email: false, reserve_username: false)
-      render_success({}, 'api.messages.deleted', :accepted)
+      render_success({}, "api.messages.deleted", :accepted)
     end
 
     private
@@ -21,6 +21,5 @@ module NewsmastMastodon::Api::V1::Patchwork
     def set_account
       @account = Account.find_by(id: params[:id])
     end
-
   end
 end

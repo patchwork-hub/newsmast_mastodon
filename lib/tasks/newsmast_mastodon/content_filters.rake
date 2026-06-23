@@ -3,12 +3,12 @@
 # Tasks for refreshing banned tags and accounts from keyword filters.
 
 namespace :content_filters do
-  desc 'Check tags against keyword filters and update banned status'
+  desc "Check tags against keyword filters and update banned status"
   task update_banned_tags: :environment do
     NewsmastMastodon::BanTagWorker.perform_async
   end
 
-  desc 'Check accounts against keyword filters and update banned status'
+  desc "Check accounts against keyword filters and update banned status"
   task update_banned_accounts: :environment do
     start_time = Time.current
     puts "Starting to check accounts against keyword filters at #{start_time}..."
@@ -17,14 +17,14 @@ namespace :content_filters do
       keyword_filters = NewsmastMastodon::KeywordFilter.all
 
       if keyword_filters.empty?
-        puts 'No keyword filters found. Exiting.'
+        puts "No keyword filters found. Exiting."
         return
       end
 
       puts "Found #{keyword_filters.count} keyword filters to check against"
 
       filter_keywords = Set.new(keyword_filters.pluck(:keyword).map do |keyword|
-        keyword.to_s.downcase.strip.gsub('#', '')
+        keyword.to_s.downcase.strip.gsub("#", "")
       end.reject(&:blank?))
 
       puts "Normalized #{filter_keywords.size} unique keywords for matching"
@@ -101,13 +101,13 @@ namespace :content_filters do
       duration = (Time.current - start_time).round(2)
 
       puts "\n#{'=' * 50}"
-      puts 'SUMMARY:'
+      puts "SUMMARY:"
       puts "Total accounts processed: #{processed_count}"
       puts "Accounts updated to banned: #{banned_count}"
       puts "Errors encountered: #{error_count}"
       puts "Duration: #{duration} seconds"
       puts "Average: #{(processed_count.to_f / duration).round(2)} accounts/second"
-      puts '=' * 50
+      puts "=" * 50
     rescue => e
       puts "Fatal error in update_banned_accounts: #{e.message}"
       Rails.logger.error "Fatal error in update_banned_accounts: #{e.message}\n#{e.backtrace.join("\n")}"
@@ -115,24 +115,24 @@ namespace :content_filters do
     end
   end
 
-  desc 'Check accounts against keyword filters and show matches without updating'
+  desc "Check accounts against keyword filters and show matches without updating"
   task preview_banned_accounts: :environment do
     start_time = Time.current
-    puts 'Previewing accounts that would be banned...'
+    puts "Previewing accounts that would be banned..."
 
     keyword_filters = NewsmastMastodon::KeywordFilter.all
 
     if keyword_filters.empty?
-      puts 'No keyword filters found. Exiting.'
+      puts "No keyword filters found. Exiting."
       return
     end
 
     puts "Found #{keyword_filters.count} keyword filters:"
     keyword_filters.each { |filter| puts "  - '#{filter.keyword}' (#{filter.filter_type})" }
-    puts ''
+    puts ""
 
     filter_keywords = Set.new(keyword_filters.pluck(:keyword).map do |keyword|
-      keyword.to_s.downcase.strip.gsub('#', '')
+      keyword.to_s.downcase.strip.gsub("#", "")
     end.reject(&:blank?))
 
     puts "Normalized #{filter_keywords.size} unique keywords for matching\n"
@@ -165,13 +165,13 @@ namespace :content_filters do
       puts "Processed #{processed_count} accounts..." if processed_count % 5000 == 0
     end
 
-    matches.sort_by! { |m| [m[:current_banned] ? 0 : 1, m[:account].username] }
+    matches.sort_by! { |m| [ m[:current_banned] ? 0 : 1, m[:account].username ] }
 
     puts "\nFound #{matches.count} accounts that match keyword filters:"
 
     display_limit = 100
     matches.first(display_limit).each do |match|
-      status = match[:current_banned] ? '[ALREADY BANNED]' : '[WOULD BE BANNED]'
+      status = match[:current_banned] ? "[ALREADY BANNED]" : "[WOULD BE BANNED]"
       puts "  #{status} Account: '#{match[:account].username}' (ID: #{match[:account].id}) - Matches: '#{match[:keyword]}'"
     end
 
@@ -184,25 +184,25 @@ namespace :content_filters do
 
     duration = (Time.current - start_time).round(2)
     puts "\n#{'=' * 50}"
-    puts 'PREVIEW SUMMARY:'
+    puts "PREVIEW SUMMARY:"
     puts "Total accounts processed: #{processed_count}"
     puts "Total matches found: #{matches.count}"
     puts "Already banned: #{already_banned}"
     puts "Would be newly banned: #{new_bans}"
     puts "Errors encountered: #{error_count}"
     puts "Duration: #{duration} seconds"
-    puts '=' * 50
+    puts "=" * 50
   end
 
-  desc 'Reset banned status for all accounts (use with caution)'
+  desc "Reset banned status for all accounts (use with caution)"
   task reset_banned_accounts: :environment do
-    puts 'WARNING: This will reset is_banned to false for ALL accounts!'
+    puts "WARNING: This will reset is_banned to false for ALL accounts!"
     puts "Type 'CONFIRM' to proceed:"
 
     input = $stdin.gets.chomp
-    if input == 'CONFIRM'
+    if input == "CONFIRM"
       start_time = Time.current
-      puts 'Resetting banned status for all accounts...'
+      puts "Resetting banned status for all accounts..."
 
       count = Account.where(is_banned: true).count
       puts "Found #{count} banned accounts to reset"
@@ -215,7 +215,7 @@ namespace :content_filters do
       duration = (Time.current - start_time).round(2)
       puts "Finished! Reset #{count} accounts in #{duration} seconds."
     else
-      puts 'Operation cancelled.'
+      puts "Operation cancelled."
     end
   end
 
@@ -223,7 +223,7 @@ namespace :content_filters do
   def account_contains_keyword?(account, keyword)
     return false unless account && keyword.present?
 
-    normalized_keyword = keyword.to_s.downcase.strip.gsub('#', '')
+    normalized_keyword = keyword.to_s.downcase.strip.gsub("#", "")
     word_pattern       = /\b#{Regexp.escape(normalized_keyword)}\b/i
 
     account.username&.match?(word_pattern) ||

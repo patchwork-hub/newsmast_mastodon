@@ -5,7 +5,7 @@ module NewsmastMastodon
   class BanStatusWorker
     include Sidekiq::Worker
 
-    sidekiq_options queue: 'default', retry: 0
+    sidekiq_options queue: "default", retry: 0
 
     def perform(status_id)
       status = Status.includes(:account, :tags).find_by(id: status_id)
@@ -19,7 +19,7 @@ module NewsmastMastodon
           updated_at: Time.current
         }
         if status.local?
-          attrs.merge!(sensitive: true, spoiler_text: 'Sensitive content!!!')
+          attrs.merge!(sensitive: true, spoiler_text: "Sensitive content!!!")
         end
         status.update!(attrs)
       else
@@ -30,8 +30,8 @@ module NewsmastMastodon
     private
 
     def reblog_enabled?(is_status_banned)
-      ((ENV.fetch('MAIN_CHANNEL', nil) != 'false' && ENV.fetch('MAIN_CHANNEL', nil) != nil) ||
-      (ENV.fetch('BOOST_BOT_ENABLED', nil) != 'false' && ENV.fetch('BOOST_BOT_ENABLED', nil) != nil)) &&
+      ((ENV.fetch("MAIN_CHANNEL", nil) != "false" && ENV.fetch("MAIN_CHANNEL", nil) != nil) ||
+      (ENV.fetch("BOOST_BOT_ENABLED", nil) != "false" && ENV.fetch("BOOST_BOT_ENABLED", nil) != nil)) &&
         !is_status_banned
     end
   end

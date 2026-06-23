@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -16,7 +17,7 @@ RSpec.describe "NewsmastMastodon Api V1 Patchwork LeicesterSettings", type: :req
     get "/api/v1/accounts/leicester_notification", headers: headers
 
     expect(response).to have_http_status(:ok)
-    expect(response.parsed_body.dig("data", "leicester_notification")).to be_in([true, false])
+    expect(response.parsed_body.dig("data", "leicester_notification")).to be_in([ true, false ])
   end
 
   it "PATCH leicester notification settings" do

@@ -23,12 +23,12 @@ module NewsmastMastodon
           end
 
           def find_or_create_by_names(name_or_names)
-            names = Array(name_or_names).map { |str| [normalize(str), str] }.uniq(&:first)
+            names = Array(name_or_names).map { |str| [ normalize(str), str ] }.uniq(&:first)
 
             names.map do |(normalized_name, display_name)|
               tag = matching_name(normalized_name, false).first || create(
                 name: normalized_name,
-                display_name: display_name.gsub(Tag::HASHTAG_INVALID_CHARS_RE, '')
+                display_name: display_name.gsub(Tag::HASHTAG_INVALID_CHARS_RE, "")
               )
               yield tag if block_given?
               tag

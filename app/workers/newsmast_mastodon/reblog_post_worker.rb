@@ -4,7 +4,7 @@
 module NewsmastMastodon
   class ReblogPostWorker
     include Sidekiq::Worker
-    sidekiq_options queue: 'default', retry: false, dead: true
+    sidekiq_options queue: "default", retry: false, dead: true
 
     def perform(status_url)
       NewsmastMastodon::ReblogPostService.new(status_url).call

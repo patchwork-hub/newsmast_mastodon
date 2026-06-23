@@ -11,7 +11,7 @@ module NewsmastMastodon
     end
 
     def channel_login
-      error_message = if ENV.fetch('MAIN_CHANNEL', nil) != nil && ENV.fetch('MAIN_CHANNEL', nil) != 'false'
+      error_message = if ENV.fetch("MAIN_CHANNEL", nil) != nil && ENV.fetch("MAIN_CHANNEL", nil) != "false"
         web_login? ? handle_web_login : handle_app_login
       end
     end
@@ -21,7 +21,7 @@ module NewsmastMastodon
     end
 
     def bristol_cable_login
-      NewsmastMastodon::BristolcableLoginService.new(@params).login if ENV.fetch('LOCAL_DOMAIN', nil) == 'thebristolcable.social'
+      NewsmastMastodon::BristolcableLoginService.new(@params).login if ENV.fetch("LOCAL_DOMAIN", nil) == "thebristolcable.social"
     end
 
     def two_factor_enabled?
@@ -40,7 +40,7 @@ module NewsmastMastodon
       NewsmastMastodon::CommunityAdmin.joins(:community).find_by(
         account_id: user.account_id,
         is_boost_bot: true,
-        account_status: NewsmastMastodon::CommunityAdmin.account_statuses['active'],
+        account_status: NewsmastMastodon::CommunityAdmin.account_statuses["active"],
         community: { deleted_at: nil }
       )
     end
@@ -49,7 +49,7 @@ module NewsmastMastodon
       return false unless patchwork_community_admin_exist?
 
       community_admin = NewsmastMastodon::CommunityAdmin.find_by(account_id: user.account_id, is_boost_bot: true)
-      return true if community_admin.nil? || community_admin&.account_status == NewsmastMastodon::CommunityAdmin.account_statuses['active']
+      return true if community_admin.nil? || community_admin&.account_status == NewsmastMastodon::CommunityAdmin.account_statuses["active"]
 
       return true if community_admin&.community&.deleted_at.nil?
 
@@ -60,11 +60,11 @@ module NewsmastMastodon
       return nil if client_credentials?
 
       user = fetch_user_credentials
-      return I18n.t('login_service.errors.unauthorized_access') if user.nil? || user&.confirmed_at.nil?
+      return I18n.t("login_service.errors.unauthorized_access") if user.nil? || user&.confirmed_at.nil?
 
-      return I18n.t('login_service.errors.invalid_role_access', role: user.role&.name&.underscore&.humanize) unless user.role&.name.eql?('UserAdmin') || user.role&.name.eql?('HubAdmin') || user.role&.name.eql?('MasterAdmin')
+      return I18n.t("login_service.errors.invalid_role_access", role: user.role&.name&.underscore&.humanize) unless user.role&.name.eql?("UserAdmin") || user.role&.name.eql?("HubAdmin") || user.role&.name.eql?("MasterAdmin")
 
-      return I18n.t('login_service.errors.deactivated_channel') unless channel_active?(user)
+      return I18n.t("login_service.errors.deactivated_channel") unless channel_active?(user)
 
       nil
     end
@@ -73,14 +73,14 @@ module NewsmastMastodon
       return nil if client_credentials?
 
       user = grant_password? ? fetch_user_credentials : fetch_access_token_grant
-      return I18n.t('login_service.errors.unauthorized_access') if user.nil?
+      return I18n.t("login_service.errors.unauthorized_access") if user.nil?
 
       community_admin = fetch_channel_credentials(user)
-      return I18n.t('login_service.errors.channel_not_created') if community_admin.nil?
+      return I18n.t("login_service.errors.channel_not_created") if community_admin.nil?
 
-      return I18n.t('login_service.errors.account_deleted') if community_admin&.account_status == 'deleted'
+      return I18n.t("login_service.errors.account_deleted") if community_admin&.account_status == "deleted"
 
-      return I18n.t('login_service.errors.invalid_credentials') unless valid_permissions?(community_admin, user)
+      return I18n.t("login_service.errors.invalid_credentials") unless valid_permissions?(community_admin, user)
 
       nil
     end
@@ -93,9 +93,9 @@ module NewsmastMastodon
     def valid_permissions?(community_admin, user)
       belong_any_channel?(community_admin) &&
         (
-          (community_admin&.role.eql?('OrganisationAdmin') && user.role&.name.eql?('OrganisationAdmin')) ||
-          (community_admin&.role.eql?('UserAdmin') && user.role&.name.eql?('UserAdmin')) ||
-          (community_admin&.role.eql?('HubAdmin') && user.role&.name.eql?('HubAdmin'))
+          (community_admin&.role.eql?("OrganisationAdmin") && user.role&.name.eql?("OrganisationAdmin")) ||
+          (community_admin&.role.eql?("UserAdmin") && user.role&.name.eql?("UserAdmin")) ||
+          (community_admin&.role.eql?("HubAdmin") && user.role&.name.eql?("HubAdmin"))
         )
     end
 
@@ -115,15 +115,15 @@ module NewsmastMastodon
     end
 
     def grant_password?
-      @params[:grant_type] == 'password'
+      @params[:grant_type] == "password"
     end
 
     def client_credentials?
-      @params[:grant_type] == 'client_credentials'
+      @params[:grant_type] == "client_credentials"
     end
 
     def authorization_code?
-      @params[:grant_type] == 'authorization_code'
+      @params[:grant_type] == "authorization_code"
     end
 
     def fetch_access_token_grant

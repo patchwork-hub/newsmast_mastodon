@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -18,7 +19,7 @@ RSpec.describe "AlttextSettings", type: :request do
       params: { enabled: true }
 
     expect(response).to have_http_status(:ok)
-    expect(response.parsed_body["data"]).to be_in([true, false])
+    expect(response.parsed_body["data"]).to be_in([ true, false ])
   end
 
   it "GET /api/v1/patchwork/alttext_settings returns the current alttext setting for the account" do
@@ -26,7 +27,7 @@ RSpec.describe "AlttextSettings", type: :request do
     get "/api/v1/patchwork/alttext_settings", headers: headers
 
     expect(response).to have_http_status(:ok)
-    expect(response.parsed_body["data"]).to be_in([true, false, nil])
+    expect(response.parsed_body["data"]).to be_in([ true, false, nil ])
   end
 
   it "POST /api/v1/patchwork/alttext_settings/alttext unauthenticated returns 401" do

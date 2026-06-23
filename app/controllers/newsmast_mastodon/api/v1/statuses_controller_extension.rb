@@ -15,7 +15,7 @@ module NewsmastMastodon::Api::V1::StatusesControllerExtension
       application: doorkeeper_token.application,
       poll: status_params[:poll],
       allowed_mentions: status_params[:allowed_mentions],
-      idempotency: request.headers['Idempotency-Key'],
+      idempotency: request.headers["Idempotency-Key"],
       with_rate_limit: true,
       local_only: status_params[:local_only]
     )
@@ -45,13 +45,13 @@ module NewsmastMastodon::Api::V1::StatusesControllerExtension
         :id,
         :thumbnail,
         :description,
-        :focus,
+        :focus
       ],
       poll: [
         :multiple,
         :hide_totals,
         :expires_in,
-        options: [],
+        options: []
       ]
     )
   end

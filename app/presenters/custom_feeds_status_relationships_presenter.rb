@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'set'
+require "set"
 
 class CustomFeedsStatusRelationshipsPresenter
   attr_reader :reblogs_map, :favourites_map, :mutes_map, :pins_map,
@@ -25,11 +25,11 @@ class CustomFeedsStatusRelationshipsPresenter
       @preloaded_account_relations = nil
 
       statuses = filtered_statuses.compact
-      status_ids = statuses.flat_map { |s| [s.id, s.reblog_of_id, s.proper.quote&.quoted_status_id] }.uniq.compact
-      conversation_ids = statuses.flat_map { |s| [s.proper.conversation_id, s.proper.quote&.quoted_status&.conversation_id] }.uniq.compact
-      pinnable_status_ids = statuses.flat_map { |s| [s.proper, s.proper.quote&.quoted_status] }.compact.map { |s| s.id if s.account_id == account_id && %w(public unlisted private).include?(s.visibility) }.compact
+      status_ids = statuses.flat_map { |s| [ s.id, s.reblog_of_id, s.proper.quote&.quoted_status_id ] }.uniq.compact
+      conversation_ids = statuses.flat_map { |s| [ s.proper.conversation_id, s.proper.quote&.quoted_status&.conversation_id ] }.uniq.compact
+      pinnable_status_ids = statuses.flat_map { |s| [ s.proper, s.proper.quote&.quoted_status ] }.compact.map { |s| s.id if s.account_id == account_id && %w[public unlisted private].include?(s.visibility) }.compact
 
-      @filters_map     = build_filters_map(statuses.flat_map { |s| [s, s.proper.quote&.quoted_status] }.compact.uniq, account_id).merge(options[:filters_map] || {})
+      @filters_map     = build_filters_map(statuses.flat_map { |s| [ s, s.proper.quote&.quoted_status ] }.compact.uniq, account_id).merge(options[:filters_map] || {})
 
       if defined?(Status)
         @reblogs_map     = Status.reblogs_map(status_ids, account_id).merge(options[:reblogs_map] || {})
@@ -104,7 +104,7 @@ class CustomFeedsStatusRelationshipsPresenter
       favourited: favourites_map[status.id] || false,
       bookmarked: bookmarks_map[status.id] || false,
       muted: mutes_map[status.id] || false,
-      pinned: pins_map[status.id] || false,
+      pinned: pins_map[status.id] || false
     }
   end
 
@@ -121,7 +121,7 @@ class CustomFeedsStatusRelationshipsPresenter
   def preloaded_account_relations
     @preloaded_account_relations ||= begin
       if defined?(Account)
-        accounts = @original_statuses.compact.flat_map { |s| [s.account, s.proper.account, s.proper.quote&.quoted_account] }.uniq.compact
+        accounts = @original_statuses.compact.flat_map { |s| [ s.account, s.proper.account, s.proper.quote&.quoted_account ] }.uniq.compact
 
         account_ids = accounts.pluck(:id)
         account_domains = accounts.pluck(:domain).uniq

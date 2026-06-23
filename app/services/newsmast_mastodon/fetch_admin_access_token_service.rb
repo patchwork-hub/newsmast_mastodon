@@ -3,7 +3,7 @@
 
 module NewsmastMastodon
   class FetchAdminAccessTokenService
-    ACCESS_TOKEN_SCOPES = 'read write follow push profile'
+    ACCESS_TOKEN_SCOPES = "read write follow push profile"
 
     def initialize(user_id)
       @user_id = user_id

@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 
-require 'googleauth'
-require 'httparty'
+require "googleauth"
+require "httparty"
 
 module NewsmastMastodon
   class FirebaseNotificationService
     include HTTParty
 
-    BASE_URL = if ENV['FIREBASE_PROJECT_ID'].present?
+    BASE_URL = if ENV["FIREBASE_PROJECT_ID"].present?
       "https://fcm.googleapis.com/v1/projects/#{ENV['FIREBASE_PROJECT_ID']}/messages:send"
     else
       nil
     end
 
-    FILE_NAME = if ENV['FIREBASE_KEY_FILE_NAME'].present?
-      ENV['FIREBASE_KEY_FILE_NAME']
+    FILE_NAME = if ENV["FIREBASE_KEY_FILE_NAME"].present?
+      ENV["FIREBASE_KEY_FILE_NAME"]
     else
       nil
     end
@@ -32,14 +32,14 @@ module NewsmastMastodon
       end
 
       # Path to your service account JSON file
-      service_account_file = Rails.root.join('config', FILE_NAME)
+      service_account_file = Rails.root.join("config", FILE_NAME)
       unless File.exist?(service_account_file)
         Rails.logger.error("Service account file not found at #{service_account_file}")
         return nil
       end
 
       # Define the required scope
-      scope = 'https://www.googleapis.com/auth/firebase.messaging'
+      scope = "https://www.googleapis.com/auth/firebase.messaging"
 
       # Authenticate and get the token
       authorizer = Google::Auth::ServiceAccountCredentials.make_creds(
@@ -48,13 +48,13 @@ module NewsmastMastodon
       )
 
       # Fetch the access token
-      access_token = authorizer.fetch_access_token!['access_token']
+      access_token = authorizer.fetch_access_token!["access_token"]
 
       return nil if access_token.blank?
 
       headers = {
-        'Authorization' => "Bearer #{access_token}",
-        'Content-Type' => 'application/json',
+        "Authorization" => "Bearer #{access_token}",
+        "Content-Type" => "application/json"
       }
 
       payload = {
@@ -62,10 +62,10 @@ module NewsmastMastodon
           token: token,
           notification: {
             title: title,
-            body: body,
+            body: body
           },
-          data: data,
-        },
+          data: data
+        }
       }.to_json
       response = post(BASE_URL, headers: headers, body: payload)
 

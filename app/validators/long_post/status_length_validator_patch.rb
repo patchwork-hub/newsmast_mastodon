@@ -12,7 +12,7 @@ module LongPost
         def validate(status)
           return unless status.local? && !status.reblog?
           max_chars = get_max_chars
-          status.errors.add(:text, I18n.t('statuses.over_character_limit', max: max_chars)) if too_long?(status)
+          status.errors.add(:text, I18n.t("statuses.over_character_limit", max: max_chars)) if too_long?(status)
         end
 
         private
@@ -26,7 +26,7 @@ module LongPost
           return DEFAULT_MAX_CHARS unless patchwork_server_settings_exist?
 
           begin
-            long_post = NewsmastMastodon::ServerSetting.get_long_post('Long posts')
+            long_post = NewsmastMastodon::ServerSetting.get_long_post("Long posts")
 
             return DEFAULT_MAX_CHARS if long_post.nil?
             return DEFAULT_MAX_CHARS unless long_post.value

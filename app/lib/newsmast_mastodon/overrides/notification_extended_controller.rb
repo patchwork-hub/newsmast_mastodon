@@ -15,7 +15,7 @@ module NewsmastMastodon
       def load_grouped_notifications
         return [] if @notifications.empty?
 
-        MastodonOTELTracer.in_span('Api::V2::NotificationsController#load_grouped_notifications') do
+        MastodonOTELTracer.in_span("Api::V2::NotificationsController#load_grouped_notifications") do
           pagination_range = (@notifications.last.id)..@notifications.first.id
 
           # If the page is incomplete, we know we are on the last page
@@ -37,7 +37,7 @@ module NewsmastMastodon
 
       def filter_private_mentions(notifications)
         notifications.reject do |notification|
-          notification.target_status&.visibility == 'direct'
+          notification.target_status&.visibility == "direct"
         end
       end
 

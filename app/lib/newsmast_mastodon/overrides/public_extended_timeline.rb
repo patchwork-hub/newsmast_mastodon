@@ -3,7 +3,7 @@
 module NewsmastMastodon
   module Overrides
     module PublicExtendedTimeline
-      PERMITTED_PARAMS = %i(local remote limit only_media with_reblogs with_replies grouped_admin_statuses).freeze
+      PERMITTED_PARAMS = %i[local remote limit only_media with_reblogs with_replies grouped_admin_statuses].freeze
 
       def public_feed
         PublicFeed.new(

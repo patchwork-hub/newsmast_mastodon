@@ -2,7 +2,7 @@ module NewsmastMastodon::Api::V1::Timelines
   class FeedsController < ::Api::V1::Timelines::BaseController
     before_action -> { authorize_if_got_token! :read, :'read:statuses' }
 
-    PERMITTED_PARAMS = %i(local remote limit only_media).freeze
+    PERMITTED_PARAMS = %i[local remote limit only_media].freeze
 
     def show
       @statuses = []
@@ -12,9 +12,9 @@ module NewsmastMastodon::Api::V1::Timelines
       account = Account.find_by(username: username)
       return render json: { error: "Account not found" }, status: :not_found unless account.present?
 
-      unless Object.const_defined?('ContentFilters::CommunityAdmin') && ContentFilters::CommunityAdmin.exists?(
-          is_boost_bot: true, 
-          account_id: account.id, 
+      unless Object.const_defined?("ContentFilters::CommunityAdmin") && ContentFilters::CommunityAdmin.exists?(
+          is_boost_bot: true,
+          account_id: account.id,
           account_status: ContentFilters::CommunityAdmin.account_statuses[:active])
           return render json: { error: "Account is not a community admin" }, status: :not_found
       end

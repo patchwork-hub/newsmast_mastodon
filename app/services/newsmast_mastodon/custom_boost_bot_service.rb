@@ -3,7 +3,7 @@
 
 module NewsmastMastodon
   class CustomBoostBotService < BaseService
-    require 'httparty'
+    require "httparty"
 
     def initialize(status_id, username)
       @base_url = ENV.fetch("#{username.upcase}_INSTANCE_URL", nil)
@@ -24,7 +24,7 @@ module NewsmastMastodon
                         client_secret: @client_secret,
                         status_url: status_url
                     }.to_json,
-                    headers: { 'Content-Type' => 'application/json' })
+                    headers: { "Content-Type" => "application/json" })
     end
 
     private

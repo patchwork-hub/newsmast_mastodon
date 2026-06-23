@@ -3,7 +3,7 @@
 module NewsmastMastodon::Api::V1
   class UserLocalesController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper
-    
+
     before_action :require_user!
     before_action -> { doorkeeper_authorize! :read, :write }
 
@@ -13,7 +13,7 @@ module NewsmastMastodon::Api::V1
     def create
       locale = locale_params[:lang]&.to_sym
       unless I18n.available_locales.include?(locale)
-        render_errors('api.errors.invalid_request', :bad_request, {
+        render_errors("api.errors.invalid_request", :bad_request, {
           available_locales: I18n.available_locales
         })
         return
@@ -24,7 +24,7 @@ module NewsmastMastodon::Api::V1
         I18n.locale = locale
         render_success({
           locale: I18n.locale,
-          message: I18n.t('api.messages.updated')
+          message: I18n.t("api.messages.updated")
         })
       else
         render_validation_errors(current_user.errors)

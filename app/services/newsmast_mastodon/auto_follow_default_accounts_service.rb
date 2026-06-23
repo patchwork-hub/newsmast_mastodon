@@ -6,7 +6,7 @@ module NewsmastMastodon
     def call(source_account)
       return unless source_account.local?
 
-      auto_follow_accounts = ENV['AUTO_FOLLOW_ACCOUNTS'].presence&.split(/\s*,\s*/)&.reject(&:blank?) || []
+      auto_follow_accounts = ENV["AUTO_FOLLOW_ACCOUNTS"].presence&.split(/\s*,\s*/)&.reject(&:blank?) || []
       auto_follow_accounts.each do |acct|
         follow_account(source_account, acct)
       end

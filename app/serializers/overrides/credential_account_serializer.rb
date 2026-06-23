@@ -15,7 +15,7 @@ module Overrides::CredentialAccountSerializer
       discoverable: object.discoverable,
       indexable: object.indexable,
       email: user&.email,
-      attribution_domains: object.attribution_domains,
+      attribution_domains: object.attribution_domains
     }
   end
 end

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 
-require 'httparty'
+require "httparty"
 
 module NewsmastMastodon
   class BristolcableLoginService
     include HTTParty
-    BASE_URL = 'https://membership.thebristolcable.org'
+    BASE_URL = "https://membership.thebristolcable.org"
 
     def initialize(params)
       @params = params
@@ -21,13 +21,13 @@ module NewsmastMastodon
           response_data = result[:response]
           user_info = fetch_user_information(cookies)
           if user_info.nil?
-            return I18n.t('bristolcable_login_service.errors.invalid_credentials')
+            I18n.t("bristolcable_login_service.errors.invalid_credentials")
           else
-            data = { firstname: user_info['firstname'], lastname: user_info['lastname'] }
-            return I18n.t('bristolcable_login_service.errors.registration_required', data: data)
+            data = { firstname: user_info["firstname"], lastname: user_info["lastname"] }
+            I18n.t("bristolcable_login_service.errors.registration_required", data: data)
           end
         else
-          I18n.t('bristolcable_login_service.errors.invalid_credentials')
+          I18n.t("bristolcable_login_service.errors.invalid_credentials")
         end
       else
         nil
@@ -42,7 +42,7 @@ module NewsmastMastodon
 
     def authenticate_with_membership_service
       headers = {
-        'Content-Type' => 'application/json',
+        "Content-Type" => "application/json"
       }
       payload = {
         email: @params[:username],
@@ -51,20 +51,20 @@ module NewsmastMastodon
       response = HTTParty.post("#{BASE_URL}/api/1.0/auth/login", headers: headers, body: payload)
       if response.code == 204
         {
-          cookies: response.headers['Set-Cookie'],
+          cookies: response.headers["Set-Cookie"],
           response: response.parsed_response
         }
       else
         nil
       end
     rescue StandardError => e
-      return I18n.t('bristolcable_login_service.errors.connection_error', error: e.message)
+      I18n.t("bristolcable_login_service.errors.connection_error", error: e.message)
     end
 
     def fetch_user_information(cookies)
       headers = {
-        'Cookie' => cookies,
-        'Content-Type' => 'application/json',
+        "Cookie" => cookies,
+        "Content-Type" => "application/json"
       }
       response = HTTParty.get("#{BASE_URL}/api/1.0/contact/me", headers: headers)
       if response.code == 200
@@ -73,7 +73,7 @@ module NewsmastMastodon
         nil
       end
     rescue StandardError => e
-      return I18n.t('bristolcable_login_service.errors.connection_error', error: e.message)
+      I18n.t("bristolcable_login_service.errors.connection_error", error: e.message)
     end
   end
 end

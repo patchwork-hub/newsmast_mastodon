@@ -7,7 +7,7 @@ module NewsmastMastodon
       include Redisable
       include PatchworkHelper
 
-      KEYS = %i(
+      KEYS = %i[
         pinned
         tagged
         only_media
@@ -16,7 +16,7 @@ module NewsmastMastodon
         only_reblogs
         exclude_original_statuses
         exclude_direct_statuses
-      ).freeze
+      ].freeze
 
       def results
         scope = no_boost_channel? ? custom_scope : initial_scope

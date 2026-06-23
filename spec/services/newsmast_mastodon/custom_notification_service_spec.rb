@@ -28,7 +28,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "routes by notification type (mention, reblog, follow, ...)" do
     token = instance_double("NotificationToken", notification_token: "tok-1", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new do
       def self.where(*); end
@@ -60,7 +60,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "selects device tokens from NotificationToken" do
     token = instance_double("NotificationToken", notification_token: "tok-2", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new do
       def self.where(*); end
@@ -87,7 +87,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "delivers via FirebaseNotificationService with correct payload" do
     token = instance_double("NotificationToken", notification_token: "device-1", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new do
       def self.where(*); end
@@ -122,7 +122,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "handles admin.sign_up notification type and sends notification" do
     token = instance_double("NotificationToken", notification_token: "admin-tok", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new { def self.where(*); end }
     stub_const("NewsmastMastodon::NotificationToken", notification_token_class)
@@ -153,7 +153,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "handles admin.report notification type and sends notification" do
     token = instance_double("NotificationToken", notification_token: "admin-tok-2", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new { def self.where(*); end }
     stub_const("NewsmastMastodon::NotificationToken", notification_token_class)
@@ -184,7 +184,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
 
   it "returns nil and logs a warning for unknown notification types" do
     token = instance_double("NotificationToken", notification_token: "tok-x", mute: false)
-    token_chain = build_notification_tokens_chain([token])
+    token_chain = build_notification_tokens_chain([ token ])
 
     notification_token_class = Class.new { def self.where(*); end }
     stub_const("NewsmastMastodon::NotificationToken", notification_token_class)
