@@ -142,24 +142,12 @@ end
 
 # ---------------------------------------------------------------------------
 # Engine constants that live outside the NewsmastMastodon namespace
-# (top-level helpers / serializers defined in the engine but resolved at the
-#  top level rather than inside the engine's isolated namespace)
+# (top-level helpers / mailers defined by this engine)
 # ---------------------------------------------------------------------------
 
-unless defined?(BrandColorHelper)
-  module BrandColorHelper
-    def brand_color; '#6364ff'; end
-  end
-end
-
-unless defined?(PatchworkHelper)
-  module PatchworkHelper
-    extend ActiveSupport::Concern
-    def patchwork_table_exists?(_t) = false
-    def patchwork_server_settings_exist?  = false
-    def patchwork_community_admin_exist?  = false
-  end
-end
+require File.expand_path("../../app/helpers/brand_color_helper", __dir__) unless defined?(::BrandColorHelper)
+require File.expand_path("../../app/helpers/patchwork_helper", __dir__) unless defined?(::PatchworkHelper)
+require File.expand_path("../../app/mailers/custom_passwords_mailer", __dir__) unless defined?(::CustomPasswordsMailer)
 
 # Overrides::CredentialAccountSerializer lives outside NewsmastMastodon
 unless defined?(Overrides)
@@ -175,13 +163,7 @@ module NewsmastMastodon
   PatchworkHelper               = ::PatchworkHelper               unless const_defined?(:PatchworkHelper, false)
   LocalOnlyPosts                = ::LocalOnlyPosts                unless const_defined?(:LocalOnlyPosts, false)
   LongPost                      = ::LongPost                      unless const_defined?(:LongPost, false)
-
-  # CustomPasswordsMailer's source file defines it at top-level (no namespace
-  # prefix), so Zeitwerk cannot resolve NewsmastMastodon::CustomPasswordsMailer
-  # automatically in an isolated engine. Define a stub here.
-  unless const_defined?(:CustomPasswordsMailer, false)
-    class CustomPasswordsMailer < ActionMailer::Base; end
-  end
+  CustomPasswordsMailer         = ::CustomPasswordsMailer         unless const_defined?(:CustomPasswordsMailer, false)
 
   module Overrides
     CredentialAccountSerializer = ::Overrides::CredentialAccountSerializer unless const_defined?(:CredentialAccountSerializer, false)
