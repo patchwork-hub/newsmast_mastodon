@@ -6,6 +6,31 @@ on:
     branches: [main]
 
 jobs:
+  changelog-policy:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Require changelog update for code changes
+        run: |
+          BASE_REF="${{ github.base_ref }}"
+          git fetch origin "$BASE_REF" --depth=1
+
+          CHANGED_FILES="$(git diff --name-only "origin/$BASE_REF"...HEAD)"
+
+          CODE_CHANGES="$(echo "$CHANGED_FILES" | grep -E '^(app/|lib/|config/|db/|bin/|spec/|Gemfile$|newsmast_mastodon.gemspec$|Rakefile$)' || true)"
+
+          if [ -n "$CODE_CHANGES" ] && ! echo "$CHANGED_FILES" | grep -q '^CHANGELOG.md$'; then
+            echo "CHANGELOG.md must be updated when code or behavior changes."
+            echo "Changed code files:"
+            echo "$CODE_CHANGES"
+            exit 1
+          fi
+
   lint:
     runs-on: ubuntu-latest
     strategy:
