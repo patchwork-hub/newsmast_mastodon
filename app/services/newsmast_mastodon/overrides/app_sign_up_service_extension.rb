@@ -4,6 +4,7 @@
 module NewsmastMastodon
   module Overrides
     module AppSignUpServiceExtension
+      include RegistrationHelper if defined?(RegistrationHelper)
       include NonChannelHelper
 
       USER_ADMIN_ROLE_NAME = "UserAdmin"
