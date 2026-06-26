@@ -122,6 +122,7 @@ See `config/routes.rb` for the full route list.
 | `CSID_MEMBERSHIP_CHECK_ENABLED` | No | Enable/disable CiviCRM membership verification (default: `false`). |
 | `CIVICRM_BASE_URL` | Yes (if enabled) | Base URL for CiviCRM instance (e.g., `https://civicrm.example.com`). |
 | `CIVICRM_AUTH_TOKEN` | Yes (if enabled) | CiviCRM API authentication token. Include `Bearer ` prefix or it will be added automatically. |
+| `CSID_MEMBERSHIP_ALLOWLIST_EMAILS` | No | Comma-separated email addresses that bypass the CiviCRM membership check. |
 
 ### Firebase notification environment variables
 

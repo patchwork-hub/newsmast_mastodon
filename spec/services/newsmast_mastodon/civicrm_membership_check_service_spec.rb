@@ -30,6 +30,19 @@ RSpec.describe NewsmastMastodon::CivicrmMembershipCheckService, type: :service d
       allow(ENV).to receive(:fetch).with('CSID_MEMBERSHIP_CHECK_ENABLED', 'false').and_return('true')
     end
 
+    it 'returns valid without making API requests for allowlisted emails from env key' do
+      allow(ENV).to receive(:fetch).with('CSID_MEMBERSHIP_ALLOWLIST_EMAILS', nil)
+        .and_return('["mariana@newsmastfoundation.org", "saskia@newsmastfoundation.org"]')
+      allow(described_class).to receive(:get)
+
+      mariana_result = described_class.new('mariana@newsmastfoundation.org').call
+      saskia_result = described_class.new('saskia@newsmastfoundation.org').call
+
+      expect(described_class).not_to have_received(:get)
+      expect(mariana_result.valid?).to be(true)
+      expect(saskia_result.valid?).to be(true)
+    end
+
     it 'returns valid when CiviCRM finds at least one contact' do
       response = instance_double('HTTParty::Response', success?: true, parsed_response: { 'count' => 1, 'values' => [ { 'id' => 7 } ] })
       allow(described_class).to receive(:get).and_return(response)
