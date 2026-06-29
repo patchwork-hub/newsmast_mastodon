@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -23,6 +24,6 @@ RSpec.describe "Channels", type: :request do
     require_host!
     get "/api/v1/channels/1/starter_packs_detail", headers: headers
 
-    expect(response.status).to be_in([200, 304, 404])
+    expect(response.status).to be_in([ 200, 304, 404 ])
   end
 end

@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Added `SUPPORT.md` with support routing and response expectations.
+- Added `MAINTAINERS.md` to document ownership and review responsibilities.
+- Added `GOVERNANCE.md` with decision, merge, and release policy.
+- Added `config/data/README.md` with starter-pack data provenance guidance.
+- Added per-directory provenance records under `config/data/*/PROVENANCE.md`.
+- Added `NOTICE` with license and dependency attribution guidance.
+
+### Changed
+
+- Updated `CODE_OF_CONDUCT.md` enforcement contact details.
+- Expanded `CONTRIBUTING.md` with versioning, breaking-change, and release guidance.
+- Aligned `CONTRIBUTING.md` release checklist with checksum and provenance attestation workflow steps.
+- Added community/governance/support links to `README.md`.
+- Linked non-security conduct reporting path from `SECURITY.md`.
+- Hardened release workflow with checksum generation and build provenance attestation.
+- Cross-linked governance, maintainer, and support documents for easier navigation.
+
 ## [4.5.11] - 2026-06-15
 
 ### Fixed

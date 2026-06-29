@@ -12,7 +12,7 @@ module NewsmastMastodon::Api::V1::Accounts
       settings_hash = @patchwork_setting&.settings || {}
       is_allowed = settings_hash.dig("leicester_notification") || false
 
-      render_success({ leicester_notification: is_allowed }, 'api.messages.success', :ok)
+      render_success({ leicester_notification: is_allowed }, "api.messages.success", :ok)
     end
 
     # update push notification settings for leicester_news
@@ -25,9 +25,9 @@ module NewsmastMastodon::Api::V1::Accounts
       )
 
       if @patchwork_setting.update(settings: updated_settings)
-        render_success({ leicester_notification: is_allowed }, 'api.messages.success', :ok)
+        render_success({ leicester_notification: is_allowed }, "api.messages.success", :ok)
       else
-        render_errors('api.errors.unprocessable_entity', :unprocessable_entity)
+        render_errors("api.errors.unprocessable_entity", :unprocessable_entity)
       end
     end
 
@@ -35,9 +35,9 @@ module NewsmastMastodon::Api::V1::Accounts
     def article_notifications
       @patchwork_setting = NewsmastMastodon::PatchworkSetting.find_by(account: @account, app_name: @app_name)
       settings_hash = @patchwork_setting&.settings || {}
-      is_allowed = settings_hash.dig('article_notifications') || false
+      is_allowed = settings_hash.dig("article_notifications") || false
 
-      render_success({ article_notifications: is_allowed }, 'api.messages.success', :ok)
+      render_success({ article_notifications: is_allowed }, "api.messages.success", :ok)
     end
 
     # update article notifications setting
@@ -50,9 +50,9 @@ module NewsmastMastodon::Api::V1::Accounts
       )
 
       if @patchwork_setting.update(settings: updated_settings)
-        render_success({ article_notifications: is_allowed }, 'api.messages.success', :ok)
+        render_success({ article_notifications: is_allowed }, "api.messages.success", :ok)
       else
-        render_errors('api.errors.unprocessable_entity', :unprocessable_entity)
+        render_errors("api.errors.unprocessable_entity", :unprocessable_entity)
       end
     end
 
@@ -77,11 +77,11 @@ module NewsmastMastodon::Api::V1::Accounts
     def validate_or_set_app_name
       app_name_param = app_name_params[:app_name]
       if app_name_param.blank?
-        @app_name = NewsmastMastodon::PatchworkSetting.column_defaults['app_name']
+        @app_name = NewsmastMastodon::PatchworkSetting.column_defaults["app_name"]
       elsif NewsmastMastodon::PatchworkSetting.app_names.key?(app_name_param)
         @app_name = app_name_param
       else
-        render_errors('Invalid app name provided', :bad_request, {
+        render_errors("Invalid app name provided", :bad_request, {
           valid_options: NewsmastMastodon::PatchworkSetting.app_names.keys,
           attribute: app_name_param
         })

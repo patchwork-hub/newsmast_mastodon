@@ -11,7 +11,7 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
   # ==================
 
   # Success responses with I18n messages
-  def render_success(data = {}, message_key = 'api.messages.success', status = :ok, additional_params = {})
+  def render_success(data = {}, message_key = "api.messages.success", status = :ok, additional_params = {})
     # Use the reusable translation method
     translated_message = get_translated_message(message_key, additional_params)
 
@@ -23,15 +23,15 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
     render json: response_data, status: status
   end
 
-  def render_created(data = {}, message_key = 'api.messages.created')
+  def render_created(data = {}, message_key = "api.messages.created")
     render_success(data, message_key, :created)
   end
 
-  def render_updated(data = {}, message_key = 'api.messages.updated')
+  def render_updated(data = {}, message_key = "api.messages.updated")
     render_success(data, message_key, :ok)
   end
 
-  def render_deleted(message_key = 'api.messages.deleted')
+  def render_deleted(message_key = "api.messages.deleted")
     render_success({}, message_key, :ok)
   end
 
@@ -40,9 +40,9 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
   # ==================
 
   # Error responses with I18n messages and Plural format
-  def render_errors(message_key = 'api.errors.unprocessable_entity', status = :unprocessable_entity, additional_data = {})
+  def render_errors(message_key = "api.errors.unprocessable_entity", status = :unprocessable_entity, additional_data = {})
     # Extract attribute for I18n translation if present
-    attribute = additional_data.delete(:attribute) || additional_data.delete('attribute')
+    attribute = additional_data.delete(:attribute) || additional_data.delete("attribute")
 
     # Build translation options
     translation_options = attribute ? { attribute: attribute } : {}
@@ -57,9 +57,9 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
   end
 
   # Error responses with I18n messages and single error format
-  def render_error(message_key = 'api.errors.unprocessable_entity', status = :unprocessable_entity, additional_data = {})
+  def render_error(message_key = "api.errors.unprocessable_entity", status = :unprocessable_entity, additional_data = {})
     # Extract attribute for I18n translation if present
-    attribute = additional_data.delete(:attribute) || additional_data.delete('attribute')
+    attribute = additional_data.delete(:attribute) || additional_data.delete("attribute")
 
     # Build translation options
     translation_options = attribute ? { attribute: attribute } : {}
@@ -74,19 +74,19 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
   end
 
 
-  def render_unauthorized(message_key = 'api.errors.unauthorized')
+  def render_unauthorized(message_key = "api.errors.unauthorized")
     render_error(message_key, :unauthorized)
   end
 
-  def render_forbidden(message_key = 'api.errors.forbidden')
+  def render_forbidden(message_key = "api.errors.forbidden")
     render_error(message_key, :forbidden)
   end
 
-  def render_not_found(message_key = 'api.errors.not_found')
+  def render_not_found(message_key = "api.errors.not_found")
     render_error(message_key, :not_found)
   end
 
-  def render_validation_errors(errors, message_key = 'api.errors.validation_failed')
+  def render_validation_errors(errors, message_key = "api.errors.validation_failed")
     translated_message = get_translated_message(message_key)
 
     error_data = {
@@ -98,7 +98,7 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
   end
 
   # Validation errors with detailed messages
-  def render_validation_failed(errors, message_key = 'api.errors.validation_failed')
+  def render_validation_failed(errors, message_key = "api.errors.validation_failed")
     translated_message = get_translated_message(message_key)
 
     # Clean format with just error message and details array
@@ -110,24 +110,24 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
     render json: error_data, status: :unprocessable_entity
   end
 
-    # Rate limit exceeded error
-  def render_rate_limit_exceeded(message_key = 'api.errors.rate_limit_exceeded')
+  # Rate limit exceeded error
+  def render_rate_limit_exceeded(message_key = "api.errors.rate_limit_exceeded")
     render_errors(message_key, :too_many_requests)
   end
 
   # Internal server error with generic message (avoid exposing internal details)
-  def render_internal_error(message_key = 'api.errors.internal_server_error')
+  def render_internal_error(message_key = "api.errors.internal_server_error")
     render_errors(message_key, :internal_server_error)
   end
 
   # Specific custom_passwords_controller error responses
-  def render_password_not_found(message_key = 'api.errors.invalid_request')
+  def render_password_not_found(message_key = "api.errors.invalid_request")
     render_success(data = {}, message_key, :unprocessable_entity, additional_params = {})
   end
 
   # Domain-specific responses
   # Use this when you want to pass a message key for translation
-  def render_domain_message_key(message_key = 'api.domain.messages.dns_verified', additional_data = {}, status = :ok)
+  def render_domain_message_key(message_key = "api.domain.messages.dns_verified", additional_data = {}, status = :ok)
     # Build translation options
     translation_options = additional_data.slice(:attribute)
     translated_message = get_translated_message(message_key, translation_options)
@@ -142,7 +142,7 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
     when String
       {
         message: message,
-        verified: additional_data == 'true' || additional_data == true
+        verified: additional_data == "true" || additional_data == true
       }
     when Array, Hash
       {
@@ -193,7 +193,7 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
       errors.transform_values { |error| { message: error } }
     else
       # Handle string or other formats
-      [{ message: errors.to_s }]
+      [ { message: errors.to_s } ]
     end
   end
 
@@ -214,10 +214,10 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
       errors.values.flatten
     when String
       # Handle single string error
-      [errors]
+      [ errors ]
     else
       # Handle other formats
-      [errors.to_s]
+      [ errors.to_s ]
     end
   end
 
@@ -225,8 +225,8 @@ module NewsmastMastodon::Concerns::ApiResponseHelper
     I18n.available_locales.map do |locale|
       {
         code: locale,
-        name: I18n.t('locale.name', locale: locale),
-        native_name: I18n.t('locale.native_name', locale: locale),
+        name: I18n.t("locale.name", locale: locale),
+        native_name: I18n.t("locale.native_name", locale: locale),
         is_default: locale == I18n.default_locale
       }
     end

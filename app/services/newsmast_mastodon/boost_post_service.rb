@@ -4,16 +4,16 @@
 module NewsmastMastodon
   class BoostPostService < BaseService
     include RoutingHelper
-    require 'net/http'
-    require 'uri'
-    require 'json'
+    require "net/http"
+    require "uri"
+    require "json"
 
     def initialize(post_url)
       @post_url = post_url
-      @base_url = ENV['BOOST_POST_INSTANCE_URL']
-      @api_key = ENV['BOOST_POST_API_KEY']
-      @api_secret = ENV['BOOST_POST_API_SECRET']
-      @endpoint = '/api/v1/statuses/boost_post'
+      @base_url = ENV["BOOST_POST_INSTANCE_URL"]
+      @api_key = ENV["BOOST_POST_API_KEY"]
+      @api_secret = ENV["BOOST_POST_API_SECRET"]
+      @endpoint = "/api/v1/statuses/boost_post"
     end
 
     def call
@@ -30,11 +30,11 @@ module NewsmastMastodon
     def perform_request(payload)
       uri  = URI.join(@base_url, @endpoint)
       http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = (uri.scheme == 'https')
+      http.use_ssl = (uri.scheme == "https")
 
-      request = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
-      request['x-api-key']    = @api_key
-      request['x-api-secret'] = @api_secret
+      request = Net::HTTP::Post.new(uri, "Content-Type" => "application/json")
+      request["x-api-key"]    = @api_key
+      request["x-api-secret"] = @api_secret
       request.body            = payload.to_json
 
       http.request(request)
@@ -51,8 +51,8 @@ module NewsmastMastodon
     def create_payload
       {
         post_url: @post_url,
-        boost_post_username: ENV['BOOST_POST_USERNAME'],
-        boost_post_user_domain: ENV['BOOST_POST_USER_DOMAIN'],
+        boost_post_username: ENV["BOOST_POST_USERNAME"],
+        boost_post_user_domain: ENV["BOOST_POST_USER_DOMAIN"]
       }
     end
   end

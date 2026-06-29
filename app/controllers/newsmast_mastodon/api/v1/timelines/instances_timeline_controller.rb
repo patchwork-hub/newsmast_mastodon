@@ -17,7 +17,7 @@ module NewsmastMastodon::Api::V1::Timelines
     before_action :require_user!
     before_action :validate_requested_domains!
 
-    PERMITTED_PARAMS = %i(domain limit only_media max_id since_id min_id).freeze
+    PERMITTED_PARAMS = %i[domain limit only_media max_id since_id min_id].freeze
 
     def show
       with_read_replica do
@@ -74,7 +74,7 @@ module NewsmastMastodon::Api::V1::Timelines
         raw = params[:domain]
 
         Array(raw)
-          .flat_map { |value| value.to_s.split(',') }
+          .flat_map { |value| value.to_s.split(",") }
           .map { |value| value.strip.downcase }
           .reject(&:blank?)
           .uniq
@@ -109,7 +109,7 @@ module NewsmastMastodon::Api::V1::Timelines
 
     def expanded_limit(limit)
       # Pull extra records before dedup/merge so final page can still fill.
-      [limit * 3, 120].min
+      [ limit * 3, 120 ].min
     end
 
     def next_path

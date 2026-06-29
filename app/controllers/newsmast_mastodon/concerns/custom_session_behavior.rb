@@ -44,7 +44,7 @@ module NewsmastMastodon::Concerns::CustomSessionBehavior
   def has_valid_community_admin?(user, roles:, boost_bot:)
     return false unless user.account_id.present?
 
-    return false unless Object.const_defined?('NewsmastMastodon::CommunityAdmin') || Object.const_defined?('NewsmastMastodon::Community')
+    return false unless Object.const_defined?("NewsmastMastodon::CommunityAdmin") || Object.const_defined?("NewsmastMastodon::Community")
 
     return false unless defined?(NewsmastMastodon::CommunityAdmin) && NewsmastMastodon::CommunityAdmin.respond_to?(:find_by)
 
@@ -59,11 +59,10 @@ module NewsmastMastodon::Concerns::CustomSessionBehavior
              })
              .exists?
   end
-  
+
   def handle_invalid_user_login(user)
     sign_out(user)
-    flash[:error] = I18n.t('migrations.errors.not_found')
+    flash[:error] = I18n.t("migrations.errors.not_found")
     redirect_to new_user_session_path
   end
-
 end

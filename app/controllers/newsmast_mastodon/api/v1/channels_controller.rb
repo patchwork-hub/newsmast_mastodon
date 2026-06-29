@@ -2,15 +2,15 @@
 
 module NewsmastMastodon::Api::V1
   class ChannelsController < ::Api::BaseController
-    include Redisable
+    include Redisable if defined?(Redisable)
 
     before_action :require_user!
     before_action -> { doorkeeper_authorize! :read, :write }
     # GET /api/v1/channels/starter_packs_channels
     # Returns the list of starter pack channels from JSON data
     def starter_packs_channels
-      file_path = starter_pack_data_path('starter_pack_list.json')
-      full_path = ::NewsmastMastodon::Engine.root.join('config', 'data', file_path)
+      file_path = starter_pack_data_path("starter_pack_list.json")
+      full_path = ::NewsmastMastodon::Engine.root.join("config", "data", file_path)
 
       # Return empty response if file doesn't exist
       unless File.exist?(full_path)
@@ -32,19 +32,19 @@ module NewsmastMastodon::Api::V1
     # Returns details of a specific starter pack channel including followers
     def starter_packs_detail
       channel_id = params[:id]
-      list_file = starter_pack_data_path('starter_pack_list.json')
-      list_path = ::NewsmastMastodon::Engine.root.join('config', 'data', list_file)
+      list_file = starter_pack_data_path("starter_pack_list.json")
+      list_path = ::NewsmastMastodon::Engine.root.join("config", "data", list_file)
 
       unless File.exist?(list_path)
         render json: { error: "Channel not found" }, status: :not_found and return
       end
 
       followers_file = starter_pack_data_path("starter_pack_#{channel_id}.json")
-      followers_path = ::NewsmastMastodon::Engine.root.join('config', 'data', followers_file)
+      followers_path = ::NewsmastMastodon::Engine.root.join("config", "data", followers_file)
 
       list_mtime = File.mtime(list_path)
       followers_mtime = File.exist?(followers_path) ? File.mtime(followers_path) : list_mtime
-      last_modified = [list_mtime, followers_mtime].max
+      last_modified = [ list_mtime, followers_mtime ].max
 
       if stale?(last_modified: last_modified, etag: "#{starter_pack_namespace}-#{channel_id}-#{last_modified.to_i}")
         starter_packs_channels = load_json_data(list_file)
@@ -68,7 +68,7 @@ module NewsmastMastodon::Api::V1
     private
 
     def load_json_data(filename)
-      file_path = ::NewsmastMastodon::Engine.root.join('config', 'data', filename)
+      file_path = ::NewsmastMastodon::Engine.root.join("config", "data", filename)
       return [] unless File.exist?(file_path)
 
       file_mtime = File.mtime(file_path).to_i
@@ -78,8 +78,8 @@ module NewsmastMastodon::Api::V1
         cached = redis.get(cache_key)
         if cached.present?
           parsed_cache = JSON.parse(cached)
-          if parsed_cache['mtime'] == file_mtime
-            return parsed_cache['data']
+          if parsed_cache["mtime"] == file_mtime
+            return parsed_cache["data"]
           end
         end
 
@@ -98,19 +98,19 @@ module NewsmastMastodon::Api::V1
     # Determine the namespace/source for starter pack data
     def starter_pack_namespace
       source = params[:starter_pack_source]
-      normalized_source = source.present? ? source.to_s.parameterize(separator: '') : nil
+      normalized_source = source.present? ? source.to_s.parameterize(separator: "") : nil
 
       case normalized_source
-      when 'thebristolcable'
-        'thebristolcable'
-      when 'twt'
-        'twt'
-      when 'findout'
-        'findout'
-      when 'leicestergazette'
-        'leicestergazette'
+      when "thebristolcable"
+        "thebristolcable"
+      when "twt"
+        "twt"
+      when "findout"
+        "findout"
+      when "leicestergazette"
+        "leicestergazette"
       else
-        'twt'
+        "twt"
       end
     end
   end

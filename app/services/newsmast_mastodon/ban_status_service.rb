@@ -7,7 +7,7 @@ module NewsmastMastodon
     include DatabaseHelper
 
     def check_and_ban_status(status)
-      setting_filter_types = ['Content filters', 'Spam filters']
+      setting_filter_types = [ "Content filters", "Spam filters" ]
 
       @status = status
 
@@ -19,18 +19,18 @@ module NewsmastMastodon
           next unless server_setting&.value
 
           filters = fetch_filters_from_all_keys(server_setting.name)
-          active_filters = filters.map { |f| JSON.parse(f) }.select { |f| f['is_active'] }
+          active_filters = filters.map { |f| JSON.parse(f) }.select { |f| f["is_active"] }
           active_filters.each do |f|
-            keyword = f['keyword']
-            filter_type = f['filter_type'].downcase
+            keyword = f["keyword"]
+            filter_type = f["filter_type"].downcase
 
             # Check if the keyword matches in the account object
             # This will ban the account if the keyword is found in username, display_name, or note
             # This is done before checking hashtags or content to ensure account banning is prioritized
             check_and_ban_account(keyword)
 
-            if filter_type == 'hashtag' || filter_type == 'both'
-              tag_ids = @status.tags.where(name: keyword.downcase.gsub('#', '')).ids
+            if filter_type == "hashtag" || filter_type == "both"
+              tag_ids = @status.tags.where(name: keyword.downcase.gsub("#", "")).ids
               if tag_ids.present?
                 # If the tag is banned, update its is_banned attribute to true
                 # to trigger update_tags callback for elastic search
@@ -43,7 +43,7 @@ module NewsmastMastodon
               end
             end
 
-            if filter_type == 'both' || filter_type == 'content'
+            if filter_type == "both" || filter_type == "content"
               include_keyword = @status.search_word_in_status(keyword)
               if include_keyword
                 redis.zadd(redis_key, @status.id, @status.id)
@@ -55,16 +55,16 @@ module NewsmastMastodon
 
       # Combine banned status_ids both content & spam filters
       # And also remove if the records exceeded 400 limit
-      return combine_banned_status_ids(@status.id)
+      combine_banned_status_ids(@status.id)
     end
 
     def keyword_matches_in_status?(status_id, community_id, filter_type)
       @status = Status.find(status_id)
       filter_keywords = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: community_id, filter_type: filter_type)
 
-      return false if filter_type == 'filter_out' && filter_keywords.empty?
+      return false if filter_type == "filter_out" && filter_keywords.empty?
 
-      return true if filter_type == 'filter_in' && filter_keywords.empty?
+      return true if filter_type == "filter_in" && filter_keywords.empty?
 
       filter_keywords.any? do |keyword|
         if keyword.is_filter_hashtag
@@ -84,9 +84,9 @@ module NewsmastMastodon
         NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, filter_type: filter_type).to_a
       end
 
-      return false if filter_type == 'filter_out' && global_filter_keywords.empty?
+      return false if filter_type == "filter_out" && global_filter_keywords.empty?
 
-      return true if filter_type == 'filter_in' && global_filter_keywords.empty?
+      return true if filter_type == "filter_in" && global_filter_keywords.empty?
 
       global_filter_keywords.any? do |keyword|
         if keyword.is_filter_hashtag
@@ -101,8 +101,8 @@ module NewsmastMastodon
     private
 
     def combine_banned_status_ids(status_id)
-      banned_status_keys = ['excluded_status_ids', 'content_filters_banned_status_ids', 'spam_filters_banned_status_ids']
-      redis.zunionstore(banned_status_keys[0], [banned_status_keys[1], banned_status_keys[2]])
+      banned_status_keys = [ "excluded_status_ids", "content_filters_banned_status_ids", "spam_filters_banned_status_ids" ]
+      redis.zunionstore(banned_status_keys[0], [ banned_status_keys[1], banned_status_keys[2] ])
 
       # Trim the combined list if it exceeds 400 items
       banned_status_keys.each do |banned_status_key|
@@ -117,8 +117,8 @@ module NewsmastMastodon
 
     def fetch_filters_from_all_keys(setting_name)
       # Get all possible key formats for the setting
-      production_key = setting_name == 'Spam filters' ? 'spam_filters' : 'content_filters'
-      development_key = setting_name == 'Spam filters' ? 'channel:spam_filters' : 'channel:content_filters'
+      production_key = setting_name == "Spam filters" ? "spam_filters" : "content_filters"
+      development_key = setting_name == "Spam filters" ? "channel:spam_filters" : "channel:content_filters"
 
       all_filters = []
 
@@ -137,7 +137,7 @@ module NewsmastMastodon
 
     def check_and_ban_account(keyword)
       # Normalize keyword: remove '#', convert to lowercase, and strip whitespace
-      normalized_keyword = keyword.to_s.downcase.strip.gsub('#', '')
+      normalized_keyword = keyword.to_s.downcase.strip.gsub("#", "")
       return if normalized_keyword.blank?
 
       account = Account.find_by(id: @status.account_id)
@@ -175,7 +175,7 @@ module NewsmastMastodon
     end
 
     def account_note(account)
-      if account.note&.include?('<') && account.note&.include?('>')
+      if account.note&.include?("<") && account.note&.include?(">")
         # Strip HTML tags and normalize
         note_text = ActionView::Base.full_sanitizer.sanitize(account.note)
         note_lower = note_text.downcase.strip

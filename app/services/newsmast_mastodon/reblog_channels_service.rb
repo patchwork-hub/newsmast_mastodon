@@ -49,9 +49,9 @@ module NewsmastMastodon
           next
         end
 
-        next if newsmast_global_filter?(@status.id, community.id, 'filter_out')
+        next if newsmast_global_filter?(@status.id, community.id, "filter_out")
 
-        next unless valid_post_type?(community) && status_has_keyword?(@status.id, community.id, 'filter_in') && !status_has_keyword?(@status.id, community.id, 'filter_out')
+        next unless valid_post_type?(community) && status_has_keyword?(@status.id, community.id, "filter_in") && !status_has_keyword?(@status.id, community.id, "filter_out")
 
         admin_accounts << admin_account_id
 
@@ -136,7 +136,7 @@ module NewsmastMastodon
       NewsmastMastodon::BanStatusService.new.keyword_matches_in_status?(status_id, community_id, filter_type)
     end
 
-    def newsmast_global_filter?(status_id, community_id, filter_type = 'filter_out')
+    def newsmast_global_filter?(status_id, community_id, filter_type = "filter_out")
       NewsmastMastodon::BanStatusService.new.global_keyword_matches_in_status?(status_id, community_id, filter_type)
     end
   end

@@ -28,7 +28,7 @@ module NewsmastMastodon
       def call(account, options = {})
         @account     = account
         @options     = options
-        @text        = @options[:text] || ''
+        @text        = @options[:text] || ""
         @in_reply_to = @options[:thread]
         @quoted_status = @options[:quoted_status]
 
@@ -68,7 +68,7 @@ module NewsmastMastodon
         @text         = @options.delete(:spoiler_text) if @text.blank? && @options[:spoiler_text].present? && @quoted_status.blank?
         @visibility   = @options[:visibility] || @account.user&.setting_default_privacy
         @visibility   = :unlisted if @visibility&.to_sym == :public && @account.silenced?
-        @visibility   = :private if @quoted_status&.private_visibility? && %i(public unlisted).include?(@visibility&.to_sym)
+        @visibility   = :private if @quoted_status&.private_visibility? && %i[public unlisted].include?(@visibility&.to_sym)
         @scheduled_at = @options[:scheduled_at]&.to_datetime
         @scheduled_at = nil if scheduled_in_the_past?
         @drafted      = @options[:drafted]
@@ -113,7 +113,7 @@ module NewsmastMastodon
       def drafted_status_attributes
         {
           media_attachments: @media || [],
-          params: scheduled_options,
+          params: scheduled_options
         }
       end
     end

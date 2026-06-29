@@ -17,11 +17,11 @@ RSpec.describe NewsmastMastodon::Overrides::CredentialAccountSerializer, type: :
       "Account",
       user: user,
       note: "bio",
-      fields: [field],
+      fields: [ field ],
       hide_collections: true,
       discoverable: true,
       indexable: false,
-      attribution_domains: ["example.org"]
+      attribution_domains: [ "example.org" ]
     )
 
     stub_const("FollowRequest", Class.new do
@@ -49,12 +49,12 @@ RSpec.describe NewsmastMastodon::Overrides::CredentialAccountSerializer, type: :
     expect(source[:sensitive]).to be(false)
     expect(source[:language]).to eq("en")
     expect(source[:note]).to eq("bio")
-    expect(source[:fields]).to eq([{ name: "Website", value: "https://example.org" }])
+    expect(source[:fields]).to eq([ { name: "Website", value: "https://example.org" } ])
     expect(source[:follow_requests_count]).to eq(3)
     expect(source[:hide_collections]).to be(true)
     expect(source[:discoverable]).to be(true)
     expect(source[:indexable]).to be(false)
     expect(source[:email]).to eq("alice@example.org")
-    expect(source[:attribution_domains]).to eq(["example.org"])
+    expect(source[:attribution_domains]).to eq([ "example.org" ])
   end
 end

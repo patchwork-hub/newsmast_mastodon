@@ -7,14 +7,14 @@ module NewsmastMastodon
   # ENV format (comma-separated domains):
   #   CUSTOM_RELAY_DOMAINS=mastodon.social,mastodon.beer
   module CustomRelayConfig
-    RELAY_SERVICE_BASE_URL = 'https://relay.fedi.buzz/instance'.freeze
+    RELAY_SERVICE_BASE_URL = "https://relay.fedi.buzz/instance".freeze
 
     # Returns the list of configured relay domains.
     #
     # @return [Array<String>]
     def self.domains
-      raw = ENV.fetch('CUSTOM_RELAY_DOMAINS', '')
-      raw.split(',').map { |value| value.to_s.strip.downcase }.reject(&:blank?).uniq
+      raw = ENV.fetch("CUSTOM_RELAY_DOMAINS", "")
+      raw.split(",").map { |value| value.to_s.strip.downcase }.reject(&:blank?).uniq
     end
 
     # Builds the inbox URL for the #FediBuzz relay instance endpoint.
@@ -54,7 +54,7 @@ module NewsmastMastodon
     # @param domain [String]
     # @return [String]
     def self.sanitize_domain(domain)
-      domain.gsub(/[^a-zA-Z0-9\-]/, '-').downcase
+      domain.gsub(/[^a-zA-Z0-9\-]/, "-").downcase
     end
   end
 end

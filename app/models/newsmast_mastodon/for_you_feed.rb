@@ -53,7 +53,7 @@ module NewsmastMastodon
 
     def custom_scope
       home_status_ids   = redis.zrange(FeedManager.instance.key(:home, @account.id), 0, -1)
-      mix_status_ids    = redis.zrange('feed:mix_channel_local_timeline', 0, -1)
+      mix_status_ids    = redis.zrange("feed:mix_channel_local_timeline", 0, -1)
       merged_status_ids = home_status_ids + mix_status_ids
       @status = Status.where(id: merged_status_ids).joins(:account).merge(Account.without_suspended.without_silenced)
     end
@@ -67,11 +67,11 @@ module NewsmastMastodon
     end
 
     def exclude_direct_statuses_scope
-      @status = @status.where(visibility: %i(public unlisted))
+      @status = @status.where(visibility: %i[public unlisted])
     end
 
     def grouped_admin_statuses?
-      options[:grouped_admin_statuses] && Status.column_names.include?('local_only')
+      options[:grouped_admin_statuses] && Status.column_names.include?("local_only")
     end
 
     def grouped_admin_statuses_scope
@@ -86,7 +86,7 @@ module NewsmastMastodon
     end
 
     def fetch_grouped_admin_account_ids
-      Rails.cache.fetch('grouped_admin_account_ids', expires_in: 1.hour) do
+      Rails.cache.fetch("grouped_admin_account_ids", expires_in: 1.hour) do
         NewsmastMastodon::CommunityAdmin
           .includes(:community)
           .where(

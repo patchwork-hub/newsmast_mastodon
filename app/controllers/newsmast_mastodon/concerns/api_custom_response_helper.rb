@@ -7,7 +7,7 @@ module NewsmastMastodon::Concerns::ApiCustomResponseHelper
   private
 
   # result response
-  def render_result(data = {}, message_key = 'api.messages.success', status = :ok, additional_params = {})
+  def render_result(data = {}, message_key = "api.messages.success", status = :ok, additional_params = {})
     # Use the reusable translation method
     translated_message = get_translated_message(message_key, additional_params)
 

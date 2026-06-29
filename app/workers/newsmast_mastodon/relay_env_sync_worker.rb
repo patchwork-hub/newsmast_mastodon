@@ -16,7 +16,7 @@ module NewsmastMastodon
   class RelayEnvSyncWorker
     include Sidekiq::Worker
 
-    sidekiq_options queue: 'scheduler', retry: 0,
+    sidekiq_options queue: "scheduler", retry: 0,
                     lock: :until_executed,
                     lock_ttl: 5.minutes.to_i
 

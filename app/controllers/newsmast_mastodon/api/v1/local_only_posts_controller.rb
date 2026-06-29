@@ -1,11 +1,11 @@
 module NewsmastMastodon::Api::V1
   class LocalOnlyPostsController < ::Api::BaseController
-    include Authorization
-    before_action :require_user!, only: [:getLocalOnlySetting]
+    include Authorization if defined?(Authorization)
+    before_action :require_user!, only: [ :getLocalOnlySetting ]
 
     def getLocalOnlySetting
       # Early return if NewsmastMastodon::ServerSetting doesn't exist
-      unless Object.const_defined?('NewsmastMastodon::ServerSetting')
+      unless Object.const_defined?("NewsmastMastodon::ServerSetting")
         return render json: { local_only: false }, status: :ok
       end
 

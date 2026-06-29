@@ -4,11 +4,11 @@
 module NewsmastMastodon
   module Overrides
     module AppSignUpServiceExtension
-      include RegistrationHelper
+      include RegistrationHelper if defined?(RegistrationHelper)
       include NonChannelHelper
 
-      USER_ADMIN_ROLE_NAME = 'UserAdmin'
-      HUB_ADMIN_ROLE_NAME  = 'HubAdmin'
+      USER_ADMIN_ROLE_NAME = "UserAdmin"
+      HUB_ADMIN_ROLE_NAME  = "HubAdmin"
 
       def call(app, remote_ip, params)
         @app       = app
@@ -49,8 +49,8 @@ module NewsmastMastodon
 
         if invitation_code_params[:invitation_code].present? && waitlist_entry
           case waitlist_entry.channel_type.to_s
-          when 'channel' then role_name = USER_ADMIN_ROLE_NAME
-          when 'hub'     then role_name = HUB_ADMIN_ROLE_NAME
+          when "channel" then role_name = USER_ADMIN_ROLE_NAME
+          when "hub"     then role_name = HUB_ADMIN_ROLE_NAME
           end
         end
 
@@ -81,7 +81,7 @@ module NewsmastMastodon
       def find_waitlist_entry
         return nil if skip_waitlist? || invitation_code_params[:invitation_code].blank?
 
-        return nil unless Object.const_defined?('NewsmastMastodon::WaitList')
+        return nil unless Object.const_defined?("NewsmastMastodon::WaitList")
 
         return nil unless defined?(NewsmastMastodon::WaitList) && NewsmastMastodon::WaitList.respond_to?(:find_by)
 

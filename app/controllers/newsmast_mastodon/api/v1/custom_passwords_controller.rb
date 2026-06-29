@@ -4,14 +4,14 @@ module NewsmastMastodon::Api::V1
   class CustomPasswordsController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper
 
-    ACCESS_TOKEN_SCOPES = 'read write follow push profile'
-    skip_before_action :require_authenticated_user!, except: [:change_password, :change_email]
-    before_action :require_authenticated_user!, only: [:change_password, :change_email]
-    before_action :set_user, only: [:update, :verify_otp, :request_otp]
+    ACCESS_TOKEN_SCOPES = "read write follow push profile"
+    skip_before_action :require_authenticated_user!, except: [ :change_password, :change_email ], raise: false
+    before_action :require_authenticated_user!, only: [ :change_password, :change_email ]
+    before_action :set_user, only: [ :update, :verify_otp, :request_otp ]
 
-    include AccountableConcern
+    include AccountableConcern if defined?(AccountableConcern)
     include NonChannelHelper
-    layout 'email'
+    layout "email"
 
     def create
       user = User.find_by(email: verify_otp_params[:email])
@@ -30,19 +30,19 @@ module NewsmastMastodon::Api::V1
 
     def update
       unless @user && password_params[:password].present? && password_params[:password_confirmation].present? && @user&.otp_secret.nil?
-        return render_result({}, 'api.account.errors.missing_field', :unprocessable_entity)
+        return render_result({}, "api.account.errors.missing_field", :unprocessable_entity)
       end
 
       unless password_params[:password].eql?(password_params[:password_confirmation])
-        return render_result({}, 'api.account.errors.password_unmatch', :unprocessable_entity)
+        return render_result({}, "api.account.errors.password_unmatch", :unprocessable_entity)
       end
 
       @user.password = password_params[:password]
       @user.skip_password_change_notification = true
       @user.save(validate: false)
-      render_updated({}, 'api.account.messages.password_updated')
+      render_updated({}, "api.account.messages.password_updated")
     rescue ActiveSupport::MessageVerifier::InvalidSignature
-      render_result({}, 'api.account.errors.password_update_fail', :unprocessable_entity)
+      render_result({}, "api.account.errors.password_update_fail", :unprocessable_entity)
     end
 
     def request_otp
@@ -52,18 +52,18 @@ module NewsmastMastodon::Api::V1
         CustomPasswordsMailer.with(user: @user).reset_password_confirmation.deliver_later
         render_response(key: :access_token, data: verify_otp_params[:id], status: :ok)
       else
-        render_not_found('api.account.errors.email_not_found')
+        render_not_found("api.account.errors.email_not_found")
       end
     end
 
     def verify_otp
       unless @user && verify_otp?(verify_otp_params[:otp_secret], reset_password: reset_password?)
-        return render_result({}, 'api.account.errors.otp_invalid', :unprocessable_entity)
+        return render_result({}, "api.account.errors.otp_invalid", :unprocessable_entity)
       end
 
       waitlist_entry = is_non_channel? ? nil : find_waitlist_entry
       @can_register = registration_allowed?(waitlist_entry)
-      return render_result({}, 'api.account.errors.register_not_allow', :unprocessable_entity) unless @can_register
+      return render_result({}, "api.account.errors.register_not_allow", :unprocessable_entity) unless @can_register
 
       ActiveRecord::Base.transaction do
         handle_user_confirmation(waitlist_entry)
@@ -81,38 +81,38 @@ module NewsmastMastodon::Api::V1
       unless @user && password_params[:password].present? &&
       password_params[:password_confirmation].present? &&
       password_params[:current_password].present? && @user&.otp_secret.nil?
-        return render_result({}, 'api.account.errors.missing_field', :unprocessable_entity)
+        return render_result({}, "api.account.errors.missing_field", :unprocessable_entity)
       end
 
       unless @user.valid_password?(password_params[:current_password])
-        return render_result({}, 'api.account.errors.password_incorrect', :unprocessable_entity)
+        return render_result({}, "api.account.errors.password_incorrect", :unprocessable_entity)
       end
 
       @user.password = password_params[:password]
       @user.skip_password_change_notification = true
       @user.save(validate: false)
 
-      render_updated({}, 'api.account.messages.password_updated')
+      render_updated({}, "api.account.messages.password_updated")
     rescue ActiveSupport::MessageVerifier::InvalidSignature
-      render_result({}, 'api.account.errors.password_update_fail', :unprocessable_entity)
+      render_result({}, "api.account.errors.password_update_fail", :unprocessable_entity)
     end
 
     def change_email
       @user = current_user
       unless @user && verify_otp_params[:email].present? && password_params[:current_password].present?
-        return render_result({}, 'api.account.errors.missing_field', :unprocessable_entity)
+        return render_result({}, "api.account.errors.missing_field", :unprocessable_entity)
       end
 
       unless @user.valid_password?(password_params[:current_password])
-        return render_result({}, 'api.account.errors.password_incorrect', :unprocessable_entity)
+        return render_result({}, "api.account.errors.password_incorrect", :unprocessable_entity)
       end
 
       new_email = verify_otp_params[:email]
 
-      return render_result({}, 'api.account.errors.email_taken', :unprocessable_entity) if User.exists?(email: new_email)
+      return render_result({}, "api.account.errors.email_taken", :unprocessable_entity) if User.exists?(email: new_email)
 
       email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-      return render_result({}, 'api.account.errors.email_invalid', :unprocessable_entity) unless new_email.match?(email_regex)
+      return render_result({}, "api.account.errors.email_invalid", :unprocessable_entity) unless new_email.match?(email_regex)
 
       @user.skip_confirmation!
       if new_email != @user.email
@@ -133,13 +133,13 @@ module NewsmastMastodon::Api::V1
 
       render_response(key: :message, data: generate_access_token, status: :ok)
     rescue ActiveSupport::MessageVerifier::InvalidSignature
-      render_result({}, 'api.account.errors.email_update_fail', :unprocessable_entity)
+      render_result({}, "api.account.errors.email_update_fail", :unprocessable_entity)
     end
 
     def bristol_cable_sign_in
       account = Account.where(username: params[:username])
       if account.exists?
-        return render_result({}, 'api.account.errors.username_taken', :unprocessable_entity)
+        return render_result({}, "api.account.errors.username_taken", :unprocessable_entity)
       end
 
       account = account.first_or_initialize(username: params[:username])
@@ -147,10 +147,10 @@ module NewsmastMastodon::Api::V1
 
       @user = User.where(email: params[:email])
       if @user.exists?
-        return render_result({}, 'api.account.errors.email_taken', :unprocessable_entity)
+        return render_result({}, "api.account.errors.email_taken", :unprocessable_entity)
       end
 
-      @user = @user.first_or_initialize(email: params[:email], password: params[:password], password_confirmation: params[:password], confirmed_at: Time.now.utc, role: UserRole.find_by(name: ''), account: account, agreement: true, approved: true)
+      @user = @user.first_or_initialize(email: params[:email], password: params[:password], password_confirmation: params[:password], confirmed_at: Time.now.utc, role: UserRole.find_by(name: ""), account: account, agreement: true, approved: true)
       @user.save!
       @user.approve!
 
@@ -173,9 +173,9 @@ module NewsmastMastodon::Api::V1
       token = Doorkeeper::AccessToken.find_by(token: verify_otp_params[:id])
       @user = if token
                 User.find_by(id: token.resource_owner_id)
-              else
+      else
                 User.find_by(reset_password_token: verify_otp_params[:id])
-              end
+      end
     end
 
     def verify_otp?(otp_secret, reset_password: false)
@@ -204,13 +204,13 @@ module NewsmastMastodon::Api::V1
       end
 
       { access_token: access_token.token,
-        token_type: 'Bearer',
+        token_type: "Bearer",
         scope: ACCESS_TOKEN_SCOPES,
         created_at: access_token.created_at.to_i }
     end
 
     def registration_allowed?(waitlist_entry)
-      return true if reset_password? || change_email? 
+      return true if reset_password? || change_email?
 
       return true if skip_waitlist? || params[:invitation_code].blank? || is_non_channel?
 
@@ -218,7 +218,7 @@ module NewsmastMastodon::Api::V1
     end
 
     def generate_otp_token
-      SecureRandom.random_number(10_000).to_s.rjust(4, '0')
+      SecureRandom.random_number(10_000).to_s.rjust(4, "0")
     end
 
     def skip_waitlist?
@@ -256,10 +256,10 @@ module NewsmastMastodon::Api::V1
     end
 
     def find_waitlist_entry
-      return nil unless Object.const_defined?('NewsmastMastodon::WaitList')
+      return nil unless Object.const_defined?("NewsmastMastodon::WaitList")
 
       return nil unless defined?(NewsmastMastodon::WaitList) && NewsmastMastodon::WaitList.respond_to?(:find_by)
-      
+
       NewsmastMastodon::WaitList.find_by(invitation_code: verify_otp_params[:invitation_code], used: false)
     end
 
@@ -268,7 +268,7 @@ module NewsmastMastodon::Api::V1
     end
 
     def update_bot_email(new_email: nil)
-      return unless Object.const_defined?('NewsmastMastodon::CommunityAdmin')
+      return unless Object.const_defined?("NewsmastMastodon::CommunityAdmin")
 
       if defined?(NewsmastMastodon::CommunityAdmin) && NewsmastMastodon::CommunityAdmin.respond_to?(:find_by)
         community_admin = NewsmastMastodon::CommunityAdmin.find_by(account_id: @user&.account&.id)

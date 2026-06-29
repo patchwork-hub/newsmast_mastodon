@@ -22,7 +22,7 @@ module NewsmastMastodon
 
         trim(:custom, account.id)
         if push_update_required?("timeline:custom:#{account.id}")
-          PushUpdateWorker.perform_async(account.id, status.id, "timeline:custom:#{account.id}", { 'update' => update })
+          PushUpdateWorker.perform_async(account.id, status.id, "timeline:custom:#{account.id}", { "update" => update })
         end
         true
       end
@@ -86,7 +86,7 @@ module NewsmastMastodon
 
         if redis.zcard(timeline_key) >= FeedManager::MAX_ITEMS / 4
           oldest_score = redis.zrange(timeline_key, 0, 0, with_scores: true).first.last.to_i
-          query = query.where('id > ?', oldest_score)
+          query = query.where("id > ?", oldest_score)
         end
 
         statuses = query.to_a
@@ -123,7 +123,7 @@ module NewsmastMastodon
       # @param [Hash] crutches
       # @return [Boolean]
       def filter_from_custom?(status, account, crutches = nil)
-        crutches ||= build_crutches(account.id, [status])
+        crutches ||= build_crutches(account.id, [ status ])
 
         base_filter = filter_from_home(status, account.id, crutches, :custom)
         return true if base_filter == :filter

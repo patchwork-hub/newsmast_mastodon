@@ -27,8 +27,8 @@ module NewsmastMastodon
         def direct_mentions_only
           left_joins(mention: :status)
             .where(
-              '(notifications.type != ? OR statuses.visibility = ?)',
-              'mention',
+              "(notifications.type != ? OR statuses.visibility = ?)",
+              "mention",
               Status.visibilities[:direct]
             )
         end

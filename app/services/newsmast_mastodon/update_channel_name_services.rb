@@ -8,9 +8,9 @@ module NewsmastMastodon
     def call(account, options = {})
       return if is_non_channel?
 
-      return unless options[:type] == 'channel_feed'
+      return unless options[:type] == "channel_feed"
 
-      return unless Object.const_defined?('NewsmastMastodon::CommunityAdmin')
+      return unless Object.const_defined?("NewsmastMastodon::CommunityAdmin")
 
       return unless defined?(NewsmastMastodon::CommunityAdmin) && NewsmastMastodon::CommunityAdmin.respond_to?(:find_by)
       return unless NewsmastMastodon::CommunityAdmin.table_exists?
@@ -18,7 +18,7 @@ module NewsmastMastodon
       community_admin = NewsmastMastodon::CommunityAdmin.find_by(
         account_id: account.id,
         is_boost_bot: true,
-        account_status: NewsmastMastodon::CommunityAdmin.account_statuses['active']
+        account_status: NewsmastMastodon::CommunityAdmin.account_statuses["active"]
       )
       return unless community_admin
 

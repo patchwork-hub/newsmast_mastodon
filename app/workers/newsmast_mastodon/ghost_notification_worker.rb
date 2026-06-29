@@ -4,7 +4,7 @@
 module NewsmastMastodon
   class GhostNotificationWorker
     include Sidekiq::Worker
-    sidekiq_options queue: 'default', retry: false, dead: true
+    sidekiq_options queue: "default", retry: false, dead: true
 
     def perform(ghost_post_data)
       NewsmastMastodon::GhostNotificationService.new.call(ghost_post_data)

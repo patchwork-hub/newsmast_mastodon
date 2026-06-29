@@ -33,7 +33,7 @@ module NewsmastMastodon
         scope = public_scope
 
         scope.merge!(without_replies_scope) unless with_replies?
-        scope.merge!(without_reblogs_scope) unless with_reblogs? || ENV['LOCAL_DOMAIN'] == 'thebristolcable.social'
+        scope.merge!(without_reblogs_scope) unless with_reblogs? || ENV["LOCAL_DOMAIN"] == "thebristolcable.social"
         scope.merge!(local_only_scope)  if local_only?
         scope.merge!(remote_only_scope) if remote_only?
         scope.merge!(account_filters_scope) if account?
@@ -116,7 +116,7 @@ module NewsmastMastodon
       end
 
       def grouped_admin_statuses?
-        options[:grouped_admin_statuses] && Status.column_names.include?('local_only')
+        options[:grouped_admin_statuses] && Status.column_names.include?("local_only")
       end
 
       def grouped_admin_statuses_scope
@@ -125,7 +125,7 @@ module NewsmastMastodon
       end
 
       def fetch_grouped_admin_account_ids
-        Rails.cache.fetch('grouped_admin_account_ids', expires_in: 1.hour) do
+        Rails.cache.fetch("grouped_admin_account_ids", expires_in: 1.hour) do
           NewsmastMastodon::CommunityAdmin
             .includes(:community)
             .where(

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -24,6 +25,6 @@ RSpec.describe "NewsmastMastodon Api V1 Channels", type: :request do
     get "/api/v1/channels/1/starter_packs_detail", headers: headers
 
     # 200 if file exists, 404 if no starter pack data file present
-    expect(response.status).to be_in([200, 404])
+    expect(response.status).to be_in([ 200, 404 ])
   end
 end

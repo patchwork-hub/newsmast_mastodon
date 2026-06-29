@@ -18,7 +18,7 @@ RSpec.describe NewsmastMastodon::BoostLamdaNewsmastService, type: :service do
       body: kind_of(String),
       headers: {
         "Content-Type" => "application/json",
-        "x-api-key" => "key-1",
+        "x-api-key" => "key-1"
       }
     )
     expect(result).to eq(response)

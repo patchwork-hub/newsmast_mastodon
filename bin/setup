@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Convenience wrapper so contributors can run setup from the repo root.
+exec ruby spec/dummy/bin/setup "$@"

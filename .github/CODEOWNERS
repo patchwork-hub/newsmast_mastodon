@@ -1,0 +1,4 @@
+# Default reviewers for all repository changes.
+# Replace with an explicit team (for example: @patchwork-hub/maintainers)
+# once a dedicated review team exists.
+* @patchwork-hub

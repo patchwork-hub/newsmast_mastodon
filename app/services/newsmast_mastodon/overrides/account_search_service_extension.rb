@@ -27,7 +27,7 @@ module NewsmastMastodon
 
         match = if domain_is_local? || query_domain.nil?
                   Account.find_local(query_username)
-                end
+        end
 
         match = nil if !match.nil? && !account.nil? && options[:following] && !account.following?(match)
 
@@ -41,13 +41,13 @@ module NewsmastMastodon
 
         if options[:following]
           sql = local_only_sql(Account::Search::ADVANCED_SEARCH_WITH_FOLLOWING)
-          Account.find_by_sql([sql, { id: account.id, limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery }]).tap do |records|
-            ActiveRecord::Associations::Preloader.new(records: records, associations: [:account_stat, { user: :role }]).call
+          Account.find_by_sql([ sql, { id: account.id, limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery } ]).tap do |records|
+            ActiveRecord::Associations::Preloader.new(records: records, associations: [ :account_stat, { user: :role } ]).call
           end
         else
           sql = local_only_sql(Account::Search::ADVANCED_SEARCH_WITHOUT_FOLLOWING)
-          Account.find_by_sql([sql, { id: account.id, limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery }]).tap do |records|
-            ActiveRecord::Associations::Preloader.new(records: records, associations: [:account_stat, { user: :role }]).call
+          Account.find_by_sql([ sql, { id: account.id, limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery } ]).tap do |records|
+            ActiveRecord::Associations::Preloader.new(records: records, associations: [ :account_stat, { user: :role } ]).call
           end
         end
       end
@@ -58,8 +58,8 @@ module NewsmastMastodon
         tsquery = Account.send(:generate_query_for_search, terms_for_query)
         sql = local_only_sql(Account::Search::BASIC_SEARCH_SQL)
 
-        Account.find_by_sql([sql, { limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery }]).tap do |records|
-          ActiveRecord::Associations::Preloader.new(records: records, associations: [:account_stat, { user: :role }]).call
+        Account.find_by_sql([ sql, { limit: limit_for_non_exact_results, offset: offset, tsquery: tsquery } ]).tap do |records|
+          ActiveRecord::Associations::Preloader.new(records: records, associations: [ :account_stat, { user: :role } ]).call
         end
       end
 
@@ -72,16 +72,16 @@ module NewsmastMastodon
 
       def local_only_sql(sql_template)
         modified = sql_template.gsub(
-          '(accounts.domain IS NOT NULL OR (users.approved = TRUE AND users.confirmed_at IS NOT NULL))',
-          'accounts.domain IS NULL AND users.approved = TRUE AND users.confirmed_at IS NOT NULL'
+          "(accounts.domain IS NOT NULL OR (users.approved = TRUE AND users.confirmed_at IS NOT NULL))",
+          "accounts.domain IS NULL AND users.approved = TRUE AND users.confirmed_at IS NOT NULL"
         )
 
         # For the ADVANCED_SEARCH_WITH_FOLLOWING query which doesn't have the domain IS NOT NULL clause,
         # add domain IS NULL filter after suspended_at check
-        unless modified.include?('accounts.domain IS NULL')
+        unless modified.include?("accounts.domain IS NULL")
           modified = modified.gsub(
-            'AND accounts.suspended_at IS NULL',
-            'AND accounts.domain IS NULL AND accounts.suspended_at IS NULL'
+            "AND accounts.suspended_at IS NULL",
+            "AND accounts.domain IS NULL AND accounts.suspended_at IS NULL"
           )
         end
 

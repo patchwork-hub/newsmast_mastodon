@@ -142,23 +142,14 @@ end
 
 # ---------------------------------------------------------------------------
 # Engine constants that live outside the NewsmastMastodon namespace
-# (top-level helpers / serializers defined in the engine but resolved at the
-#  top level rather than inside the engine's isolated namespace)
+# (top-level helpers / mailers defined by this engine)
 # ---------------------------------------------------------------------------
 
-unless defined?(BrandColorHelper)
-  module BrandColorHelper
-    def brand_color; '#6364ff'; end
-  end
-end
-
-unless defined?(PatchworkHelper)
-  module PatchworkHelper
-    extend ActiveSupport::Concern
-    def patchwork_table_exists?(_t) = false
-    def patchwork_server_settings_exist?  = false
-    def patchwork_community_admin_exist?  = false
-  end
+require File.expand_path("../../app/helpers/brand_color_helper", __dir__) unless defined?(::BrandColorHelper)
+require File.expand_path("../../app/helpers/non_channel_helper", __dir__) unless defined?(::NonChannelHelper)
+require File.expand_path("../../app/helpers/patchwork_helper", __dir__) unless defined?(::PatchworkHelper)
+unless defined?(MASTODON_ROOT)
+  require File.expand_path("../../app/mailers/custom_passwords_mailer", __dir__) unless defined?(::CustomPasswordsMailer)
 end
 
 # Overrides::CredentialAccountSerializer lives outside NewsmastMastodon
@@ -172,15 +163,12 @@ end
 # that specs describing e.g. `NewsmastMastodon::BrandColorHelper` resolve.
 module NewsmastMastodon
   BrandColorHelper              = ::BrandColorHelper              unless const_defined?(:BrandColorHelper, false)
+  NonChannelHelper              = ::NonChannelHelper              unless const_defined?(:NonChannelHelper, false)
   PatchworkHelper               = ::PatchworkHelper               unless const_defined?(:PatchworkHelper, false)
   LocalOnlyPosts                = ::LocalOnlyPosts                unless const_defined?(:LocalOnlyPosts, false)
   LongPost                      = ::LongPost                      unless const_defined?(:LongPost, false)
-
-  # CustomPasswordsMailer's source file defines it at top-level (no namespace
-  # prefix), so Zeitwerk cannot resolve NewsmastMastodon::CustomPasswordsMailer
-  # automatically in an isolated engine. Define a stub here.
-  unless const_defined?(:CustomPasswordsMailer, false)
-    class CustomPasswordsMailer < ActionMailer::Base; end
+  if defined?(::CustomPasswordsMailer)
+    CustomPasswordsMailer       = ::CustomPasswordsMailer         unless const_defined?(:CustomPasswordsMailer, false)
   end
 
   module Overrides

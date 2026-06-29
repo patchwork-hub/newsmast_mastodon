@@ -6,7 +6,7 @@ module NewsmastMastodon
       DEFAULT_NOTIFICATIONS_LIMIT = 40
 
       def load_notifications
-        notifications = browserable_account_notifications.includes(from_account: [:account_stat, :user]).to_a_paginated_by_id(
+        notifications = browserable_account_notifications.includes(from_account: [ :account_stat, :user ]).to_a_paginated_by_id(
           limit_param(DEFAULT_NOTIFICATIONS_LIMIT),
           params_slice(:max_id, :since_id, :min_id)
         )
@@ -21,7 +21,7 @@ module NewsmastMastodon
       def filter_private_mentions(notifications)
         notifications.reject do |notification|
           notification.type == :mention &&
-            notification.target_status&.visibility == 'direct'
+            notification.target_status&.visibility == "direct"
         end
       end
 

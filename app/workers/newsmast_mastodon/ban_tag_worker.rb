@@ -11,12 +11,12 @@ module NewsmastMastodon
 
       begin
         # Get all keyword filters of type hashtag or both
-        keyword_filters = NewsmastMastodon::KeywordFilter.where(filter_type: [:hashtag, :both])
+        keyword_filters = NewsmastMastodon::KeywordFilter.where(filter_type: [ :hashtag, :both ])
         # Community filters scoped to global (patchwork_community_id: nil) and filter_out
-        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, is_filter_hashtag: true, filter_type: 'filter_out')
+        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, is_filter_hashtag: true, filter_type: "filter_out")
 
         if keyword_filters.empty? && community_keyword_filters.empty?
-          Rails.logger.info 'No hashtag or both type keyword filters found. Exiting.'
+          Rails.logger.info "No hashtag or both type keyword filters found. Exiting."
           return
         end
 
@@ -24,7 +24,7 @@ module NewsmastMastodon
 
         combined_keywords = keyword_filters.pluck(:keyword) + community_keyword_filters.pluck(:keyword)
 
-        filter_keywords = Set.new(combined_keywords.compact.map { |k| k.to_s.downcase.gsub('#', '').strip })
+        filter_keywords = Set.new(combined_keywords.compact.map { |k| k.to_s.downcase.gsub("#", "").strip })
 
         banned_count = 0
         error_count = 0
@@ -72,7 +72,7 @@ module NewsmastMastodon
                   if status.local?
                     status.update!(
                       sensitive: true,
-                      spoiler_text: 'Sensitive content!!!'
+                      spoiler_text: "Sensitive content!!!"
                     )
                   end
                 end
@@ -97,14 +97,14 @@ module NewsmastMastodon
         end_time = Time.current
         duration = (end_time - start_time).round(2)
 
-        Rails.logger.info "\n" + '=' * 50
-        Rails.logger.info 'SUMMARY:'
+        Rails.logger.info "\n" + "=" * 50
+        Rails.logger.info "SUMMARY:"
         Rails.logger.info "Total tags processed: #{processed_count}"
         Rails.logger.info "Tags updated to banned: #{banned_count}"
         Rails.logger.info "Errors encountered: #{error_count}"
         Rails.logger.info "Duration: #{duration} seconds"
         Rails.logger.info "Average: #{(processed_count.to_f / duration).round(2)} tags/second"
-        Rails.logger.info '=' * 50
+        Rails.logger.info "=" * 50
       rescue => e
         Rails.logger.error "Fatal error in update_banned_tags: #{e.message}"
         Rails.logger.error "Fatal error in update_banned_tags: #{e.message}\n#{e.backtrace.join("\n")}"

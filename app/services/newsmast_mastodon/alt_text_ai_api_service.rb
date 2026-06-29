@@ -3,36 +3,36 @@
 
 module NewsmastMastodon
   class AltTextAiApiService
-    require 'httparty'
-    require 'json'
+    require "httparty"
+    require "json"
 
     def initialize(options = {})
       @options = options
-      @base_url = ENV['ALT_TEXT_URL']
-      @api_key =  ENV['ALT_TEXT_SECRET']
+      @base_url = ENV["ALT_TEXT_URL"]
+      @api_key =  ENV["ALT_TEXT_SECRET"]
       @payload = @options[:payload] if @options.key?(:payload)
     end
 
     def get_account
-      response = make_get_request('account')
-      return response
+      response = make_get_request("account")
+      response
     end
 
     def create_image
-      response = make_post_request('images')
-      return response
+      response = make_post_request("images")
+      response
     end
 
     def make_get_request(endpoint)
       base_url = @base_url + endpoint
       headers = {
-        'X-API-Key' => @api_key,
-        'Content-Type' => 'application/json',
+        "X-API-Key" => @api_key,
+        "Content-Type" => "application/json"
       }
       begin
         response = HTTParty.get(base_url, headers: headers)
         resp_body_obj = NewsmastMastodon::AlttextGetAccount.new(JSON.parse(response.body))
-        return resp_body_obj
+        resp_body_obj
       rescue StandardError => e
         Rails.logger.error "Error making GET request: #{e.message}"
       end
@@ -41,14 +41,14 @@ module NewsmastMastodon
     def make_post_request(endpoint)
       base_url = @base_url + endpoint
       headers = {
-        'X-API-Key' => @api_key,
-        'Content-Type' => 'application/json',
+        "X-API-Key" => @api_key,
+        "Content-Type" => "application/json"
       }
       begin
         response = HTTParty.post(base_url,
                                  body: @payload.to_json, headers: headers)
         resp_body_obj = NewsmastMastodon::AlttextCreateImage.new(JSON.parse(response.body))
-        return resp_body_obj
+        resp_body_obj
       rescue StandardError => e
         Rails.logger.error "Error making POST request: #{e.message}"
       end

@@ -15,11 +15,11 @@ module NewsmastMastodon
 
         visibility = if reblogged_status.hidden?
                        reblogged_status.visibility
-                     else
+        else
                        options[:visibility] || account.user&.setting_default_privacy
-                     end
+        end
 
-        reblog = account.statuses.create!(reblog: reblogged_status, text: '', visibility: visibility, rate_limit: options[:with_rate_limit])
+        reblog = account.statuses.create!(reblog: reblogged_status, text: "", visibility: visibility, rate_limit: options[:with_rate_limit])
 
         Trends.register!(reblog)
         DistributionWorker.perform_async(reblog.id)

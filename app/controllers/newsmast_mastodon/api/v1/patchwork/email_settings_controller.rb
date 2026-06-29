@@ -16,15 +16,15 @@ module NewsmastMastodon::Api::V1::Patchwork
       all_same = notification_emails.values.uniq.size == 1
       result_variable = all_same ? notification_emails.values.first : true
       data = notification_emails.empty? ? false : result_variable
-      render_success(data, 'api.messages.success', :ok)
+      render_success(data, "api.messages.success", :ok)
     end
 
     def email_notification
       settings = enable_email_notification? ? email_notification_attributes(enabled: true) : email_notification_attributes(enabled: false)
       if current_user.update(settings_attributes: settings)
-        render_success({}, 'api.messages.success', :ok)
+        render_success({}, "api.messages.success", :ok)
       else
-        render_error('api.errors.unprocessable_entity', :unprocessable_entity)
+        render_error("api.errors.unprocessable_entity", :unprocessable_entity)
       end
     end
 

@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # Import domain blocks from CSV in batches.
-require 'csv'
+require "csv"
 
 namespace :domain_block do
-  desc 'Import domain_block.csv into domain_blocks table in chunks of 500'
+  desc "Import domain_block.csv into domain_blocks table in chunks of 500"
   task import: :environment do
-    file_path = Rails.root.join('public', 'csv', 'domain_blocks.csv')
+    file_path = Rails.root.join("public", "csv", "domain_blocks.csv")
 
     unless File.exist?(file_path)
       puts "CSV file not found: #{file_path}"
@@ -15,12 +15,12 @@ namespace :domain_block do
 
     puts "Starting bulk import (500 per batch) from #{file_path}..."
 
-    marker      = ' (Imported from CSV Rake Task)'
+    marker      = " (Imported from CSV Rake Task)"
     csv_domains = Set.new
     rows        = []
 
     CSV.foreach(file_path, headers: true) do |row|
-      domain = row['#domain']&.strip
+      domain = row["#domain"]&.strip
       next if domain.blank?
 
       csv_domains << domain
@@ -31,10 +31,10 @@ namespace :domain_block do
     new_records      = []
 
     rows.each do |row|
-      domain = row['#domain']&.strip
+      domain = row["#domain"]&.strip
       next if domain.blank? || existing_domains.include?(domain)
 
-      base_public_comment = row['#public_comment']&.strip
+      base_public_comment = row["#public_comment"]&.strip
 
       customized_public_comment =
         if base_public_comment.present?
@@ -45,11 +45,11 @@ namespace :domain_block do
 
       new_records << {
         domain:         domain,
-        severity:       row.fetch('#severity', :suspend),
-        reject_media:   row.fetch('#reject_media', false),
-        reject_reports: row.fetch('#reject_reports', false),
+        severity:       row.fetch("#severity", :suspend),
+        reject_media:   row.fetch("#reject_media", false),
+        reject_reports: row.fetch("#reject_reports", false),
         public_comment: customized_public_comment,
-        obfuscate:      row.fetch('#obfuscate', false),
+        obfuscate:      row.fetch("#obfuscate", false)
       }
     end
 
@@ -60,7 +60,7 @@ namespace :domain_block do
       end
 
       deleted_count = DomainBlock
-                        .where('public_comment LIKE ?', "%#{marker}%")
+                        .where("public_comment LIKE ?", "%#{marker}%")
                         .where.not(domain: csv_domains.to_a)
                         .delete_all
 

@@ -6,7 +6,7 @@ module NewsmastMastodon::Api::V1::Timelines
     before_action :require_user!
     before_action :validate_requested_domains!, only: :show
 
-    PERMITTED_PARAMS = %i(local remote limit only_media grouped_admin_statuses exclude_direct_statuses exclude_replies domain).freeze
+    PERMITTED_PARAMS = %i[local remote limit only_media grouped_admin_statuses exclude_direct_statuses exclude_replies domain].freeze
 
     def show
       cache_if_unauthenticated!
@@ -68,7 +68,7 @@ module NewsmastMastodon::Api::V1::Timelines
         raw = params[:domain]
 
         Array(raw)
-          .flat_map { |value| value.to_s.split(',') }
+          .flat_map { |value| value.to_s.split(",") }
           .map { |value| value.strip.downcase }
           .reject(&:blank?)
           .uniq
@@ -102,7 +102,7 @@ module NewsmastMastodon::Api::V1::Timelines
     end
 
     def expanded_limit(limit)
-      [limit * 3, 120].min
+      [ limit * 3, 120 ].min
     end
 
     def foryou_feed

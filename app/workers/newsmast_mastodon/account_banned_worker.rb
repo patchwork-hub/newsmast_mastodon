@@ -13,10 +13,10 @@ module NewsmastMastodon
         # Get all keyword filters (all types for accounts)
         keyword_filters = NewsmastMastodon::KeywordFilter.all
         # Community filters scoped to global (patchwork_community_id: nil) and filter_out
-        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, filter_type: 'filter_out')
+        community_keyword_filters = NewsmastMastodon::CommunityFilterKeyword.where(patchwork_community_id: nil, filter_type: "filter_out")
 
         if keyword_filters.empty? && community_keyword_filters.empty?
-          Rails.logger.info 'No keyword filters found. Exiting.'
+          Rails.logger.info "No keyword filters found. Exiting."
           return
         end
 
@@ -27,7 +27,7 @@ module NewsmastMastodon
         combined_keywords = keyword_filters.pluck(:keyword) + community_keyword_filters.pluck(:keyword)
 
         # Normalize, remove leading '#', downcase, strip and deduplicate using Set for O(1) lookup
-        filter_keywords = Set.new(combined_keywords.compact.map { |k| k.to_s.downcase.gsub('#', '').strip })
+        filter_keywords = Set.new(combined_keywords.compact.map { |k| k.to_s.downcase.gsub("#", "").strip })
 
         banned_count = 0
         error_count = 0
@@ -35,7 +35,7 @@ module NewsmastMastodon
 
         # Use select to only load necessary columns for better performance
         # Only check accounts that are not already banned
-        accounts_scope = Account.where(is_banned: [false, nil])
+        accounts_scope = Account.where(is_banned: [ false, nil ])
         total_accounts = accounts_scope.size
         Rails.logger.info "Checking #{total_accounts} non-banned accounts..."
 
@@ -70,7 +70,7 @@ module NewsmastMastodon
 
             # Check display_name if not already matched
             if !account_matched && account.display_name.present?
-              if account.display_name.include?('<') && account.display_name.include?('>')
+              if account.display_name.include?("<") && account.display_name.include?(">")
                 display_name_text = ActionView::Base.full_sanitizer.sanitize(account.display_name)
                 display_name_lower = display_name_text.downcase.strip
               else
@@ -90,7 +90,7 @@ module NewsmastMastodon
 
             # Check note if not already matched
             if !account_matched && account.note.present?
-              if account.note.include?('<') && account.note.include?('>')
+              if account.note.include?("<") && account.note.include?(">")
                 note_text = ActionView::Base.full_sanitizer.sanitize(account.note)
                 note_lower = note_text.downcase.strip
               else
@@ -123,7 +123,7 @@ module NewsmastMastodon
                   if status.local?
                     status.update!(
                       sensitive: true,
-                      spoiler_text: 'Sensitive content!!!'
+                      spoiler_text: "Sensitive content!!!"
                     )
                   end
                 end
@@ -148,14 +148,14 @@ module NewsmastMastodon
         end_time = Time.current
         duration = (end_time - start_time).round(2)
 
-        Rails.logger.info "\n" + '=' * 50
-        Rails.logger.info 'SUMMARY:'
+        Rails.logger.info "\n" + "=" * 50
+        Rails.logger.info "SUMMARY:"
         Rails.logger.info "Total accounts processed: #{processed_count}"
         Rails.logger.info "Accounts banned: #{banned_count}"
         Rails.logger.info "Errors encountered: #{error_count}"
         Rails.logger.info "Duration: #{duration} seconds"
         Rails.logger.info "Average: #{(processed_count.to_f / duration).round(2)} accounts/second"
-        Rails.logger.info '=' * 50
+        Rails.logger.info "=" * 50
       rescue => e
         Rails.logger.error "Fatal error in account banned worker: #{e.message}"
         Rails.logger.error "Fatal error in account banned worker: #{e.message}\n#{e.backtrace.join("\n")}"

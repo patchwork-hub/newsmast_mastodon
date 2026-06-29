@@ -3,21 +3,21 @@
 
 module NewsmastMastodon
   class ReblogRequestService < BaseService
-    require 'net/http'
+    require "net/http"
 
     def call(access_token, status_id)
       url = if Rails.env.development?
               URI("http://localhost:3000/api/v1/statuses/#{status_id}/reblog")
-            else
+      else
               URI("https://#{ENV['LOCAL_DOMAIN']}/api/v1/statuses/#{status_id}/reblog")
-            end
+      end
 
       req = Net::HTTP::Post.new(url)
-      req.content_type = 'application/json'
-      req['Authorization'] = "Bearer #{access_token}"
-      req.body = { visibility: 'public' }.to_json
+      req.content_type = "application/json"
+      req["Authorization"] = "Bearer #{access_token}"
+      req.body = { visibility: "public" }.to_json
 
-      response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == 'https') do |http|
+      response = Net::HTTP.start(url.host, url.port, use_ssl: url.scheme == "https") do |http|
         http.request(req)
       end
 

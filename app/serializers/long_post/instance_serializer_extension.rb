@@ -10,7 +10,7 @@ module LongPost
         statuses: {
           max_characters: get_max_chars,
           max_media_attachments: 4,
-          characters_reserved_per_url: StatusLengthValidator::URL_PLACEHOLDER_CHARS,
+          characters_reserved_per_url: StatusLengthValidator::URL_PLACEHOLDER_CHARS
         }
       )
     end
@@ -18,10 +18,10 @@ module LongPost
     private
 
     def get_max_chars
-      return DEFAULT_MAX_CHARS unless Object.const_defined?('NewsmastMastodon::ServerSetting')
+      return DEFAULT_MAX_CHARS unless Object.const_defined?("NewsmastMastodon::ServerSetting")
 
       begin
-        long_post = NewsmastMastodon::ServerSetting.get_long_post('Long posts')
+        long_post = NewsmastMastodon::ServerSetting.get_long_post("Long posts")
 
         return DEFAULT_MAX_CHARS if long_post.nil?
         return DEFAULT_MAX_CHARS unless long_post.value

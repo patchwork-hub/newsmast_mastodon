@@ -2,9 +2,9 @@
 
 module NewsmastMastodon
   class WaitList < ApplicationRecord
-    self.table_name = 'patchwork_wait_lists'
+    self.table_name = "patchwork_wait_lists"
 
-    belongs_to :account, foreign_key: 'account_id', optional: true
+    belongs_to :account, foreign_key: "account_id", optional: true
 
     enum :channel_type, { channel: 0, hub: 1 }
 

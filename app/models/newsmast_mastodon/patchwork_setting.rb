@@ -2,7 +2,7 @@
 
 module NewsmastMastodon
   class PatchworkSetting < ApplicationRecord
-    self.table_name = 'patchwork_settings'
+    self.table_name = "patchwork_settings"
 
     belongs_to :account
 

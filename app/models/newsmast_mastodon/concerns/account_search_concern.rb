@@ -72,8 +72,8 @@ module NewsmastMastodon
         def search_for(terms, limit: Account::Search::DEFAULT_LIMIT, offset: 0)
           tsquery = generate_query_for_search(terms)
 
-          find_by_sql([BASIC_SEARCH_SQL, { limit: limit, offset: offset, tsquery: tsquery }]).tap do |records|
-            ActiveRecord::Associations::Preloader.new(records: records, associations: [:account_stat, { user: :role }]).call
+          find_by_sql([ BASIC_SEARCH_SQL, { limit: limit, offset: offset, tsquery: tsquery } ]).tap do |records|
+            ActiveRecord::Associations::Preloader.new(records: records, associations: [ :account_stat, { user: :role } ]).call
           end
         end
 
@@ -81,8 +81,8 @@ module NewsmastMastodon
           tsquery      = generate_query_for_search(terms)
           sql_template = following ? ADVANCED_SEARCH_WITH_FOLLOWING : ADVANCED_SEARCH_WITHOUT_FOLLOWING
 
-          find_by_sql([sql_template, { id: account.id, limit: limit, offset: offset, tsquery: tsquery }]).tap do |records|
-            ActiveRecord::Associations::Preloader.new(records: records, associations: [:account_stat, { user: :role }]).call
+          find_by_sql([ sql_template, { id: account.id, limit: limit, offset: offset, tsquery: tsquery } ]).tap do |records|
+            ActiveRecord::Associations::Preloader.new(records: records, associations: [ :account_stat, { user: :role } ]).call
           end
         end
       end

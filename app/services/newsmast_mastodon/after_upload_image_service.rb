@@ -34,7 +34,7 @@ module NewsmastMastodon
       usage_limit = response_body.usage_limit
       usage = response_body.usage
       if usage < usage_limit
-        return true
+        true
       else
         raise "API usage limit exceeded: #{usage}/#{usage_limit}"
       end
@@ -49,7 +49,7 @@ module NewsmastMastodon
 
     def validate_image_url
       return {} if @media_attachment.nil?
-      image_url = full_asset_url(@media_attachment.file.url(:small))&.remove('posts/')
+      image_url = full_asset_url(@media_attachment.file.url(:small))&.remove("posts/")
       { image: { url: image_url } }
     end
   end

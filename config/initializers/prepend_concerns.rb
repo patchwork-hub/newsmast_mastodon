@@ -65,12 +65,12 @@ Rails.application.config.to_prepare do
   Api::V1::Trends::StatusesController.prepend(NewsmastMastodon::Overrides::TrendsStatusesControllerExtension)
   Api::V2::SearchController.prepend(NewsmastMastodon::Concerns::SearchControllerExtension)
 
-  Auth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?('Auth::TokensController')
-  OAuth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?('OAuth::TokensController')
-  Auth::SessionsController.prepend(NewsmastMastodon::Concerns::CustomSessionBehavior) if Object.const_defined?('Auth::SessionsController')
+  Auth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("Auth::TokensController")
+  OAuth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("OAuth::TokensController")
+  Auth::SessionsController.prepend(NewsmastMastodon::Concerns::CustomSessionBehavior) if Object.const_defined?("Auth::SessionsController")
 
   # --- Admin controllers: require authentication ---
-  [Admin::DashboardController, Admin::ReportsController].each do |controller|
+  [ Admin::DashboardController, Admin::ReportsController ].each do |controller|
     controller.class_eval do
       before_action :authenticate_user!
     end

@@ -3,7 +3,7 @@ module NewsmastMastodon::Api::V1
     def link_preview
       url = params[:url]
       unless url.present?
-        return render json: { error: 'URL must be present' }, status: :bad_request
+        return render json: { error: "URL must be present" }, status: :bad_request
       end
 
       data = NewsmastMastodon::FetchLinkMetadataService.new.call(url)

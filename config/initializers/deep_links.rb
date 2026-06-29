@@ -17,13 +17,13 @@
 Rails.application.config.after_initialize do
   deep_links_config = {
     ios: {
-      app_id: ENV['IOS_APP_ID'],
-      paths: ENV.fetch('IOS_DEEPLINK_PATHS', '/@*,/@*/*').split(',').map(&:strip),
+      app_id: ENV["IOS_APP_ID"],
+      paths: ENV.fetch("IOS_DEEPLINK_PATHS", "/@*,/@*/*").split(",").map(&:strip)
     },
     android: {
-      package_name: ENV['ANDROID_PACKAGE_NAME'],
-      sha256_cert_fingerprints: ENV['ANDROID_SHA256_CERT_FINGERPRINTS']&.split(',')&.map(&:strip),
-    },
+      package_name: ENV["ANDROID_PACKAGE_NAME"],
+      sha256_cert_fingerprints: ENV["ANDROID_SHA256_CERT_FINGERPRINTS"]&.split(",")&.map(&:strip)
+    }
   }
 
   Rails.application.config.x.deep_links = deep_links_config

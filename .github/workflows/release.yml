@@ -5,10 +5,15 @@ on:
     tags:
       - "v*"
 
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
+      attestations: write
       contents: read
       id-token: write
     steps:
@@ -39,6 +44,17 @@ jobs:
 
       - name: Build gem
         run: bundle exec rake build
+
+      - name: Generate release checksums
+        run: |
+          sha256sum pkg/*.gem > pkg/SHA256SUMS
+
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            pkg/*.gem
+            pkg/SHA256SUMS
 
       - name: Release to RubyGems
         uses: rubygems/release-gem@v1

@@ -11,18 +11,18 @@ module NewsmastMastodon
       #   Android: ANDROID_PACKAGE_NAME, ANDROID_SHA256_CERT_FINGERPRINTS
 
       def apple_app_site_association
-        ios_app_id = ENV['IOS_APP_ID']
+        ios_app_id = ENV["IOS_APP_ID"]
 
         if ios_app_id.blank?
           head :not_found
           return
         end
 
-        paths = if ENV['IOS_DEEPLINK_PATHS'].present?
-                  ENV['IOS_DEEPLINK_PATHS'].split(',').map(&:strip)
-                else
-                  ['/@*', '/@*/*']
-                end
+        paths = if ENV["IOS_DEEPLINK_PATHS"].present?
+                  ENV["IOS_DEEPLINK_PATHS"].split(",").map(&:strip)
+        else
+                  [ "/@*", "/@*/*" ]
+        end
 
         response_body = {
           applinks: {
@@ -30,40 +30,40 @@ module NewsmastMastodon
             details: [
               {
                 appID: ios_app_id,
-                paths: paths,
-              },
-            ],
-          },
+                paths: paths
+              }
+            ]
+          }
         }
 
         expires_in 1.day, public: true
-        render json: response_body, content_type: 'application/json'
+        render json: response_body, content_type: "application/json"
       end
 
       def asset_links
-        package_name = ENV['ANDROID_PACKAGE_NAME']
-        fingerprints_raw = ENV['ANDROID_SHA256_CERT_FINGERPRINTS']
+        package_name = ENV["ANDROID_PACKAGE_NAME"]
+        fingerprints_raw = ENV["ANDROID_SHA256_CERT_FINGERPRINTS"]
 
         if package_name.blank? || fingerprints_raw.blank?
           head :not_found
           return
         end
 
-        fingerprints = fingerprints_raw.split(',').map(&:strip)
+        fingerprints = fingerprints_raw.split(",").map(&:strip)
 
         response_body = [
           {
-            relation: ['delegate_permission/common.handle_all_urls'],
+            relation: [ "delegate_permission/common.handle_all_urls" ],
             target: {
-              namespace: 'android_app',
+              namespace: "android_app",
               package_name: package_name,
-              sha256_cert_fingerprints: fingerprints,
-            },
-          },
+              sha256_cert_fingerprints: fingerprints
+            }
+          }
         ]
 
         expires_in 1.day, public: true
-        render json: response_body, content_type: 'application/json'
+        render json: response_body, content_type: "application/json"
       end
     end
   end

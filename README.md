@@ -1,9 +1,61 @@
 # newsmast_mastodon
 
+[![CI](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/ci.yml)
+[![Security](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/security.yml)
+
 `newsmast_mastodon` is a Rails engine that extends a Mastodon
 host app with Newsmast features across accounts, content filtering,
 conversations, custom feeds, local-only posts, posting workflows, and timeline
 behavior.
+
+## Table of contents
+
+- [Release and upgrade quick links](#release-and-upgrade-quick-links)
+- [Project scope](#project-scope)
+- [Maintainer workflow](#maintainer-workflow)
+- [What this gem adds](#what-this-gem-adds)
+- [Architecture overview](#architecture-overview)
+- [Installation](#installation)
+- [Compatibility](#compatibility)
+- [Runtime behavior](#runtime-behavior)
+- [Example endpoints](#example-endpoints)
+- [Environment variables](#environment-variables)
+- [Development](#development)
+- [CI jobs explained](#ci-jobs-explained)
+- [API validation and system testing](#api-validation-and-system-testing)
+- [Community and support](#community-and-support)
+- [Troubleshooting](#troubleshooting)
+- [Changelog](#changelog)
+- [License](#license)
+
+## Release and upgrade quick links
+
+- Release notes: `CHANGELOG.md`
+- Contribution and release process: `CONTRIBUTING.md`
+- Mastodon upgrade runbook: `docs/internal/mastodon-upgrade/RUNBOOK.md`
+
+## Project scope
+
+This gem is maintained by Patchwork Hub and targets deployments that need the
+Newsmast feature set on top of Mastodon.
+
+- Intended audience: teams running a Mastodon host app aligned with Newsmast behavior.
+- Runtime target: Mastodon 4.5.11.
+- Compatibility strategy: use exact gem version pinning and upgrade intentionally.
+
+If you need a generic Mastodon extension point without Newsmast-specific
+behavior, review your requirements before adopting this gem.
+
+## Maintainer workflow
+
+Project process and review ownership are documented here:
+
+- Contribution workflow: `CONTRIBUTING.md`
+- Maintainer roles and ownership: `MAINTAINERS.md`
+- Code ownership policy: `.github/CODEOWNERS`
+- Governance and merge policy: `GOVERNANCE.md`
+- Security reporting policy: `SECURITY.md`
+- Automated security scanning workflow: `.github/workflows/security.yml`
 
 ## What this gem adds
 
@@ -15,6 +67,20 @@ behavior.
 - Host-app concern/service prepends for Mastodon models and services
 - Install task for Chewy indexes and frontend override files
 - Deep linking support for iOS Universal Links and Android App Links
+
+## Architecture overview
+
+Key areas of the codebase and their responsibilities:
+
+- `app/controllers/newsmast_mastodon/api/v1/`: Newsmast API endpoints and request entry points.
+- `app/services/newsmast_mastodon/`: business logic for feeds, notifications, login, relay workflows, and integrations.
+- `app/lib/newsmast_mastodon/overrides/` and `app/models/concerns/newsmast_mastodon/`: host Mastodon extensions and behavior overrides.
+- `config/initializers/prepend_concerns.rb`: wiring that prepends/includes engine concerns into host classes.
+- `lib/newsmast_mastodon/engine.rb`: engine boot behavior, route mounting, migration path appends, host compatibility checks.
+- `app/workers/newsmast_mastodon/`: async/background jobs.
+- `app/serializers/` and `app/presenters/`: API shaping and response presentation.
+- `db/migrate/`: engine migrations copied into the host app migration path.
+- `spec/`: standalone and compatibility test coverage.
 
 ## Installation
 
@@ -32,19 +98,19 @@ Install dependencies:
 bundle install
 ```
 
-Run database migrations (the engine appends its own migrations to the host app):
-
-```bash
-bin/rails db:migrate
-```
-
 Install Chewy indexes and frontend overrides into the host app:
 
 ```bash
 bin/rails newsmast_mastodon:install
 ```
 
-If frontend files are copied/updated, rebuild frontend assets in the host app:
+Run database migrations (the engine appends its own migrations to the host app):
+
+```bash
+bin/rails db:migrate
+```
+
+If frontend files were copied/updated, rebuild frontend assets in the host app:
 
 ```bash
 yarn build:development
@@ -57,6 +123,12 @@ yarn build:production
 - Ruby: `>= 3.1.0`
 - Rails: `>= 7.1`, `< 9.0`
 - Host app: Mastodon 4.5.11 runtime target
+
+### Tested compatibility matrix
+
+| Gem version | Mastodon | Ruby | Rails | Support |
+| --- | --- | --- | --- | --- |
+| 4.5.11 | 4.5.11 | 3.1 - 3.3 | 7.1 - 8.x | Active |
 
 This gem is maintained against Mastodon 4.5.11. Use exact gem version pinning
 in your host app Gemfile to avoid unplanned compatibility drift.
@@ -86,172 +158,26 @@ The engine defines multiple `api/v1` routes, including:
 
 See `config/routes.rb` for the full route list.
 
-### Deep linking environment variables
+## Environment variables
 
-| Variable | Required | Description |
-| --- | --- | --- |
-| `IOS_APP_ID` | Yes (for iOS) | Full iOS app identifier in `TeamID.BundleID` format (e.g., `VA45Q6RWV3.com.csidnetwork.social`). AASA returns 404 if not set. |
-| `IOS_DEEPLINK_PATHS` | No | Comma-separated URL path patterns (defaults to `/@*,/@*/*`). |
-| `ANDROID_PACKAGE_NAME` | Yes (for Android) | Android app package name (e.g., `com.csidnetwork.social`). Asset links returns 404 if not set. |
-| `ANDROID_SHA256_CERT_FINGERPRINTS` | Yes (for Android) | Comma-separated SHA-256 certificate fingerprints for Android app verification. Asset links returns 404 if not set. |
-| `IOS_APP_STORE_URL` | No | iOS App Store link for email footers. |
-| `ANDROID_APP_STORE_URL` | No | Google Play Store link for email footers. |
+The full runtime variable reference is maintained in:
 
-### CiviCRM membership check environment variables
+- `docs/configuration/environment-variables.md`
 
-| Variable | Required | Description |
-| --- | --- | --- |
-| `CSID_MEMBERSHIP_CHECK_ENABLED` | No | Enable/disable CiviCRM membership verification (default: `false`). |
-| `CIVICRM_BASE_URL` | Yes (if enabled) | Base URL for CiviCRM instance (e.g., `https://civicrm.example.com`). |
-| `CIVICRM_AUTH_TOKEN` | Yes (if enabled) | CiviCRM API authentication token. Include `Bearer` prefix or it will be added automatically. |
-| `CSID_MEMBERSHIP_ALLOWLIST_EMAILS` | No | Comma-separated email addresses that bypass the CiviCRM membership check. |
+Quick index:
 
-### Firebase notification environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `FIREBASE_PROJECT_ID` | No | Firebase project ID for push notifications. |
-| `FIREBASE_KEY_FILE_NAME` | No | Path to Firebase service account key JSON file. |
-
-### Ghost integration environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `GHOST_URL` | No | Ghost CMS instance URL (auto-added to `config.hosts` if set). |
-| `GHOST_ADMIN_API_KEY` | No | Ghost Admin API key for content access. |
-| `GHOST_WEBHOOK_ID` | No | Ghost webhook ID for updates. |
-| `GHOST_WEBHOOK_TARGET_URL` | No | Target URL for Ghost webhook callbacks. |
-| `GHOST_WEBHOOK_SECRET` | No | Secret token for Ghost webhook verification. |
-| `GHOST_NOTIFICATION_SENDER_NAME` | No | Sender name for Ghost-related notifications (default: `Development Patchwork`). |
-
-### Reblog/Boost services environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `REBLOG_ENABLED` | No | Enable reblog functionality (set to `true` to enable). |
-| `REBLOG_INSTANCE_URL` | No | Mastodon instance URL for reblog operations. |
-| `REBLOG_EMAIL` | No | Email account for reblog authentication. |
-| `REBLOG_PASSWORD` | No | Password for reblog authentication. |
-| `REBLOG_CLIENT_ID` | Yes (if reblog enabled) | OAuth client ID for reblog instance. |
-| `REBLOG_CLIENT_SECRET` | Yes (if reblog enabled) | OAuth client secret for reblog instance. |
-| `BOOST_POST_INSTANCE_URL` | No | Boost instance URL for post boosting. |
-| `BOOST_POST_API_KEY` | No | API key for Boost post service. |
-| `BOOST_POST_API_SECRET` | No | API secret for Boost post service. |
-| `BOOST_POST_USERNAME` | No | Username for Boost account. |
-| `BOOST_POST_USER_DOMAIN` | No | Domain for Boost account user. |
-| `BOOST_COMMUNITY_BOT_URL` | No | Boost community bot instance URL. |
-| `BOOST_COMMUNITY_BOT_API_KEY` | No | API key for Boost community bot. |
-
-### Custom boost bot environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `{USERNAME}_INSTANCE_URL` | No | Mastodon instance URL for custom boost bot (replace `{USERNAME}` with bot username in uppercase). |
-| `{USERNAME}_CLIENT_ID` | No | OAuth client ID for custom boost bot instance. |
-| `{USERNAME}_CLIENT_SECRET` | No | OAuth client secret for custom boost bot instance. |
-
-### Mail and branding environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `MAIL_SENDER_NAME` | No | Sender name for email notifications (default: `Development Patchwork`). |
-| `MAIL_LOGO_URL` | No | Logo URL for email headers. Defaults to Patchwork demo asset URL if not set. |
-| `PRIVACY_POLICY_URL` | No | Privacy policy URL for email footers. |
-| `TERMS_AND_CONDITIONS_URL` | No | Terms of service URL for email footers. |
-
-### Notification services environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `NOTIFICATION_SENDER_NAME` | No | Sender name for push notifications (default: `Development Patchwork`). |
-| `SKIP_SIGNUP_PUSH_NOTI` | No | Skip sending push notifications on signup (set to `true` to skip). |
-| `ARTICLE_NOTIFICATION_SENDER_NAME` | No | Sender name for article-related notifications (default: `Development Patchwork`). |
-
-### Alt text AI environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `ALT_TEXT_URL` | No | Base URL for Alt Text AI service. |
-| `ALT_TEXT_SECRET` | No | API key/secret for Alt Text AI service. |
-
-### Domain and channel configuration environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `LOCAL_DOMAIN` | No | Local domain for the Mastodon instance (e.g., `example.social`). Used for deep links and channel detection. |
-| `MAIN_CHANNEL` | No | Enable main channel mode (affects login behavior). |
-| `AUTO_FOLLOW_ACCOUNTS` | No | Comma-separated list of accounts to auto-follow on user registration. |
-
-### Custom relay / instances timeline environment variables
-
-The custom relay timeline feature subscribes the host Mastodon instance to
-
-## FediBuzz instance relay URLs, stores delivered statuses in per-domain Redis
-
-feeds, and exposes a merged home + instance timeline endpoint.
-
-Configured domains are converted to relay inbox URLs in this format:
-
-```text
-https://relay.fedi.buzz/instance/<domain>
-```
-
-Example:
-
-```bash
-CUSTOM_RELAY_DOMAINS=mastodon.social,mastodon.beer
-```
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `CUSTOM_RELAY_DOMAINS` | No | Comma-separated source instance domains to subscribe to via #FediBuzz relay endpoints. Example: `mastodon.social,mastodon.beer`. |
-
-Stored statuses use Redis sorted sets:
-
-```text
-feed:relay:<sanitized-domain>
-```
-
-Example:
-
-```text
-feed:relay:mastodon-social
-```
-
-The instances timeline endpoint always includes the authenticated user's home
-timeline and can include one, many, or all enabled relay domains:
-
-```text
-GET /api/v1/timelines/instances_timeline
-GET /api/v1/timelines/instances_timeline?domain=mastodon.social
-GET /api/v1/timelines/instances_timeline?domain=mastodon.social,mastodon.beer
-GET /api/v1/timelines/instances_timeline?domain[]=mastodon.social&domain[]=mastodon.beer
-```
-
-Legacy relay routes are also routed to the same behavior:
-
-```text
-GET /api/v1/timelines/relay
-GET /api/v1/timelines/relay/:domain
-```
-
-To verify stored statuses from Rails console:
-
-```ruby
-domain = 'mastodon.social'
-key = NewsmastMastodon::RelayFeed.timeline_key(domain)
-
-RedisConnection.with do |redis|
-  puts redis.zcard(key)
-  puts redis.zrevrange(key, 0, 10)
-end
-```
-
-### WordPress integration environment variables
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| `WORDPRESS_URL` | No | WordPress instance URL (auto-added to `config.hosts` if set). |
+- Deep linking
+- CiviCRM membership check
+- Firebase notifications
+- Ghost integration
+- Reblog and boost services
+- Custom boost bot
+- Mail and branding
+- Notification services
+- Alt text AI
+- Domain and channel configuration
+- Custom relay and instances timeline
+- WordPress integration
 
 ## Development
 
@@ -299,6 +225,20 @@ docker compose down
 Note: `RAILS_ENV=test bin/rails app:db:prepare` can fail if duplicate migration
 names exist in the consolidated migration set. In that case, run specs directly
 as above until migration naming conflicts are resolved.
+
+## CI jobs explained
+
+| Workflow | Job | Purpose | Requirements |
+| --- | --- | --- | --- |
+| `CI` | `changelog-policy` | Ensures PRs that touch code/workflows update `CHANGELOG.md`. | Pull request event. |
+| `CI` | `lint` | Runs RuboCop across supported Ruby versions. | Ruby 3.1, 3.2, 3.3 matrix. |
+| `CI` | `api-contract` | Verifies route/controller/Postman docs sync via `bundle exec rake api:verify`. | No external services required. |
+| `CI` | `test` | Runs main RSpec suite (sqlite mode by default) and uploads coverage artifacts. | Redis service; Ruby 3.1, 3.2, 3.3 matrix. |
+| `CI` | `test-postgres-subset` | Validates targeted model specs against real Postgres schema bootstrap. | Postgres + Redis services; Ruby 3.3. |
+| `CI` | `compatibility` | Runs upgrade-safety and version-sync compatibility specs. | Ruby 3.3. |
+| `CI` | `host-integration` | Optional host Mastodon integration checks and override drift validation. | `HOST_MASTODON_REPO` (+ optional `HOST_MASTODON_REF`) and `HOST_MASTODON_TOKEN`. |
+| `Security` | `dependency-review` | Detects risky dependency changes in pull requests. | Pull request event. |
+| `Security` | `codeql` | Runs scheduled and event-driven Ruby CodeQL static analysis. | `security-events: write` permission. |
 
 ## API validation and system testing
 
@@ -363,6 +303,48 @@ BASE_URL=http://localhost:3000 ACCESS_TOKEN=... bundle exec rake api:full_check
 
 Contribution process and standards are documented in `CONTRIBUTING.md`.
 
+## Community and support
+
+- Support and help channels: `SUPPORT.md`
+- Contribution workflow and policy: `CONTRIBUTING.md`
+- Security reporting process: `SECURITY.md`
+- Community code of conduct: `CODE_OF_CONDUCT.md`
+- Maintainer roles and ownership: `MAINTAINERS.md`
+- Project governance and merge policy: `GOVERNANCE.md`
+
+## Troubleshooting
+
+### Commit fails with GPG signing error
+
+If commit signing is enabled but GPG is not configured correctly, commits can
+fail with errors such as `failed to write commit object`.
+
+Use one of the following:
+
+```bash
+git commit --no-gpg-sign -m "<message>"
+# or disable signing for this repository
+git config commit.gpgsign false
+```
+
+### Host-integration workflow shows variable/secret warnings in editors
+
+Some editors warn about unknown `vars.*` or `secrets.*` keys in
+`.github/workflows/ci.yml` for the optional `host-integration` job. This is
+expected when repository/org variables are not defined locally.
+
+Define these in repository settings if you use host integration:
+
+- `HOST_MASTODON_REPO`
+- `HOST_MASTODON_REF` (optional)
+- `HOST_MASTODON_TOKEN`
+
+### `bundle exec rake api:verify` route/doc mismatch on `{{id}}`
+
+If Postman paths use `{{id}}`, route verification should normalize that to
+`:id`. Ensure the verifier includes normalization for both explicit id aliases
+and bare `id` placeholders.
+
 ## Changelog
 
 See `CHANGELOG.md` for release notes.
@@ -370,4 +352,4 @@ See `CHANGELOG.md` for release notes.
 ## License
 
 This project is licensed under the GNU Affero General Public License v3.0.
-See `LICENSE.txt` for details.
+See `LICENSE.txt` for details, and `NOTICE` for attribution guidance.

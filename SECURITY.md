@@ -6,11 +6,14 @@ If you believe you have found a security vulnerability in `newsmast_mastodon`,
 please report it privately so we can investigate and ship a fix before the
 issue is publicly disclosed.
 
-- **Contact:** security@joinpatchwork.org
+- **Contact:** akp@binarylab.io
 - **Do not** open a public GitHub issue, pull request, or discussion for
   security-sensitive reports.
 - Include as much detail as possible: affected version, reproduction steps,
   proof-of-concept, and any suggested remediation.
+
+For non-security conduct issues, use the reporting process in
+[`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ## Response SLA
 

@@ -2,7 +2,7 @@
 
 module NewsmastMastodon
   class NotificationToken < ApplicationRecord
-    self.table_name = 'patchwork_notification_tokens'
+    self.table_name = "patchwork_notification_tokens"
 
     belongs_to :account
 

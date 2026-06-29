@@ -17,7 +17,7 @@ module NewsmastMastodon
         # Override Status::SearchConcern scope
         scope :indexable,                  -> { without_reblogs.without_banned.public_visibility.joins(:account).where(account: { indexable: true }) }
 
-        scope :without_local_only,         -> { where(local_only: [false, nil]) }
+        scope :without_local_only,         -> { where(local_only: [ false, nil ]) }
 
         scope :fetch_reblogs,              -> { where.not(statuses: { reblog_of_id: nil }) }
         scope :without_original_statuses,  -> { where.not(reply: false) }
@@ -50,7 +50,7 @@ module NewsmastMastodon
       end
 
       def search_word_in_status(keyword)
-        sanitized_text = text.gsub(/<br\s*\/?>/, ' ').gsub(/<\/?p>/, ' ')
+        sanitized_text = text.gsub(/<br\s*\/?>/, " ").gsub(/<\/?p>/, " ")
         sanitized_text = ActionView::Base.full_sanitizer.sanitize(sanitized_text)
         regex = /(?:^|\s)#{Regexp.escape(keyword)}(?:\s|[#,.]|(?=\z))/i
         !!(sanitized_text =~ regex)
@@ -70,7 +70,7 @@ module NewsmastMastodon
       end
 
       def for_you_timeline_enabled?
-        ActiveModel::Type::Boolean.new.cast(ENV['FOR_YOU_TIMELINE_ENABLED'])
+        ActiveModel::Type::Boolean.new.cast(ENV["FOR_YOU_TIMELINE_ENABLED"])
       end
 
       def add_status_to_mix_channel_local_timeline
@@ -86,12 +86,12 @@ module NewsmastMastodon
       end
 
       def boost_posts_enabled?
-        ENV['BOOST_POST_ENABLED'].present? && ENV['BOOST_POST_ENABLED'].to_s.downcase == 'true'
+        ENV["BOOST_POST_ENABLED"].present? && ENV["BOOST_POST_ENABLED"].to_s.downcase == "true"
       end
 
       def boost_posts
         return unless local? && !reblog? && !reply?
-        return unless ENV.values_at('BOOST_POST_INSTANCE_URL', 'BOOST_POST_USERNAME', 'BOOST_POST_USER_DOMAIN').all?(&:present?)
+        return unless ENV.values_at("BOOST_POST_INSTANCE_URL", "BOOST_POST_USERNAME", "BOOST_POST_USER_DOMAIN").all?(&:present?)
 
         post_url = ActivityPub::TagManager.instance.url_for(self)
         return unless post_url

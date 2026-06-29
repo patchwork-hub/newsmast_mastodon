@@ -31,13 +31,13 @@ module NewsmastMastodon
             :id,
             :thumbnail,
             :description,
-            :focus,
+            :focus
           ],
           poll: [
             :multiple,
             :hide_totals,
             :expires_in,
-            options: [],
+            options: []
           ]
         )
       end
@@ -57,7 +57,7 @@ module NewsmastMastodon
           application: doorkeeper_token.application,
           poll: scheduled_status_params[:poll],
           allowed_mentions: scheduled_status_params[:allowed_mentions],
-          idempotency: request.headers['Idempotency-Key'],
+          idempotency: request.headers["Idempotency-Key"],
           with_rate_limit: true
         )
       end

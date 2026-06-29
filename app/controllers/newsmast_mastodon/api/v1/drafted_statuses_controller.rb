@@ -2,20 +2,20 @@
 
 module NewsmastMastodon::Api::V1
   class DraftedStatusesController < ::Api::BaseController
-    include Authorization
-    before_action -> { doorkeeper_authorize! :read, :'read:statuses' }, except: [:update, :destroy, :publish]
-    before_action -> { doorkeeper_authorize! :write, :'write:statuses' }, only: [:create, :update, :destroy, :publish]
-    
+    include Authorization if defined?(Authorization)
+    before_action -> { doorkeeper_authorize! :read, :'read:statuses' }, except: [ :update, :destroy, :publish ]
+    before_action -> { doorkeeper_authorize! :write, :'write:statuses' }, only: [ :create, :update, :destroy, :publish ]
+
     before_action :require_user!
     before_action :set_statuses, only: :index
-    before_action :set_status, except: [:index, :create]
-    before_action :set_thread, only: [:create]
+    before_action :set_status, except: [ :index, :create ]
+    before_action :set_thread, only: [ :create ]
 
     after_action :insert_pagination_headers, only: :index
 
-    def create 
+    def create
       @status = post_status_service
-  
+
       render json: @status, serializer: LongPost::DraftedStatusSerializer
     rescue PostStatusService::UnexpectedMentionsError => e
       unexpected_accounts = ActiveModel::Serializer::CollectionSerializer.new(
@@ -33,10 +33,10 @@ module NewsmastMastodon::Api::V1
       render json: @status, serializer: LongPost::DraftedStatusSerializer
     end
 
-    def update 
+    def update
       @status.destroy!
       @status = post_status_service
-  
+
       render json: @status, serializer: LongPost::DraftedStatusSerializer
     rescue PostStatusService::UnexpectedMentionsError => e
       unexpected_accounts = ActiveModel::Serializer::CollectionSerializer.new(
@@ -55,7 +55,7 @@ module NewsmastMastodon::Api::V1
       @status.destroy!
 
       @status = post_status_service(is_draft: false)
-      
+
       render json: @status, serializer: @status.is_a?(ScheduledStatus) ? REST::ScheduledStatusSerializer : REST::StatusSerializer
     rescue PostStatusService::UnexpectedMentionsError => e
     unexpected_accounts = ActiveModel::Serializer::CollectionSerializer.new(
@@ -72,7 +72,7 @@ module NewsmastMastodon::Api::V1
       drafted_statuses.map do |date, statuses|
         {
           date: date,
-          datas: statuses.map { |status| LongPost::DraftedStatusSerializer.new(status) },
+          datas: statuses.map { |status| LongPost::DraftedStatusSerializer.new(status) }
         }
       end
     end
@@ -85,7 +85,7 @@ module NewsmastMastodon::Api::V1
       @thread = Status.find(drafted_status_params[:in_reply_to_id]) if drafted_status_params[:in_reply_to_id].present?
       authorize(@thread, :show?) if @thread.present?
     rescue ActiveRecord::RecordNotFound, Mastodon::NotPermittedError
-      render json: { error: I18n.t('statuses.errors.in_reply_not_found') }, status: 404
+      render json: { error: I18n.t("statuses.errors.in_reply_not_found") }, status: 404
     end
 
     def set_status
@@ -112,14 +112,14 @@ module NewsmastMastodon::Api::V1
           :thumbnail,
           :description,
           :sensitive,
-          :focus,
+          :focus
         ],
         community_ids: [],
         poll: [
           :multiple,
           :hide_totals,
           :expires_in,
-          options: [],
+          options: []
         ]
       )
     end
@@ -160,7 +160,6 @@ module NewsmastMastodon::Api::V1
     end
 
     def post_status_service(is_draft: true)
-
       PostStatusService.new.call(
         current_user.account,
         text: drafted_status_params[:status],
@@ -178,12 +177,11 @@ module NewsmastMastodon::Api::V1
         application: doorkeeper_token.application,
         poll: drafted_status_params[:poll],
         allowed_mentions: drafted_status_params[:allowed_mentions],
-        idempotency: request.headers['Idempotency-Key'],
+        idempotency: request.headers["Idempotency-Key"],
         with_rate_limit: true,
         text_count: drafted_status_params[:text_count],
         is_rss_content: false
       )
     end
-
   end
 end

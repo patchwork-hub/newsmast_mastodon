@@ -4,7 +4,7 @@
 module NewsmastMastodon
   class ReblogChannelsWorker
     include Sidekiq::Worker
-    sidekiq_options queue: 'default', retry: false, dead: true
+    sidekiq_options queue: "default", retry: false, dead: true
 
     def perform(status_id, account_id)
       admin_account = Account.find_by(id: account_id)
@@ -22,12 +22,12 @@ module NewsmastMastodon
       community = community_admin&.community
       return false unless community
 
-      if community&.channel_type == 'newsmast'
+      if community&.channel_type == "newsmast"
         boost_by_newsmast_bot(community_admin, status_id)
       else
         begin
           NewsmastMastodon::ReblogRequestService.new.call(admin_access_token, status_id)
-          channels = ENV.fetch('FOR_YOU_TIMELINE_CHANNELS', nil).presence&.split(/\s*,\s*/)&.reject(&:blank?)&.map(&:downcase) || []
+          channels = ENV.fetch("FOR_YOU_TIMELINE_CHANNELS", nil).presence&.split(/\s*,\s*/)&.reject(&:blank?)&.map(&:downcase) || []
           NewsmastMastodon::CustomBoostBotService.new(status_id, community_admin&.username).call if channels.include?(community_admin&.username.downcase)
         rescue => e
           Rails.logger.error "ReblogRequestService failed: - #{e.message}"
@@ -47,7 +47,7 @@ module NewsmastMastodon
       post_url = fetch_post_url
       bot_lamda_service = NewsmastMastodon::BoostLamdaNewsmastService.new
       boost_status = bot_lamda_service.boost_status(community_admin&.username, @status.id, post_url.to_s)
-      return true if boost_status['statusCode'] == 200
+      return true if boost_status["statusCode"] == 200
 
       false
     end

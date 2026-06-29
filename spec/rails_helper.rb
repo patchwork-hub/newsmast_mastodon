@@ -15,27 +15,60 @@ ENV["RAILS_ENV"] ||= "test"
 #      Boots Mastodon's full Rails environment so DB, autoloading, and all
 #      Mastodon constants are available.
 
-MASTODON_ROOT = ENV.fetch("MASTODON_ROOT") do
-  gemfile = ENV["BUNDLE_GEMFILE"].to_s
-  gemfile_dir = File.dirname(gemfile)
-  # Only treat as host mode when the Gemfile lives directly inside a directory
-  # named "mastodon" (e.g. /workspaces/mastodon/Gemfile).
-  # This avoids false-positives for our own gem path (.../newsmast_mastodon/Gemfile).
-  gemfile_dir if File.basename(gemfile) == "Gemfile" && File.basename(gemfile_dir) == "mastodon"
+unless defined?(MASTODON_ROOT)
+  MASTODON_ROOT = ENV.fetch("MASTODON_ROOT") do
+    gemfile = ENV["BUNDLE_GEMFILE"].to_s
+    gemfile_dir = File.dirname(gemfile)
+    # Only treat as host mode when the Gemfile lives directly inside a directory
+    # named "mastodon" (e.g. /workspaces/mastodon/Gemfile).
+    # This avoids false-positives for our own gem path (.../newsmast_mastodon/Gemfile).
+    gemfile_dir if File.basename(gemfile) == "Gemfile" && File.basename(gemfile_dir) == "mastodon"
+  end
 end
+
+if MASTODON_ROOT
+  begin
+    require "newsmast_mastodon"
+  rescue LoadError
+    # In host-bundle mode, this gem may not be listed in the host Gemfile.
+    # Preload from local source before host Rails initializes.
+    require "rails/engine"
+    require File.expand_path("../lib/newsmast_mastodon", __dir__)
+  end
+end
+
+host_environment_loaded = false
+host_environment_path = File.join(MASTODON_ROOT.to_s, "config", "environment.rb")
+strict_host_boot = ENV["NEWSMAST_STRICT_HOST_BOOT"] == "1"
 
 if defined?(Rails) && Rails.application && Rails.application.initialized?
   # Already booted (e.g. nested require); nothing to do.
-elsif MASTODON_ROOT
-  require File.join(MASTODON_ROOT, "config/environment")
+  host_environment_loaded = !MASTODON_ROOT.to_s.empty?
+elsif !MASTODON_ROOT.to_s.empty? && File.exist?(host_environment_path)
+  begin
+    require host_environment_path
+    host_environment_loaded = true
+  rescue Exception => e
+    raise if e.is_a?(SystemExit) || e.is_a?(SignalException) || e.is_a?(NoMemoryError)
+    raise if strict_host_boot
+
+    warn "[newsmast_mastodon/spec] Host boot failed at #{host_environment_path}: #{e.class}: #{e.message}"
+    warn "[newsmast_mastodon/spec] Falling back to dummy Rails environment."
+    require File.expand_path("dummy/config/environment", __dir__)
+  end
+elsif !MASTODON_ROOT.to_s.empty? && strict_host_boot
+  abort("[newsmast_mastodon/spec] Strict host boot is enabled, but host environment file was not found: #{host_environment_path}")
 else
   require File.expand_path("dummy/config/environment", __dir__)
 end
 
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
+NEWSMAST_GEM_ROOT = File.expand_path("..", __dir__) unless defined?(NEWSMAST_GEM_ROOT)
+HOST_ENVIRONMENT_LOADED = host_environment_loaded unless defined?(HOST_ENVIRONMENT_LOADED)
+
 def standalone_sqlite_test_mode?
-  !MASTODON_ROOT && ENV["DATABASE_URL"].blank? && ENV["DATABASE_HOST"].blank? && ENV["DATABASE_ADAPTER"].blank?
+  !HOST_ENVIRONMENT_LOADED && ENV["DATABASE_URL"].blank? && ENV["DATABASE_HOST"].blank? && ENV["DATABASE_ADAPTER"].blank?
 end
 
 def bootstrap_standalone_test_database!
@@ -44,11 +77,11 @@ def bootstrap_standalone_test_database!
 
   sqlite_config = {
     adapter: "sqlite3",
-    database: sqlite_database,
+    database: sqlite_database
   }
 
   ActiveRecord::Base.configurations = {
-    Rails.env => sqlite_config.stringify_keys,
+    Rails.env => sqlite_config.stringify_keys
   }
   ActiveRecord::Base.establish_connection(sqlite_config)
 
@@ -88,7 +121,7 @@ require "shoulda/matchers"
 require "database_cleaner/active_record"
 
 # Load host-app stubs only in standalone mode (when Mastodon classes are absent).
-require File.expand_path("support/mastodon_stubs", __dir__) unless MASTODON_ROOT
+require File.expand_path("support/mastodon_stubs", __dir__) unless HOST_ENVIRONMENT_LOADED
 
 require "webmock/rspec"
 
@@ -112,7 +145,7 @@ unless standalone_sqlite_test_mode?
 end
 
 # Load all support files (shared contexts, shared examples, helpers).
-Dir[NewsmastMastodon::Engine.root.join("spec/support/**/*.rb")].each { |f| require f }
+Dir[File.join(NEWSMAST_GEM_ROOT, "spec/support/**/*.rb")].each { |f| require f }
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -131,7 +164,7 @@ if defined?(VCR)
 end
 
 RSpec.configure do |config|
-  config.fixture_paths = [NewsmastMastodon::Engine.root.join("spec/fixtures").to_s]
+  config.fixture_paths = [ File.join(NEWSMAST_GEM_ROOT, "spec/fixtures") ]
   config.use_transactional_fixtures = false
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!

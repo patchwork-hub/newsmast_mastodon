@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 #
 # Every example is `skip`ped until the Mastodon host harness is available.
 # Remove the `skip` and implement the expectation once the host is loaded.
@@ -7,7 +8,7 @@ require "rails_helper"
 RSpec.describe "Patchwork Relays", type: :request do
   let(:owner_role) do
     UserRole.find_by(name: 'Owner') ||
-      UserRole.create!(name: 'Owner', position: 1000, permissions_as_keys: %w(administrator), highlighted: true)
+      UserRole.create!(name: 'Owner', position: 1000, permissions_as_keys: %w[administrator], highlighted: true)
   end
   let(:owner) do
     u = Fabricate(:owner_user)

@@ -5,17 +5,16 @@ module NewsmastMastodon::Concerns::CustomAuthenticationBehavior
   include NonChannelHelper
 
   def create
-
     if client_credentials? || authorization_code?
       super
       return
     end
 
     if NewsmastMastodon::LoginService.new(oauth_params).two_factor_enabled?
-      return render_error(I18n.t('login_service.errors.two_factor_enabled'))
+      return render_error(I18n.t("login_service.errors.two_factor_enabled"))
     end
 
-    error_message = if ENV.fetch('LOCAL_DOMAIN', nil) == 'thebristolcable.social' || Rails.env.development?
+    error_message = if ENV.fetch("LOCAL_DOMAIN", nil) == "thebristolcable.social" || Rails.env.development?
       NewsmastMastodon::LoginService.new(oauth_params).bristol_cable_login || nil
     elsif is_non_channel?
       NewsmastMastodon::LoginService.new(oauth_params).non_channel_login || nil
@@ -37,11 +36,11 @@ module NewsmastMastodon::Concerns::CustomAuthenticationBehavior
   end
 
   def client_credentials?
-    oauth_params[:grant_type] == 'client_credentials'
+    oauth_params[:grant_type] == "client_credentials"
   end
 
   def authorization_code?
-    oauth_params[:grant_type] == 'authorization_code'
+    oauth_params[:grant_type] == "authorization_code"
   end
 
   def oauth_params
@@ -55,9 +54,9 @@ module NewsmastMastodon::Concerns::CustomAuthenticationBehavior
   end
 
   def extract_error_message(response)
-    if response.is_a?(String) && response.include?('data: ')
+    if response.is_a?(String) && response.include?("data: ")
       # Extract the error message part (before "data:")
-      message = response.split(' data: ').first.strip
+      message = response.split(" data: ").first.strip
 
       # Extract and parse the data part
       data_match = response.match(/data: (\{.*\})/)
@@ -68,7 +67,6 @@ module NewsmastMastodon::Concerns::CustomAuthenticationBehavior
       { message: response.to_s, data: nil }
     end
   rescue StandardError
-    { message: I18n.t('login_service.errors.invalid_credentials'), data: nil }
+    { message: I18n.t("login_service.errors.invalid_credentials"), data: nil }
   end
-
 end

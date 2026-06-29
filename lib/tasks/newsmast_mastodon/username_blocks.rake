@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 # Import username blocks from CSV in batches.
-require 'csv'
+require "csv"
 
 namespace :username_blocks do
-  desc 'Import username_blocks.csv into username_blocks table in chunks of 500'
+  desc "Import username_blocks.csv into username_blocks table in chunks of 500"
   task import: :environment do
-    file_path = Rails.root.join('public', 'csv', 'username_blocks.csv')
+    file_path = Rails.root.join("public", "csv", "username_blocks.csv")
 
     unless File.exist?(file_path)
       puts "CSV file not found: #{file_path}"
@@ -21,15 +21,15 @@ namespace :username_blocks do
     new_records        = []
 
     CSV.foreach(file_path, headers: true) do |row|
-      username = row['#username']&.strip
+      username = row["#username"]&.strip
       next if username.blank? || existing_usernames.include?(username)
 
       normalized_username = username.downcase.gsub(regex, homoglyphs)
       new_records << {
         username:            username,
         normalized_username: normalized_username,
-        exact:               row.fetch('#exact', true),
-        allow_with_approval: row.fetch('#allow_with_approval', false),
+        exact:               row.fetch("#exact", true),
+        allow_with_approval: row.fetch("#allow_with_approval", false)
       }
     end
 
