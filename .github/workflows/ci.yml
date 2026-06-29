@@ -245,13 +245,13 @@ jobs:
       - name: Migration idempotency + version sync gates
         run: bundle exec rspec spec/compatibility --format documentation
 
-  # Lightweight host-integration smoke check: boots against a real host
-  # Mastodon checkout (MASTODON_ROOT mode), runs override drift validation,
-  # and executes gem specs against host code without provisioning full host
-  # runtime services.
+  # Lightweight host-integration smoke check: runs automatically on push/PR
+  # (using default host repo/ref) and also supports workflow_dispatch inputs.
+  # This mode runs override drift validation + gem specs against host code
+  # without provisioning full host runtime services.
   host-integration:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'lightweight' || inputs.host_integration_profile == 'both') }}
+    if: ${{ (github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'lightweight' || inputs.host_integration_profile == 'both')) || (github.event_name != 'workflow_dispatch') }}
     steps:
       - name: Checkout gem
         uses: actions/checkout@v5
@@ -261,8 +261,8 @@ jobs:
       - name: Checkout host Mastodon
         uses: actions/checkout@v5
         with:
-          repository: ${{ inputs.host_mastodon_repo }}
-          ref: ${{ inputs.host_mastodon_ref || '' }}
+          repository: ${{ github.event.inputs.host_mastodon_repo || 'patchwork-hub/patchwork-mastodon' }}
+          ref: ${{ github.event.inputs.host_mastodon_ref || 'mastodon-4.5.11' }}
           token: ${{ github.token }}
           path: host
 
