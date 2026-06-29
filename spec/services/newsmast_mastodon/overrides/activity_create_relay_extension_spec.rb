@@ -46,7 +46,7 @@ RSpec.describe NewsmastMastodon::Overrides::ActivityCreateRelayExtension, type: 
   let(:status) { instance_double("Status", id: 123, account: account) }
 
   before do
-    allow(NewsmastMastodon::CustomRelayConfig).to receive(:domains).and_return(["custom.org", "relay.net"])
+    allow(NewsmastMastodon::CustomRelayConfig).to receive(:domains).and_return([ "custom.org", "relay.net" ])
     allow(NewsmastMastodon::RelayFeed).to receive(:timeline_key).and_return("feed:relay:key")
   end
 

@@ -18,7 +18,7 @@ module NewsmastMastodon::Api::V1::Patchwork
       if reaction.save
         render_success(
           serialize_reaction(reaction),
-          'api.messages.success',
+          "api.messages.success",
           :ok
         )
       else
@@ -35,10 +35,10 @@ module NewsmastMastodon::Api::V1::Patchwork
 
       if reaction.present?
         reaction.destroy!
-        render_success(nil, 'api.messages.deleted', :ok)
+        render_success(nil, "api.messages.deleted", :ok)
       else
         render_error(
-          'api.errors.not_found',
+          "api.errors.not_found",
           :not_found
         )
       end
@@ -49,7 +49,7 @@ module NewsmastMastodon::Api::V1::Patchwork
     def set_status
       @status = Status.find(params[:status_id])
     rescue ActiveRecord::RecordNotFound
-      render_error('api.errors.not_found', :not_found)
+      render_error("api.errors.not_found", :not_found)
     end
 
     def serialize_reaction(reaction)

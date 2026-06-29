@@ -49,7 +49,7 @@ module NewsmastMastodon
       # ENV-configured custom relay domains.
       def relay_status?
         unless @status.present?
-          log_relay_debug('Skipping relay feed insert: no status created')
+          log_relay_debug("Skipping relay feed insert: no status created")
           return false
         end
 

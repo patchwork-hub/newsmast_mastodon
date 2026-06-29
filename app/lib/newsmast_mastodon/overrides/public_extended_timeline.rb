@@ -5,7 +5,7 @@ module NewsmastMastodon
     module PublicExtendedTimeline
       include TimelinePatchworkPostReactions
 
-      PERMITTED_PARAMS = %i(local remote limit only_media with_reblogs with_replies grouped_admin_statuses).freeze
+      PERMITTED_PARAMS = %i[local remote limit only_media with_reblogs with_replies grouped_admin_statuses].freeze
 
       def show
         cache_if_unauthenticated!
