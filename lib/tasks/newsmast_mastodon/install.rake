@@ -31,7 +31,18 @@ namespace :newsmast_mastodon do
     create_marker_file!
 
     puts "\nnewsmast_mastodon has been successfully installed."
-    puts "JS changes require `yarn build`. Run `yarn build:development` or `yarn build:production`."
+    puts "\n" + "=" * 70
+    puts "IMPORTANT: Run database migrations"
+    puts "=" * 70
+    puts "Database migrations are NOT run automatically. You must run them manually:"
+    puts "  bin/rails db:migrate"
+    puts "\nThis ensures:"
+    puts "  - Migrations run in the correct order with other app changes"
+    puts "  - You have full control over when schema changes occur"
+    puts "  - Production deployments can be safely scheduled"
+    puts "=" * 70
+    puts "\nFrontend assets were updated. Rebuild with:"
+    puts "  yarn build:development  # or yarn build:production"
   end
 
   # -------------------
