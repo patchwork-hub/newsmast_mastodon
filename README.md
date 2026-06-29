@@ -21,7 +21,7 @@ behavior.
 - [Example endpoints](#example-endpoints)
 - [Environment variables](#environment-variables)
 - [Development](#development)
-- [CI jobs explained](#ci-jobs-explained)
+- [CI jobs](#ci-jobs)
 - [API validation and system testing](#api-validation-and-system-testing)
 - [Community and support](#community-and-support)
 - [Troubleshooting](#troubleshooting)
@@ -189,117 +189,23 @@ bundle exec rspec
 bundle exec rubocop
 ```
 
-### Standalone Test Run With Docker Services
+For detailed local service setup, Docker-backed infrastructure runs, and test
+notes, see:
 
-Use Docker only for infrastructure (PostgreSQL, Redis, Elasticsearch), while
-running the Rails app and specs directly on your machine.
+- `docs/development/testing-and-local-services.md`
 
-From your workspace root, start services:
+## CI jobs
 
-```bash
-docker compose up -d db redis es
-```
+For the complete CI job matrix and requirements, see:
 
-From `newsmast_mastodon`, run specs against those services:
-
-```bash
-export DATABASE_HOST=127.0.0.1
-export DATABASE_PORT=5432
-export DATABASE_USER=postgres
-export DATABASE_PASSWORD=postgres
-export REDIS_HOST=127.0.0.1
-export REDIS_PORT=6379
-export ES_ENABLED=true
-export ES_HOST=127.0.0.1
-export ES_PORT=9200
-
-bundle exec rspec --format progress
-```
-
-Optional cleanup:
-
-```bash
-docker compose down
-```
-
-Note: `RAILS_ENV=test bin/rails app:db:prepare` can fail if duplicate migration
-names exist in the consolidated migration set. In that case, run specs directly
-as above until migration naming conflicts are resolved.
-
-## CI jobs explained
-
-| Workflow | Job | Purpose | Requirements |
-| --- | --- | --- | --- |
-| `CI` | `changelog-policy` | Ensures PRs that touch code/workflows update `CHANGELOG.md`. | Pull request event. |
-| `CI` | `lint` | Runs RuboCop across supported Ruby versions. | Ruby 3.1, 3.2, 3.3 matrix. |
-| `CI` | `api-contract` | Verifies route/controller/Postman docs sync via `bundle exec rake api:verify`. | No external services required. |
-| `CI` | `test` | Runs main RSpec suite (sqlite mode by default) and uploads coverage artifacts. | Redis service; Ruby 3.1, 3.2, 3.3 matrix. |
-| `CI` | `test-postgres-subset` | Validates targeted model specs against real Postgres schema bootstrap. | Postgres + Redis services; Ruby 3.3. |
-| `CI` | `compatibility` | Runs upgrade-safety and version-sync compatibility specs. | Ruby 3.3. |
-| `CI` | `host-integration` | Optional host Mastodon integration checks and override drift validation. | `HOST_MASTODON_REPO` (+ optional `HOST_MASTODON_REF`) and `HOST_MASTODON_TOKEN`. |
-| `Security` | `dependency-review` | Detects risky dependency changes in pull requests. | Pull request event. |
-| `Security` | `codeql` | Runs scheduled and event-driven Ruby CodeQL static analysis. | `security-events: write` permission. |
+- `docs/ci/jobs.md`
 
 ## API validation and system testing
 
-This repository includes a full API verification workflow for the consolidated
-gem routes and a combined Postman collection.
+Use the API validation guide for route/documentation checks, Newman execution,
+smoke tests, and full check orchestration:
 
-### 1) Verify route/controller/doc sync
-
-```bash
-ruby script/api/verify_routes_and_docs.rb
-# or
-bundle exec rake api:verify
-```
-
-This checks:
-
-- every expected route has a matching controller action
-- every route appears in the combined Postman collection under `docs/`
-- every Postman entry maps to a real route
-
-### 2) Run the combined Postman collection with Newman
-
-```bash
-BASE_URL=http://localhost:3000 \
-ACCESS_TOKEN=... \
-bash script/api/run_newman_suite.sh
-
-# or
-BASE_URL=http://localhost:3000 ACCESS_TOKEN=... bundle exec rake api:postman
-```
-
-The runner does a setup step first (`script/api/postman_setup.rb`) to generate
-`tmp/newman.generated.env.json`, including dynamic IDs such as:
-
-- `account_id`
-- `username`
-- `drafted_status_id` (if draft creation succeeds)
-- `relay_id` (if relay creation succeeds)
-
-You can disable auto setup and use a custom environment file:
-
-```bash
-AUTO_SETUP=0 POSTMAN_ENV_FILE=script/api/newman.env.staging.template.json \
-bash script/api/run_newman_suite.sh
-```
-
-Templates for local and staging are available in `script/api/`.
-
-### 3) Run request-spec smoke layer
-
-```bash
-bash script/api/run_rspec_smoke.sh
-# or
-bundle exec rake api:smoke
-```
-
-### 4) Run complete check sequence
-
-```bash
-BASE_URL=http://localhost:3000 ACCESS_TOKEN=... bundle exec rake api:full_check
-```
+- `docs/testing/api-validation-and-system-testing.md`
 
 Contribution process and standards are documented in `CONTRIBUTING.md`.
 
@@ -314,36 +220,9 @@ Contribution process and standards are documented in `CONTRIBUTING.md`.
 
 ## Troubleshooting
 
-### Commit fails with GPG signing error
+Common troubleshooting notes are documented in:
 
-If commit signing is enabled but GPG is not configured correctly, commits can
-fail with errors such as `failed to write commit object`.
-
-Use one of the following:
-
-```bash
-git commit --no-gpg-sign -m "<message>"
-# or disable signing for this repository
-git config commit.gpgsign false
-```
-
-### Host-integration workflow shows variable/secret warnings in editors
-
-Some editors warn about unknown `vars.*` or `secrets.*` keys in
-`.github/workflows/ci.yml` for the optional `host-integration` job. This is
-expected when repository/org variables are not defined locally.
-
-Define these in repository settings if you use host integration:
-
-- `HOST_MASTODON_REPO`
-- `HOST_MASTODON_REF` (optional)
-- `HOST_MASTODON_TOKEN`
-
-### `bundle exec rake api:verify` route/doc mismatch on `{{id}}`
-
-If Postman paths use `{{id}}`, route verification should normalize that to
-`:id`. Ensure the verifier includes normalization for both explicit id aliases
-and bare `id` placeholders.
+- `docs/troubleshooting/common-issues.md`
 
 ## Changelog
 
