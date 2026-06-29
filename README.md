@@ -8,6 +8,26 @@ host app with Newsmast features across accounts, content filtering,
 conversations, custom feeds, local-only posts, posting workflows, and timeline
 behavior.
 
+## Table of contents
+
+- [Release and upgrade quick links](#release-and-upgrade-quick-links)
+- [Project scope](#project-scope)
+- [Maintainer workflow](#maintainer-workflow)
+- [What this gem adds](#what-this-gem-adds)
+- [Architecture overview](#architecture-overview)
+- [Installation](#installation)
+- [Compatibility](#compatibility)
+- [Runtime behavior](#runtime-behavior)
+- [Example endpoints](#example-endpoints)
+- [Environment variables](#environment-variables)
+- [Development](#development)
+- [CI jobs explained](#ci-jobs-explained)
+- [API validation and system testing](#api-validation-and-system-testing)
+- [Community and support](#community-and-support)
+- [Troubleshooting](#troubleshooting)
+- [Changelog](#changelog)
+- [License](#license)
+
 ## Release and upgrade quick links
 
 - Release notes: `CHANGELOG.md`
