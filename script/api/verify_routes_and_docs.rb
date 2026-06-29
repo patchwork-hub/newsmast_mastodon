@@ -102,6 +102,7 @@ end
 def normalize_var(var_name, original)
   return ":username" if var_name == "username"
   return ":platform_type" if var_name == "platform_type"
+  return ":id" if var_name == "id"
   return ":id" if ID_VAR_NAMES.include?(var_name)
 
   original

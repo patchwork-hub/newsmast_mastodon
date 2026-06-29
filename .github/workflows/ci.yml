@@ -5,6 +5,13 @@ on:
   push:
     branches: [main]
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   changelog-policy:
     runs-on: ubuntu-latest
@@ -69,6 +76,21 @@ jobs:
 
       - name: Lint code for consistent style
         run: bundle exec rubocop --format github
+
+  api-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Verify routes, controllers, and Postman docs are in sync
+        run: bundle exec rake api:verify
 
   test:
     runs-on: ubuntu-latest

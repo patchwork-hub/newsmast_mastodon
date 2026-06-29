@@ -13,6 +13,13 @@ changes.
    bin/setup
    ```
 
+   If you only want to prepare dependencies/database without starting a local
+   dev server, run:
+
+   ```bash
+   bin/setup --skip-server
+   ```
+
 3. Run the test suite to confirm your environment works:
 
    ```bash
