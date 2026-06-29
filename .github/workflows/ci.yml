@@ -4,6 +4,16 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
+    inputs:
+      host_mastodon_repo:
+        description: "Optional host Mastodon repository (owner/repo) for host-integration job"
+        required: false
+        type: string
+      host_mastodon_ref:
+        description: "Optional host Mastodon ref (branch/tag/SHA)"
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -226,11 +236,10 @@ jobs:
 
   # Boots the gem against a real host Mastodon checkout (MASTODON_ROOT mode) and
   # checks vendored frontend/view overrides for upstream drift. Opt-in: only
-  # runs when the repo variable HOST_MASTODON_REPO is configured (e.g.
-  # "patchwork-hub/patchwork-mastodon"), since it needs the private host repo.
+  # runs on workflow_dispatch when host_mastodon_repo is provided.
   host-integration:
     runs-on: ubuntu-latest
-    if: ${{ vars.HOST_MASTODON_REPO != '' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' }}
     steps:
       - name: Checkout gem
         uses: actions/checkout@v5
@@ -240,9 +249,9 @@ jobs:
       - name: Checkout host Mastodon
         uses: actions/checkout@v5
         with:
-          repository: ${{ vars.HOST_MASTODON_REPO }}
-          ref: ${{ vars.HOST_MASTODON_REF || '' }}
-          token: ${{ secrets.HOST_MASTODON_TOKEN }}
+          repository: ${{ inputs.host_mastodon_repo }}
+          ref: ${{ inputs.host_mastodon_ref || '' }}
+          token: ${{ github.token }}
           path: host
 
       - name: Set up Ruby
