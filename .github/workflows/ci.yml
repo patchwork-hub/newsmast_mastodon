@@ -270,13 +270,13 @@ jobs:
       - name: Migration idempotency + version sync gates
         run: bundle exec rspec spec/compatibility --format documentation
 
-  # Lightweight host-integration smoke check: runs automatically on push/PR
-  # (using default host repo/ref) and also supports workflow_dispatch inputs.
+  # Lightweight host-integration smoke check: manual-only via workflow_dispatch.
+  # Keeps default PR/push CI fast and avoids host-app boot variability.
   # This mode runs override drift validation + gem specs against host code
   # without provisioning full host runtime services.
   host-integration:
     runs-on: ubuntu-latest
-    if: ${{ (github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'lightweight' || inputs.host_integration_profile == 'both')) || (github.event_name != 'workflow_dispatch') }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'lightweight' || inputs.host_integration_profile == 'both') }}
     steps:
       - name: Checkout gem
         uses: actions/checkout@v5
