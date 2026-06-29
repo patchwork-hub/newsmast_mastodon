@@ -1,5 +1,8 @@
 # newsmast_mastodon
 
+[![CI](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/ci.yml)
+[![Security](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/patchwork-hub/newsmast_mastodon/actions/workflows/security.yml)
+
 `newsmast_mastodon` is a Rails engine that extends a Mastodon
 host app with Newsmast features across accounts, content filtering,
 conversations, custom feeds, local-only posts, posting workflows, and timeline
