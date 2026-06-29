@@ -13,11 +13,12 @@ namespace :newsmast_mastodon do
         "ERROR: newsmast_mastodon:install must be run in a Mastodon host application.\n" \
         "This command copies UI-related files and Chewy indexes from the gem into the host app.\n" \
         "\n" \
-        "Usage:\n" \
+        "Setup steps:\n" \
         "  1. Add to your Mastodon app's Gemfile:\n" \
         "       gem 'newsmast_mastodon', '4.5.11'\n" \
         "  2. Run: bundle install\n" \
-        "  3. Run: bin/rails newsmast_mastodon:install\n"
+        "  3. Run: bin/rails db:migrate\n" \
+        "  4. Run: bin/rails newsmast_mastodon:install\n"
       )
     end
 
