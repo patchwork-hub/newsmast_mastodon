@@ -39,6 +39,9 @@ namespace :newsmast_mastodon do
     puts "     bin/rails db:migrate"
     puts "\n2. Rebuild frontend assets with the updated files:"
     puts "     yarn build:development  # or yarn build:production"
+    puts "\n3. Restart your Mastodon instance:"
+    puts "     systemctl restart mastodon-web mastodon-sidekiq mastodon-streaming"
+    puts "     (or use docker-compose restart if running in Docker)"
     puts "=" * 70
   end
 
