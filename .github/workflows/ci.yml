@@ -314,6 +314,7 @@ jobs:
         env:
           BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
+          NEWSMAST_STRICT_HOST_BOOT: "1"
           RAILS_ENV: test
         run: bundle exec rspec --format documentation
 
@@ -412,6 +413,7 @@ jobs:
         env:
           BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
+          NEWSMAST_STRICT_HOST_BOOT: "1"
           RAILS_ENV: test
         run: bundle exec rspec --format documentation
 

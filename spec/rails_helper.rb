@@ -39,6 +39,7 @@ end
 
 host_environment_loaded = false
 host_environment_path = File.join(MASTODON_ROOT.to_s, "config", "environment.rb")
+strict_host_boot = ENV["NEWSMAST_STRICT_HOST_BOOT"] == "1"
 
 if defined?(Rails) && Rails.application && Rails.application.initialized?
   # Already booted (e.g. nested require); nothing to do.
@@ -49,11 +50,14 @@ elsif !MASTODON_ROOT.to_s.empty? && File.exist?(host_environment_path)
     host_environment_loaded = true
   rescue Exception => e
     raise if e.is_a?(SystemExit) || e.is_a?(SignalException) || e.is_a?(NoMemoryError)
+    raise if strict_host_boot
 
     warn "[newsmast_mastodon/spec] Host boot failed at #{host_environment_path}: #{e.class}: #{e.message}"
     warn "[newsmast_mastodon/spec] Falling back to dummy Rails environment."
     require File.expand_path("dummy/config/environment", __dir__)
   end
+elsif !MASTODON_ROOT.to_s.empty? && strict_host_boot
+  abort("[newsmast_mastodon/spec] Strict host boot is enabled, but host environment file was not found: #{host_environment_path}")
 else
   require File.expand_path("dummy/config/environment", __dir__)
 end
