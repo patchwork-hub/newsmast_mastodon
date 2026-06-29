@@ -79,6 +79,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
+
       - name: Set up Ruby ${{ matrix.ruby }}
         uses: ruby/setup-ruby@v1
         with:
@@ -103,6 +108,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -138,6 +148,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
 
       - name: Set up Ruby ${{ matrix.ruby }}
         uses: ruby/setup-ruby@v1
@@ -208,6 +223,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -235,6 +255,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -265,6 +290,11 @@ jobs:
           ref: ${{ github.event.inputs.host_mastodon_ref || 'mastodon-4.5.11' }}
           token: ${{ github.token }}
           path: host
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -353,6 +383,11 @@ jobs:
           ref: ${{ inputs.host_mastodon_ref || '' }}
           token: ${{ github.token }}
           path: host
+
+      - name: Install native dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
