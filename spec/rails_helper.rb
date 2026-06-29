@@ -47,8 +47,8 @@ elsif !MASTODON_ROOT.to_s.empty? && File.exist?(host_environment_path)
   begin
     require host_environment_path
     host_environment_loaded = true
-  rescue LoadError => e
-    warn "[newsmast_mastodon/spec] Host boot failed at #{host_environment_path}: #{e.message}"
+  rescue StandardError, LoadError => e
+    warn "[newsmast_mastodon/spec] Host boot failed at #{host_environment_path}: #{e.class}: #{e.message}"
     warn "[newsmast_mastodon/spec] Falling back to dummy Rails environment."
     require File.expand_path("dummy/config/environment", __dir__)
   end
