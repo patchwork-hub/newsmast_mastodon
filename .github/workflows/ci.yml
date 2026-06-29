@@ -314,6 +314,7 @@ jobs:
         env:
           BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
+          RAILS_ENV: test
         run: bundle exec rspec --format documentation
 
   # Full host-integration run with host runtime services enabled. This mode is
@@ -411,5 +412,6 @@ jobs:
         env:
           BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
+          RAILS_ENV: test
         run: bundle exec rspec --format documentation
 
