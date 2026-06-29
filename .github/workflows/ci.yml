@@ -275,13 +275,14 @@ jobs:
         working-directory: gem
         run: ruby bin/check-override-drift "${GITHUB_WORKSPACE}/host"
 
-      - name: Install gem dependencies
-        working-directory: gem
+      - name: Install host dependencies
+        working-directory: host
         run: bundle install
 
       - name: Run gem specs against host Mastodon
         working-directory: gem
         env:
+          BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
         run: bundle exec rspec --format documentation
 
@@ -370,13 +371,10 @@ jobs:
         working-directory: gem
         run: ruby bin/check-override-drift "${GITHUB_WORKSPACE}/host"
 
-      - name: Install gem dependencies
-        working-directory: gem
-        run: bundle install
-
       - name: Run gem specs against full host runtime services
         working-directory: gem
         env:
+          BUNDLE_GEMFILE: ${{ github.workspace }}/host/Gemfile
           MASTODON_ROOT: ${{ github.workspace }}/host
         run: bundle exec rspec --format documentation
 

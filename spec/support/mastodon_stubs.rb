@@ -146,8 +146,11 @@ end
 # ---------------------------------------------------------------------------
 
 require File.expand_path("../../app/helpers/brand_color_helper", __dir__) unless defined?(::BrandColorHelper)
+require File.expand_path("../../app/helpers/non_channel_helper", __dir__) unless defined?(::NonChannelHelper)
 require File.expand_path("../../app/helpers/patchwork_helper", __dir__) unless defined?(::PatchworkHelper)
-require File.expand_path("../../app/mailers/custom_passwords_mailer", __dir__) unless defined?(::CustomPasswordsMailer)
+unless defined?(MASTODON_ROOT)
+  require File.expand_path("../../app/mailers/custom_passwords_mailer", __dir__) unless defined?(::CustomPasswordsMailer)
+end
 
 # Overrides::CredentialAccountSerializer lives outside NewsmastMastodon
 unless defined?(Overrides)
@@ -160,10 +163,13 @@ end
 # that specs describing e.g. `NewsmastMastodon::BrandColorHelper` resolve.
 module NewsmastMastodon
   BrandColorHelper              = ::BrandColorHelper              unless const_defined?(:BrandColorHelper, false)
+  NonChannelHelper              = ::NonChannelHelper              unless const_defined?(:NonChannelHelper, false)
   PatchworkHelper               = ::PatchworkHelper               unless const_defined?(:PatchworkHelper, false)
   LocalOnlyPosts                = ::LocalOnlyPosts                unless const_defined?(:LocalOnlyPosts, false)
   LongPost                      = ::LongPost                      unless const_defined?(:LongPost, false)
-  CustomPasswordsMailer         = ::CustomPasswordsMailer         unless const_defined?(:CustomPasswordsMailer, false)
+  if defined?(::CustomPasswordsMailer)
+    CustomPasswordsMailer       = ::CustomPasswordsMailer         unless const_defined?(:CustomPasswordsMailer, false)
+  end
 
   module Overrides
     CredentialAccountSerializer = ::Overrides::CredentialAccountSerializer unless const_defined?(:CredentialAccountSerializer, false)
