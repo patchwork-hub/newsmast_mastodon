@@ -17,8 +17,8 @@ namespace :newsmast_mastodon do
         "  1. Add to your Mastodon app's Gemfile:\n" \
         "       gem 'newsmast_mastodon', '4.5.11'\n" \
         "  2. Run: bundle install\n" \
-        "  3. Run: bin/rails db:migrate\n" \
-        "  4. Run: bin/rails newsmast_mastodon:install\n"
+        "  3. Run: bin/rails newsmast_mastodon:install\n" \
+        "  4. Run: bin/rails db:migrate\n"
       )
     end
 
@@ -35,7 +35,7 @@ namespace :newsmast_mastodon do
     puts "\n" + "=" * 70
     puts "NEXT STEPS"
     puts "=" * 70
-    puts "1. Ensure database migrations have been run:"
+    puts "1. Run database migrations:"
     puts "     bin/rails db:migrate"
     puts "\n2. Rebuild frontend assets with the updated files:"
     puts "     yarn build:development  # or yarn build:production"

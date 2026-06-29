@@ -44,19 +44,19 @@ Install dependencies:
 bundle install
 ```
 
-Run database migrations (the engine appends its own migrations to the host app):
-
-```bash
-bin/rails db:migrate
-```
-
 Install Chewy indexes and frontend overrides into the host app:
 
 ```bash
 bin/rails newsmast_mastodon:install
 ```
 
-If frontend files are copied/updated, rebuild frontend assets in the host app:
+Run database migrations (the engine appends its own migrations to the host app):
+
+```bash
+bin/rails db:migrate
+```
+
+If frontend files were copied/updated, rebuild frontend assets in the host app:
 
 ```bash
 yarn build:development
