@@ -1,0 +1,20 @@
+name: Auto Add Approved Issues to Project
+
+on:
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  add-to-project:
+    name: Add Issue to Project
+    runs-on: ubuntu-latest
+    if: "${{ vars.ADD_TO_PROJECT_ENABLED == 'true' && github.event.label.name == 'status: approved' }}"
+    steps:
+      - name: Add issue to GitHub project
+        uses: actions/add-to-project@v1.0.2
+        with:
+          project-url: ${{ vars.APPROVED_ISSUES_PROJECT_URL }}
+          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}

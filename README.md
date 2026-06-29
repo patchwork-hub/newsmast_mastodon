@@ -34,6 +34,11 @@ behavior.
 - Contribution and release process: [CONTRIBUTING.md](CONTRIBUTING.md)
 - Mastodon upgrade runbook: [docs/internal/mastodon-upgrade/RUNBOOK.md](docs/internal/mastodon-upgrade/RUNBOOK.md)
 
+Migration-aligned external references:
+
+- Foundation mastodon repo: https://github.com/TheNewsmastFoundation/newsmast-mastodon
+- Foundation documentation index: https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon
+
 ## Project scope
 
 This gem is maintained by Patchwork Hub and targets deployments that need the
