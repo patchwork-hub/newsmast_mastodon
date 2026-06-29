@@ -17,6 +17,17 @@ Newsmast feature set on top of Mastodon.
 If you need a generic Mastodon extension point without Newsmast-specific
 behavior, review your requirements before adopting this gem.
 
+## Maintainer workflow
+
+Project process and review ownership are documented here:
+
+- Contribution workflow: `CONTRIBUTING.md`
+- Maintainer roles and ownership: `MAINTAINERS.md`
+- Code ownership policy: `.github/CODEOWNERS`
+- Governance and merge policy: `GOVERNANCE.md`
+- Security reporting policy: `SECURITY.md`
+- Automated security scanning workflow: `.github/workflows/security.yml`
+
 ## What this gem adds
 
 - API endpoints under `api/v1` for Newsmast account and feed workflows
