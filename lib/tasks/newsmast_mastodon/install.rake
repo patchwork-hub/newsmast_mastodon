@@ -41,9 +41,9 @@ namespace :newsmast_mastodon do
     puts "=" * 70
   end
 
-  # -------------------
-  # Chewy index install
-  # -------------------
+  # =============================================
+  # Chewy indexes installation
+  # =============================================
   def install_chewy_indexes!(gem_root)
     source_path      = File.join(gem_root, "app", "chewy", "newsmast_mastodon")
     destination_path = Rails.root.join("app", "chewy")
@@ -66,15 +66,15 @@ namespace :newsmast_mastodon do
       transformed_content = content.gsub(/class\s+NewsmastMastodon::(\w+Index)\s+</, 'class \1 <')
 
       File.write(destination_file, transformed_content)
-      puts "  - Copied and transformed #{filename}"
+      puts "  ✓ Transformed #{filename}"
     end
 
-    puts "Chewy index files copied to #{destination_path}/"
+    puts "✓ Chewy indexes copied to #{destination_path}/"
   end
 
-  # ------------------------
-  # Frontend overrides install
-  # ------------------------
+  # =============================================
+  # Frontend overrides installation
+  # =============================================
   def install_frontend_overrides!(gem_root)
     overrides = [
       {
@@ -113,8 +113,7 @@ namespace :newsmast_mastodon do
         target = File.join(group[:target_root], target_rel)
 
         unless File.exist?(source)
-          error_msg = "CRITICAL: Missing UI file from gem: #{source_rel}"
-          puts "❌ #{error_msg}"
+          puts "  ❌ Missing: #{source_rel}"
           missing_files << { group: group[:label], file: source_rel, path: source }
           next
         end
@@ -122,18 +121,18 @@ namespace :newsmast_mastodon do
         FileUtils.mkdir_p(File.dirname(target))
         FileUtils.cp(source, target)
 
-        puts "✓ Copied #{group[:label]}: #{target_rel}"
+        puts "  ✓ Copied: #{target_rel}"
       end
     end
 
-    # If critical UI files are missing, fail the installation
+    # Fail if critical UI files are missing
     if missing_files.any?
       puts "\n" + "=" * 70
-      puts "INSTALLATION FAILED: Missing critical UI files"
+      puts "ERROR: Missing critical UI files"
       puts "=" * 70
       missing_files.each do |file_info|
-        puts "  - #{file_info[:group]}: #{file_info[:file]}"
-        puts "    Expected at: #{file_info[:path]}"
+        puts "  - [#{file_info[:group]}] #{file_info[:file]}"
+        puts "    Path: #{file_info[:path]}"
       end
       abort(
         "\nThe newsmast_mastodon gem appears to be incomplete or corrupted.\n" \
@@ -149,7 +148,7 @@ namespace :newsmast_mastodon do
       # Generated at: #{Time.current}
       # Do not delete this file unless you want to re-run the installation
     CONTENT
-    puts "Created installation marker file: .newsmast_mastodon_installed"
+    puts "✓ Created installation marker: .newsmast_mastodon_installed"
   end
 end
 
