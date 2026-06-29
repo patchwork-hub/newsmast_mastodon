@@ -8,6 +8,12 @@ host app with Newsmast features across accounts, content filtering,
 conversations, custom feeds, local-only posts, posting workflows, and timeline
 behavior.
 
+## Release and upgrade quick links
+
+- Release notes: `CHANGELOG.md`
+- Contribution and release process: `CONTRIBUTING.md`
+- Mastodon upgrade runbook: `docs/internal/mastodon-upgrade/RUNBOOK.md`
+
 ## Project scope
 
 This gem is maintained by Patchwork Hub and targets deployments that need the
