@@ -32,17 +32,13 @@ namespace :newsmast_mastodon do
 
     puts "\nnewsmast_mastodon has been successfully installed."
     puts "\n" + "=" * 70
-    puts "IMPORTANT: Run database migrations"
+    puts "NEXT STEPS"
     puts "=" * 70
-    puts "Database migrations are NOT run automatically. You must run them manually:"
-    puts "  bin/rails db:migrate"
-    puts "\nThis ensures:"
-    puts "  - Migrations run in the correct order with other app changes"
-    puts "  - You have full control over when schema changes occur"
-    puts "  - Production deployments can be safely scheduled"
+    puts "1. Ensure database migrations have been run:"
+    puts "     bin/rails db:migrate"
+    puts "\n2. Rebuild frontend assets with the updated files:"
+    puts "     yarn build:development  # or yarn build:production"
     puts "=" * 70
-    puts "\nFrontend assets were updated. Rebuild with:"
-    puts "  yarn build:development  # or yarn build:production"
   end
 
   # -------------------
