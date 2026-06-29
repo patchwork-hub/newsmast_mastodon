@@ -30,9 +30,9 @@ behavior.
 
 ## Release and upgrade quick links
 
-- Release notes: `CHANGELOG.md`
-- Contribution and release process: `CONTRIBUTING.md`
-- Mastodon upgrade runbook: `docs/internal/mastodon-upgrade/RUNBOOK.md`
+- Release notes: [CHANGELOG.md](CHANGELOG.md)
+- Contribution and release process: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Mastodon upgrade runbook: [docs/internal/mastodon-upgrade/RUNBOOK.md](docs/internal/mastodon-upgrade/RUNBOOK.md)
 
 ## Project scope
 
@@ -50,12 +50,12 @@ behavior, review your requirements before adopting this gem.
 
 Project process and review ownership are documented here:
 
-- Contribution workflow: `CONTRIBUTING.md`
-- Maintainer roles and ownership: `MAINTAINERS.md`
-- Code ownership policy: `.github/CODEOWNERS`
-- Governance and merge policy: `GOVERNANCE.md`
-- Security reporting policy: `SECURITY.md`
-- Automated security scanning workflow: `.github/workflows/security.yml`
+- Contribution workflow: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Maintainer roles and ownership: [MAINTAINERS.md](MAINTAINERS.md)
+- Code ownership policy: [.github/CODEOWNERS](.github/CODEOWNERS)
+- Governance and merge policy: [GOVERNANCE.md](GOVERNANCE.md)
+- Security reporting policy: [SECURITY.md](SECURITY.md)
+- Automated security scanning workflow: [.github/workflows/security.yml](.github/workflows/security.yml)
 
 ## What this gem adds
 
@@ -75,8 +75,8 @@ Key areas of the codebase and their responsibilities:
 - `app/controllers/newsmast_mastodon/api/v1/`: Newsmast API endpoints and request entry points.
 - `app/services/newsmast_mastodon/`: business logic for feeds, notifications, login, relay workflows, and integrations.
 - `app/lib/newsmast_mastodon/overrides/` and `app/models/concerns/newsmast_mastodon/`: host Mastodon extensions and behavior overrides.
-- `config/initializers/prepend_concerns.rb`: wiring that prepends/includes engine concerns into host classes.
-- `lib/newsmast_mastodon/engine.rb`: engine boot behavior, route mounting, migration path appends, host compatibility checks.
+- [config/initializers/prepend_concerns.rb](config/initializers/prepend_concerns.rb): wiring that prepends/includes engine concerns into host classes.
+- [lib/newsmast_mastodon/engine.rb](lib/newsmast_mastodon/engine.rb): engine boot behavior, route mounting, migration path appends, host compatibility checks.
 - `app/workers/newsmast_mastodon/`: async/background jobs.
 - `app/serializers/` and `app/presenters/`: API shaping and response presentation.
 - `db/migrate/`: engine migrations copied into the host app migration path.
@@ -156,13 +156,13 @@ The engine defines multiple `api/v1` routes, including:
 - `GET /.well-known/apple-app-site-association` — iOS Universal Links (AASA)
 - `GET /.well-known/assetlinks.json` — Android App Links
 
-See `config/routes.rb` for the full route list.
+See [config/routes.rb](config/routes.rb) for the full route list.
 
 ## Environment variables
 
 The full runtime variable reference is maintained in:
 
-- `docs/configuration/environment-variables.md`
+- [docs/configuration/environment-variables.md](docs/configuration/environment-variables.md)
 
 Quick index:
 
@@ -192,43 +192,43 @@ bundle exec rubocop
 For detailed local service setup, Docker-backed infrastructure runs, and test
 notes, see:
 
-- `docs/development/testing-and-local-services.md`
+- [docs/development/testing-and-local-services.md](docs/development/testing-and-local-services.md)
 
 ## CI jobs
 
 For the complete CI job matrix and requirements, see:
 
-- `docs/ci/jobs.md`
+- [docs/ci/jobs.md](docs/ci/jobs.md)
 
 ## API validation and system testing
 
 Use the API validation guide for route/documentation checks, Newman execution,
 smoke tests, and full check orchestration:
 
-- `docs/testing/api-validation-and-system-testing.md`
+- [docs/testing/api-validation-and-system-testing.md](docs/testing/api-validation-and-system-testing.md)
 
-Contribution process and standards are documented in `CONTRIBUTING.md`.
+Contribution process and standards are documented in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Community and support
 
-- Support and help channels: `SUPPORT.md`
-- Contribution workflow and policy: `CONTRIBUTING.md`
-- Security reporting process: `SECURITY.md`
-- Community code of conduct: `CODE_OF_CONDUCT.md`
-- Maintainer roles and ownership: `MAINTAINERS.md`
-- Project governance and merge policy: `GOVERNANCE.md`
+- Support and help channels: [SUPPORT.md](SUPPORT.md)
+- Contribution workflow and policy: [CONTRIBUTING.md](CONTRIBUTING.md)
+- Security reporting process: [SECURITY.md](SECURITY.md)
+- Community code of conduct: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+- Maintainer roles and ownership: [MAINTAINERS.md](MAINTAINERS.md)
+- Project governance and merge policy: [GOVERNANCE.md](GOVERNANCE.md)
 
 ## Troubleshooting
 
 Common troubleshooting notes are documented in:
 
-- `docs/troubleshooting/common-issues.md`
+- [docs/troubleshooting/common-issues.md](docs/troubleshooting/common-issues.md)
 
 ## Changelog
 
-See `CHANGELOG.md` for release notes.
+See [CHANGELOG.md](CHANGELOG.md) for release notes.
 
 ## License
 
 This project is licensed under the GNU Affero General Public License v3.0.
-See `LICENSE.txt` for details, and `NOTICE` for attribution guidance.
+See [LICENSE.txt](LICENSE.txt) for details, and [NOTICE](NOTICE) for attribution guidance.
