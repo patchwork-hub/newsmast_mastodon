@@ -424,6 +424,39 @@ Contribution process and standards are documented in `CONTRIBUTING.md`.
 - Maintainer roles and ownership: `MAINTAINERS.md`
 - Project governance and merge policy: `GOVERNANCE.md`
 
+## Troubleshooting
+
+### Commit fails with GPG signing error
+
+If commit signing is enabled but GPG is not configured correctly, commits can
+fail with errors such as `failed to write commit object`.
+
+Use one of the following:
+
+```bash
+git commit --no-gpg-sign -m "<message>"
+# or disable signing for this repository
+git config commit.gpgsign false
+```
+
+### Host-integration workflow shows variable/secret warnings in editors
+
+Some editors warn about unknown `vars.*` or `secrets.*` keys in
+`.github/workflows/ci.yml` for the optional `host-integration` job. This is
+expected when repository/org variables are not defined locally.
+
+Define these in repository settings if you use host integration:
+
+- `HOST_MASTODON_REPO`
+- `HOST_MASTODON_REF` (optional)
+- `HOST_MASTODON_TOKEN`
+
+### `bundle exec rake api:verify` route/doc mismatch on `{{id}}`
+
+If Postman paths use `{{id}}`, route verification should normalize that to
+`:id`. Ensure the verifier includes normalization for both explicit id aliases
+and bare `id` placeholders.
+
 ## Changelog
 
 See `CHANGELOG.md` for release notes.
