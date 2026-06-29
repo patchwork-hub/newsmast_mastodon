@@ -52,6 +52,11 @@ changes.
 - Prefer small, composable service objects over large controllers/models.
 - Add or update specs for every behavior change.
 
+## Configuration reference
+
+For runtime configuration variables, see
+[`docs/configuration/environment-variables.md`](docs/configuration/environment-variables.md).
+
 ## Commit message conventions
 
 We follow [Conventional Commits](https://www.conventionalcommits.org/):
