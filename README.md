@@ -48,6 +48,20 @@ Project process and review ownership are documented here:
 - Install task for Chewy indexes and frontend override files
 - Deep linking support for iOS Universal Links and Android App Links
 
+## Architecture overview
+
+Key areas of the codebase and their responsibilities:
+
+- `app/controllers/newsmast_mastodon/api/v1/`: Newsmast API endpoints and request entry points.
+- `app/services/newsmast_mastodon/`: business logic for feeds, notifications, login, relay workflows, and integrations.
+- `app/lib/newsmast_mastodon/overrides/` and `app/models/concerns/newsmast_mastodon/`: host Mastodon extensions and behavior overrides.
+- `config/initializers/prepend_concerns.rb`: wiring that prepends/includes engine concerns into host classes.
+- `lib/newsmast_mastodon/engine.rb`: engine boot behavior, route mounting, migration path appends, host compatibility checks.
+- `app/workers/newsmast_mastodon/`: async/background jobs.
+- `app/serializers/` and `app/presenters/`: API shaping and response presentation.
+- `db/migrate/`: engine migrations copied into the host app migration path.
+- `spec/`: standalone and compatibility test coverage.
+
 ## Installation
 
 Add the gem to your Mastodon host app with a strict version constraint:
