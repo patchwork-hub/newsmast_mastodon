@@ -6,7 +6,8 @@ require "simplecov"
 SimpleCov.start "rails" do
   add_filter "/spec/"
   add_filter "/test/"
-  minimum_coverage 0 # bump once real specs land (target: 80)
+  # CI can raise this gradually without breaking local contributor workflows.
+  minimum_coverage ENV.fetch("COVERAGE_MINIMUM", "0").to_i
 end unless SimpleCov.running
 
 # NOTE: newsmast_mastodon is loaded by the dummy app environment (via rails_helper),

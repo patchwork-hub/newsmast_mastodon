@@ -125,7 +125,12 @@ jobs:
           bundler-cache: true
 
       - name: Run specs
-        run: bundle exec rspec --format documentation
+        run: |
+          if [ "${{ matrix.ruby }}" = "3.3" ]; then
+            COVERAGE_MINIMUM=1 bundle exec rspec --format documentation
+          else
+            bundle exec rspec --format documentation
+          fi
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
