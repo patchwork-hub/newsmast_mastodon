@@ -7,6 +7,20 @@ require "fileutils"
 namespace :newsmast_mastodon do
   desc "Install newsmast_mastodon Chewy indexes and frontend overrides into the host Mastodon app"
   task install: :environment do
+    # Verify running in a Mastodon host app context
+    unless Object.const_defined?("Mastodon::Version")
+      abort(
+        "ERROR: newsmast_mastodon:install must be run in a Mastodon host application.\n" \
+        "This command copies UI-related files and Chewy indexes from the gem into the host app.\n" \
+        "\n" \
+        "Usage:\n" \
+        "  1. Add to your Mastodon app's Gemfile:\n" \
+        "       gem 'newsmast_mastodon', '4.5.11'\n" \
+        "  2. Run: bundle install\n" \
+        "  3. Run: bin/rails newsmast_mastodon:install\n"
+      )
+    end
+
     spec = Gem.loaded_specs["newsmast_mastodon"]
     abort "newsmast_mastodon gem not found" unless spec
 
@@ -82,6 +96,8 @@ namespace :newsmast_mastodon do
 
     puts "\nApplying newsmast_mastodon frontend overrides..."
 
+    missing_files = []
+
     overrides.each do |group|
       puts "\n#{group[:label]} overrides"
 
@@ -90,15 +106,32 @@ namespace :newsmast_mastodon do
         target = File.join(group[:target_root], target_rel)
 
         unless File.exist?(source)
-          puts "Missing source file: #{source_rel}"
+          error_msg = "CRITICAL: Missing UI file from gem: #{source_rel}"
+          puts "❌ #{error_msg}"
+          missing_files << { group: group[:label], file: source_rel, path: source }
           next
         end
 
         FileUtils.mkdir_p(File.dirname(target))
         FileUtils.cp(source, target)
 
-        puts "Copied #{group[:label]}: #{target_rel}"
+        puts "✓ Copied #{group[:label]}: #{target_rel}"
       end
+    end
+
+    # If critical UI files are missing, fail the installation
+    if missing_files.any?
+      puts "\n" + "=" * 70
+      puts "INSTALLATION FAILED: Missing critical UI files"
+      puts "=" * 70
+      missing_files.each do |file_info|
+        puts "  - #{file_info[:group]}: #{file_info[:file]}"
+        puts "    Expected at: #{file_info[:path]}"
+      end
+      abort(
+        "\nThe newsmast_mastodon gem appears to be incomplete or corrupted.\n" \
+        "Please verify the gem installation and try again."
+      )
     end
   end
 
