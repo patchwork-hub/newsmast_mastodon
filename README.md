@@ -2,9 +2,9 @@
 The Newsmast Mastodon gem extends a Mastodon server to provide functionality for content filters, posts management, account management, content channels and more. The gem interacts with the Newsmast Apps for Change mobile apps - customised mobile apps for Newsmast Communities, and the Newsmast Dashboard, which allows extended customisation of Mastodon server features and settings.
 
 ## Versioning
-Gems are versioned newsmast-PLATFORM-PLATFORM_MAJOR-PLATFORM_MINOR-GEM_VERSION
+Version tags map directly to Mastodon versions.
 
-e.g. newsmast-mastodon-4.5.2 is version 2 of the gem, intended to work with Mastodon 4.5
+For example, `4.5.11` is for Mastodon `4.5.11`.
 
 ## Prerequisites
 The plugin requires a matching version Mastodon service, and - dependent on intended use - may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard)
