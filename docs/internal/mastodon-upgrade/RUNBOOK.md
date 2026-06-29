@@ -30,7 +30,7 @@ constraint and never a long-lived git branch in production:
 
 ```ruby
 # patchwork-mastodon/Gemfile
-gem "newsmast_mastodon", "X.Y.Z"
+gem "newsmast_mastodon", "X.Y.Z.N"
 ```
 
 A git `branch:` source is permitted **only** during active upgrade development
@@ -43,7 +43,7 @@ compatibility drift.
 | Repo                 | Purpose            | Pattern                      | Example                      |
 | -------------------- | ------------------ | ---------------------------- | ---------------------------- |
 | `newsmast_mastodon`  | upgrade dev branch | `mastodon-X.Y.Z`             | `mastodon-4.5.12`            |
-| `newsmast_mastodon`  | release tag        | `vX.Y.Z`                     | `v4.5.12`                    |
+| `newsmast_mastodon`  | release tag        | `vX.Y.Z.N`                   | `v4.5.12.0`                  |
 | `patchwork-mastodon` | upgrade branch     | `csidnet-X.Y.Z`              | `csidnet-4.5.12`             |
 | `patchwork-mastodon` | deploy branch      | `csidnet-X.Y.Z-<stage>`      | `csidnet-4.5.12-production`  |
 
@@ -63,7 +63,7 @@ UPGRADE_BRANCH: csidnet-<TO_VERSION>
 CORE_REMOTE:    https://github.com/mastodon/mastodon.git
 GEM_REPO:       https://github.com/patchwork-hub/newsmast_mastodon
 GEM_DEV_BRANCH: mastodon-<TO_VERSION>
-GEM_VERSION:    <TO_VERSION>   # released gem version pinned by the host
+GEM_VERSION:    <TO_VERSION>.0 # released gem version pinned by the host
 ```
 
 ## What to collect for each release
@@ -85,7 +85,7 @@ The upgrade spans two repos and must happen in this order:
 flowchart TD
     A[Phase A-B: host merges upstream tag] --> B[Phase C: gem dev branch + host points at branch]
     B --> C[Phase D-E: migrate, boot, verify, drift check]
-    C --> D[Phase RELEASE: tag & publish gem vX.Y.Z to RubyGems]
+   C --> D[Phase RELEASE: tag & publish gem vX.Y.Z.N to RubyGems]
     D --> E[Phase F: host swaps branch -> exact version pin, ship to staging]
     E --> F[Phase G: production]
 ```
@@ -143,7 +143,7 @@ Then:
 
 2. Update the compatibility contract:
 
-   - [ ] `lib/newsmast_mastodon/version.rb` → `VERSION = "<TO_VERSION>"`
+   - [ ] `lib/newsmast_mastodon/version.rb` → `VERSION = "<TO_VERSION>.0"`
    - [ ] `newsmast_mastodon.gemspec` → `mastodon_version_requirement = "<TO_VERSION>"`
    - [ ] `README.md` compatibility section
    - [ ] `CHANGELOG.md` (`Unreleased` → new section)
@@ -266,8 +266,8 @@ Only after all Phase E gates pass on the gem dev branch:
 
    ```bash
    git checkout main && git pull --ff-only
-   git tag -s v<TO_VERSION> -m "Release v<TO_VERSION>"
-   git push origin v<TO_VERSION>
+   git tag -s v<GEM_VERSION> -m "Release v<GEM_VERSION>"
+   git push origin v<GEM_VERSION>
    ```
 
 3. Confirm the version is live on RubyGems.
@@ -277,7 +277,7 @@ Only after all Phase E gates pass on the gem dev branch:
 1. Replace the temporary branch source with the released, exact pin:
 
    ```ruby
-   gem "newsmast_mastodon", "<TO_VERSION>"
+   gem "newsmast_mastodon", "<GEM_VERSION>"
    ```
 
    ```bash

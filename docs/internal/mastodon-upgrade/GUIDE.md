@@ -56,7 +56,7 @@ that wasn't ready, the two would drift apart and break at boot. So the rule is:
 | Concept | What it means | Where it lives |
 | --- | --- | --- |
 | **Compatibility contract** | The gem's declared target Mastodon version. Must match the host's actual version at boot. | `newsmast_mastodon.gemspec`, `lib/newsmast_mastodon/version.rb` |
-| **Exact version pin** | Production host always pins `gem "newsmast_mastodon", "X.Y.Z"` — never a branch. | `patchwork-mastodon/Gemfile` |
+| **Exact version pin** | Production host always pins `gem "newsmast_mastodon", "X.Y.Z.N"` — never a branch. | `patchwork-mastodon/Gemfile` |
 | **Temporary branch source** | During development only, the host may point at the gem's dev branch. Must be removed before staging. | `patchwork-mastodon/Gemfile` |
 | **Idempotent migrations** | Gem migrations must be safe to run even if upstream already added the column/table (`if_not_exists`, `column_exists?`). | gem `db/migrate/` |
 | **Vendored overrides** | The gem ships copies of some upstream frontend/view files. If upstream changes them, our copies must be re-based or they silently regress. | gem frontend overrides |
@@ -160,8 +160,8 @@ Only after every Phase E gate is green: open a PR `mastodon-X.Y.Z → main`, mer
 on green CI, then tag and push:
 
 ```bash
-git tag -s vX.Y.Z -m "Release vX.Y.Z"
-git push origin vX.Y.Z
+git tag -s vX.Y.Z.N -m "Release vX.Y.Z.N"
+git push origin vX.Y.Z.N
 ```
 
 Confirm it's live on RubyGems. See [`release.md`](./release.md) for details.
@@ -171,7 +171,7 @@ Confirm it's live on RubyGems. See [`release.md`](./release.md) for details.
 Swap the temporary branch source for the exact released pin:
 
 ```ruby
-gem "newsmast_mastodon", "X.Y.Z"
+gem "newsmast_mastodon", "X.Y.Z.N"
 ```
 
 `bundle install`, push the upgrade branch, deploy to staging, re-run the smoke
@@ -218,7 +218,7 @@ Don't panic — the path back is defined:
 | Repo | Purpose | Pattern | Example |
 | --- | --- | --- | --- |
 | `newsmast_mastodon` | upgrade dev branch | `mastodon-X.Y.Z` | `mastodon-4.5.12` |
-| `newsmast_mastodon` | release tag | `vX.Y.Z` | `v4.5.12` |
+| `newsmast_mastodon` | release tag | `vX.Y.Z.N` | `v4.5.12.0` |
 | `patchwork-mastodon` | upgrade branch | `csidnet-X.Y.Z` | `csidnet-4.5.12` |
 | `patchwork-mastodon` | deploy branch | `csidnet-X.Y.Z-<stage>` | `csidnet-4.5.12-production` |
 
