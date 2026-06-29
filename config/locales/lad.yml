@@ -1,75 +1,81 @@
+---
 lad:
   locale:
-    name: "Ladino"
-    native_name: "Ladino"
+    name: Ladino
+    native_name: Ladino
   notification:
     poll:
-      ended_you: "Tu encuesta a terminado"
-      ended_voted: "Una encuesta en la ke votates a terminado"
+      ended_you: Tu encuesta a terminado
+      ended_voted: Una encuesta en la ke votates a terminado
     mention:
       direct_message: "%{name} te mando un mensaji"
-      conversation_request: "Tenésh una mueva demanda de konversasión."
+      conversation_request: Tenésh una mueva demanda de konversasión.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kerido/a %{name},"
-      instruction: "El kod de verifikasyon OTP de tu kuenta es:"
-      note: "Si no pedites esto, por favor ignora este email"
+      greeting: Kerido/a %{name},
+      instruction: 'El kod de verifikasyon OTP de tu kuenta es:'
+      note: Si no pedites esto, por favor ignora este email
   login_service:
     errors:
-      invalid_credentials: "Kredensiales invalidas. Intenta de nuevo"
-      unauthorized_access: "No tienes akeso para entrar"
-      channel_not_created: "Kredensiales invalidas. Asegurate ke kreaste un kanal"
-      account_deleted: "Tu kuenta ya es eliminada"
+      invalid_credentials: Kredensiales invalidas. Intenta de nuevo
+      unauthorized_access: No tienes akeso para entrar
+      channel_not_created: Kredensiales invalidas. Asegurate ke kreaste un kanal
+      account_deleted: Tu kuenta ya es eliminada
       invalid_role_access: "%{role} no tiene permisu para entrar"
-      deactivated_channel: "Tu kanal es desaktivado. Kontakta el suport"
-      two_factor_enabled: "La autentifikasyon de dos faktores está aktivada. Merkad entrar kon la interfaz web"
+      deactivated_channel: Tu kanal es desaktivado. Kontakta el suport
+      two_factor_enabled: La autentifikasyon de dos faktores está aktivada. Merkad
+        entrar kon la interfaz web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "No tienes permisu para hazer esta akzion"
-      forbidden: "Akeso denegado!"
-      not_found: "Recurso no enkontrado"
-      unprocessable_entity: "La demanda no pudo ser prosesada"
-      internal_server_error: "Ocurrió un eror interno del servidor"
-      validation_failed: "Validasyon fallida!"
-      invalid_request: "Demanda invalida!"
-      rate_limit_exceeded: "Limite de demandas superado. Intenta mas tadre"
+      unauthorized: No tienes permisu para hazer esta akzion
+      forbidden: Akeso denegado!
+      not_found: Recurso no enkontrado
+      unprocessable_entity: La demanda no pudo ser prosesada
+      internal_server_error: Ocurrió un eror interno del servidor
+      validation_failed: Validasyon fallida!
+      invalid_request: Demanda invalida!
+      rate_limit_exceeded: Limite de demandas superado. Intenta mas tadre
     messages:
-      success: "Operacion kompletada kon exito"
-      created: "Recurso kreado kon exito"
-      updated: "Recurso aktualizado kon exito"
-      deleted: "Recurso eliminado kon exito"
+      success: Operacion kompletada kon exito
+      created: Recurso kreado kon exito
+      updated: Recurso aktualizado kon exito
+      deleted: Recurso eliminado kon exito
     notification:
       messages:
-        token_already_exists: "El token de notifikasyon ya existe"
-        token_saved: "Token de notifikasyon salvado"
-        token_deleted: "Token de notifikasyon eliminado kon exito"
-        token_not_found: "No se enkontraron tokens de notifikasyon"
-        mute_updated: "Estado de silensio aktualizado kon exito"
+        token_already_exists: El token de notifikasyon ya existe
+        token_saved: Token de notifikasyon salvado
+        token_deleted: Token de notifikasyon eliminado kon exito
+        token_not_found: No se enkontraron tokens de notifikasyon
+        mute_updated: Estado de silensio aktualizado kon exito
     account:
       errors:
-        email_not_found: "Imail no enkontrado!"
-        email_invalid: "Formato de imail invalido"
-        email_taken: "Imail ya es uzado"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "La aktualizasion del imail no tuvo exito"
-        password_unmatch: "Las kontraseñas no korespondan"
-        password_update_fail: "La aktualizasion de la kontraseña no tuvo exito"
-        otp_invalid: "OTP invalido!"
-        register_not_allow: "No tienes permisu para registrarte!"
-        missing_field: "Faltan kampos requeridos"
-        password_incorrect: "La kontraseña aktual es inkorekta"
-        username_taken: "El nombre de uzario ya es uzado"
+        email_not_found: Imail no enkontrado!
+        email_invalid: Formato de imail invalido
+        email_taken: Imail ya es uzado
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: La aktualizasion del imail no tuvo exito
+        password_unmatch: Las kontraseñas no korespondan
+        password_update_fail: La aktualizasion de la kontraseña no tuvo exito
+        otp_invalid: OTP invalido!
+        register_not_allow: No tienes permisu para registrarte!
+        missing_field: Faltan kampos requeridos
+        password_incorrect: La kontraseña aktual es inkorekta
+        username_taken: El nombre de uzario ya es uzado
       messages:
-        password_updated: "La kontraseña fue aktualizada"
+        password_updated: La kontraseña fue aktualizada
     domain:
       messages:
-        dns_verified: "El DNS es konfigurado korrektamente"
+        dns_verified: El DNS es konfigurado korrektamente
     conversation:
       messages:
         marked_read: "%{updated_count} konversasyon(es) markada(s) komo leida(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Rreacsyon no reknosidia
+      emoji_limit_exceeded: Limite di emoji superada

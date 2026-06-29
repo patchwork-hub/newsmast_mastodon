@@ -1,74 +1,82 @@
+---
 my:
   locale:
-    name: "Burmese"
-    native_name: "မြန်မာ"
+    name: Burmese
+    native_name: မြန်မာ
   notification:
     poll:
-      ended_you: "သင့်မဲပေးမှု ပြီးဆုံးပါပြီ"
-      ended_voted: "သင့်မဲပေးခဲ့သော မဲပေးမှု ပြီးဆုံးပါပြီ"
+      ended_you: သင့်မဲပေးမှု ပြီးဆုံးပါပြီ
+      ended_voted: သင့်မဲပေးခဲ့သော မဲပေးမှု ပြီးဆုံးပါပြီ
     mention:
       direct_message: "%{name} သည် သင့်အား မက်ဆေ့ခ်ျ ပို့လိုက်သည်"
-      conversation_request: "သင့်တွင် စကားပြောဆိုမှု တောင်းဆိုချက်အသစ် ရှိသည်။"
+      conversation_request: သင့်တွင် စကားပြောဆိုမှု တောင်းဆိုချက်အသစ် ရှိသည်။
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ချစ်ရပါသော %{name}၊"
-      instruction: "သင့်အကောင့်အတည်ပြု OTP ကုဒ်မှာ:"
-      note: "သင်မတောင်းဆိုခဲ့ပါက ဤအီးမေးလ်ကို လျစ်လျူရှုပါ"
+      greeting: ချစ်ရပါသော %{name}၊
+      instruction: 'သင့်အကောင့်အတည်ပြု OTP ကုဒ်မှာ:'
+      note: သင်မတောင်းဆိုခဲ့ပါက ဤအီးမေးလ်ကို လျစ်လျူရှုပါ
   login_service:
     errors:
-      invalid_credentials: "မမှန်ကန်သော အချက်အလက်များ။ ထပ်မံကြိုးစားပါ"
-      unauthorized_access: "သင်ဝင်ရောက်ရန် ခွင့်မရှိပါ"
-      channel_not_created: "မမှန်ကန်သော အချက်အလက်များ။ ချန်နယ်တစ်ခု ဖန်တီးပြီးကြောင်း သေချာပါစေ"
-      account_deleted: "သင့်အကောင့်ကို ဖျက်ပြီးဖြစ်သည်"
+      invalid_credentials: မမှန်ကန်သော အချက်အလက်များ။ ထပ်မံကြိုးစားပါ
+      unauthorized_access: သင်ဝင်ရောက်ရန် ခွင့်မရှိပါ
+      channel_not_created: မမှန်ကန်သော အချက်အလက်များ။ ချန်နယ်တစ်ခု ဖန်တီးပြီးကြောင်း
+        သေချာပါစေ
+      account_deleted: သင့်အကောင့်ကို ဖျက်ပြီးဖြစ်သည်
       invalid_role_access: "%{role} သည် ဝင်ရောက်ခွင့်မရှိပါ"
-      deactivated_channel: "သင့်ချန်နယ်ကို ပိတ်ထားသည်။ အထောက်အပံ့ကို ဆက်သွယ်ပါ"
-      two_factor_enabled: "နှစ်ထပ်အတည်ပြုခြင်း ဖွင့်ထားသည်။ ကျေးဇူးပြု၍ ဝဘ်အင်တာဖေ့စ်ဖြင့် ဝင်ရောက်ပါ"
+      deactivated_channel: သင့်ချန်နယ်ကို ပိတ်ထားသည်။ အထောက်အပံ့ကို ဆက်သွယ်ပါ
+      two_factor_enabled: နှစ်ထပ်အတည်ပြုခြင်း ဖွင့်ထားသည်။ ကျေးဇူးပြု၍ ဝဘ်အင်တာဖေ့စ်ဖြင့်
+        ဝင်ရောက်ပါ
   bristolcable_login_service:
     errors:
-      invalid_credentials: "သပ်မန်ကြိုးစားပါ။ beebee.io ကန် မမှန်ကန်စိုသာ အချက်အလက်များ"
-      registration_required: "ကျူနာ ရန်ထာရန်တွင် အကောင့် ဖန်တီးပါ။ ဒေတာ: %{data}"
-      connection_error: "အမျိုးစာထည်း စေဝာတွင် ခိုင်နေပိုပါက အရောင်း: %{error}" 
+      invalid_credentials: သပ်မန်ကြိုးစားပါ။ beebee.io ကန် မမှန်ကန်စိုသာ အချက်အလက်များ
+      registration_required: 'ကျူနာ ရန်ထာရန်တွင် အကောင့် ဖန်တီးပါ။ ဒေတာ: %{data}'
+      connection_error: 'အမျိုးစာထည်း စေဝာတွင် ခိုင်နေပိုပါက အရောင်း: %{error}'
   api:
     errors:
-      unauthorized: "ဤလုပ်ဆောင်မှုကို ပြုလုပ်ရန် သင့်အား ခွင့်မပြုပါ"
-      forbidden: "ဝင်ရောက်ခွင့် ငြင်းပယ်ခြင်း!"
-      not_found: "အရင်းအမြစ် မတွေ့ပါ"
-      unprocessable_entity: "တောင်းဆိုမှုကို ဆောင်ရွက်၍ မရပါ"
-      internal_server_error: "ဆာဗာအတွင်းပိုင်း အမှား ဖြစ်ပွားခဲ့သည်"
-      validation_failed: "အတည်ပြုမှု မအောင်မြင်ပါ!"
-      invalid_request: "မမှန်ကန်သော တောင်းဆိုမှု!"
-      rate_limit_exceeded: "တောင်းဆိုမှု အရေအတွက်ကျော်လွန်သည်။ နောက်မှ ထပ်မံကြိုးစားပါ"
+      unauthorized: ဤလုပ်ဆောင်မှုကို ပြုလုပ်ရန် သင့်အား ခွင့်မပြုပါ
+      forbidden: ဝင်ရောက်ခွင့် ငြင်းပယ်ခြင်း!
+      not_found: အရင်းအမြစ် မတွေ့ပါ
+      unprocessable_entity: တောင်းဆိုမှုကို ဆောင်ရွက်၍ မရပါ
+      internal_server_error: ဆာဗာအတွင်းပိုင်း အမှား ဖြစ်ပွားခဲ့သည်
+      validation_failed: အတည်ပြုမှု မအောင်မြင်ပါ!
+      invalid_request: မမှန်ကန်သော တောင်းဆိုမှု!
+      rate_limit_exceeded: တောင်းဆိုမှု အရေအတွက်ကျော်လွန်သည်။ နောက်မှ ထပ်မံကြိုးစားပါ
     messages:
-      success: "လုပ်ဆောင်မှု အောင်မြင်စွာ ပြီးဆုံးပါသည်"
-      created: "အရင်းအမြစ်ကို အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ"
-      updated: "အရင်းအမြစ်ကို အောင်မြင်စွာ ပြင်ဆင်ပြီးပါပြီ"
-      deleted: "အရင်းအမြစ်ကို အောင်မြင်စွာ ဖျက်ပြီးပါပြီ"
+      success: လုပ်ဆောင်မှု အောင်မြင်စွာ ပြီးဆုံးပါသည်
+      created: အရင်းအမြစ်ကို အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ
+      updated: အရင်းအမြစ်ကို အောင်မြင်စွာ ပြင်ဆင်ပြီးပါပြီ
+      deleted: အရင်းအမြစ်ကို အောင်မြင်စွာ ဖျက်ပြီးပါပြီ
     notification:
       messages:
-        token_already_exists: "အသိပေးသည့် token ရှိပြီးသားဖြစ်သည်"
-        token_saved: "အသိပေးသည့် token ကို သိမ်းဆည်းပြီးပါပြီ"
-        token_deleted: "အသိပေးသည့် token ကို အောင်မြင်စွာ ဖျက်ပြီးပါပြီ"
-        token_not_found: "အသိပေးသည့် token မတွေ့ပါ"
-        mute_updated: "အသံပိတ်အခြေအနေကို အောင်မြင်စွာ ပြင်ဆင်ပြီးပါပြီ"
+        token_already_exists: အသိပေးသည့် token ရှိပြီးသားဖြစ်သည်
+        token_saved: အသိပေးသည့် token ကို သိမ်းဆည်းပြီးပါပြီ
+        token_deleted: အသိပေးသည့် token ကို အောင်မြင်စွာ ဖျက်ပြီးပါပြီ
+        token_not_found: အသိပေးသည့် token မတွေ့ပါ
+        mute_updated: အသံပိတ်အခြေအနေကို အောင်မြင်စွာ ပြင်ဆင်ပြီးပါပြီ
     account:
       errors:
-        email_not_found: "အီးမေးလ် မတွေ့ပါ!"
-        email_invalid: "အီးမေးလ် ပုံစံ မမှန်ကန်ပါ"
-        email_taken: "အီးမေးလ်ကို အသုံးပြုပြီးဖြစ်သည်"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "အီးမေးလ် ပြင်ဆင်မှု မအောင်မြင်ပါ"
-        password_unmatch: "စကားဝှက်များ မတူညီပါ"
-        password_update_fail: "စကားဝှက် ပြင်ဆင်မှု မအောင်မြင်ပါ"
-        otp_invalid: "OTP မမှန်ကန်ပါ!"
-        register_not_allow: "သင် စာရင်းသွင်းခွင့် မရှိပါ!"
-        missing_field: "လိုအပ်သော အကွက်များ မရှိပါ"
-        password_incorrect: "လက်ရှိ စကားဝှက် မှားယွင်းနေပါသည်"
-        username_taken: "အသုံးပြုသူအမည်ကို အသုံးပြုပြီးဖြစ်သည်"
+        email_not_found: အီးမေးလ် မတွေ့ပါ!
+        email_invalid: အီးမေးလ် ပုံစံ မမှန်ကန်ပါ
+        email_taken: အီးမေးလ်ကို အသုံးပြုပြီးဖြစ်သည်
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: အီးမေးလ် ပြင်ဆင်မှု မအောင်မြင်ပါ
+        password_unmatch: စကားဝှက်များ မတူညီပါ
+        password_update_fail: စကားဝှက် ပြင်ဆင်မှု မအောင်မြင်ပါ
+        otp_invalid: OTP မမှန်ကန်ပါ!
+        register_not_allow: သင် စာရင်းသွင်းခွင့် မရှိပါ!
+        missing_field: လိုအပ်သော အကွက်များ မရှိပါ
+        password_incorrect: လက်ရှိ စကားဝှက် မှားယွင်းနေပါသည်
+        username_taken: အသုံးပြုသူအမည်ကို အသုံးပြုပြီးဖြစ်သည်
       messages:
-        password_updated: "စကားဝှက် ပြင်ဆင်ပြီးပါပြီ"
+        password_updated: စကားဝှက် ပြင်ဆင်ပြီးပါပြီ
     domain:
       messages:
-        dns_verified: "DNS ကို မှန်ကန်စွာ ပြင်ဆင်ပြီးပါပြီ"
+        dns_verified: DNS ကို မှန်ကန်စွာ ပြင်ဆင်ပြီးပါပြီ
     conversation:
       messages:
         marked_read: "%{updated_count} စကားပြောချက်(များ) ကို ဖတ်ပြီးဟု သတ်မှတ်ခဲ့သည်"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: တုံ့ပြန်မှု မသိရှိ
+      emoji_limit_exceeded: အီမိုဂျီ ကန့်သတ်မှု ကျော်လွန်

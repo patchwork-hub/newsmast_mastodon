@@ -1,74 +1,82 @@
+---
 si:
   locale:
-    name: "Sinhala"
-    native_name: "සිංහල"
+    name: Sinhala
+    native_name: සිංහල
   notification:
     poll:
-      ended_you: "ඔබගේ ඡන්ද විමසුම අවසන්විය"
-      ended_voted: "ඔබ ඡන්දය දුන් විමසුම අවසන්විය"
+      ended_you: ඔබගේ ඡන්ද විමසුම අවසන්විය
+      ended_voted: ඔබ ඡන්දය දුන් විමසුම අවසන්විය
     mention:
       direct_message: "%{name} ඔබට පණිවිඩයක් එවීය"
-      conversation_request: "ඔබට නව සංවාද ඉල්ලීමක් ඇත."
+      conversation_request: ඔබට නව සංවාද ඉල්ලීමක් ඇත.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ප්‍රිය %{name},"
-      instruction: "ඔබගේ ගිණුම් සත්‍යාපන OTP කේතය මෙන්න:"
-      note: "ඔබ මෙය ඉල්ලීම් කර නැත්නම්, කරුණාකර මෙම විද්‍යුත් තැපෑල නොසලකා හරින්න"
+      greeting: ප්‍රිය %{name},
+      instruction: 'ඔබගේ ගිණුම් සත්‍යාපන OTP කේතය මෙන්න:'
+      note: ඔබ මෙය ඉල්ලීම් කර නැත්නම්, කරුණාකර මෙම විද්‍යුත් තැපෑල නොසලකා හරින්න
   login_service:
     errors:
-      invalid_credentials: "අවලංගු අක්තපත්‍ර. කරුණාකර නැවත උත්සාහ කරන්න"
-      unauthorized_access: "ඔබට පුරනය වීමට අවසර නැත"
-      channel_not_created: "අවලංගු අක්තපත්‍ර. කරුණාකර ඔබ නාලිකාවක් නිර්මාණය කර ඇති බව සහතික කරන්න"
-      account_deleted: "ඔබගේ ගිණුම දැනටමත් මකා ඇත"
+      invalid_credentials: අවලංගු අක්තපත්‍ර. කරුණාකර නැවත උත්සාහ කරන්න
+      unauthorized_access: ඔබට පුරනය වීමට අවසර නැත
+      channel_not_created: අවලංගු අක්තපත්‍ර. කරුණාකර ඔබ නාලිකාවක් නිර්මාණය කර ඇති
+        බව සහතික කරන්න
+      account_deleted: ඔබගේ ගිණුම දැනටමත් මකා ඇත
       invalid_role_access: "%{role} ට පුරනය වීමට අවසර නැත"
-      deactivated_channel: "ඔබගේ නාලිකාව අක්‍රියයි. සහාය අමතන්න"
-      two_factor_enabled: "ද්වි-සාධක සත්‍යාපනය සක්‍රිය කර ඇත. කරුණාකර වෙබ් අතුරු මුහුණත හරහා පිවිසෙන්න"
+      deactivated_channel: ඔබගේ නාලිකාව අක්‍රියයි. සහාය අමතන්න
+      two_factor_enabled: ද්වි-සාධක සත්‍යාපනය සක්‍රිය කර ඇත. කරුණාකර වෙබ් අතුරු මුහුණත
+        හරහා පිවිසෙන්න
   bristolcable_login_service:
     errors:
-      invalid_credentials: "කරුණාකර නැවත ඉත්සාහ කරන්න. beebee.io වලින් අවලංගු අක්තපත්‍ර"
-      registration_required: "කරුණාකර ස්ථානික ගිණුමක් රජිස්ටර් කරන්න. දත්ත: %{data}"
-      connection_error: "සමාජික සේවාවට සම්බන්ධ වීමේ දෝෂය: %{error}"
+      invalid_credentials: කරුණාකර නැවත ඉත්සාහ කරන්න. beebee.io වලින් අවලංගු අක්තපත්‍ර
+      registration_required: 'කරුණාකර ස්ථානික ගිණුමක් රජිස්ටර් කරන්න. දත්ත: %{data}'
+      connection_error: 'සමාජික සේවාවට සම්බන්ධ වීමේ දෝෂය: %{error}'
   api:
     errors:
-      unauthorized: "ඔබට මෙම ක්‍රියාව සිදු කිරීමට අවසර නැත"
-      forbidden: "ප්‍රවේශය ප්‍රතික්ෂේප විය!"
-      not_found: "සම්පත හමු නොවීය"
-      unprocessable_entity: "ඉල්ලීම සැකසිය නොහැක"
-      internal_server_error: "අභ්‍යන්තර සේවාදායක දෝෂයක් ඇතිවිය"
-      validation_failed: "වලංගු කිරීම අසාර්ථකයි!"
-      invalid_request: "අවලංගු ඉල්ලීමක්!"
-      rate_limit_exceeded: "ඉල්ලීම් සීමාව ඉක්මවා ඇත. කරුණාකර පසුව උත්සාහ කරන්න"
+      unauthorized: ඔබට මෙම ක්‍රියාව සිදු කිරීමට අවසර නැත
+      forbidden: ප්‍රවේශය ප්‍රතික්ෂේප විය!
+      not_found: සම්පත හමු නොවීය
+      unprocessable_entity: ඉල්ලීම සැකසිය නොහැක
+      internal_server_error: අභ්‍යන්තර සේවාදායක දෝෂයක් ඇතිවිය
+      validation_failed: වලංගු කිරීම අසාර්ථකයි!
+      invalid_request: අවලංගු ඉල්ලීමක්!
+      rate_limit_exceeded: ඉල්ලීම් සීමාව ඉක්මවා ඇත. කරුණාකර පසුව උත්සාහ කරන්න
     messages:
-      success: "මෙහෙයුම සාර්ථකව නිමවිය"
-      created: "සම්පත සාර්ථකව නිර්මාණය කරන ලදී"
-      updated: "සම්පත සාර්ථකව යාවත්කාලීන කරන ලදී"
-      deleted: "සම්පත සාර්ථකව මකා ඇත"
+      success: මෙහෙයුම සාර්ථකව නිමවිය
+      created: සම්පත සාර්ථකව නිර්මාණය කරන ලදී
+      updated: සම්පත සාර්ථකව යාවත්කාලීන කරන ලදී
+      deleted: සම්පත සාර්ථකව මකා ඇත
     notification:
       messages:
-        token_already_exists: "දැනුම්දීමේ ටෝකනය දැනටමත් ඇත"
-        token_saved: "දැනුම්දීමේ ටෝකනය සුරැකිණි"
-        token_deleted: "දැනුම්දීමේ ටෝකනය සාර්ථකව මකා ඇත"
-        token_not_found: "දැනුම්දීමේ ටෝකන හමු නොවීය"
-        mute_updated: "නිශ්ශබ්ද තත්ත්වය සාර්ථකව යාවත්කාලීන කරන ලදී"
+        token_already_exists: දැනුම්දීමේ ටෝකනය දැනටමත් ඇත
+        token_saved: දැනුම්දීමේ ටෝකනය සුරැකිණි
+        token_deleted: දැනුම්දීමේ ටෝකනය සාර්ථකව මකා ඇත
+        token_not_found: දැනුම්දීමේ ටෝකන හමු නොවීය
+        mute_updated: නිශ්ශබ්ද තත්ත්වය සාර්ථකව යාවත්කාලීන කරන ලදී
     account:
       errors:
-        email_not_found: "ඊමේල් හමු නොවීය!"
-        email_invalid: "අවලංගු ඊමේල් ආකෘතිය"
-        email_taken: "ඊමේල් දැනටමත් භාවිතා වේ"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ඊමේල් යාවත්කාලීන කිරීම අසාර්ථකයි"
-        password_unmatch: "මුරපද නොගැලපේ"
-        password_update_fail: "මුරපද යාවත්කාලීන කිරීම අසාර්ථකයි"
-        otp_invalid: "අවලංගු OTP!"
-        register_not_allow: "ඔබට ලියාපදිංචි වීමට අවසර නැත!"
-        missing_field: "අවශ්‍ය ක්ෂේත්‍ර අහිමිව ඇත"
-        password_incorrect: "වත්මන් මුරපදය වැරදියි"
-        username_taken: "පරිශීලක නාමය දැනටමත් භාවිතා වේ"
+        email_not_found: ඊමේල් හමු නොවීය!
+        email_invalid: අවලංගු ඊමේල් ආකෘතිය
+        email_taken: ඊමේල් දැනටමත් භාවිතා වේ
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ඊමේල් යාවත්කාලීන කිරීම අසාර්ථකයි
+        password_unmatch: මුරපද නොගැලපේ
+        password_update_fail: මුරපද යාවත්කාලීන කිරීම අසාර්ථකයි
+        otp_invalid: අවලංගු OTP!
+        register_not_allow: ඔබට ලියාපදිංචි වීමට අවසර නැත!
+        missing_field: අවශ්‍ය ක්ෂේත්‍ර අහිමිව ඇත
+        password_incorrect: වත්මන් මුරපදය වැරදියි
+        username_taken: පරිශීලක නාමය දැනටමත් භාවිතා වේ
       messages:
-        password_updated: "මුරපදය යාවත්කාලීන කරන ලදී"
+        password_updated: මුරපදය යාවත්කාලීන කරන ලදී
     domain:
       messages:
-        dns_verified: "DNS නිවැරදිව වින්‍යාස කර ඇත"
+        dns_verified: DNS නිවැරදිව වින්‍යාස කර ඇත
     conversation:
       messages:
         marked_read: "%{updated_count} සංවාද(ය/යන්) කියවූ ලෙස සලකුණු කරන ලදී"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ප්‍රතිකර්ම පිළිගනු ලැබුණේ නැත
+      emoji_limit_exceeded: ඉමෝජි සීමාව превышена

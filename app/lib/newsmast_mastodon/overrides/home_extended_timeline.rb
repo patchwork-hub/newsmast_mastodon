@@ -5,7 +5,26 @@
 module NewsmastMastodon
   module Overrides
     module HomeExtendedTimeline
+      include TimelinePatchworkPostReactions
+
       DEFAULT_STATUSES_LIMIT = 20
+
+      def show
+        with_read_replica do
+          @statuses = load_statuses
+          @relationships = StatusRelationshipsPresenter.new(@statuses, current_user&.account_id)
+          @patchwork_post_reactions = build_patchwork_post_reactions(@statuses)
+        end
+
+        add_async_refresh_header(account_home_feed.async_refresh, retry_seconds: 5)
+
+        render json: @statuses,
+               each_serializer: REST::StatusSerializer,
+               relationships: @relationships,
+               include_patchwork_post_reactions: true,
+               patchwork_post_reactions: @patchwork_post_reactions,
+               status: account_home_feed.regenerating? ? 206 : 200
+      end
 
       def home_statuses
         account_home_feed.get(

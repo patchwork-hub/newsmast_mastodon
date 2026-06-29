@@ -1,75 +1,83 @@
+---
 cy:
   locale:
-    name: "Welsh"
-    native_name: "Cymraeg"
+    name: Welsh
+    native_name: Cymraeg
   notification:
     poll:
-      ended_you: "Mae eich pôl wedi dod i ben"
-      ended_voted: "Mae pôl y gwnaethoch bleidleisio ynddo wedi dod i ben"
+      ended_you: Mae eich pôl wedi dod i ben
+      ended_voted: Mae pôl y gwnaethoch bleidleisio ynddo wedi dod i ben
     mention:
       direct_message: "%{name} anfonodd neges atoch chi"
-      conversation_request: "Mae gennych gais sgwrs newydd."
+      conversation_request: Mae gennych gais sgwrs newydd.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Annwyl %{name},"
-      instruction: "Eich cod OTP dilysu cyfrif yw:"
-      note: "Os nad ydych wedi gofyn am hyn, anwybyddwch yr e-bost hwn"
+      greeting: Annwyl %{name},
+      instruction: 'Eich cod OTP dilysu cyfrif yw:'
+      note: Os nad ydych wedi gofyn am hyn, anwybyddwch yr e-bost hwn
   login_service:
     errors:
-      invalid_credentials: "Cynadleddau annilys. Ceisiwch eto"
-      unauthorized_access: "Nid oes gennych fynediad i fewngofnodi"
-      channel_not_created: "Cynadleddau annilys. Gwnewch yn siŵr eich bod wedi creu sianel"
-      account_deleted: "Mae eich cyfrif eisoes wedi'i ddileu"
-      invalid_role_access: "Nid oes gan %{role} ganiatâd i fewngofnodi"
-      deactivated_channel: "Mae eich sianel wedi'i analluogi. Cysylltwch â chefnogaeth"
-      two_factor_enabled: "Mae dilysu dau ffactor wedi'i alluogi. Mewngofnodwch trwy'r rhyngwyneb gwe"
-
+      invalid_credentials: Cynadleddau annilys. Ceisiwch eto
+      unauthorized_access: Nid oes gennych fynediad i fewngofnodi
+      channel_not_created: Cynadleddau annilys. Gwnewch yn siŵr eich bod wedi creu
+        sianel
+      account_deleted: Mae eich cyfrif eisoes wedi'i ddileu
+      invalid_role_access: Nid oes gan %{role} ganiatâd i fewngofnodi
+      deactivated_channel: Mae eich sianel wedi'i analluogi. Cysylltwch â chefnogaeth
+      two_factor_enabled: Mae dilysu dau ffactor wedi'i alluogi. Mewngofnodwch trwy'r
+        rhyngwyneb gwe
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Ceisiwch eto. Cynadleddau annilys o beebee.io"
-      registration_required: "Cofrestrwch gyfrif lleol. data: %{data}"
-      connection_error: "Gwall wrth gysylltu â gwasanaeth aelodaeth: %{error}"
+      invalid_credentials: Ceisiwch eto. Cynadleddau annilys o beebee.io
+      registration_required: 'Cofrestrwch gyfrif lleol. data: %{data}'
+      connection_error: 'Gwall wrth gysylltu â gwasanaeth aelodaeth: %{error}'
   api:
     errors:
-      unauthorized: "Nid ydych wedi'ch awdurdodi i gyflawni'r weithred hon"
-      forbidden: "Gwahardd mynediad!"
-      not_found: "Heb ddod o hyd i'r adnodd"
-      unprocessable_entity: "Methu prosesu'r cais"
-      internal_server_error: "Digwyddodd gwall gweinydd mewnol"
-      validation_failed: "Methodd y dilysiad!"
-      invalid_request: "Cais annilys!"
-      rate_limit_exceeded: "Wedi rhagori ar y terfyn ceisiadau. Ceisiwch eto yn nes ymlaen"
+      unauthorized: Nid ydych wedi'ch awdurdodi i gyflawni'r weithred hon
+      forbidden: Gwahardd mynediad!
+      not_found: Heb ddod o hyd i'r adnodd
+      unprocessable_entity: Methu prosesu'r cais
+      internal_server_error: Digwyddodd gwall gweinydd mewnol
+      validation_failed: Methodd y dilysiad!
+      invalid_request: Cais annilys!
+      rate_limit_exceeded: Wedi rhagori ar y terfyn ceisiadau. Ceisiwch eto yn nes
+        ymlaen
     messages:
-      success: "Cwblhawyd y gweithrediad yn llwyddiannus"
-      created: "Crëwyd yr adnodd yn llwyddiannus"
-      updated: "Diweddarwyd yr adnodd yn llwyddiannus"
-      deleted: "Dilewyd yr adnodd yn llwyddiannus"
+      success: Cwblhawyd y gweithrediad yn llwyddiannus
+      created: Crëwyd yr adnodd yn llwyddiannus
+      updated: Diweddarwyd yr adnodd yn llwyddiannus
+      deleted: Dilewyd yr adnodd yn llwyddiannus
     notification:
       messages:
-        token_already_exists: "Mae tocyn hysbysu eisoes yn bodoli"
-        token_saved: "Tocyn hysbysu wedi'i gadw"
-        token_deleted: "Tocyn hysbysu wedi'i ddileu'n llwyddiannus"
-        token_not_found: "Heb ddod o hyd i docynnau hysbysu"
-        mute_updated: "Diweddarwyd statws tawel yn llwyddiannus"
+        token_already_exists: Mae tocyn hysbysu eisoes yn bodoli
+        token_saved: Tocyn hysbysu wedi'i gadw
+        token_deleted: Tocyn hysbysu wedi'i ddileu'n llwyddiannus
+        token_not_found: Heb ddod o hyd i docynnau hysbysu
+        mute_updated: Diweddarwyd statws tawel yn llwyddiannus
     account:
       errors:
-        email_not_found: "Heb ddod o hyd i e-bost!"
-        email_invalid: "Fformat e-bost annilys"
-        email_taken: "Mae'r e-bost eisoes wedi'i gymryd"
-        membership_not_eligible: "Mae cofrestru yn agored i aelodau Craidd, Tîm CSIDNet, ac aelodau Cefnogwyr yn unig"
-        email_update_fail: "Methodd diweddaru'r e-bost"
-        password_unmatch: "Nid yw'r cyfrineiriau'n cyfateb"
-        password_update_fail: "Methodd diweddaru'r cyfrinair"
-        otp_invalid: "OTP annilys!"
-        register_not_allow: "Nid oes gennych ganiatâd i gofrestru!"
-        missing_field: "Mae meysydd gofynnol ar goll"
-        password_incorrect: "Mae'r cyfrinair presennol yn anghywir"
-        username_taken: "Mae'r enw defnyddiwr eisoes wedi'i gymryd"
+        email_not_found: Heb ddod o hyd i e-bost!
+        email_invalid: Fformat e-bost annilys
+        email_taken: Mae'r e-bost eisoes wedi'i gymryd
+        membership_not_eligible: Mae cofrestru yn agored i aelodau Craidd, Tîm CSIDNet,
+          ac aelodau Cefnogwyr yn unig
+        email_update_fail: Methodd diweddaru'r e-bost
+        password_unmatch: Nid yw'r cyfrineiriau'n cyfateb
+        password_update_fail: Methodd diweddaru'r cyfrinair
+        otp_invalid: OTP annilys!
+        register_not_allow: Nid oes gennych ganiatâd i gofrestru!
+        missing_field: Mae meysydd gofynnol ar goll
+        password_incorrect: Mae'r cyfrinair presennol yn anghywir
+        username_taken: Mae'r enw defnyddiwr eisoes wedi'i gymryd
       messages:
-        password_updated: "Diweddarwyd y cyfrinair"
+        password_updated: Diweddarwyd y cyfrinair
     domain:
       messages:
-        dns_verified: "Mae DNS wedi'i ffurfweddu'n gywir"
+        dns_verified: Mae DNS wedi'i ffurfweddu'n gywir
     conversation:
       messages:
-        marked_read: "Wedi marcio %{updated_count} sgwrs fel wedi'u darllen"
+        marked_read: Wedi marcio %{updated_count} sgwrs fel wedi'u darllen
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Adwaith heb ei hadnabod
+      emoji_limit_exceeded: Terfyn emoji wedi'i ormodwytho

@@ -1,84 +1,81 @@
+---
 la:
   locale:
-    name: "Latin"
-    native_name: "Latina"
-  
+    name: Latin
+    native_name: Latina
   notification:
     poll:
-      ended_you: "Votatio tua finita est"
-      ended_voted: "Votatio in qua suffragatus es finita est"
+      ended_you: Votatio tua finita est
+      ended_voted: Votatio in qua suffragatus es finita est
     mention:
       direct_message: "%{name} tibi nuntium misit"
-      conversation_request: "Rogatio colloquii nova tibi est."
-
+      conversation_request: Rogatio colloquii nova tibi est.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Care %{name},"
-      instruction: "Codex OTP ad confirmationem rationis tuae est:"
-      note: "Si hoc non petivisti, hanc epistulam ignora"
-  
+      greeting: Care %{name},
+      instruction: 'Codex OTP ad confirmationem rationis tuae est:'
+      note: Si hoc non petivisti, hanc epistulam ignora
   login_service:
     errors:
-      invalid_credentials: "Documenta non valida. Iterum conare"
-      unauthorized_access: "Non habes accessum ad rationem ingrediendam"
-      channel_not_created: "Documenta non valida. Fac ut canalem creaveris"
-      account_deleted: "Ratio tua iam deleta est"
+      invalid_credentials: Documenta non valida. Iterum conare
+      unauthorized_access: Non habes accessum ad rationem ingrediendam
+      channel_not_created: Documenta non valida. Fac ut canalem creaveris
+      account_deleted: Ratio tua iam deleta est
       invalid_role_access: "%{role} non habet potestatem ingrediendi"
-      deactivated_channel: "Canalis tua deactivata est. Contactum auxilium quaeso"
-      two_factor_enabled: "Authenticatio duorum factorum activata est. Per interfaciem interretialem intrare quaeso"
-
+      deactivated_channel: Canalis tua deactivata est. Contactum auxilium quaeso
+      two_factor_enabled: Authenticatio duorum factorum activata est. Per interfaciem
+        interretialem intrare quaeso
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Non es auctoritate ad hanc actionem faciendam"
-      forbidden: "Accessus negatus!"
-      not_found: "Res non inventa"
-      unprocessable_entity: "Petitio tractari non potuit"
-      internal_server_error: "Error internus servientis evenit"
-      validation_failed: "Validatio defecit!"
-      invalid_request: "Petitio non valida!"
-      rate_limit_exceeded: "Limites petitionum superati sunt. Iterum conare postea"
-
+      unauthorized: Non es auctoritate ad hanc actionem faciendam
+      forbidden: Accessus negatus!
+      not_found: Res non inventa
+      unprocessable_entity: Petitio tractari non potuit
+      internal_server_error: Error internus servientis evenit
+      validation_failed: Validatio defecit!
+      invalid_request: Petitio non valida!
+      rate_limit_exceeded: Limites petitionum superati sunt. Iterum conare postea
     messages:
-      success: "Operatio feliciter peracta est"
-      created: "Res feliciter creata est"
-      updated: "Res feliciter renovata est"
-      deleted: "Res feliciter deleta est"
-
+      success: Operatio feliciter peracta est
+      created: Res feliciter creata est
+      updated: Res feliciter renovata est
+      deleted: Res feliciter deleta est
     notification:
       messages:
-        token_already_exists: "Signum notificationis iam existit"
-        token_saved: "Signum notificationis servatum est"
-        token_deleted: "Signum notificationis feliciter deletum est"
-        token_not_found: "Nulla signa notificationis inventa sunt"
-        mute_updated: "Status silentii feliciter renovatus est"
-
+        token_already_exists: Signum notificationis iam existit
+        token_saved: Signum notificationis servatum est
+        token_deleted: Signum notificationis feliciter deletum est
+        token_not_found: Nulla signa notificationis inventa sunt
+        mute_updated: Status silentii feliciter renovatus est
     account:
       errors:
-        email_not_found: "Email non inventa!"
-        email_invalid: "Forma email non valida"
-        email_taken: "Email iam adhibita est"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Renovatio email defecit"
-        password_unmatch: "Passwords non concordant"
-        password_update_fail: "Renovatio password defecit"
-        otp_invalid: "OTP non validum!"
-        register_not_allow: "Non licet tibi te registrare!"
-        missing_field: "Campi requisiti desunt"
-        password_incorrect: "Password praesens non recta est"
-        username_taken: "Nomen usoris iam adhibitum est"
+        email_not_found: Email non inventa!
+        email_invalid: Forma email non valida
+        email_taken: Email iam adhibita est
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Renovatio email defecit
+        password_unmatch: Passwords non concordant
+        password_update_fail: Renovatio password defecit
+        otp_invalid: OTP non validum!
+        register_not_allow: Non licet tibi te registrare!
+        missing_field: Campi requisiti desunt
+        password_incorrect: Password praesens non recta est
+        username_taken: Nomen usoris iam adhibitum est
       messages:
-        password_updated: "Password renovata est"
-
+        password_updated: Password renovata est
     domain:
       messages:
-        dns_verified: "DNS recte configuratus est"
-
+        dns_verified: DNS recte configuratus est
     conversation:
       messages:
         marked_read: "%{updated_count} colloquia ut lecta notata sunt"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Responsio non cognita
+      emoji_limit_exceeded: Modus emoji excessit

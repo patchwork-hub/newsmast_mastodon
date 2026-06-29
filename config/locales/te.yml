@@ -1,75 +1,81 @@
+---
 te:
   locale:
-    name: "Telugu"
-    native_name: "తెలుగు"
+    name: Telugu
+    native_name: తెలుగు
   notification:
     poll:
-      ended_you: "మీ పోలింగ్ ముగిసింది"
-      ended_voted: "మీరు ఓటేసిన పోలింగ్ ముగిసింది"
+      ended_you: మీ పోలింగ్ ముగిసింది
+      ended_voted: మీరు ఓటేసిన పోలింగ్ ముగిసింది
     mention:
       direct_message: "%{name} మీకు సందేశం పంపారు"
-      conversation_request: "మీకు కొత్త సంభాషణ అభ్యర్థన ఉంది."
+      conversation_request: మీకు కొత్త సంభాషణ అభ్యర్థన ఉంది.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ప్రియమైన %{name},"
-      instruction: "మీ ఖాతా ధృవీకరణ OTP కోడ్:"
-      note: "మీరు ఇది అభ్యర్థించకపోతే, దయచేసి ఈ ఇమెయిల్‌ను నిర్లక్ష్యం చేయండి"
+      greeting: ప్రియమైన %{name},
+      instruction: 'మీ ఖాతా ధృవీకరణ OTP కోడ్:'
+      note: మీరు ఇది అభ్యర్థించకపోతే, దయచేసి ఈ ఇమెయిల్‌ను నిర్లక్ష్యం చేయండి
   login_service:
     errors:
-      invalid_credentials: "చెల్లని వివరాలు. దయచేసి మళ్లీ ప్రయత్నించండి"
-      unauthorized_access: "మీకు లాగిన్ చేయడానికి అనుమతి లేదు"
-      channel_not_created: "చెల్లని వివరాలు. మీరు ఛానల్ సృష్టించారో లేదో నిర్ధారించుకోండి"
-      account_deleted: "మీ ఖాతా ఇప్పటికే తొలగించబడింది"
+      invalid_credentials: చెల్లని వివరాలు. దయచేసి మళ్లీ ప్రయత్నించండి
+      unauthorized_access: మీకు లాగిన్ చేయడానికి అనుమతి లేదు
+      channel_not_created: చెల్లని వివరాలు. మీరు ఛానల్ సృష్టించారో లేదో నిర్ధారించుకోండి
+      account_deleted: మీ ఖాతా ఇప్పటికే తొలగించబడింది
       invalid_role_access: "%{role} లాగిన్ చేయడానికి అనుమతి లేదు"
-      deactivated_channel: "మీ ఛానల్ నిలిపివేయబడింది. సహాయానికి సంప్రదించండి"
-      two_factor_enabled: "రెండు-కారకాల ప్రమాణీకరణ ప్రారంభించబడింది. దయచేసి వెబ్ ఇంటర్‌ఫేస్ ద్వారా లాగిన్ అవ్వండి"
-
+      deactivated_channel: మీ ఛానల్ నిలిపివేయబడింది. సహాయానికి సంప్రదించండి
+      two_factor_enabled: రెండు-కారకాల ప్రమాణీకరణ ప్రారంభించబడింది. దయచేసి వెబ్ ఇంటర్‌ఫేస్
+        ద్వారా లాగిన్ అవ్వండి
   bristolcable_login_service:
     errors:
-      invalid_credentials: "దయచేసి మళ్లీ ప్రయత్నించండి. beebee.io నుండి చెల్లని వివరాలు"
-      registration_required: "దయచేసి స్థానిక ఖాతాను రిజిస్టర్ చేయండి. డేటా: %{data}"
-      connection_error: "సదస్యత్వ సేవకు కనెక్ట్ చేయడంలో తప్పు: %{error}"
+      invalid_credentials: దయచేసి మళ్లీ ప్రయత్నించండి. beebee.io నుండి చెల్లని వివరాలు
+      registration_required: 'దయచేసి స్థానిక ఖాతాను రిజిస్టర్ చేయండి. డేటా: %{data}'
+      connection_error: 'సదస్యత్వ సేవకు కనెక్ట్ చేయడంలో తప్పు: %{error}'
   api:
     errors:
-      unauthorized: "మీకు ఈ చర్యను చేయడానికి అనుమతి లేదు"
-      forbidden: "ప్రవేశం నిరాకరించబడింది!"
-      not_found: "వనరు కనుగొనబడలేదు"
-      unprocessable_entity: "అభ్యర్థనను ప్రాసెస్ చేయలేకపోయారు"
-      internal_server_error: "అంతర్గత సర్వర్ లోపం జరిగింది"
-      validation_failed: "ధృవీకరణ విఫలమైంది!"
-      invalid_request: "చెల్లని అభ్యర్థన!"
-      rate_limit_exceeded: "అభ్యర్థన పరిమితి మించిపోయింది. దయచేసి తర్వాత ప్రయత్నించండి"
+      unauthorized: మీకు ఈ చర్యను చేయడానికి అనుమతి లేదు
+      forbidden: ప్రవేశం నిరాకరించబడింది!
+      not_found: వనరు కనుగొనబడలేదు
+      unprocessable_entity: అభ్యర్థనను ప్రాసెస్ చేయలేకపోయారు
+      internal_server_error: అంతర్గత సర్వర్ లోపం జరిగింది
+      validation_failed: ధృవీకరణ విఫలమైంది!
+      invalid_request: చెల్లని అభ్యర్థన!
+      rate_limit_exceeded: అభ్యర్థన పరిమితి మించిపోయింది. దయచేసి తర్వాత ప్రయత్నించండి
     messages:
-      success: "ఆపరేషన్ విజయవంతంగా పూర్తయింది"
-      created: "వనరు విజయవంతంగా సృష్టించబడింది"
-      updated: "వనరు విజయవంతంగా నవీకరించబడింది"
-      deleted: "వనరు విజయవంతంగా తొలగించబడింది"
+      success: ఆపరేషన్ విజయవంతంగా పూర్తయింది
+      created: వనరు విజయవంతంగా సృష్టించబడింది
+      updated: వనరు విజయవంతంగా నవీకరించబడింది
+      deleted: వనరు విజయవంతంగా తొలగించబడింది
     notification:
       messages:
-        token_already_exists: "నోటిఫికేషన్ టోకెన్ ఇప్పటికే ఉంది"
-        token_saved: "నోటిఫికేషన్ టోకెన్ సేవ్ చేయబడింది"
-        token_deleted: "నోటిఫికేషన్ టోకెన్ విజయవంతంగా తొలగించబడింది"
-        token_not_found: "నోటిఫికేషన్ టోకెన్లు కనుగొనబడలేదు"
-        mute_updated: "మ్యూట్ స్థితి విజయవంతంగా నవీకరించబడింది"
+        token_already_exists: నోటిఫికేషన్ టోకెన్ ఇప్పటికే ఉంది
+        token_saved: నోటిఫికేషన్ టోకెన్ సేవ్ చేయబడింది
+        token_deleted: నోటిఫికేషన్ టోకెన్ విజయవంతంగా తొలగించబడింది
+        token_not_found: నోటిఫికేషన్ టోకెన్లు కనుగొనబడలేదు
+        mute_updated: మ్యూట్ స్థితి విజయవంతంగా నవీకరించబడింది
     account:
       errors:
-        email_not_found: "ఇమెయిల్ కనుగొనబడలేదు!"
-        email_invalid: "చెల్లని ఇమెయిల్ ఫార్మాట్"
-        email_taken: "ఇమెయిల్ ఇప్పటికే తీసుకోబడింది"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ఇమెయిల్ నవీకరణ విఫలమైంది"
-        password_unmatch: "పాస్‌వర్డ్‌లు సరిపోలడం లేదు"
-        password_update_fail: "పాస్‌వర్డ్ నవీకరణ విఫలమైంది"
-        otp_invalid: "చెల్లని OTP!"
-        register_not_allow: "మీకు నమోదు చేసుకోవడానికి అనుమతి లేదు!"
-        missing_field: "అవసరమైన ఫీల్డ్‌లు లేవు"
-        password_incorrect: "ప్రస్తుత పాస్‌వర్డ్ తప్పు"
-        username_taken: "వినియోగదారు పేరు ఇప్పటికే తీసుకోబడింది"
+        email_not_found: ఇమెయిల్ కనుగొనబడలేదు!
+        email_invalid: చెల్లని ఇమెయిల్ ఫార్మాట్
+        email_taken: ఇమెయిల్ ఇప్పటికే తీసుకోబడింది
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ఇమెయిల్ నవీకరణ విఫలమైంది
+        password_unmatch: పాస్‌వర్డ్‌లు సరిపోలడం లేదు
+        password_update_fail: పాస్‌వర్డ్ నవీకరణ విఫలమైంది
+        otp_invalid: చెల్లని OTP!
+        register_not_allow: మీకు నమోదు చేసుకోవడానికి అనుమతి లేదు!
+        missing_field: అవసరమైన ఫీల్డ్‌లు లేవు
+        password_incorrect: ప్రస్తుత పాస్‌వర్డ్ తప్పు
+        username_taken: వినియోగదారు పేరు ఇప్పటికే తీసుకోబడింది
       messages:
-        password_updated: "పాస్‌వర్డ్ నవీకరించబడింది"
+        password_updated: పాస్‌వర్డ్ నవీకరించబడింది
     domain:
       messages:
-        dns_verified: "DNS సరైన విధంగా కాన్ఫిగర్ చేయబడింది"
+        dns_verified: DNS సరైన విధంగా కాన్ఫిగర్ చేయబడింది
     conversation:
       messages:
         marked_read: "%{updated_count} సంభాషణ(లు) చదివినట్లుగా గుర్తించబడింది"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ప్రతిచర్య గుర్తించబడలేదు
+      emoji_limit_exceeded: ఎమోజీ పరిమితి అధిగమించబడింది

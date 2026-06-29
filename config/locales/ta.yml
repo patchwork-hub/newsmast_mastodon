@@ -1,75 +1,82 @@
+---
 ta:
   locale:
-    name: "Tamil"
-    native_name: "தமிழ்"
+    name: Tamil
+    native_name: தமிழ்
   notification:
     poll:
-      ended_you: "உங்கள் வாக்கெடுப்பு முடிந்துவிட்டது"
-      ended_voted: "நீங்கள் வாக்களித்த வாக்கெடுப்பு முடிந்துவிட்டது"
+      ended_you: உங்கள் வாக்கெடுப்பு முடிந்துவிட்டது
+      ended_voted: நீங்கள் வாக்களித்த வாக்கெடுப்பு முடிந்துவிட்டது
     mention:
       direct_message: "%{name} உங்களுக்கு ஒரு செய்தியை அனுப்பினார்"
-      conversation_request: "உங்களுக்கு ஒரு புதிய உரையாடல் கோரிக்கை உள்ளது."
+      conversation_request: உங்களுக்கு ஒரு புதிய உரையாடல் கோரிக்கை உள்ளது.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "அன்புள்ள %{name},"
-      instruction: "உங்கள் கணக்கு சரிபார்ப்பு OTP குறியீடு:"
-      note: "நீங்கள் இதை கோரவில்லை என்றால், இந்த மின்னஞ்சலை புறக்கணிக்கவும்"
+      greeting: அன்புள்ள %{name},
+      instruction: 'உங்கள் கணக்கு சரிபார்ப்பு OTP குறியீடு:'
+      note: நீங்கள் இதை கோரவில்லை என்றால், இந்த மின்னஞ்சலை புறக்கணிக்கவும்
   login_service:
     errors:
-      invalid_credentials: "தவறான சான்றுகள். மீண்டும் முயற்சிக்கவும்"
-      unauthorized_access: "உங்களுக்கு உள்நுழைய அனுமதி இல்லை"
-      channel_not_created: "தவறான சான்றுகள். நீங்கள் ஒரு சேனலை உருவாக்கியுள்ளீர்கள் என்பதை உறுதிப்படுத்தவும்"
-      account_deleted: "உங்கள் கணக்கு ஏற்கனவே நீக்கப்பட்டுள்ளது"
+      invalid_credentials: தவறான சான்றுகள். மீண்டும் முயற்சிக்கவும்
+      unauthorized_access: உங்களுக்கு உள்நுழைய அனுமதி இல்லை
+      channel_not_created: தவறான சான்றுகள். நீங்கள் ஒரு சேனலை உருவாக்கியுள்ளீர்கள்
+        என்பதை உறுதிப்படுத்தவும்
+      account_deleted: உங்கள் கணக்கு ஏற்கனவே நீக்கப்பட்டுள்ளது
       invalid_role_access: "%{role} உள்நுழைய அனுமதி இல்லை"
-      deactivated_channel: "உங்கள் சேனல் செயலிழக்கப்பட்டுள்ளது. ஆதரவுடன் தொடர்புகொள்ளவும்"
-      two_factor_enabled: "இரு-காரணி அங்கீகாரம் இயக்கப்பட்டுள்ளது. இணைய இடைமுகம் வழியாக உள்நுழையுங்கள்"
-
+      deactivated_channel: உங்கள் சேனல் செயலிழக்கப்பட்டுள்ளது. ஆதரவுடன் தொடர்புகொள்ளவும்
+      two_factor_enabled: இரு-காரணி அங்கீகாரம் இயக்கப்பட்டுள்ளது. இணைய இடைமுகம் வழியாக
+        உள்நுழையுங்கள்
   bristolcable_login_service:
     errors:
-      invalid_credentials: "மீண்டும் முயற்சிக்கவும். beebee.io இலிருந்து தவறான சான்றுகள்"
-      registration_required: "தயவு செய்து உள்ளூர் கணக்கை பதிவு செய்யவும். தரவு: %{data}"
-      connection_error: "உறுப்பினர் சேவையுடன் இணைப்பதில் பிழை: %{error}"
+      invalid_credentials: மீண்டும் முயற்சிக்கவும். beebee.io இலிருந்து தவறான சான்றுகள்
+      registration_required: 'தயவு செய்து உள்ளூர் கணக்கை பதிவு செய்யவும். தரவு: %{data}'
+      connection_error: 'உறுப்பினர் சேவையுடன் இணைப்பதில் பிழை: %{error}'
   api:
     errors:
-      unauthorized: "இந்த செயலை செய்ய உங்களுக்கு அனுமதி இல்லை"
-      forbidden: "அணுகல் மறுக்கப்பட்டது!"
-      not_found: "வளத்தை காணவில்லை"
-      unprocessable_entity: "கோரிக்கையை செயல்படுத்த முடியவில்லை"
-      internal_server_error: "உள் சேவையக பிழை ஏற்பட்டது"
-      validation_failed: "சரிபார்ப்பு தோல்வியடைந்தது!"
-      invalid_request: "தவறான கோரிக்கை!"
-      rate_limit_exceeded: "கோரிக்கையின் வரம்பு மீறப்பட்டது. பின்னர் முயற்சிக்கவும்"
+      unauthorized: இந்த செயலை செய்ய உங்களுக்கு அனுமதி இல்லை
+      forbidden: அணுகல் மறுக்கப்பட்டது!
+      not_found: வளத்தை காணவில்லை
+      unprocessable_entity: கோரிக்கையை செயல்படுத்த முடியவில்லை
+      internal_server_error: உள் சேவையக பிழை ஏற்பட்டது
+      validation_failed: சரிபார்ப்பு தோல்வியடைந்தது!
+      invalid_request: தவறான கோரிக்கை!
+      rate_limit_exceeded: கோரிக்கையின் வரம்பு மீறப்பட்டது. பின்னர் முயற்சிக்கவும்
     messages:
-      success: "செயல் வெற்றிகரமாக முடிந்தது"
-      created: "வளம் வெற்றிகரமாக உருவாக்கப்பட்டது"
-      updated: "வளம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது"
-      deleted: "வளம் வெற்றிகரமாக நீக்கப்பட்டது"
+      success: செயல் வெற்றிகரமாக முடிந்தது
+      created: வளம் வெற்றிகரமாக உருவாக்கப்பட்டது
+      updated: வளம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது
+      deleted: வளம் வெற்றிகரமாக நீக்கப்பட்டது
     notification:
       messages:
-        token_already_exists: "அறிவிப்பு டோக்கன் ஏற்கனவே உள்ளது"
-        token_saved: "அறிவிப்பு டோக்கன் சேமிக்கப்பட்டது"
-        token_deleted: "அறிவிப்பு டோக்கன் வெற்றிகரமாக நீக்கப்பட்டது"
-        token_not_found: "அறிவிப்பு டோக்கன்கள் எதுவும் கிடைக்கவில்லை"
-        mute_updated: "மூடல் நிலை வெற்றிகரமாக புதுப்பிக்கப்பட்டது"
+        token_already_exists: அறிவிப்பு டோக்கன் ஏற்கனவே உள்ளது
+        token_saved: அறிவிப்பு டோக்கன் சேமிக்கப்பட்டது
+        token_deleted: அறிவிப்பு டோக்கன் வெற்றிகரமாக நீக்கப்பட்டது
+        token_not_found: அறிவிப்பு டோக்கன்கள் எதுவும் கிடைக்கவில்லை
+        mute_updated: மூடல் நிலை வெற்றிகரமாக புதுப்பிக்கப்பட்டது
     account:
       errors:
-        email_not_found: "மின்னஞ்சல் கிடைக்கவில்லை!"
-        email_invalid: "தவறான மின்னஞ்சல் வடிவம்"
-        email_taken: "மின்னஞ்சல் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "மின்னஞ்சல் புதுப்பிப்பு தோல்வியடைந்தது"
-        password_unmatch: "கடவுச்சொற்கள் பொருந்தவில்லை"
-        password_update_fail: "கடவுச்சொல் புதுப்பிப்பு தோல்வியடைந்தது"
-        otp_invalid: "தவறான OTP!"
-        register_not_allow: "நீங்கள் பதிவு செய்ய அனுமதி இல்லை!"
-        missing_field: "தேவையான புலங்கள் இல்லை"
-        password_incorrect: "தற்போதைய கடவுச்சொல் தவறானது"
-        username_taken: "பயனர் பெயர் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது"
+        email_not_found: மின்னஞ்சல் கிடைக்கவில்லை!
+        email_invalid: தவறான மின்னஞ்சல் வடிவம்
+        email_taken: மின்னஞ்சல் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: மின்னஞ்சல் புதுப்பிப்பு தோல்வியடைந்தது
+        password_unmatch: கடவுச்சொற்கள் பொருந்தவில்லை
+        password_update_fail: கடவுச்சொல் புதுப்பிப்பு தோல்வியடைந்தது
+        otp_invalid: தவறான OTP!
+        register_not_allow: நீங்கள் பதிவு செய்ய அனுமதி இல்லை!
+        missing_field: தேவையான புலங்கள் இல்லை
+        password_incorrect: தற்போதைய கடவுச்சொல் தவறானது
+        username_taken: பயனர் பெயர் ஏற்கனவே பயன்படுத்தப்பட்டுள்ளது
       messages:
-        password_updated: "கடவுச்சொல் புதுப்பிக்கப்பட்டது"
+        password_updated: கடவுச்சொல் புதுப்பிக்கப்பட்டது
     domain:
       messages:
-        dns_verified: "DNS சரியாக உள்ளமைக்கப்பட்டுள்ளது"
+        dns_verified: DNS சரியாக உள்ளமைக்கப்பட்டுள்ளது
     conversation:
       messages:
         marked_read: "%{updated_count} உரையாடல்(கள்) படிக்கப்பட்டதாக குறிக்கப்பட்டது"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: வினையுரை அங்கீகৃत செய்யப்படவில்லை
+      emoji_limit_exceeded: ஈமோஜி வரம்பு மீறப்பட்டுள்ளது

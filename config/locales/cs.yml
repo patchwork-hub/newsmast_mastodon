@@ -1,75 +1,82 @@
+---
 cs:
   locale:
-    name: "Czech"
-    native_name: "Čeština"
+    name: Czech
+    native_name: Čeština
   notification:
     poll:
-      ended_you: "Vaše anketa skončila"
-      ended_voted: "Anketa, ve které jste hlasovali, skončila"
+      ended_you: Vaše anketa skončila
+      ended_voted: Anketa, ve které jste hlasovali, skončila
     mention:
       direct_message: "%{name} vám poslal zprávu"
-      conversation_request: "Máte nový požadavek na konverzaci."
+      conversation_request: Máte nový požadavek na konverzaci.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Vážený %{name},"
-      instruction: "Váš ověřovací OTP kód účtu je:"
-      note: "Pokud jste o to nežádali, ignorujte tento e-mail"
+      greeting: Vážený %{name},
+      instruction: 'Váš ověřovací OTP kód účtu je:'
+      note: Pokud jste o to nežádali, ignorujte tento e-mail
   login_service:
     errors:
-      invalid_credentials: "Neplatné přihlašovací údaje. Zkuste to prosím znovu"
-      unauthorized_access: "Nemáte oprávnění k přihlášení"
-      channel_not_created: "Neplatné přihlašovací údaje. Ujistěte se, že jste vytvořili kanál"
-      account_deleted: "Váš účet byl již smazán"
+      invalid_credentials: Neplatné přihlašovací údaje. Zkuste to prosím znovu
+      unauthorized_access: Nemáte oprávnění k přihlášení
+      channel_not_created: Neplatné přihlašovací údaje. Ujistěte se, že jste vytvořili
+        kanál
+      account_deleted: Váš účet byl již smazán
       invalid_role_access: "%{role} nemá oprávnění k přihlášení"
-      deactivated_channel: "Váš kanál je deaktivován. Kontaktujte podporu"
-      two_factor_enabled: "Dvoufaktorové ověřování je povoleno. Přihlaste se prosím přes webové rozhraní"
-
+      deactivated_channel: Váš kanál je deaktivován. Kontaktujte podporu
+      two_factor_enabled: Dvoufaktorové ověřování je povoleno. Přihlaste se prosím
+        přes webové rozhraní
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Zkuste to prosím znovu. Neplatné přihlašovací údaje z beebee.io"
-      registration_required: "Prosím zaregistrujte lokální účet. data: %{data}"
-      connection_error: "Chyba připojení ke členské službě: %{error}"
+      invalid_credentials: Zkuste to prosím znovu. Neplatné přihlašovací údaje z beebee.io
+      registration_required: 'Prosím zaregistrujte lokální účet. data: %{data}'
+      connection_error: 'Chyba připojení ke členské službě: %{error}'
   api:
     errors:
-      unauthorized: "Nejste oprávněni provést tuto akci"
-      forbidden: "Přístup odepřen!"
-      not_found: "Zdroj nebyl nalezen"
-      unprocessable_entity: "Požadavek nelze zpracovat"
-      internal_server_error: "Došlo k interní chybě serveru"
-      validation_failed: "Ověření selhalo!"
-      invalid_request: "Neplatný požadavek!"
-      rate_limit_exceeded: "Byl překročen limit požadavků. Zkuste to později"
+      unauthorized: Nejste oprávněni provést tuto akci
+      forbidden: Přístup odepřen!
+      not_found: Zdroj nebyl nalezen
+      unprocessable_entity: Požadavek nelze zpracovat
+      internal_server_error: Došlo k interní chybě serveru
+      validation_failed: Ověření selhalo!
+      invalid_request: Neplatný požadavek!
+      rate_limit_exceeded: Byl překročen limit požadavků. Zkuste to později
     messages:
-      success: "Operace byla úspěšně dokončena"
-      created: "Zdroj byl úspěšně vytvořen"
-      updated: "Zdroj byl úspěšně aktualizován"
-      deleted: "Zdroj byl úspěšně smazán"
+      success: Operace byla úspěšně dokončena
+      created: Zdroj byl úspěšně vytvořen
+      updated: Zdroj byl úspěšně aktualizován
+      deleted: Zdroj byl úspěšně smazán
     notification:
       messages:
-        token_already_exists: "Token oznámení již existuje"
-        token_saved: "Token oznámení uložen"
-        token_deleted: "Token oznámení byl úspěšně smazán"
-        token_not_found: "Nebyly nalezeny žádné tokeny oznámení"
-        mute_updated: "Stav ztlumení byl úspěšně aktualizován"
+        token_already_exists: Token oznámení již existuje
+        token_saved: Token oznámení uložen
+        token_deleted: Token oznámení byl úspěšně smazán
+        token_not_found: Nebyly nalezeny žádné tokeny oznámení
+        mute_updated: Stav ztlumení byl úspěšně aktualizován
     account:
       errors:
-        email_not_found: "E-mail nebyl nalezen!"
-        email_invalid: "Neplatný formát e-mailu"
-        email_taken: "E-mail je již používán"
-        membership_not_eligible: "Registrace je otevřena pouze členům Core, týmu CSIDNet a členům Supporter"
-        email_update_fail: "Aktualizace e-mailu nebyla úspěšná"
-        password_unmatch: "Hesla se neshodují"
-        password_update_fail: "Aktualizace hesla nebyla úspěšná"
-        otp_invalid: "Neplatné OTP!"
-        register_not_allow: "Nemáte oprávnění k registraci!"
-        missing_field: "Chybí požadovaná pole"
-        password_incorrect: "Aktuální heslo je nesprávné"
-        username_taken: "Uživatelské jméno je již používáno"
+        email_not_found: E-mail nebyl nalezen!
+        email_invalid: Neplatný formát e-mailu
+        email_taken: E-mail je již používán
+        membership_not_eligible: Registrace je otevřena pouze členům Core, týmu CSIDNet
+          a členům Supporter
+        email_update_fail: Aktualizace e-mailu nebyla úspěšná
+        password_unmatch: Hesla se neshodují
+        password_update_fail: Aktualizace hesla nebyla úspěšná
+        otp_invalid: Neplatné OTP!
+        register_not_allow: Nemáte oprávnění k registraci!
+        missing_field: Chybí požadovaná pole
+        password_incorrect: Aktuální heslo je nesprávné
+        username_taken: Uživatelské jméno je již používáno
       messages:
-        password_updated: "Heslo bylo aktualizováno"
+        password_updated: Heslo bylo aktualizováno
     domain:
       messages:
-        dns_verified: "DNS je správně nakonfigurován"
+        dns_verified: DNS je správně nakonfigurován
     conversation:
       messages:
-        marked_read: "Označeno %{updated_count} konverzací jako přečtených"
+        marked_read: Označeno %{updated_count} konverzací jako přečtených
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakce není rozpoznána
+      emoji_limit_exceeded: Limit emojů překročen

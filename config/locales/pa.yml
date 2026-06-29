@@ -1,75 +1,83 @@
+---
 pa:
   locale:
-    name: "Punjabi"
-    native_name: "ਪੰਜਾਬੀ"
+    name: Punjabi
+    native_name: ਪੰਜਾਬੀ
   notification:
     poll:
-      ended_you: "ਤੁਹਾਡਾ ਪੋਲ ਖਤਮ ਹੋ ਗਿਆ ਹੈ"
-      ended_voted: "ਜਿਸ ਪੋਲ ਵਿੱਚ ਤੁਸੀਂ ਵੋਟ ਦਿੱਤੀ ਸੀ ਉਹ ਖਤਮ ਹੋ ਗਿਆ ਹੈ"
+      ended_you: ਤੁਹਾਡਾ ਪੋਲ ਖਤਮ ਹੋ ਗਿਆ ਹੈ
+      ended_voted: ਜਿਸ ਪੋਲ ਵਿੱਚ ਤੁਸੀਂ ਵੋਟ ਦਿੱਤੀ ਸੀ ਉਹ ਖਤਮ ਹੋ ਗਿਆ ਹੈ
     mention:
       direct_message: "%{name} ਨੇ ਤੁਹਾਨੂੰ ਸੁਨੇਹਾ ਭੇਜਿਆ ਹੈ"
-      conversation_request: "ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਦੀ ਬੇਨਤੀ ਹੈ।"
+      conversation_request: ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਦੀ ਬੇਨਤੀ ਹੈ।
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ਪਿਆਰੇ %{name},"
-      instruction: "ਤੁਹਾਡਾ ਖਾਤਾ ਪ੍ਰਮਾਣੀਕਰਨ OTP ਕੋਡ ਹੈ:"
-      note: "ਜੇ ਤੁਸੀਂ ਇਹ ਬੇਨਤੀ ਨਹੀਂ ਕੀਤੀ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਈਮੇਲ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ"
+      greeting: ਪਿਆਰੇ %{name},
+      instruction: 'ਤੁਹਾਡਾ ਖਾਤਾ ਪ੍ਰਮਾਣੀਕਰਨ OTP ਕੋਡ ਹੈ:'
+      note: ਜੇ ਤੁਸੀਂ ਇਹ ਬੇਨਤੀ ਨਹੀਂ ਕੀਤੀ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਈਮੇਲ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ
   login_service:
     errors:
-      invalid_credentials: "ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
-      unauthorized_access: "ਤੁਹਾਨੂੰ ਲੌਗਇਨ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ"
-      channel_not_created: "ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਚੈਨਲ ਬਣਾਇਆ ਹੈ"
-      account_deleted: "ਤੁਹਾਡਾ ਖਾਤਾ ਪਹਿਲਾਂ ਹੀ ਹਟਾਇਆ ਜਾ ਚੁੱਕਾ ਹੈ"
+      invalid_credentials: ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ
+      unauthorized_access: ਤੁਹਾਨੂੰ ਲੌਗਇਨ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ
+      channel_not_created: ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਚੈਨਲ ਬਣਾਇਆ
+        ਹੈ
+      account_deleted: ਤੁਹਾਡਾ ਖਾਤਾ ਪਹਿਲਾਂ ਹੀ ਹਟਾਇਆ ਜਾ ਚੁੱਕਾ ਹੈ
       invalid_role_access: "%{role} ਨੂੰ ਲੌਗਇਨ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ"
-      deactivated_channel: "ਤੁਹਾਡਾ ਚੈਨਲ ਨਿਸ਼ਕ੍ਰਿਆ ਹੈ। ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ"
-      two_factor_enabled: "ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਸਮਰੱਥ ਕੀਤਾ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੈੱਬ ਇੰਟਰਫੇਸ ਨਾਲ ਲੌਗਿਨ ਕਰੋ"
-
+      deactivated_channel: ਤੁਹਾਡਾ ਚੈਨਲ ਨਿਸ਼ਕ੍ਰਿਆ ਹੈ। ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ
+      two_factor_enabled: ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਸਮਰੱਥ ਕੀਤਾ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੈੱਬ ਇੰਟਰਫੇਸ
+        ਨਾਲ ਲੌਗਿਨ ਕਰੋ
   bristolcable_login_service:
     errors:
-      invalid_credentials: "ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ। beebee.io ਤੋਂ ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ"
-      registration_required: "ਕਿਰਪਾ ਕਰਕੇ ਸਥਾਨਕ ਖਾਤਾ ਰਜਿਸਟਰ ਕਰੋ। ਡਾਟਾ: %{data}"
-      connection_error: "ਸਦੱਸਤਾ ਸੇਵਾ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਗਲਤੀ: %{error}"
+      invalid_credentials: ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ। beebee.io ਤੋਂ ਅਵੈਧ ਪ੍ਰਮਾਣ
+        ਪੱਤਰ
+      registration_required: 'ਕਿਰਪਾ ਕਰਕੇ ਸਥਾਨਕ ਖਾਤਾ ਰਜਿਸਟਰ ਕਰੋ। ਡਾਟਾ: %{data}'
+      connection_error: 'ਸਦੱਸਤਾ ਸੇਵਾ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਗਲਤੀ: %{error}'
   api:
     errors:
-      unauthorized: "ਤੁਹਾਨੂੰ ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ"
-      forbidden: "ਪਹੁੰਚ ਅਸਵੀਕਾਰ!"
-      not_found: "ਸਰੋਤ ਨਹੀਂ ਮਿਲਿਆ"
-      unprocessable_entity: "ਬੇਨਤੀ ਪ੍ਰਕਿਰਿਆ ਨਹੀਂ ਹੋ ਸਕੀ"
-      internal_server_error: "ਅੰਦਰੂਨੀ ਸਰਵਰ ਗਲਤੀ ਆਈ"
-      validation_failed: "ਪੁਸ਼ਟੀਕਰਨ ਅਸਫਲ!"
-      invalid_request: "ਅਵੈਧ ਬੇਨਤੀ!"
-      rate_limit_exceeded: "ਬੇਨਤੀਆਂ ਦੀ ਸੀਮਾ ਪਾਰ ਹੋ ਗਈ ਹੈ। ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ"
+      unauthorized: ਤੁਹਾਨੂੰ ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ
+      forbidden: ਪਹੁੰਚ ਅਸਵੀਕਾਰ!
+      not_found: ਸਰੋਤ ਨਹੀਂ ਮਿਲਿਆ
+      unprocessable_entity: ਬੇਨਤੀ ਪ੍ਰਕਿਰਿਆ ਨਹੀਂ ਹੋ ਸਕੀ
+      internal_server_error: ਅੰਦਰੂਨੀ ਸਰਵਰ ਗਲਤੀ ਆਈ
+      validation_failed: ਪੁਸ਼ਟੀਕਰਨ ਅਸਫਲ!
+      invalid_request: ਅਵੈਧ ਬੇਨਤੀ!
+      rate_limit_exceeded: ਬੇਨਤੀਆਂ ਦੀ ਸੀਮਾ ਪਾਰ ਹੋ ਗਈ ਹੈ। ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ
     messages:
-      success: "ਕਾਰਵਾਈ ਸਫਲਤਾਪੂਰਵਕ ਪੂਰੀ ਹੋਈ"
-      created: "ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਬਣਾਇਆ ਗਿਆ"
-      updated: "ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ"
-      deleted: "ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਹਟਾਇਆ ਗਿਆ"
+      success: ਕਾਰਵਾਈ ਸਫਲਤਾਪੂਰਵਕ ਪੂਰੀ ਹੋਈ
+      created: ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਬਣਾਇਆ ਗਿਆ
+      updated: ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ
+      deleted: ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਹਟਾਇਆ ਗਿਆ
     notification:
       messages:
-        token_already_exists: "ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ"
-        token_saved: "ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਸੰਭਾਲਿਆ ਗਿਆ"
-        token_deleted: "ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਸਫਲਤਾਪੂਰਵਕ ਹਟਾਇਆ ਗਿਆ"
-        token_not_found: "ਕੋਈ ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਨਹੀਂ ਮਿਲਿਆ"
-        mute_updated: "ਮਿਊਟ ਸਥਿਤੀ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ"
+        token_already_exists: ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ
+        token_saved: ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਸੰਭਾਲਿਆ ਗਿਆ
+        token_deleted: ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਸਫਲਤਾਪੂਰਵਕ ਹਟਾਇਆ ਗਿਆ
+        token_not_found: ਕੋਈ ਨੋਟੀਫਿਕੇਸ਼ਨ ਟੋਕਨ ਨਹੀਂ ਮਿਲਿਆ
+        mute_updated: ਮਿਊਟ ਸਥਿਤੀ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਕੀਤੀ ਗਈ
     account:
       errors:
-        email_not_found: "ਈਮੇਲ ਨਹੀਂ ਮਿਲੀ!"
-        email_invalid: "ਅਵੈਧ ਈਮੇਲ ਫਾਰਮੈਟ"
-        email_taken: "ਈਮੇਲ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਈ ਗਈ ਹੈ"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ਈਮੇਲ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ"
-        password_unmatch: "ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ"
-        password_update_fail: "ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ"
-        otp_invalid: "ਅਵੈਧ OTP!"
-        register_not_allow: "ਤੁਹਾਨੂੰ ਰਜਿਸਟਰ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ!"
-        missing_field: "ਲੋੜੀਂਦੇ ਫੀਲਡ ਗੁੰਮ ਹਨ"
-        password_incorrect: "ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ"
-        username_taken: "ਉਪਭੋਗਤਾ ਨਾਮ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਿਆ ਗਿਆ ਹੈ"
+        email_not_found: ਈਮੇਲ ਨਹੀਂ ਮਿਲੀ!
+        email_invalid: ਅਵੈਧ ਈਮੇਲ ਫਾਰਮੈਟ
+        email_taken: ਈਮੇਲ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਈ ਗਈ ਹੈ
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ਈਮੇਲ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ
+        password_unmatch: ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ
+        password_update_fail: ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ
+        otp_invalid: ਅਵੈਧ OTP!
+        register_not_allow: ਤੁਹਾਨੂੰ ਰਜਿਸਟਰ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ!
+        missing_field: ਲੋੜੀਂਦੇ ਫੀਲਡ ਗੁੰਮ ਹਨ
+        password_incorrect: ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ
+        username_taken: ਉਪਭੋਗਤਾ ਨਾਮ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਿਆ ਗਿਆ ਹੈ
       messages:
-        password_updated: "ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ ਹੈ"
+        password_updated: ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ ਹੈ
     domain:
       messages:
-        dns_verified: "DNS ਠੀਕ ਤਰ੍ਹਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਗਿਆ ਹੈ"
+        dns_verified: DNS ਠੀਕ ਤਰ੍ਹਾਂ ਸੰਰਚਿਤ ਕੀਤਾ ਗਿਆ ਹੈ
     conversation:
       messages:
         marked_read: "%{updated_count} ਗੱਲਬਾਤ(ਾਂ) ਨੂੰ ਪੜ੍ਹਿਆ ਹੋਇਆ ਚਿੰਨ੍ਹ ਲਾਇਆ ਗਿਆ"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ਪ্রতিক্রিया ਪਰਸਕਾਰ
+      emoji_limit_exceeded: ਇਮੋਜੀ ਸੀਮਾ ਅੱਧਿਕ

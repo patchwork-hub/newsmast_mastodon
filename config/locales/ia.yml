@@ -1,75 +1,82 @@
+---
 ia:
   locale:
-    name: "Interlingua"
-    native_name: "Interlingua"
+    name: Interlingua
+    native_name: Interlingua
   notification:
     poll:
-      ended_you: "Tu sondage ha finite"
-      ended_voted: "Un sondage ubi tu ha votate ha finite"
+      ended_you: Tu sondage ha finite
+      ended_voted: Un sondage ubi tu ha votate ha finite
     mention:
       direct_message: "%{name} te ha inviate un message"
-      conversation_request: "Tu ha un nove requesta de conversation."
+      conversation_request: Tu ha un nove requesta de conversation.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Car %{name},"
-      instruction: "Tu codice OTP de verification de conto es:"
-      note: "Si tu non ha requirite isto, ignora iste email"
+      greeting: Car %{name},
+      instruction: 'Tu codice OTP de verification de conto es:'
+      note: Si tu non ha requirite isto, ignora iste email
   login_service:
     errors:
-      invalid_credentials: "Credentiales invalide. Per favor prova de novo"
-      unauthorized_access: "Tu non ha accesso pro acceder"
-      channel_not_created: "Credentiales invalide. Assecura te que tu ha create un canal"
-      account_deleted: "Tu conto es jam delite"
+      invalid_credentials: Credentiales invalide. Per favor prova de novo
+      unauthorized_access: Tu non ha accesso pro acceder
+      channel_not_created: Credentiales invalide. Assecura te que tu ha create un
+        canal
+      account_deleted: Tu conto es jam delite
       invalid_role_access: "%{role} non es permittite acceder"
-      deactivated_channel: "Tu canal es deactivate. Contacta le supporto"
-      two_factor_enabled: "Le authentication a duo factores es activate. Per favor, intra via le interfacie web"
-
+      deactivated_channel: Tu canal es deactivate. Contacta le supporto
+      two_factor_enabled: Le authentication a duo factores es activate. Per favor,
+        intra via le interfacie web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Per favor prova de novo. Credentiales invalide de beebee.io"
-      registration_required: "Per favor registra un conto local. datos: %{data}"
-      connection_error: "Error connectente al servicio de membros: %{error}"
+      invalid_credentials: Per favor prova de novo. Credentiales invalide de beebee.io
+      registration_required: 'Per favor registra un conto local. datos: %{data}'
+      connection_error: 'Error connectente al servicio de membros: %{error}'
   api:
     errors:
-      unauthorized: "Tu non es autorizate pro facer iste action"
-      forbidden: "Accesso negate!"
-      not_found: "Ressource non trovate"
-      unprocessable_entity: "Le requesta non poteva esser processate"
-      internal_server_error: "Un error interne del servitor occurreva"
-      validation_failed: "Validation fallite!"
-      invalid_request: "Requesta invalide!"
-      rate_limit_exceeded: "Limite de requestas excedite. Per favor prova plus tarde"
+      unauthorized: Tu non es autorizate pro facer iste action
+      forbidden: Accesso negate!
+      not_found: Ressource non trovate
+      unprocessable_entity: Le requesta non poteva esser processate
+      internal_server_error: Un error interne del servitor occurreva
+      validation_failed: Validation fallite!
+      invalid_request: Requesta invalide!
+      rate_limit_exceeded: Limite de requestas excedite. Per favor prova plus tarde
     messages:
-      success: "Operation completate con successo"
-      created: "Ressource create con successo"
-      updated: "Ressource actualisate con successo"
-      deleted: "Ressource delite con successo"
+      success: Operation completate con successo
+      created: Ressource create con successo
+      updated: Ressource actualisate con successo
+      deleted: Ressource delite con successo
     notification:
       messages:
-        token_already_exists: "Token de notification ja existe"
-        token_saved: "Token de notification salvate"
-        token_deleted: "Token de notification delite con successo"
-        token_not_found: "Nulle tokens de notification trovate"
-        mute_updated: "Stato de mute actualisate con successo"
+        token_already_exists: Token de notification ja existe
+        token_saved: Token de notification salvate
+        token_deleted: Token de notification delite con successo
+        token_not_found: Nulle tokens de notification trovate
+        mute_updated: Stato de mute actualisate con successo
     account:
       errors:
-        email_not_found: "E-mail non trovate!"
-        email_invalid: "Formato de e-mail invalide"
-        email_taken: "E-mail ja es in uso"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Le actualisation del e-mail ha fallite"
-        password_unmatch: "Le contrasignos non coincide"
-        password_update_fail: "Le actualisation del contrasigno ha fallite"
-        otp_invalid: "OTP invalide!"
-        register_not_allow: "Tu non es permittite registrar!"
-        missing_field: "Campos requirite mancante"
-        password_incorrect: "Le contrasigno currente es incorrecte"
-        username_taken: "Le nomine de usator ja es in uso"
+        email_not_found: E-mail non trovate!
+        email_invalid: Formato de e-mail invalide
+        email_taken: E-mail ja es in uso
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Le actualisation del e-mail ha fallite
+        password_unmatch: Le contrasignos non coincide
+        password_update_fail: Le actualisation del contrasigno ha fallite
+        otp_invalid: OTP invalide!
+        register_not_allow: Tu non es permittite registrar!
+        missing_field: Campos requirite mancante
+        password_incorrect: Le contrasigno currente es incorrecte
+        username_taken: Le nomine de usator ja es in uso
       messages:
-        password_updated: "Le contrasigno ha essite actualisate"
+        password_updated: Le contrasigno ha essite actualisate
     domain:
       messages:
-        dns_verified: "Le DNS es configurate correctemente"
+        dns_verified: Le DNS es configurate correctemente
     conversation:
       messages:
         marked_read: "%{updated_count} conversation(es) marcate como legite"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaction non recognoscite
+      emoji_limit_exceeded: Limite de emoji excedite

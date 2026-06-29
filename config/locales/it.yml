@@ -1,75 +1,81 @@
+---
 it:
   locale:
-    name: "Italian"
-    native_name: "Italiano"
+    name: Italian
+    native_name: Italiano
   notification:
     poll:
-      ended_you: "Il tuo sondaggio è terminato"
-      ended_voted: "Un sondaggio a cui hai votato è terminato"
+      ended_you: Il tuo sondaggio è terminato
+      ended_voted: Un sondaggio a cui hai votato è terminato
     mention:
       direct_message: "%{name} ti ha inviato un messaggio"
-      conversation_request: "Hai una nuova richiesta di conversazione."
+      conversation_request: Hai una nuova richiesta di conversazione.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Caro/a %{name},"
-      instruction: "Il tuo codice OTP di verifica account è:"
-      note: "Se non hai richiesto questo, ignora questa email"
+      greeting: Caro/a %{name},
+      instruction: 'Il tuo codice OTP di verifica account è:'
+      note: Se non hai richiesto questo, ignora questa email
   login_service:
     errors:
-      invalid_credentials: "Credenziali non valide. Riprova"
-      unauthorized_access: "Non hai accesso per accedere"
-      channel_not_created: "Credenziali non valide. Assicurati di aver creato un canale"
-      account_deleted: "Il tuo account è già stato eliminato"
+      invalid_credentials: Credenziali non valide. Riprova
+      unauthorized_access: Non hai accesso per accedere
+      channel_not_created: Credenziali non valide. Assicurati di aver creato un canale
+      account_deleted: Il tuo account è già stato eliminato
       invalid_role_access: "%{role} non è autorizzato ad accedere"
-      deactivated_channel: "Il tuo canale è disattivato. Contatta il supporto"
-      two_factor_enabled: "L'autenticazione a due fattori è abilitata. Effettua il login tramite l'interfaccia web"
-
+      deactivated_channel: Il tuo canale è disattivato. Contatta il supporto
+      two_factor_enabled: L'autenticazione a due fattori è abilitata. Effettua il
+        login tramite l'interfaccia web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Riprova. Credenziali non valide da beebee.io"
-      registration_required: "Registra un account locale. dati: %{data}"
-      connection_error: "Errore di connessione al servizio di iscrizione: %{error}"
+      invalid_credentials: Riprova. Credenziali non valide da beebee.io
+      registration_required: 'Registra un account locale. dati: %{data}'
+      connection_error: 'Errore di connessione al servizio di iscrizione: %{error}'
   api:
     errors:
-      unauthorized: "Non sei autorizzato a eseguire questa azione"
-      forbidden: "Accesso negato!"
-      not_found: "Risorsa non trovata"
-      unprocessable_entity: "Impossibile elaborare la richiesta"
-      internal_server_error: "Si è verificato un errore interno del server"
-      validation_failed: "Validazione fallita!"
-      invalid_request: "Richiesta non valida!"
-      rate_limit_exceeded: "Limite di richieste superato. Riprova più tardi"
+      unauthorized: Non sei autorizzato a eseguire questa azione
+      forbidden: Accesso negato!
+      not_found: Risorsa non trovata
+      unprocessable_entity: Impossibile elaborare la richiesta
+      internal_server_error: Si è verificato un errore interno del server
+      validation_failed: Validazione fallita!
+      invalid_request: Richiesta non valida!
+      rate_limit_exceeded: Limite di richieste superato. Riprova più tardi
     messages:
-      success: "Operazione completata con successo"
-      created: "Risorsa creata con successo"
-      updated: "Risorsa aggiornata con successo"
-      deleted: "Risorsa eliminata con successo"
+      success: Operazione completata con successo
+      created: Risorsa creata con successo
+      updated: Risorsa aggiornata con successo
+      deleted: Risorsa eliminata con successo
     notification:
       messages:
-        token_already_exists: "Il token di notifica esiste già"
-        token_saved: "Token di notifica salvato"
-        token_deleted: "Token di notifica eliminato con successo"
-        token_not_found: "Nessun token di notifica trovato"
-        mute_updated: "Stato silenzioso aggiornato con successo"
+        token_already_exists: Il token di notifica esiste già
+        token_saved: Token di notifica salvato
+        token_deleted: Token di notifica eliminato con successo
+        token_not_found: Nessun token di notifica trovato
+        mute_updated: Stato silenzioso aggiornato con successo
     account:
       errors:
-        email_not_found: "Email non trovata!"
-        email_invalid: "Formato email non valido"
-        email_taken: "Email già utilizzata"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Aggiornamento email non riuscito"
-        password_unmatch: "Le password non corrispondono"
-        password_update_fail: "Aggiornamento password non riuscito"
-        otp_invalid: "OTP non valido!"
-        register_not_allow: "Non sei autorizzato a registrarti!"
-        missing_field: "Campi obbligatori mancanti"
-        password_incorrect: "La password attuale non è corretta"
-        username_taken: "Nome utente già utilizzato"
+        email_not_found: Email non trovata!
+        email_invalid: Formato email non valido
+        email_taken: Email già utilizzata
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Aggiornamento email non riuscito
+        password_unmatch: Le password non corrispondono
+        password_update_fail: Aggiornamento password non riuscito
+        otp_invalid: OTP non valido!
+        register_not_allow: Non sei autorizzato a registrarti!
+        missing_field: Campi obbligatori mancanti
+        password_incorrect: La password attuale non è corretta
+        username_taken: Nome utente già utilizzato
       messages:
-        password_updated: "La password è stata aggiornata"
+        password_updated: La password è stata aggiornata
     domain:
       messages:
-        dns_verified: "DNS configurato correttamente"
+        dns_verified: DNS configurato correttamente
     conversation:
       messages:
         marked_read: "%{updated_count} conversazione(i) contrassegnata(e) come letta(e)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reazione non riconosciuta
+      emoji_limit_exceeded: Limite di emoji superato

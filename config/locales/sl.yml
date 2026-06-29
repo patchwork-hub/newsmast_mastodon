@@ -1,75 +1,82 @@
+---
 sl:
   locale:
-    name: "Slovenian"
-    native_name: "Slovenščina"
+    name: Slovenian
+    native_name: Slovenščina
   notification:
     poll:
-      ended_you: "Vaša anketa se je končala"
-      ended_voted: "Anketa, v kateri ste glasovali, se je končala"
+      ended_you: Vaša anketa se je končala
+      ended_voted: Anketa, v kateri ste glasovali, se je končala
     mention:
       direct_message: "%{name} vam je poslal sporočilo"
-      conversation_request: "Imate novo zahtevo za pogovor."
+      conversation_request: Imate novo zahtevo za pogovor.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Spoštovani %{name},"
-      instruction: "Vaša OTP koda za preverjanje računa je:"
-      note: "Če tega niste zahtevali, ignorirajte to e-pošto"
+      greeting: Spoštovani %{name},
+      instruction: 'Vaša OTP koda za preverjanje računa je:'
+      note: Če tega niste zahtevali, ignorirajte to e-pošto
   login_service:
     errors:
-      invalid_credentials: "Neveljavni podatki za prijavo. Poskusite znova"
-      unauthorized_access: "Nimate dovoljenja za prijavo"
-      channel_not_created: "Neveljavni podatki za prijavo. Prepričajte se, da ste ustvarili kanal"
-      account_deleted: "Vaš račun je že izbrisan"
+      invalid_credentials: Neveljavni podatki za prijavo. Poskusite znova
+      unauthorized_access: Nimate dovoljenja za prijavo
+      channel_not_created: Neveljavni podatki za prijavo. Prepričajte se, da ste ustvarili
+        kanal
+      account_deleted: Vaš račun je že izbrisan
       invalid_role_access: "%{role} nima dovoljenja za prijavo"
-      deactivated_channel: "Vaš kanal je deaktiviran. Obrnite se na podporo"
-      two_factor_enabled: "Dvofaktorska overitev je omogočena. Prijavite se prek spletnega vmesnika"
-
+      deactivated_channel: Vaš kanal je deaktiviran. Obrnite se na podporo
+      two_factor_enabled: Dvofaktorska overitev je omogočena. Prijavite se prek spletnega
+        vmesnika
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Poskusite znova. Neveljavni podatki za prijavo iz beebee.io"
-      registration_required: "Prosimo, registrirajte lokalni račun. podatki: %{data}"
-      connection_error: "Napaka pri povezovanju s člansko storitev: %{error}"
+      invalid_credentials: Poskusite znova. Neveljavni podatki za prijavo iz beebee.io
+      registration_required: 'Prosimo, registrirajte lokalni račun. podatki: %{data}'
+      connection_error: 'Napaka pri povezovanju s člansko storitev: %{error}'
   api:
     errors:
-      unauthorized: "Nimate dovoljenja za to dejanje"
-      forbidden: "Dostop zavrnjen!"
-      not_found: "Vira ni bilo mogoče najti"
-      unprocessable_entity: "Zahteve ni bilo mogoče obdelati"
-      internal_server_error: "Prišlo je do notranje napake strežnika"
-      validation_failed: "Preverjanje ni uspelo!"
-      invalid_request: "Neveljavna zahteva!"
-      rate_limit_exceeded: "Presežena je omejitev zahtev. Poskusite znova pozneje"
+      unauthorized: Nimate dovoljenja za to dejanje
+      forbidden: Dostop zavrnjen!
+      not_found: Vira ni bilo mogoče najti
+      unprocessable_entity: Zahteve ni bilo mogoče obdelati
+      internal_server_error: Prišlo je do notranje napake strežnika
+      validation_failed: Preverjanje ni uspelo!
+      invalid_request: Neveljavna zahteva!
+      rate_limit_exceeded: Presežena je omejitev zahtev. Poskusite znova pozneje
     messages:
-      success: "Operacija uspešno zaključena"
-      created: "Vir uspešno ustvarjen"
-      updated: "Vir uspešno posodobljen"
-      deleted: "Vir uspešno izbrisan"
+      success: Operacija uspešno zaključena
+      created: Vir uspešno ustvarjen
+      updated: Vir uspešno posodobljen
+      deleted: Vir uspešno izbrisan
     notification:
       messages:
-        token_already_exists: "Žeton za obvestila že obstaja"
-        token_saved: "Žeton za obvestila shranjen"
-        token_deleted: "Žeton za obvestila uspešno izbrisan"
-        token_not_found: "Ni najdenih žetonov za obvestila"
-        mute_updated: "Stanje utišanja uspešno posodobljeno"
+        token_already_exists: Žeton za obvestila že obstaja
+        token_saved: Žeton za obvestila shranjen
+        token_deleted: Žeton za obvestila uspešno izbrisan
+        token_not_found: Ni najdenih žetonov za obvestila
+        mute_updated: Stanje utišanja uspešno posodobljeno
     account:
       errors:
-        email_not_found: "E-pošta ni bila najdena!"
-        email_invalid: "Neveljaven format e-pošte"
-        email_taken: "E-pošta je že uporabljena"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Posodobitev e-pošte ni uspela"
-        password_unmatch: "Gesli se ne ujemata"
-        password_update_fail: "Posodobitev gesla ni uspela"
-        otp_invalid: "Neveljaven OTP!"
-        register_not_allow: "Nimate dovoljenja za registracijo!"
-        missing_field: "Manjkajo zahtevana polja"
-        password_incorrect: "Trenutno geslo je napačno"
-        username_taken: "Uporabniško ime je že uporabljeno"
+        email_not_found: E-pošta ni bila najdena!
+        email_invalid: Neveljaven format e-pošte
+        email_taken: E-pošta je že uporabljena
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Posodobitev e-pošte ni uspela
+        password_unmatch: Gesli se ne ujemata
+        password_update_fail: Posodobitev gesla ni uspela
+        otp_invalid: Neveljaven OTP!
+        register_not_allow: Nimate dovoljenja za registracijo!
+        missing_field: Manjkajo zahtevana polja
+        password_incorrect: Trenutno geslo je napačno
+        username_taken: Uporabniško ime je že uporabljeno
       messages:
-        password_updated: "Geslo je bilo posodobljeno"
+        password_updated: Geslo je bilo posodobljeno
     domain:
       messages:
-        dns_verified: "DNS je pravilno konfiguriran"
+        dns_verified: DNS je pravilno konfiguriran
     conversation:
       messages:
         marked_read: "%{updated_count} pogovor(ov) označenih kot prebranih"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Odziv ni prepoznan
+      emoji_limit_exceeded: Omejitev emoji je presežena

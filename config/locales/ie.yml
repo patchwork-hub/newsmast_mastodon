@@ -1,75 +1,81 @@
+---
 ie:
   locale:
-    name: "Interlingue"
-    native_name: "Interlingue"
+    name: Interlingue
+    native_name: Interlingue
   notification:
     poll:
-      ended_you: "Ti poll ha finit"
-      ended_voted: "Un poll u tu votat ha finit"
+      ended_you: Ti poll ha finit
+      ended_voted: Un poll u tu votat ha finit
     mention:
       direct_message: "%{name} inviat te un message"
-      conversation_request: "Vu have un nov demanda de conversation."
+      conversation_request: Vu have un nov demanda de conversation.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Car %{name},"
-      instruction: "Tu code OTP de verification de cont es:"
-      note: "Si tu ne ha petet to, ples ignorar ti e-mail"
+      greeting: Car %{name},
+      instruction: 'Tu code OTP de verification de cont es:'
+      note: Si tu ne ha petet to, ples ignorar ti e-mail
   login_service:
     errors:
-      invalid_credentials: "Invalid credentiales. Ples provar denov"
-      unauthorized_access: "Tu ne have accesse por logar in"
-      channel_not_created: "Invalid credentiales. Assegura que tu ha creat un canal"
-      account_deleted: "Tu cont ja es deletet"
+      invalid_credentials: Invalid credentiales. Ples provar denov
+      unauthorized_access: Tu ne have accesse por logar in
+      channel_not_created: Invalid credentiales. Assegura que tu ha creat un canal
+      account_deleted: Tu cont ja es deletet
       invalid_role_access: "%{role} ne es permisset logar in"
-      deactivated_channel: "Tu canal es deactivat. Ples contactar support"
-      two_factor_enabled: "Authenticación bi-factorial es activat. Il vos plaise, intra per li web-interfacie"
-
+      deactivated_channel: Tu canal es deactivat. Ples contactar support
+      two_factor_enabled: Authenticación bi-factorial es activat. Il vos plaise, intra
+        per li web-interfacie
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Ples provar denov. Invalid credentiales de beebee.io"
-      registration_required: "Ples registrar un local cont. data: %{data}"
-      connection_error: "Errore connexent al servicie de membres: %{error}"
+      invalid_credentials: Ples provar denov. Invalid credentiales de beebee.io
+      registration_required: 'Ples registrar un local cont. data: %{data}'
+      connection_error: 'Errore connexent al servicie de membres: %{error}'
   api:
     errors:
-      unauthorized: "Tu ne es autorisat far ti action"
-      forbidden: "Accesse refusat!"
-      not_found: "Ressurce ne trovat"
-      unprocessable_entity: "Li demande ne posset esser processat"
-      internal_server_error: "Un intern servitor error eventet"
-      validation_failed: "Validation fallit!"
-      invalid_request: "Invalid demande!"
-      rate_limit_exceeded: "Limite de demandes excedet. Ples provar plu tard"
+      unauthorized: Tu ne es autorisat far ti action
+      forbidden: Accesse refusat!
+      not_found: Ressurce ne trovat
+      unprocessable_entity: Li demande ne posset esser processat
+      internal_server_error: Un intern servitor error eventet
+      validation_failed: Validation fallit!
+      invalid_request: Invalid demande!
+      rate_limit_exceeded: Limite de demandes excedet. Ples provar plu tard
     messages:
-      success: "Operation completet successosimen"
-      created: "Ressurce creat successosimen"
-      updated: "Ressurce actualisat successosimen"
-      deleted: "Ressurce deletet successosimen"
+      success: Operation completet successosimen
+      created: Ressurce creat successosimen
+      updated: Ressurce actualisat successosimen
+      deleted: Ressurce deletet successosimen
     notification:
       messages:
-        token_already_exists: "Notification token ja existe"
-        token_saved: "Notification token salvat"
-        token_deleted: "Notification token deletet successosimen"
-        token_not_found: "Null notification tokens trovat"
-        mute_updated: "Mute status actualisat successosimen"
+        token_already_exists: Notification token ja existe
+        token_saved: Notification token salvat
+        token_deleted: Notification token deletet successosimen
+        token_not_found: Null notification tokens trovat
+        mute_updated: Mute status actualisat successosimen
     account:
       errors:
-        email_not_found: "E-mail ne trovat!"
-        email_invalid: "Invalid e-mail format"
-        email_taken: "E-mail ja es in usu"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Li e-mail update ne successat"
-        password_unmatch: "Li passwords ne concorda"
-        password_update_fail: "Li password update ne successat"
-        otp_invalid: "Invalid OTP!"
-        register_not_allow: "Tu ne es permisset registrar!"
-        missing_field: "Missing necessi camp"
-        password_incorrect: "Li actual password es incorrect"
-        username_taken: "Li usator-nom ja es in usu"
+        email_not_found: E-mail ne trovat!
+        email_invalid: Invalid e-mail format
+        email_taken: E-mail ja es in usu
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Li e-mail update ne successat
+        password_unmatch: Li passwords ne concorda
+        password_update_fail: Li password update ne successat
+        otp_invalid: Invalid OTP!
+        register_not_allow: Tu ne es permisset registrar!
+        missing_field: Missing necessi camp
+        password_incorrect: Li actual password es incorrect
+        username_taken: Li usator-nom ja es in usu
       messages:
-        password_updated: "Li password ha esset actualisat"
+        password_updated: Li password ha esset actualisat
     domain:
       messages:
-        dns_verified: "Li DNS es corectmen configurat"
+        dns_verified: Li DNS es corectmen configurat
     conversation:
       messages:
         marked_read: "%{updated_count} conversation(es) marcat quam leet"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reacción ne recognit
+      emoji_limit_exceeded: Limite de emoji superat

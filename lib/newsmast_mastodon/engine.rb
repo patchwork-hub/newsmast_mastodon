@@ -69,20 +69,11 @@ module NewsmastMastodon
       end
     end
 
-    # --- Autoload paths for services, workers, presenters, serializers, validators ---
-    initializer "newsmast_mastodon.add_autoload_paths", before: :set_autoload_paths do |app|
-      extra_paths = [
-        root.join("app", "services").to_s,
-        root.join("app", "workers").to_s,
-        root.join("app", "presenters").to_s,
-        root.join("app", "serializers").to_s,
-        root.join("app", "validators").to_s
-      ]
-
-      extra_paths.each do |path|
-        app.config.autoload_paths << path unless app.config.autoload_paths.include?(path)
-      end
-    end
+    # --- Autoload paths for services, workers, presenters, validators ---
+    config.autoload_paths << File.expand_path("../app/services", __FILE__)
+    config.autoload_paths << File.expand_path("../app/workers", __FILE__)
+    config.autoload_paths += %W[#{config.root}/app/presenters]
+    config.autoload_paths += %W[#{config.root}/app/validators]
 
     # --- Ghost & WordPress webhook host allowlisting ---
     initializer "newsmast_mastodon.extend_allowed_hosts" do |app|
@@ -111,6 +102,47 @@ module NewsmastMastodon
       config.paths.add "app/chewy", with: []
       config.paths.add "app/chewy/newsmast_mastodon", with: []
     end
+
+    # # --- Register custom relay sync in Sidekiq scheduler (without touching sidekiq.yml) ---
+    # config.after_initialize do
+    #   next unless defined?(Sidekiq)
+    #   next unless Sidekiq.server?
+    #   next unless defined?(SidekiqScheduler::Scheduler)
+
+    #   schedule_name = 'newsmast_custom_relay_sync_scheduler'
+    #   schedule_job = {
+    #     'every' => ['5m'],
+    #     'class' => 'NewsmastMastodon::RelayEnvSyncWorker',
+    #     'queue' => 'scheduler',
+    #   }
+
+    #   # Preserve all host-defined schedules from sidekiq.yml and any currently
+    #   # loaded runtime schedules, then layer in the gem schedule.
+    #   host_schedule = begin
+    #     config_path = Rails.root.join('config', 'sidekiq.yml')
+    #     if File.exist?(config_path)
+    #       raw = ERB.new(File.read(config_path)).result
+    #       parsed = YAML.safe_load(raw, aliases: true) || {}
+    #       parsed.fetch(':scheduler', {}).fetch(':schedule', {})
+    #     else
+    #       {}
+    #     end
+    #   rescue StandardError => e
+    #     Rails.logger&.warn("[newsmast_mastodon] Failed to read sidekiq.yml schedule: #{e.message}")
+    #     {}
+    #   end
+
+    #   runtime_schedule = Sidekiq.schedule || {}
+
+    #   merged_schedule = host_schedule.to_h.transform_keys(&:to_s)
+    #                                 .merge(runtime_schedule.to_h.transform_keys(&:to_s))
+    #   merged_schedule[schedule_name] = schedule_job
+
+    #   Sidekiq.schedule = merged_schedule
+    #   SidekiqScheduler::Scheduler.instance.reload_schedule!
+
+    #   Rails.logger&.info("[newsmast_mastodon] Sidekiq schedule registered: #{schedule_name}")
+    # end
 
     config.generators do |g|
       g.test_framework :rspec

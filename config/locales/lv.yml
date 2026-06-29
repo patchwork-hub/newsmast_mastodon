@@ -1,75 +1,83 @@
+---
 lv:
   locale:
-    name: "Latvian"
-    native_name: "Latviešu"
+    name: Latvian
+    native_name: Latviešu
   notification:
     poll:
-      ended_you: "Jūsu aptauja ir beigusies"
-      ended_voted: "Aptauja, kurā jūs balsojāt, ir beigusies"
+      ended_you: Jūsu aptauja ir beigusies
+      ended_voted: Aptauja, kurā jūs balsojāt, ir beigusies
     mention:
       direct_message: "%{name} jums nosūtīja ziņu"
-      conversation_request: "Jums ir jauns sarunas pieprasījums."
+      conversation_request: Jums ir jauns sarunas pieprasījums.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Cienījamais %{name},"
-      instruction: "Jūsu konta verifikācijas OTP kods ir:"
-      note: "Ja jūs to nepieprasījāt, lūdzu, ignorējiet šo e-pastu"
+      greeting: Cienījamais %{name},
+      instruction: 'Jūsu konta verifikācijas OTP kods ir:'
+      note: Ja jūs to nepieprasījāt, lūdzu, ignorējiet šo e-pastu
   login_service:
     errors:
-      invalid_credentials: "Nederīgi akreditācijas dati. Lūdzu, mēģiniet vēlreiz"
-      unauthorized_access: "Jums nav atļaujas pieteikties"
-      channel_not_created: "Nederīgi akreditācijas dati. Pārliecinieties, ka esat izveidojis kanālu"
-      account_deleted: "Jūsu konts jau ir dzēsts"
+      invalid_credentials: Nederīgi akreditācijas dati. Lūdzu, mēģiniet vēlreiz
+      unauthorized_access: Jums nav atļaujas pieteikties
+      channel_not_created: Nederīgi akreditācijas dati. Pārliecinieties, ka esat izveidojis
+        kanālu
+      account_deleted: Jūsu konts jau ir dzēsts
       invalid_role_access: "%{role} nav atļauts pieteikties"
-      deactivated_channel: "Jūsu kanāls ir deaktivizēts. Sazinieties ar atbalstu"
-      two_factor_enabled: "Divfaktoru autentifikācija ir iespējota. Lūdzu, piesakieties caur tīmekļa saskarni"
-
+      deactivated_channel: Jūsu kanāls ir deaktivizēts. Sazinieties ar atbalstu
+      two_factor_enabled: Divfaktoru autentifikācija ir iespējota. Lūdzu, piesakieties
+        caur tīmekļa saskarni
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Lūdzu, mēģiniet vēlreiz. Nederīgi akreditācijas dati no beebee.io"
-      registration_required: "Lūdzu, reģistrējiet vietējo kontu. dati: %{data}"
-      connection_error: "Kļūda, savienojoties ar biedru pakalpojumu: %{error}"
+      invalid_credentials: Lūdzu, mēģiniet vēlreiz. Nederīgi akreditācijas dati no
+        beebee.io
+      registration_required: 'Lūdzu, reģistrējiet vietējo kontu. dati: %{data}'
+      connection_error: 'Kļūda, savienojoties ar biedru pakalpojumu: %{error}'
   api:
     errors:
-      unauthorized: "Jums nav atļaujas veikt šo darbību"
-      forbidden: "Piekļuve liegta!"
-      not_found: "Resurss nav atrasts"
-      unprocessable_entity: "Pieprasījumu nevarēja apstrādāt"
-      internal_server_error: "Radās iekšēja servera kļūda"
-      validation_failed: "Validācija neizdevās!"
-      invalid_request: "Nederīgs pieprasījums!"
-      rate_limit_exceeded: "Pieprasījumu limits pārsniegts. Lūdzu, mēģiniet vēlāk"
+      unauthorized: Jums nav atļaujas veikt šo darbību
+      forbidden: Piekļuve liegta!
+      not_found: Resurss nav atrasts
+      unprocessable_entity: Pieprasījumu nevarēja apstrādāt
+      internal_server_error: Radās iekšēja servera kļūda
+      validation_failed: Validācija neizdevās!
+      invalid_request: Nederīgs pieprasījums!
+      rate_limit_exceeded: Pieprasījumu limits pārsniegts. Lūdzu, mēģiniet vēlāk
     messages:
-      success: "Darbība veiksmīgi pabeigta"
-      created: "Resurss veiksmīgi izveidots"
-      updated: "Resurss veiksmīgi atjaunināts"
-      deleted: "Resurss veiksmīgi dzēsts"
+      success: Darbība veiksmīgi pabeigta
+      created: Resurss veiksmīgi izveidots
+      updated: Resurss veiksmīgi atjaunināts
+      deleted: Resurss veiksmīgi dzēsts
     notification:
       messages:
-        token_already_exists: "Paziņojuma marķieris jau pastāv"
-        token_saved: "Paziņojuma marķieris saglabāts"
-        token_deleted: "Paziņojuma marķieris veiksmīgi dzēsts"
-        token_not_found: "Nav atrasti paziņojuma marķieri"
-        mute_updated: "Klusuma statuss veiksmīgi atjaunināts"
+        token_already_exists: Paziņojuma marķieris jau pastāv
+        token_saved: Paziņojuma marķieris saglabāts
+        token_deleted: Paziņojuma marķieris veiksmīgi dzēsts
+        token_not_found: Nav atrasti paziņojuma marķieri
+        mute_updated: Klusuma statuss veiksmīgi atjaunināts
     account:
       errors:
-        email_not_found: "E-pasts nav atrasts!"
-        email_invalid: "Nederīgs e-pasta formāts"
-        email_taken: "E-pasts jau ir izmantots"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "E-pasta atjaunināšana neizdevās"
-        password_unmatch: "Paroles nesakrīt"
-        password_update_fail: "Paroles atjaunināšana neizdevās"
-        otp_invalid: "Nederīgs OTP!"
-        register_not_allow: "Jums nav atļaujas reģistrēties!"
-        missing_field: "Trūkst obligāto lauku"
-        password_incorrect: "Pašreizējā parole ir nepareiza"
-        username_taken: "Lietotājvārds jau ir izmantots"
+        email_not_found: E-pasts nav atrasts!
+        email_invalid: Nederīgs e-pasta formāts
+        email_taken: E-pasts jau ir izmantots
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: E-pasta atjaunināšana neizdevās
+        password_unmatch: Paroles nesakrīt
+        password_update_fail: Paroles atjaunināšana neizdevās
+        otp_invalid: Nederīgs OTP!
+        register_not_allow: Jums nav atļaujas reģistrēties!
+        missing_field: Trūkst obligāto lauku
+        password_incorrect: Pašreizējā parole ir nepareiza
+        username_taken: Lietotājvārds jau ir izmantots
       messages:
-        password_updated: "Parole ir atjaunināta"
+        password_updated: Parole ir atjaunināta
     domain:
       messages:
-        dns_verified: "DNS ir pareizi konfigurēts"
+        dns_verified: DNS ir pareizi konfigurēts
     conversation:
       messages:
         marked_read: "%{updated_count} saruna(s) atzīmēta(s) kā izlasīta(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakcija nav atpazīta
+      emoji_limit_exceeded: Emoji limits pārsniegts

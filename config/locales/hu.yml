@@ -1,75 +1,82 @@
+---
 hu:
   locale:
-    name: "Hungarian"
-    native_name: "Magyar"
+    name: Hungarian
+    native_name: Magyar
   notification:
     poll:
-      ended_you: "A szavazásod véget ért"
-      ended_voted: "Egy szavazás, amelyben szavaztál, véget ért"
+      ended_you: A szavazásod véget ért
+      ended_voted: Egy szavazás, amelyben szavaztál, véget ért
     mention:
       direct_message: "%{name} üzenetet küldött neked"
-      conversation_request: "Új beszélgetés kérésed van."
+      conversation_request: Új beszélgetés kérésed van.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kedves %{name},"
-      instruction: "A fiók megerősítő OTP kódod:"
-      note: "Ha nem te kérted ezt, kérjük, hagyd figyelmen kívül ezt az e-mailt"
+      greeting: Kedves %{name},
+      instruction: 'A fiók megerősítő OTP kódod:'
+      note: Ha nem te kérted ezt, kérjük, hagyd figyelmen kívül ezt az e-mailt
   login_service:
     errors:
-      invalid_credentials: "Érvénytelen hitelesítő adatok. Próbáld újra"
-      unauthorized_access: "Nincs jogosultságod bejelentkezni"
-      channel_not_created: "Érvénytelen hitelesítő adatok. Győződj meg róla, hogy létrehoztál egy csatornát"
-      account_deleted: "A fiókod már törölve lett"
+      invalid_credentials: Érvénytelen hitelesítő adatok. Próbáld újra
+      unauthorized_access: Nincs jogosultságod bejelentkezni
+      channel_not_created: Érvénytelen hitelesítő adatok. Győződj meg róla, hogy létrehoztál
+        egy csatornát
+      account_deleted: A fiókod már törölve lett
       invalid_role_access: "%{role} nem jogosult bejelentkezni"
-      deactivated_channel: "A csatornád deaktiválva van. Lépj kapcsolatba a támogatással"
-      two_factor_enabled: "A kétfaktoros hitelesítés engedélyezett. Kérjük, jelentkezzen be a webes felületen keresztül"
-
+      deactivated_channel: A csatornád deaktiválva van. Lépj kapcsolatba a támogatással
+      two_factor_enabled: A kétfaktoros hitelesítés engedélyezett. Kérjük, jelentkezzen
+        be a webes felületen keresztül
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Próbáld újra. Érvénytelen hitelesítő adatok a beebee.io-tól"
-      registration_required: "Kérjük, regisztrálj helyi fiókot. adatok: %{data}"
-      connection_error: "Hiba a tagsági szolgáltatáshoz való csatlakozás során: %{error}"
+      invalid_credentials: Próbáld újra. Érvénytelen hitelesítő adatok a beebee.io-tól
+      registration_required: 'Kérjük, regisztrálj helyi fiókot. adatok: %{data}'
+      connection_error: 'Hiba a tagsági szolgáltatáshoz való csatlakozás során: %{error}'
   api:
     errors:
-      unauthorized: "Nincs jogosultságod végrehajtani ezt a műveletet"
-      forbidden: "Hozzáférés megtagadva!"
-      not_found: "Az erőforrás nem található"
-      unprocessable_entity: "A kérés nem volt feldolgozható"
-      internal_server_error: "Belső szerverhiba történt"
-      validation_failed: "A validáció sikertelen!"
-      invalid_request: "Érvénytelen kérés!"
-      rate_limit_exceeded: "A lekérdezési korlát túllépve. Próbáld újra később"
+      unauthorized: Nincs jogosultságod végrehajtani ezt a műveletet
+      forbidden: Hozzáférés megtagadva!
+      not_found: Az erőforrás nem található
+      unprocessable_entity: A kérés nem volt feldolgozható
+      internal_server_error: Belső szerverhiba történt
+      validation_failed: A validáció sikertelen!
+      invalid_request: Érvénytelen kérés!
+      rate_limit_exceeded: A lekérdezési korlát túllépve. Próbáld újra később
     messages:
-      success: "A művelet sikeresen befejeződött"
-      created: "Az erőforrás sikeresen létrehozva"
-      updated: "Az erőforrás sikeresen frissítve"
-      deleted: "Az erőforrás sikeresen törölve"
+      success: A művelet sikeresen befejeződött
+      created: Az erőforrás sikeresen létrehozva
+      updated: Az erőforrás sikeresen frissítve
+      deleted: Az erőforrás sikeresen törölve
     notification:
       messages:
-        token_already_exists: "Az értesítési token már létezik"
-        token_saved: "Az értesítési token elmentve"
-        token_deleted: "Az értesítési token sikeresen törölve"
-        token_not_found: "Nem található értesítési token"
-        mute_updated: "A némítási állapot sikeresen frissítve"
+        token_already_exists: Az értesítési token már létezik
+        token_saved: Az értesítési token elmentve
+        token_deleted: Az értesítési token sikeresen törölve
+        token_not_found: Nem található értesítési token
+        mute_updated: A némítási állapot sikeresen frissítve
     account:
       errors:
-        email_not_found: "Az e-mail nem található!"
-        email_invalid: "Érvénytelen e-mail formátum"
-        email_taken: "Az e-mail már foglalt"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Az e-mail frissítése sikertelen"
-        password_unmatch: "A jelszavak nem egyeznek"
-        password_update_fail: "A jelszó frissítése sikertelen"
-        otp_invalid: "Érvénytelen OTP!"
-        register_not_allow: "Nincs jogosultságod regisztrálni!"
-        missing_field: "Hiányzó kötelező mezők"
-        password_incorrect: "A jelenlegi jelszó helytelen"
-        username_taken: "A felhasználónév már foglalt"
+        email_not_found: Az e-mail nem található!
+        email_invalid: Érvénytelen e-mail formátum
+        email_taken: Az e-mail már foglalt
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Az e-mail frissítése sikertelen
+        password_unmatch: A jelszavak nem egyeznek
+        password_update_fail: A jelszó frissítése sikertelen
+        otp_invalid: Érvénytelen OTP!
+        register_not_allow: Nincs jogosultságod regisztrálni!
+        missing_field: Hiányzó kötelező mezők
+        password_incorrect: A jelenlegi jelszó helytelen
+        username_taken: A felhasználónév már foglalt
       messages:
-        password_updated: "A jelszó frissítve lett"
+        password_updated: A jelszó frissítve lett
     domain:
       messages:
-        dns_verified: "A DNS helyesen van konfigurálva"
+        dns_verified: A DNS helyesen van konfigurálva
     conversation:
       messages:
         marked_read: "%{updated_count} beszélgetés olvasottként megjelölve"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Ismeretlen reakció
+      emoji_limit_exceeded: Az emoji korlát túllépve

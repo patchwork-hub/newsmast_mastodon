@@ -1,75 +1,81 @@
+---
 fo:
   locale:
-    name: "Faroese"
-    native_name: "Føroyskt"
+    name: Faroese
+    native_name: Føroyskt
   notification:
     poll:
-      ended_you: "Tín atkvøðugreiðsla er liðug"
-      ended_voted: "Ein atkvøðugreiðsla, sum tú atkvøddi í, er liðug"
+      ended_you: Tín atkvøðugreiðsla er liðug
+      ended_voted: Ein atkvøðugreiðsla, sum tú atkvøddi í, er liðug
     mention:
       direct_message: "%{name} sendi tær eini boð"
-      conversation_request: "Tú hevur eina nýggja samtalu umbøn."
+      conversation_request: Tú hevur eina nýggja samtalu umbøn.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Góði %{name},"
-      instruction: "Títt OTP-koða til at vátta kontuna er:"
-      note: "Um tú ikki hevur biðið um hetta, so hygg ikki at hesum teldubrævinum"
+      greeting: Góði %{name},
+      instruction: 'Títt OTP-koða til at vátta kontuna er:'
+      note: Um tú ikki hevur biðið um hetta, so hygg ikki at hesum teldubrævinum
   login_service:
     errors:
-      invalid_credentials: "Ógyldig loyniorð. Vinarliga royn aftur"
-      unauthorized_access: "Tú hevur ikki atgongd at logga inn"
-      channel_not_created: "Ógyldig loyniorð. Tryggja at tú hevur stovnað eina rás"
-      account_deleted: "Kontan tín er longu strikað"
+      invalid_credentials: Ógyldig loyniorð. Vinarliga royn aftur
+      unauthorized_access: Tú hevur ikki atgongd at logga inn
+      channel_not_created: Ógyldig loyniorð. Tryggja at tú hevur stovnað eina rás
+      account_deleted: Kontan tín er longu strikað
       invalid_role_access: "%{role} hevur ikki loyvi at logga inn"
-      deactivated_channel: "Rásin tín er óvirkin. Vinarliga set teg í samband við stuðul"
-      two_factor_enabled: "Tveggja-faktara auðkenning er virkjað. Vinarliga skrá inn við vevsiðuna"
-
+      deactivated_channel: Rásin tín er óvirkin. Vinarliga set teg í samband við stuðul
+      two_factor_enabled: Tveggja-faktara auðkenning er virkjað. Vinarliga skrá inn
+        við vevsiðuna
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Vinarliga royn aftur. Ógyldig loyniorð frá beebee.io"
-      registration_required: "Vinarliga skrásett eina lokala kontu. dáta: %{data}"
-      connection_error: "Villa við at sambinda við limalimstænastu: %{error}"
+      invalid_credentials: Vinarliga royn aftur. Ógyldig loyniorð frá beebee.io
+      registration_required: 'Vinarliga skrásett eina lokala kontu. dáta: %{data}'
+      connection_error: 'Villa við at sambinda við limalimstænastu: %{error}'
   api:
     errors:
-      unauthorized: "Tú hevur ikki loyvi at gera hetta"
-      forbidden: "Atgongd nokta!"
-      not_found: "Tilfeingi ikki funnið"
-      unprocessable_entity: "Umbønin kundu ikki viðgerast"
-      internal_server_error: "Ein innanhýsis ambátaravilla kom fyri"
-      validation_failed: "Váttanin miseydnaðist!"
-      invalid_request: "Ógyldig umbøn!"
-      rate_limit_exceeded: "Umbønamál avbjóðast. Vinarliga royn aftur seinni"
+      unauthorized: Tú hevur ikki loyvi at gera hetta
+      forbidden: Atgongd nokta!
+      not_found: Tilfeingi ikki funnið
+      unprocessable_entity: Umbønin kundu ikki viðgerast
+      internal_server_error: Ein innanhýsis ambátaravilla kom fyri
+      validation_failed: Váttanin miseydnaðist!
+      invalid_request: Ógyldig umbøn!
+      rate_limit_exceeded: Umbønamál avbjóðast. Vinarliga royn aftur seinni
     messages:
-      success: "Gerðin eydnaðist"
-      created: "Tilfeingi stovnað"
-      updated: "Tilfeingi dagført"
-      deleted: "Tilfeingi strikað"
+      success: Gerðin eydnaðist
+      created: Tilfeingi stovnað
+      updated: Tilfeingi dagført
+      deleted: Tilfeingi strikað
     notification:
       messages:
-        token_already_exists: "Fráboðanartekin finst longu"
-        token_saved: "Fráboðanartekin goymd"
-        token_deleted: "Fráboðanartekin strikað"
-        token_not_found: "Eingin fráboðanartekin funnin"
-        mute_updated: "Togurstøða dagført"
+        token_already_exists: Fráboðanartekin finst longu
+        token_saved: Fráboðanartekin goymd
+        token_deleted: Fráboðanartekin strikað
+        token_not_found: Eingin fráboðanartekin funnin
+        mute_updated: Togurstøða dagført
     account:
       errors:
-        email_not_found: "Teldupostur ikki funnin!"
-        email_invalid: "Ógyldig telduposturform"
-        email_taken: "Telduposturin er longu tikin"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Dagføring av teldupostinum miseydnaðist"
-        password_unmatch: "Loyniorðini samsvara ikki"
-        password_update_fail: "Dagføring av loyniorðinum miseydnaðist"
-        otp_invalid: "Ógyldig OTP!"
-        register_not_allow: "Tú hevur ikki loyvi at skráset!"
-        missing_field: "Kravd reiti mangla"
-        password_incorrect: "Verandi loyniorð er skeivt"
-        username_taken: "Brúkaranavnið er longu tikið"
+        email_not_found: Teldupostur ikki funnin!
+        email_invalid: Ógyldig telduposturform
+        email_taken: Telduposturin er longu tikin
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Dagføring av teldupostinum miseydnaðist
+        password_unmatch: Loyniorðini samsvara ikki
+        password_update_fail: Dagføring av loyniorðinum miseydnaðist
+        otp_invalid: Ógyldig OTP!
+        register_not_allow: Tú hevur ikki loyvi at skráset!
+        missing_field: Kravd reiti mangla
+        password_incorrect: Verandi loyniorð er skeivt
+        username_taken: Brúkaranavnið er longu tikið
       messages:
-        password_updated: "Loyniorðið er dagført"
+        password_updated: Loyniorðið er dagført
     domain:
       messages:
-        dns_verified: "DNS er rætt stilla"
+        dns_verified: DNS er rætt stilla
     conversation:
       messages:
         marked_read: "%{updated_count} samtølu(r) merktar sum lisin(ar)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Svar var ikkje gjørt av
+      emoji_limit_exceeded: Emoji-frágva er um markagir

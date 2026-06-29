@@ -1,84 +1,81 @@
+---
 kk:
   locale:
-    name: "Kazakh"
-    native_name: "Қазақша"
-  
+    name: Kazakh
+    native_name: Қазақша
   notification:
     poll:
-      ended_you: "Сіздің сауалнамаңыз аяқталды"
-      ended_voted: "Сіз дауыс берген сауалнама аяқталды"
+      ended_you: Сіздің сауалнамаңыз аяқталды
+      ended_voted: Сіз дауыс берген сауалнама аяқталды
     mention:
       direct_message: "%{name} сізге хабарлама жіберді"
-      conversation_request: "Сізде жаңа сұхбат сұрауы бар."
-
+      conversation_request: Сізде жаңа сұхбат сұрауы бар.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Құрметті %{name},"
-      instruction: "Сіздің тіркелгіні растау OTP коды төменде:"
-      note: "Егер сіз мұны сұрамаған болсаңыз, бұл хатты елемеңіз"
-  
+      greeting: Құрметті %{name},
+      instruction: 'Сіздің тіркелгіні растау OTP коды төменде:'
+      note: Егер сіз мұны сұрамаған болсаңыз, бұл хатты елемеңіз
   login_service:
     errors:
-      invalid_credentials: "Жарамсыз тіркелгі деректері. Қайталап көріңіз"
-      unauthorized_access: "Сізге кіруге рұқсат жоқ"
-      channel_not_created: "Жарамсыз тіркелгі деректері. Арна жасағаныңызға көз жеткізіңіз"
-      account_deleted: "Сіздің тіркелгіңіз жойылған"
+      invalid_credentials: Жарамсыз тіркелгі деректері. Қайталап көріңіз
+      unauthorized_access: Сізге кіруге рұқсат жоқ
+      channel_not_created: Жарамсыз тіркелгі деректері. Арна жасағаныңызға көз жеткізіңіз
+      account_deleted: Сіздің тіркелгіңіз жойылған
       invalid_role_access: "%{role} кіруге рұқсат етілмеген"
-      deactivated_channel: "Сіздің арнаңыз өшірілген. Қолдау қызметіне хабарласыңыз"
-      two_factor_enabled: "Екі факторлы аутентификация қосылған. Өтінеміз, веб-интерфейс арқылы кіріңіз"
-
+      deactivated_channel: Сіздің арнаңыз өшірілген. Қолдау қызметіне хабарласыңыз
+      two_factor_enabled: Екі факторлы аутентификация қосылған. Өтінеміз, веб-интерфейс
+        арқылы кіріңіз
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Сізге бұл әрекетті орындауға рұқсат жоқ"
-      forbidden: "Кіру тыйым салынған!"
-      not_found: "Ресурс табылмады"
-      unprocessable_entity: "Сұранысты өңдеу мүмкін болмады"
-      internal_server_error: "Сервердің ішкі қатесі орын алды"
-      validation_failed: "Тексеру сәтсіз аяқталды!"
-      invalid_request: "Жарамсыз сұраныс!"
-      rate_limit_exceeded: "Сұраныс шегі асып кетті. Кейінірек қайталап көріңіз"
-
+      unauthorized: Сізге бұл әрекетті орындауға рұқсат жоқ
+      forbidden: Кіру тыйым салынған!
+      not_found: Ресурс табылмады
+      unprocessable_entity: Сұранысты өңдеу мүмкін болмады
+      internal_server_error: Сервердің ішкі қатесі орын алды
+      validation_failed: Тексеру сәтсіз аяқталды!
+      invalid_request: Жарамсыз сұраныс!
+      rate_limit_exceeded: Сұраныс шегі асып кетті. Кейінірек қайталап көріңіз
     messages:
-      success: "Операция сәтті аяқталды"
-      created: "Ресурс сәтті жасалды"
-      updated: "Ресурс сәтті жаңартылды"
-      deleted: "Ресурс сәтті жойылды"
-
+      success: Операция сәтті аяқталды
+      created: Ресурс сәтті жасалды
+      updated: Ресурс сәтті жаңартылды
+      deleted: Ресурс сәтті жойылды
     notification:
       messages:
-        token_already_exists: "Хабарлама токені бұрыннан бар"
-        token_saved: "Хабарлама токені сақталды"
-        token_deleted: "Хабарлама токені сәтті жойылды"
-        token_not_found: "Хабарлама токендері табылмады"
-        mute_updated: "Дыбысты өшіру күйі сәтті жаңартылды"
-
+        token_already_exists: Хабарлама токені бұрыннан бар
+        token_saved: Хабарлама токені сақталды
+        token_deleted: Хабарлама токені сәтті жойылды
+        token_not_found: Хабарлама токендері табылмады
+        mute_updated: Дыбысты өшіру күйі сәтті жаңартылды
     account:
       errors:
-        email_not_found: "Электрондық пошта табылмады!"
-        email_invalid: "Жарамсыз электрондық пошта пішімі"
-        email_taken: "Электрондық пошта бұрыннан алынған"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Электрондық поштаны жаңарту сәтсіз аяқталды"
-        password_unmatch: "Құпия сөздер сәйкес келмейді"
-        password_update_fail: "Құпия сөзді жаңарту сәтсіз аяқталды"
-        otp_invalid: "Жарамсыз OTP!"
-        register_not_allow: "Сізге тіркелуге рұқсат жоқ!"
-        missing_field: "Міндетті өрістер толтырылмаған"
-        password_incorrect: "Ағымдағы құпия сөз дұрыс емес"
-        username_taken: "Пайдаланушы аты бұрыннан алынған"
+        email_not_found: Электрондық пошта табылмады!
+        email_invalid: Жарамсыз электрондық пошта пішімі
+        email_taken: Электрондық пошта бұрыннан алынған
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Электрондық поштаны жаңарту сәтсіз аяқталды
+        password_unmatch: Құпия сөздер сәйкес келмейді
+        password_update_fail: Құпия сөзді жаңарту сәтсіз аяқталды
+        otp_invalid: Жарамсыз OTP!
+        register_not_allow: Сізге тіркелуге рұқсат жоқ!
+        missing_field: Міндетті өрістер толтырылмаған
+        password_incorrect: Ағымдағы құпия сөз дұрыс емес
+        username_taken: Пайдаланушы аты бұрыннан алынған
       messages:
-        password_updated: "Құпия сөз жаңартылды"
-
+        password_updated: Құпия сөз жаңартылды
     domain:
       messages:
-        dns_verified: "DNS дұрыс конфигурацияланған"
-
+        dns_verified: DNS дұрыс конфигурацияланған
     conversation:
       messages:
         marked_read: "%{updated_count} әңгіме оқылды деп белгіленді"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Қайта әрекет танылмады
+      emoji_limit_exceeded: Эмодзи шегі асып кетті

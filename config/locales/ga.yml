@@ -1,75 +1,83 @@
+---
 ga:
   locale:
-    name: "Irish"
-    native_name: "Gaeilge"
+    name: Irish
+    native_name: Gaeilge
   notification:
     poll:
-      ended_you: "Tá do phóil críochnaithe"
-      ended_voted: "Tá póil a vótáil tú ann críochnaithe"
+      ended_you: Tá do phóil críochnaithe
+      ended_voted: Tá póil a vótáil tú ann críochnaithe
     mention:
       direct_message: "%{name} sheol teachtaireacht chugat"
-      conversation_request: "Tá iarratas comhrá nua agat."
+      conversation_request: Tá iarratas comhrá nua agat.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "A %{name}, a chara,"
-      instruction: "Is é do chód OTP fíoraithe cuntais:"
-      note: "Mura ndearna tú an t-iarratas seo, neamhaird a dhéanamh den ríomhphost seo"
+      greeting: A %{name}, a chara,
+      instruction: 'Is é do chód OTP fíoraithe cuntais:'
+      note: Mura ndearna tú an t-iarratas seo, neamhaird a dhéanamh den ríomhphost
+        seo
   login_service:
     errors:
-      invalid_credentials: "Dintiúir neamhbhailí. Bain triail eile as"
-      unauthorized_access: "Níl cead agat logáil isteach"
-      channel_not_created: "Dintiúir neamhbhailí. Déan cinnte go bhfuil cainéal cruthaithe agat"
-      account_deleted: "Tá do chuntas scriosta cheana féin"
-      invalid_role_access: "Níl cead ag %{role} logáil isteach"
-      deactivated_channel: "Tá do chainéal díghníomhachtaithe. Déan teagmháil le tacaíocht"
-      two_factor_enabled: "Tá fíordheimhniú dhá fhachtóir cumasaithe. Logáil isteach tríd an gcomhéadan gréasáin le do thoil"
-
+      invalid_credentials: Dintiúir neamhbhailí. Bain triail eile as
+      unauthorized_access: Níl cead agat logáil isteach
+      channel_not_created: Dintiúir neamhbhailí. Déan cinnte go bhfuil cainéal cruthaithe
+        agat
+      account_deleted: Tá do chuntas scriosta cheana féin
+      invalid_role_access: Níl cead ag %{role} logáil isteach
+      deactivated_channel: Tá do chainéal díghníomhachtaithe. Déan teagmháil le tacaíocht
+      two_factor_enabled: Tá fíordheimhniú dhá fhachtóir cumasaithe. Logáil isteach
+        tríd an gcomhéadan gréasáin le do thoil
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Bain triail eile as. Dintiúir neamhbhailí ó beebee.io"
-      registration_required: "Cláraigh cuntas áitiúil. sonraí: %{data}"
-      connection_error: "Earráid ag ceangal le seirbhís ballraíochta: %{error}"
+      invalid_credentials: Bain triail eile as. Dintiúir neamhbhailí ó beebee.io
+      registration_required: 'Cláraigh cuntas áitiúil. sonraí: %{data}'
+      connection_error: 'Earráid ag ceangal le seirbhís ballraíochta: %{error}'
   api:
     errors:
-      unauthorized: "Níl cead agat an gníomh seo a dhéanamh"
-      forbidden: "Rochtain diúltaithe!"
-      not_found: "Níor aimsíodh an acmhainn"
-      unprocessable_entity: "Níorbh fhéidir an t-iarratas a phróiseáil"
-      internal_server_error: "Tharla earráid inmheánach an fhreastalaí"
-      validation_failed: "Theip ar an bhfíorú!"
-      invalid_request: "Iarratas neamhbhailí!"
-      rate_limit_exceeded: "Sáraíodh an teorainn ráta. Bain triail eile as níos déanaí"
+      unauthorized: Níl cead agat an gníomh seo a dhéanamh
+      forbidden: Rochtain diúltaithe!
+      not_found: Níor aimsíodh an acmhainn
+      unprocessable_entity: Níorbh fhéidir an t-iarratas a phróiseáil
+      internal_server_error: Tharla earráid inmheánach an fhreastalaí
+      validation_failed: Theip ar an bhfíorú!
+      invalid_request: Iarratas neamhbhailí!
+      rate_limit_exceeded: Sáraíodh an teorainn ráta. Bain triail eile as níos déanaí
     messages:
-      success: "Oibríocht críochnaithe go rathúil"
-      created: "Cruthaíodh an acmhainn go rathúil"
-      updated: "Nuashonraíodh an acmhainn go rathúil"
-      deleted: "Scriosadh an acmhainn go rathúil"
+      success: Oibríocht críochnaithe go rathúil
+      created: Cruthaíodh an acmhainn go rathúil
+      updated: Nuashonraíodh an acmhainn go rathúil
+      deleted: Scriosadh an acmhainn go rathúil
     notification:
       messages:
-        token_already_exists: "Tá an comhartha fógra ann cheana"
-        token_saved: "Sábháladh an comhartha fógra"
-        token_deleted: "Scriosadh an comhartha fógra go rathúil"
-        token_not_found: "Níor aimsíodh comharthaí fógra ar bith"
-        mute_updated: "Nuashonraíodh stádas ciúnais go rathúil"
+        token_already_exists: Tá an comhartha fógra ann cheana
+        token_saved: Sábháladh an comhartha fógra
+        token_deleted: Scriosadh an comhartha fógra go rathúil
+        token_not_found: Níor aimsíodh comharthaí fógra ar bith
+        mute_updated: Nuashonraíodh stádas ciúnais go rathúil
     account:
       errors:
-        email_not_found: "Níor aimsíodh an ríomhphost!"
-        email_invalid: "Formáid ríomhphoist neamhbhailí"
-        email_taken: "Tá an ríomhphost tógtha cheana"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Theip ar nuashonrú an ríomhphoist"
-        password_unmatch: "Ní ionann na focail faire"
-        password_update_fail: "Theip ar nuashonraíodh an focal faire"
-        otp_invalid: "OTP neamhbhailí!"
-        register_not_allow: "Níl cead agat clárú!"
-        missing_field: "Réimsí riachtanacha ar iarraidh"
-        password_incorrect: "Tá an focal faire reatha mícheart"
-        username_taken: "Tá an t-ainm úsáideora tógtha cheana"
+        email_not_found: Níor aimsíodh an ríomhphost!
+        email_invalid: Formáid ríomhphoist neamhbhailí
+        email_taken: Tá an ríomhphost tógtha cheana
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Theip ar nuashonrú an ríomhphoist
+        password_unmatch: Ní ionann na focail faire
+        password_update_fail: Theip ar nuashonraíodh an focal faire
+        otp_invalid: OTP neamhbhailí!
+        register_not_allow: Níl cead agat clárú!
+        missing_field: Réimsí riachtanacha ar iarraidh
+        password_incorrect: Tá an focal faire reatha mícheart
+        username_taken: Tá an t-ainm úsáideora tógtha cheana
       messages:
-        password_updated: "Nuashonraíodh an focal faire"
+        password_updated: Nuashonraíodh an focal faire
     domain:
       messages:
-        dns_verified: "Tá an DNS cumraithe i gceart"
+        dns_verified: Tá an DNS cumraithe i gceart
     conversation:
       messages:
-        marked_read: "Marcáilte %{updated_count} comhrá(ite) mar léite"
+        marked_read: Marcáilte %{updated_count} comhrá(ite) mar léite
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Freagra nach bhfuil aitheanta
+      emoji_limit_exceeded: Teorainn emoji sáraithe

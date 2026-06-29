@@ -1,75 +1,81 @@
+---
 fr:
   locale:
-    name: "French"
-    native_name: "Français"
+    name: French
+    native_name: Français
   notification:
     poll:
-      ended_you: "Votre sondage est terminé"
-      ended_voted: "Un sondage auquel vous avez participé est terminé"
+      ended_you: Votre sondage est terminé
+      ended_voted: Un sondage auquel vous avez participé est terminé
     mention:
       direct_message: "%{name} vous a envoyé un message"
-      conversation_request: "Vous avez une nouvelle demande de conversation."
+      conversation_request: Vous avez une nouvelle demande de conversation.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Cher/Chère %{name},"
-      instruction: "Votre code OTP de vérification de compte est :"
-      note: "Si vous n'avez pas demandé ceci, veuillez ignorer ce courriel"
+      greeting: Cher/Chère %{name},
+      instruction: 'Votre code OTP de vérification de compte est :'
+      note: Si vous n'avez pas demandé ceci, veuillez ignorer ce courriel
   login_service:
     errors:
-      invalid_credentials: "Identifiants invalides. Veuillez réessayer"
-      unauthorized_access: "Vous n'avez pas accès pour vous connecter"
-      channel_not_created: "Identifiants invalides. Assurez-vous d'avoir créé une chaîne"
-      account_deleted: "Votre compte a déjà été supprimé"
+      invalid_credentials: Identifiants invalides. Veuillez réessayer
+      unauthorized_access: Vous n'avez pas accès pour vous connecter
+      channel_not_created: Identifiants invalides. Assurez-vous d'avoir créé une chaîne
+      account_deleted: Votre compte a déjà été supprimé
       invalid_role_access: "%{role} n'est pas autorisé à se connecter"
-      deactivated_channel: "Votre chaîne est désactivée. Veuillez contacter le support"
-      two_factor_enabled: "L'authentification à deux facteurs est activée. Veuillez vous connecter via l'interface web"
-
+      deactivated_channel: Votre chaîne est désactivée. Veuillez contacter le support
+      two_factor_enabled: L'authentification à deux facteurs est activée. Veuillez
+        vous connecter via l'interface web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Veuillez réessayer. Identifiants invalides de beebee.io"
-      registration_required: "Veuillez créer un compte local. données: %{data}"
-      connection_error: "Erreur de connexion au service d'adhésion: %{error}"
+      invalid_credentials: Veuillez réessayer. Identifiants invalides de beebee.io
+      registration_required: 'Veuillez créer un compte local. données: %{data}'
+      connection_error: 'Erreur de connexion au service d''adhésion: %{error}'
   api:
     errors:
-      unauthorized: "Vous n'êtes pas autorisé à effectuer cette action"
-      forbidden: "Accès refusé!"
-      not_found: "Ressource non trouvée"
-      unprocessable_entity: "La demande n'a pas pu être traitée"
-      internal_server_error: "Une erreur interne du serveur s'est produite"
-      validation_failed: "La validation a échoué!"
-      invalid_request: "Demande invalide!"
-      rate_limit_exceeded: "Limite de débit dépassée. Veuillez réessayer plus tard"
+      unauthorized: Vous n'êtes pas autorisé à effectuer cette action
+      forbidden: Accès refusé!
+      not_found: Ressource non trouvée
+      unprocessable_entity: La demande n'a pas pu être traitée
+      internal_server_error: Une erreur interne du serveur s'est produite
+      validation_failed: La validation a échoué!
+      invalid_request: Demande invalide!
+      rate_limit_exceeded: Limite de débit dépassée. Veuillez réessayer plus tard
     messages:
-      success: "Opération terminée avec succès"
-      created: "Ressource créée avec succès"
-      updated: "Ressource mise à jour avec succès"
-      deleted: "Ressource supprimée avec succès"
+      success: Opération terminée avec succès
+      created: Ressource créée avec succès
+      updated: Ressource mise à jour avec succès
+      deleted: Ressource supprimée avec succès
     notification:
       messages:
-        token_already_exists: "Le jeton de notification existe déjà"
-        token_saved: "Jeton de notification enregistré"
-        token_deleted: "Jeton de notification supprimé avec succès"
-        token_not_found: "Aucun jeton de notification trouvé"
-        mute_updated: "Statut de sourdine mis à jour avec succès"
+        token_already_exists: Le jeton de notification existe déjà
+        token_saved: Jeton de notification enregistré
+        token_deleted: Jeton de notification supprimé avec succès
+        token_not_found: Aucun jeton de notification trouvé
+        mute_updated: Statut de sourdine mis à jour avec succès
     account:
       errors:
-        email_not_found: "Courriel non trouvé!"
-        email_invalid: "Format de courriel invalide"
-        email_taken: "Le courriel est déjà utilisé"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "La mise à jour du courriel a échoué"
-        password_unmatch: "Les mots de passe ne correspondent pas"
-        password_update_fail: "La mise à jour du mot de passe a échoué"
-        otp_invalid: "OTP invalide!"
-        register_not_allow: "Vous n'êtes pas autorisé à vous inscrire!"
-        missing_field: "Des champs obligatoires sont manquants"
-        password_incorrect: "Le mot de passe actuel est incorrect"
-        username_taken: "Le nom d'utilisateur est déjà utilisé"
+        email_not_found: Courriel non trouvé!
+        email_invalid: Format de courriel invalide
+        email_taken: Le courriel est déjà utilisé
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: La mise à jour du courriel a échoué
+        password_unmatch: Les mots de passe ne correspondent pas
+        password_update_fail: La mise à jour du mot de passe a échoué
+        otp_invalid: OTP invalide!
+        register_not_allow: Vous n'êtes pas autorisé à vous inscrire!
+        missing_field: Des champs obligatoires sont manquants
+        password_incorrect: Le mot de passe actuel est incorrect
+        username_taken: Le nom d'utilisateur est déjà utilisé
       messages:
-        password_updated: "Le mot de passe a été mis à jour"
+        password_updated: Le mot de passe a été mis à jour
     domain:
       messages:
-        dns_verified: "Le DNS est correctement configuré"
+        dns_verified: Le DNS est correctement configuré
     conversation:
       messages:
         marked_read: "%{updated_count} conversation(s) marquée(s) comme lue(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Réaction non reconnue
+      emoji_limit_exceeded: Limite d'emoji dépassée

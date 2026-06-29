@@ -1,75 +1,83 @@
+---
 el:
   locale:
-    name: "Greek"
-    native_name: "Ελληνικά"
+    name: Greek
+    native_name: Ελληνικά
   notification:
     poll:
-      ended_you: "Η δημοσκόπησή σας ολοκληρώθηκε"
-      ended_voted: "Μια δημοσκόπηση στην οποία ψηφίσατε ολοκληρώθηκε"
+      ended_you: Η δημοσκόπησή σας ολοκληρώθηκε
+      ended_voted: Μια δημοσκόπηση στην οποία ψηφίσατε ολοκληρώθηκε
     mention:
       direct_message: "%{name} σας έστειλε ένα μήνυμα"
-      conversation_request: "Έχετε ένα νέο αίτημα συνομιλίας."
+      conversation_request: Έχετε ένα νέο αίτημα συνομιλίας.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Αγαπητέ/ή %{name},"
-      instruction: "Ο κωδικός OTP επαλήθευσης λογαριασμού σας είναι:"
-      note: "Αν δεν το ζητήσατε, αγνοήστε αυτό το email"
+      greeting: Αγαπητέ/ή %{name},
+      instruction: 'Ο κωδικός OTP επαλήθευσης λογαριασμού σας είναι:'
+      note: Αν δεν το ζητήσατε, αγνοήστε αυτό το email
   login_service:
     errors:
-      invalid_credentials: "Μη έγκυρα στοιχεία. Παρακαλώ δοκιμάστε ξανά"
-      unauthorized_access: "Δεν έχετε πρόσβαση για σύνδεση"
-      channel_not_created: "Μη έγκυρα στοιχεία. Βεβαιωθείτε ότι έχετε δημιουργήσει κανάλι"
-      account_deleted: "Ο λογαριασμός σας έχει ήδη διαγραφεί"
-      invalid_role_access: "Ο/Η %{role} δεν έχει δικαίωμα πρόσβασης"
-      deactivated_channel: "Το κανάλι σας είναι απενεργοποιημένο. Επικοινωνήστε με την υποστήριξη"
-      two_factor_enabled: "Ο έλεγχος ταυτότητας δύο παραγόντων είναι ενεργοποιημένος. Παρακαλώ συνδεθείτε μέσω της διεπαφής ιστού"
-
+      invalid_credentials: Μη έγκυρα στοιχεία. Παρακαλώ δοκιμάστε ξανά
+      unauthorized_access: Δεν έχετε πρόσβαση για σύνδεση
+      channel_not_created: Μη έγκυρα στοιχεία. Βεβαιωθείτε ότι έχετε δημιουργήσει
+        κανάλι
+      account_deleted: Ο λογαριασμός σας έχει ήδη διαγραφεί
+      invalid_role_access: Ο/Η %{role} δεν έχει δικαίωμα πρόσβασης
+      deactivated_channel: Το κανάλι σας είναι απενεργοποιημένο. Επικοινωνήστε με
+        την υποστήριξη
+      two_factor_enabled: Ο έλεγχος ταυτότητας δύο παραγόντων είναι ενεργοποιημένος.
+        Παρακαλώ συνδεθείτε μέσω της διεπαφής ιστού
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Παρακαλώ δοκιμάστε ξανά. Μη έγκυρα στοιχεία από beebee.io"
-      registration_required: "Παρακαλώ εγγραφείτε τοπικό λογαριασμό. δεδομένα: %{data}"
-      connection_error: "Σφάλμα σύνδεσης με την υπηρεσία μελών: %{error}"
+      invalid_credentials: Παρακαλώ δοκιμάστε ξανά. Μη έγκυρα στοιχεία από beebee.io
+      registration_required: 'Παρακαλώ εγγραφείτε τοπικό λογαριασμό. δεδομένα: %{data}'
+      connection_error: 'Σφάλμα σύνδεσης με την υπηρεσία μελών: %{error}'
   api:
     errors:
-      unauthorized: "Δεν έχετε εξουσιοδότηση για αυτήν την ενέργεια"
-      forbidden: "Η πρόσβαση απορρίφθηκε!"
-      not_found: "Ο πόρος δεν βρέθηκε"
-      unprocessable_entity: "Το αίτημα δεν μπόρεσε να επεξεργαστεί"
-      internal_server_error: "Παρουσιάστηκε εσωτερικό σφάλμα διακομιστή"
-      validation_failed: "Η επικύρωση απέτυχε!"
-      invalid_request: "Μη έγκυρο αίτημα!"
-      rate_limit_exceeded: "Υπέρβαση ορίου αιτημάτων. Δοκιμάστε ξανά αργότερα"
+      unauthorized: Δεν έχετε εξουσιοδότηση για αυτήν την ενέργεια
+      forbidden: Η πρόσβαση απορρίφθηκε!
+      not_found: Ο πόρος δεν βρέθηκε
+      unprocessable_entity: Το αίτημα δεν μπόρεσε να επεξεργαστεί
+      internal_server_error: Παρουσιάστηκε εσωτερικό σφάλμα διακομιστή
+      validation_failed: Η επικύρωση απέτυχε!
+      invalid_request: Μη έγκυρο αίτημα!
+      rate_limit_exceeded: Υπέρβαση ορίου αιτημάτων. Δοκιμάστε ξανά αργότερα
     messages:
-      success: "Η λειτουργία ολοκληρώθηκε με επιτυχία"
-      created: "Ο πόρος δημιουργήθηκε με επιτυχία"
-      updated: "Ο πόρος ενημερώθηκε με επιτυχία"
-      deleted: "Ο πόρος διαγράφηκε με επιτυχία"
+      success: Η λειτουργία ολοκληρώθηκε με επιτυχία
+      created: Ο πόρος δημιουργήθηκε με επιτυχία
+      updated: Ο πόρος ενημερώθηκε με επιτυχία
+      deleted: Ο πόρος διαγράφηκε με επιτυχία
     notification:
       messages:
-        token_already_exists: "Το διακριτικό ειδοποίησης υπάρχει ήδη"
-        token_saved: "Το διακριτικό ειδοποίησης αποθηκεύτηκε"
-        token_deleted: "Το διακριτικό ειδοποίησης διαγράφηκε με επιτυχία"
-        token_not_found: "Δεν βρέθηκαν διακριτικά ειδοποίησης"
-        mute_updated: "Η κατάσταση σίγασης ενημερώθηκε με επιτυχία"
+        token_already_exists: Το διακριτικό ειδοποίησης υπάρχει ήδη
+        token_saved: Το διακριτικό ειδοποίησης αποθηκεύτηκε
+        token_deleted: Το διακριτικό ειδοποίησης διαγράφηκε με επιτυχία
+        token_not_found: Δεν βρέθηκαν διακριτικά ειδοποίησης
+        mute_updated: Η κατάσταση σίγασης ενημερώθηκε με επιτυχία
     account:
       errors:
-        email_not_found: "Το email δεν βρέθηκε!"
-        email_invalid: "Μη έγκυρη μορφή email"
-        email_taken: "Το email έχει ήδη ληφθεί"
-        membership_not_eligible: "Η εγγραφή είναι ανοιχτή μόνο σε βασικά μέλη, ομάδα CSIDNet και μέλη Υποστηρικτές"
-        email_update_fail: "Η ενημέρωση email δεν ήταν επιτυχής"
-        password_unmatch: "Οι κωδικοί δεν ταιριάζουν"
-        password_update_fail: "Η ενημέρωση κωδικού δεν ήταν επιτυχής"
-        otp_invalid: "Μη έγκυρο OTP!"
-        register_not_allow: "Δεν επιτρέπεται η εγγραφή!"
-        missing_field: "Λείπουν απαιτούμενα πεδία"
-        password_incorrect: "Ο τρέχων κωδικός είναι λανθασμένος"
-        username_taken: "Το όνομα χρήστη έχει ήδη ληφθεί"
+        email_not_found: Το email δεν βρέθηκε!
+        email_invalid: Μη έγκυρη μορφή email
+        email_taken: Το email έχει ήδη ληφθεί
+        membership_not_eligible: Η εγγραφή είναι ανοιχτή μόνο σε βασικά μέλη, ομάδα
+          CSIDNet και μέλη Υποστηρικτές
+        email_update_fail: Η ενημέρωση email δεν ήταν επιτυχής
+        password_unmatch: Οι κωδικοί δεν ταιριάζουν
+        password_update_fail: Η ενημέρωση κωδικού δεν ήταν επιτυχής
+        otp_invalid: Μη έγκυρο OTP!
+        register_not_allow: Δεν επιτρέπεται η εγγραφή!
+        missing_field: Λείπουν απαιτούμενα πεδία
+        password_incorrect: Ο τρέχων κωδικός είναι λανθασμένος
+        username_taken: Το όνομα χρήστη έχει ήδη ληφθεί
       messages:
-        password_updated: "Ο κωδικός ενημερώθηκε"
+        password_updated: Ο κωδικός ενημερώθηκε
     domain:
       messages:
-        dns_verified: "Το DNS έχει ρυθμιστεί σωστά"
+        dns_verified: Το DNS έχει ρυθμιστεί σωστά
     conversation:
       messages:
-        marked_read: "Σημειώθηκαν %{updated_count} συνομιλίες ως αναγνωσμένες"
+        marked_read: Σημειώθηκαν %{updated_count} συνομιλίες ως αναγνωσμένες
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Άγνωστη αντίδραση
+      emoji_limit_exceeded: Υπέρβαση ορίου emoji

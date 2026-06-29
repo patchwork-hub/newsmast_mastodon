@@ -1,75 +1,82 @@
+---
 sc:
   locale:
-    name: "Sardinian"
-    native_name: "Sardu"
+    name: Sardinian
+    native_name: Sardu
   notification:
     poll:
-      ended_you: "Su sondàgiu tuo est terminadu"
-      ended_voted: "Unu sondàgiu in su cale as votadu est terminadu"
+      ended_you: Su sondàgiu tuo est terminadu
+      ended_voted: Unu sondàgiu in su cale as votadu est terminadu
     mention:
       direct_message: "%{name} t'at mandadu unu messàgiu"
-      conversation_request: "Tenes una rechesta de cunversatzione noa."
+      conversation_request: Tenes una rechesta de cunversatzione noa.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Caru/a %{name},"
-      instruction: "Su codice OTP de verìfica de su contu est:"
-      note: "Si non as fatu custa richiesta, ignora custa email"
+      greeting: Caru/a %{name},
+      instruction: 'Su codice OTP de verìfica de su contu est:'
+      note: Si non as fatu custa richiesta, ignora custa email
   login_service:
     errors:
-      invalid_credentials: "Credentziales non vàlidas. Torra a proare"
-      unauthorized_access: "Non as permissu de intrare"
-      channel_not_created: "Credentziales non vàlidas. Assegura·ti chi as creatu unu canale"
-      account_deleted: "Su contu tuo est già istèrridu"
+      invalid_credentials: Credentziales non vàlidas. Torra a proare
+      unauthorized_access: Non as permissu de intrare
+      channel_not_created: Credentziales non vàlidas. Assegura·ti chi as creatu unu
+        canale
+      account_deleted: Su contu tuo est già istèrridu
       invalid_role_access: "%{role} non est permissu de intrare"
-      deactivated_channel: "Su canale tuo est disativadu. Cuntata su supportu"
-      two_factor_enabled: "S'autenticatzione a duos fatores est ativada. Pigeai accesu dae s'interfache web"
+      deactivated_channel: Su canale tuo est disativadu. Cuntata su supportu
+      two_factor_enabled: S'autenticatzione a duos fatores est ativada. Pigeai accesu
+        dae s'interfache web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Non as permissu de fàghere custa azione"
-      forbidden: "Accessu negadu!"
-      not_found: "Resorsa non agata"
-      unprocessable_entity: "Non si podet processare sa richiesta"
-      internal_server_error: "Si est produsidu unu errore internu de su servidore"
-      validation_failed: "Validatzione falida!"
-      invalid_request: "Richiesta non vàlida!"
-      rate_limit_exceeded: "Limite de richieste superadu. Torra a proare prus tardu"
+      unauthorized: Non as permissu de fàghere custa azione
+      forbidden: Accessu negadu!
+      not_found: Resorsa non agata
+      unprocessable_entity: Non si podet processare sa richiesta
+      internal_server_error: Si est produsidu unu errore internu de su servidore
+      validation_failed: Validatzione falida!
+      invalid_request: Richiesta non vàlida!
+      rate_limit_exceeded: Limite de richieste superadu. Torra a proare prus tardu
     messages:
-      success: "Operatzione completada cun sucsessu"
-      created: "Resorsa creada cun sucsessu"
-      updated: "Resorsa atualizada cun sucsessu"
-      deleted: "Resorsa istèrrida cun sucsessu"
+      success: Operatzione completada cun sucsessu
+      created: Resorsa creada cun sucsessu
+      updated: Resorsa atualizada cun sucsessu
+      deleted: Resorsa istèrrida cun sucsessu
     notification:
       messages:
-        token_already_exists: "Su token de notificatzione esistit già"
-        token_saved: "Token de notificatzione sarvadu"
-        token_deleted: "Token de notificatzione istèrridu cun sucsessu"
-        token_not_found: "Nissunu token de notificatzione agatau"
-        mute_updated: "Stadu de mute atualizadu cun sucsessu"
+        token_already_exists: Su token de notificatzione esistit già
+        token_saved: Token de notificatzione sarvadu
+        token_deleted: Token de notificatzione istèrridu cun sucsessu
+        token_not_found: Nissunu token de notificatzione agatau
+        mute_updated: Stadu de mute atualizadu cun sucsessu
     account:
       errors:
-        email_not_found: "E-mail non agatau!"
-        email_invalid: "Formadu de e-mail non vàlidu"
-        email_taken: "E-mail esistit già"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "S'aggiornamentu de s'e-mail est falidu"
-        password_unmatch: "Sas passwords non currispondint"
-        password_update_fail: "S'aggiornamentu de sa password est falidu"
-        otp_invalid: "OTP non vàlidu!"
-        register_not_allow: "Non as permissu de registrare·ti!"
-        missing_field: "Campos richièstos mancantes"
-        password_incorrect: "Sa password atuale est incorretta"
-        username_taken: "Su nomene de utente esistit già"
+        email_not_found: E-mail non agatau!
+        email_invalid: Formadu de e-mail non vàlidu
+        email_taken: E-mail esistit già
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: S'aggiornamentu de s'e-mail est falidu
+        password_unmatch: Sas passwords non currispondint
+        password_update_fail: S'aggiornamentu de sa password est falidu
+        otp_invalid: OTP non vàlidu!
+        register_not_allow: Non as permissu de registrare·ti!
+        missing_field: Campos richièstos mancantes
+        password_incorrect: Sa password atuale est incorretta
+        username_taken: Su nomene de utente esistit già
       messages:
-        password_updated: "Sa password est atualizada"
+        password_updated: Sa password est atualizada
     domain:
       messages:
-        dns_verified: "Su DNS est configuradu currettamente"
+        dns_verified: Su DNS est configuradu currettamente
     conversation:
       messages:
         marked_read: "%{updated_count} cunversatzione(s) marcada(s) comente leida(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reatsione non rekonnoxida
+      emoji_limit_exceeded: Limite de emoji superadu

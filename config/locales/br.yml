@@ -1,74 +1,84 @@
+---
 br:
   locale:
-    name: "Breton"
-    native_name: "Brezhoneg"
+    name: Breton
+    native_name: Brezhoneg
   notification:
     poll:
-      ended_you: "Echu eo ho pol"
-      ended_voted: "Echu eo ur pol ma oc'h bet o votiñ"
+      ended_you: Echu eo ho pol
+      ended_voted: Echu eo ur pol ma oc'h bet o votiñ
     mention:
       direct_message: "%{name} en deus kaset ur gemennadenn deoc'h"
-      conversation_request: "Ur goulenn kendiviz nevez ho peus."
+      conversation_request: Ur goulenn kendiviz nevez ho peus.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Ker %{name},"
-      instruction: "Ho kod OTP evit gwiriekaat ar gont zo :"
-      note: "Ma n'ho peus ket goulennet se, lezit a-gostez ar postel-mañ mar plij"
+      greeting: Ker %{name},
+      instruction: 'Ho kod OTP evit gwiriekaat ar gont zo :'
+      note: Ma n'ho peus ket goulennet se, lezit a-gostez ar postel-mañ mar plij
   login_service:
     errors:
-      invalid_credentials: "Titouroù direizh. Klaskit en-dro mar plij"
-      unauthorized_access: "N'oc'h ket aotreet da kevreañ"
-      channel_not_created: "Titouroù direizh. Gwiriait ho peus krouet ur chadenn mar plij"
-      account_deleted: "Dilamet eo bet ho kont dija"
-      invalid_role_access: "N'eo ket aotreet %{role} da kevreañ"
-      deactivated_channel: "Diweredekaet eo ho chadenn. Kit e darempred gant ar sikour mar plij"
-      two_factor_enabled: "Dilesadur div-factor zo gweredekaet. Kevrit enni dre ar etrefas web"
+      invalid_credentials: Titouroù direizh. Klaskit en-dro mar plij
+      unauthorized_access: N'oc'h ket aotreet da kevreañ
+      channel_not_created: Titouroù direizh. Gwiriait ho peus krouet ur chadenn mar
+        plij
+      account_deleted: Dilamet eo bet ho kont dija
+      invalid_role_access: N'eo ket aotreet %{role} da kevreañ
+      deactivated_channel: Diweredekaet eo ho chadenn. Kit e darempred gant ar sikour
+        mar plij
+      two_factor_enabled: Dilesadur div-factor zo gweredekaet. Kevrit enni dre ar
+        etrefas web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Klaskit en-dro mar plij. Titouroù direizh eus beebee.io"
-      registration_required: "Krouit ur gont lec'hel mar plij. roadennoù: %{data}"
-      connection_error: "Fazi o kennaskañ d'ar servij ezel: %{error}"  
+      invalid_credentials: Klaskit en-dro mar plij. Titouroù direizh eus beebee.io
+      registration_required: 'Krouit ur gont lec''hel mar plij. roadennoù: %{data}'
+      connection_error: 'Fazi o kennaskañ d''ar servij ezel: %{error}'
   api:
     errors:
-      unauthorized: "N'oc'h ket aotreet da seveniñ an ober-mañ"
-      forbidden: "Digoradur nac'het!"
-      not_found: "N'eo ket bet kavet an danvez"
-      unprocessable_entity: "N'haller ket treta ar goulenn"
-      internal_server_error: "Degouezhet ez eus bet ur fazi diabarzh ar servijer"
-      validation_failed: "C'hwitet eo bet ar gwiriekaat!"
-      invalid_request: "Goulenn direizh!"
-      rate_limit_exceeded: "Tremenet eo ar vevenn goulenn. Klaskit en-dro diwezhatoc'h mar plij"
+      unauthorized: N'oc'h ket aotreet da seveniñ an ober-mañ
+      forbidden: Digoradur nac'het!
+      not_found: N'eo ket bet kavet an danvez
+      unprocessable_entity: N'haller ket treta ar goulenn
+      internal_server_error: Degouezhet ez eus bet ur fazi diabarzh ar servijer
+      validation_failed: C'hwitet eo bet ar gwiriekaat!
+      invalid_request: Goulenn direizh!
+      rate_limit_exceeded: Tremenet eo ar vevenn goulenn. Klaskit en-dro diwezhatoc'h
+        mar plij
     messages:
-      success: "Echu eo an ober gant berzh"
-      created: "Krouet eo bet an danvez gant berzh"
-      updated: "Hizivaet eo bet an danvez gant berzh"
-      deleted: "Dilamet eo bet an danvez gant berzh"
+      success: Echu eo an ober gant berzh
+      created: Krouet eo bet an danvez gant berzh
+      updated: Hizivaet eo bet an danvez gant berzh
+      deleted: Dilamet eo bet an danvez gant berzh
     notification:
       messages:
-        token_already_exists: "Token kemennadenn zo anezhañ c'hoazh"
-        token_saved: "Token kemennadenn enrollet"
-        token_deleted: "Token kemennadenn dilamet gant berzh"
-        token_not_found: "Token kemennadenn ebet kavet"
-        mute_updated: "Stad mut hizivaet gant berzh"
+        token_already_exists: Token kemennadenn zo anezhañ c'hoazh
+        token_saved: Token kemennadenn enrollet
+        token_deleted: Token kemennadenn dilamet gant berzh
+        token_not_found: Token kemennadenn ebet kavet
+        mute_updated: Stad mut hizivaet gant berzh
     account:
       errors:
-        email_not_found: "N'eo ket bet kavet ar postel!"
-        email_invalid: "Furmskrid postel direizh"
-        email_taken: "Implijet eo bet ar postel dija"
-        membership_not_eligible: "Digor eo an enskrivadurioù d'an izili diazez, d'ar skipailh CSIDNet ha d'an izili skoazeller hepken"
-        email_update_fail: "N'eo ket bet berzhus hizivadur ar postel"
-        password_unmatch: "N'eo ket heñvel ar gerioù-tremenn"
-        password_update_fail: "N'eo ket bet berzhus hizivadur ar ger-tremenn"
-        otp_invalid: "OTP direizh!"
-        register_not_allow: "N'oc'h ket aotreet da enskrivañ!"
-        missing_field: "Maeziennoù ret a vank"
-        password_incorrect: "Fazi eo ar ger-tremenn bremanel"
-        username_taken: "Implijet eo bet an anv-implijer dija"
+        email_not_found: N'eo ket bet kavet ar postel!
+        email_invalid: Furmskrid postel direizh
+        email_taken: Implijet eo bet ar postel dija
+        membership_not_eligible: Digor eo an enskrivadurioù d'an izili diazez, d'ar
+          skipailh CSIDNet ha d'an izili skoazeller hepken
+        email_update_fail: N'eo ket bet berzhus hizivadur ar postel
+        password_unmatch: N'eo ket heñvel ar gerioù-tremenn
+        password_update_fail: N'eo ket bet berzhus hizivadur ar ger-tremenn
+        otp_invalid: OTP direizh!
+        register_not_allow: N'oc'h ket aotreet da enskrivañ!
+        missing_field: Maeziennoù ret a vank
+        password_incorrect: Fazi eo ar ger-tremenn bremanel
+        username_taken: Implijet eo bet an anv-implijer dija
       messages:
-        password_updated: "Hizivaet eo bet ar ger-tremenn"
+        password_updated: Hizivaet eo bet ar ger-tremenn
     domain:
       messages:
-        dns_verified: "DNS kefridiad"
+        dns_verified: DNS kefridiad
     conversation:
       messages:
-        marked_read: "Merket eo bet %{updated_count} emgav(ioù) evel lennadenn"
+        marked_read: Merket eo bet %{updated_count} emgav(ioù) evel lennadenn
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksion nann anavezet
+      emoji_limit_exceeded: Steuñv emoji-mañ bet trespassa

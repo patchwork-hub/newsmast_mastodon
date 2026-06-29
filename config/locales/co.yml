@@ -1,75 +1,81 @@
+---
 co:
   locale:
-    name: "Corsican"
-    native_name: "Corsu"
+    name: Corsican
+    native_name: Corsu
   notification:
     poll:
-      ended_you: "U vostru sondaghju hè finitu"
-      ended_voted: "Un sondaghju induve avete vutatu hè finitu"
+      ended_you: U vostru sondaghju hè finitu
+      ended_voted: Un sondaghju induve avete vutatu hè finitu
     mention:
       direct_message: "%{name} vi hà mandatu un missaghju"
-      conversation_request: "Avete una nova dumanda di cunversazione."
+      conversation_request: Avete una nova dumanda di cunversazione.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Caru %{name},"
-      instruction: "U vostru codice OTP di verifica di u contu hè:"
-      note: "Se ùn avete micca dumandatu questu, ignorate stu mail"
+      greeting: Caru %{name},
+      instruction: 'U vostru codice OTP di verifica di u contu hè:'
+      note: Se ùn avete micca dumandatu questu, ignorate stu mail
   login_service:
     errors:
-      invalid_credentials: "Credenziali invalide. Per piacè pruvate torna"
-      unauthorized_access: "Ùn avete micca accessu per accede"
-      channel_not_created: "Credenziali invalide. Assicuratevi d'avè creatu un canale"
-      account_deleted: "U vostru contu hè digià statu eliminatu"
+      invalid_credentials: Credenziali invalide. Per piacè pruvate torna
+      unauthorized_access: Ùn avete micca accessu per accede
+      channel_not_created: Credenziali invalide. Assicuratevi d'avè creatu un canale
+      account_deleted: U vostru contu hè digià statu eliminatu
       invalid_role_access: "%{role} ùn hè micca permessu d'accede"
-      deactivated_channel: "U vostru canale hè disattivatu. Cuntattate u supportu"
-      two_factor_enabled: "L'autentificazione à dui fattori hè attivata. Per piacè accede cù l'interfaccia web"
-
+      deactivated_channel: U vostru canale hè disattivatu. Cuntattate u supportu
+      two_factor_enabled: L'autentificazione à dui fattori hè attivata. Per piacè
+        accede cù l'interfaccia web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Pruvate torna. Credenziali invalide da beebee.io"
-      registration_required: "Registrate un contu lucale. dati: %{data}"
-      connection_error: "Errore di cunnessione à u serviziu di membri: %{error}"
+      invalid_credentials: Pruvate torna. Credenziali invalide da beebee.io
+      registration_required: 'Registrate un contu lucale. dati: %{data}'
+      connection_error: 'Errore di cunnessione à u serviziu di membri: %{error}'
   api:
     errors:
-      unauthorized: "Ùn site micca autorizatu à fà questa azzione"
-      forbidden: "Accessu rifiutatu!"
-      not_found: "Risorsa micca trovata"
-      unprocessable_entity: "A richiesta ùn pò esse trattata"
-      internal_server_error: "Si hè verificatu un errore internu di u servitore"
-      validation_failed: "Validazione fallita!"
-      invalid_request: "Richiesta invalida!"
-      rate_limit_exceeded: "Limite di richieste superatu. Per piacè pruvate più tardi"
+      unauthorized: Ùn site micca autorizatu à fà questa azzione
+      forbidden: Accessu rifiutatu!
+      not_found: Risorsa micca trovata
+      unprocessable_entity: A richiesta ùn pò esse trattata
+      internal_server_error: Si hè verificatu un errore internu di u servitore
+      validation_failed: Validazione fallita!
+      invalid_request: Richiesta invalida!
+      rate_limit_exceeded: Limite di richieste superatu. Per piacè pruvate più tardi
     messages:
-      success: "Operazione compia cun successu"
-      created: "Risorsa creata cun successu"
-      updated: "Risorsa aggiornata cun successu"
-      deleted: "Risorsa eliminata cun successu"
+      success: Operazione compia cun successu
+      created: Risorsa creata cun successu
+      updated: Risorsa aggiornata cun successu
+      deleted: Risorsa eliminata cun successu
     notification:
       messages:
-        token_already_exists: "U token di notificazione esiste dighjà"
-        token_saved: "Token di notificazione salvatu"
-        token_deleted: "Token di notificazione eliminatu cun successu"
-        token_not_found: "Nisun token di notificazione trovu"
-        mute_updated: "Statu di silenziu aggiornatu cun successu"
+        token_already_exists: U token di notificazione esiste dighjà
+        token_saved: Token di notificazione salvatu
+        token_deleted: Token di notificazione eliminatu cun successu
+        token_not_found: Nisun token di notificazione trovu
+        mute_updated: Statu di silenziu aggiornatu cun successu
     account:
       errors:
-        email_not_found: "Email micca trovu!"
-        email_invalid: "Formato email invalidu"
-        email_taken: "L'email hè dighjà adupratu"
-        membership_not_eligible: "A registrazione hè aperta solu à i membri Core, a squadra CSIDNet è i membri Supporter"
-        email_update_fail: "L'aghjurnamentu di l'email ùn hà micca riesciutu"
-        password_unmatch: "E password ùn currispondenu"
-        password_update_fail: "L'aghjurnamentu di a password ùn hà micca riesciutu"
-        otp_invalid: "OTP invalidu!"
-        register_not_allow: "Ùn site micca permessu di registràvi!"
-        missing_field: "Campi richiesti mancanti"
-        password_incorrect: "A password attuale hè sbagliata"
-        username_taken: "U nome d'utilizatore hè dighjà adupratu"
+        email_not_found: Email micca trovu!
+        email_invalid: Formato email invalidu
+        email_taken: L'email hè dighjà adupratu
+        membership_not_eligible: A registrazione hè aperta solu à i membri Core, a
+          squadra CSIDNet è i membri Supporter
+        email_update_fail: L'aghjurnamentu di l'email ùn hà micca riesciutu
+        password_unmatch: E password ùn currispondenu
+        password_update_fail: L'aghjurnamentu di a password ùn hà micca riesciutu
+        otp_invalid: OTP invalidu!
+        register_not_allow: Ùn site micca permessu di registràvi!
+        missing_field: Campi richiesti mancanti
+        password_incorrect: A password attuale hè sbagliata
+        username_taken: U nome d'utilizatore hè dighjà adupratu
       messages:
-        password_updated: "A password hè stata aggiornata"
+        password_updated: A password hè stata aggiornata
     domain:
       messages:
-        dns_verified: "DNS cunfiguratu currettamente"
+        dns_verified: DNS cunfiguratu currettamente
     conversation:
       messages:
         marked_read: "%{updated_count} cunversazione(i) marcate cum'è letta(e)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reazzione micunusciuta
+      emoji_limit_exceeded: Limitu di emoji superatu

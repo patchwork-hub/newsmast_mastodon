@@ -23,6 +23,9 @@ Rails.application.config.to_prepare do
   Notification.prepend(NewsmastMastodon::Concerns::NotificationConcern)
   MediaAttachment.include(NewsmastMastodon::Concerns::MediaAttachmentConcern)
 
+  # --- ActivityPub relay interception ---
+  ActivityPub::Activity::Create.prepend(NewsmastMastodon::Overrides::ActivityCreateRelayExtension)
+
   # --- Service overrides ---
   SearchService.prepend(NewsmastMastodon::Overrides::SearchServiceExtension)
   AccountSearchService.prepend(NewsmastMastodon::Overrides::AccountSearchServiceExtension)
@@ -50,11 +53,16 @@ Rails.application.config.to_prepare do
   Api::V1::AccountsController.prepend(NewsmastMastodon::Concerns::AccountsCreation)
   Api::V1::Accounts::CredentialsController.prepend(NewsmastMastodon::Concerns::AccountsUpdate)
   Api::V1::StatusesController.prepend(NewsmastMastodon::Api::V1::StatusesControllerExtension)
+  Api::V1::Accounts::StatusesController.prepend(NewsmastMastodon::Overrides::AccountStatusesControllerExtension)
   Api::V1::ScheduledStatusesController.prepend(NewsmastMastodon::Overrides::ScheduledStatusesController)
   Api::V1::NotificationsController.prepend(NewsmastMastodon::Overrides::NotificationV1ExtendedController)
   Api::V2::NotificationsController.prepend(NewsmastMastodon::Overrides::NotificationExtendedController)
   Api::V1::Timelines::HomeController.prepend(NewsmastMastodon::Overrides::HomeExtendedTimeline)
   Api::V1::Timelines::PublicController.prepend(NewsmastMastodon::Overrides::PublicExtendedTimeline)
+  Api::V1::Timelines::ListController.prepend(NewsmastMastodon::Overrides::ListTimelineControllerExtension)
+  Api::V1::Timelines::TagController.prepend(NewsmastMastodon::Overrides::TagTimelineControllerExtension)
+  Api::V1::BookmarksController.prepend(NewsmastMastodon::Overrides::BookmarksControllerExtension)
+  Api::V1::Trends::StatusesController.prepend(NewsmastMastodon::Overrides::TrendsStatusesControllerExtension)
   Api::V2::SearchController.prepend(NewsmastMastodon::Concerns::SearchControllerExtension)
 
   Auth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("Auth::TokensController")

@@ -1,75 +1,81 @@
+---
 ms:
   locale:
-    name: "Malay"
-    native_name: "Bahasa Melayu"
+    name: Malay
+    native_name: Bahasa Melayu
   notification:
     poll:
-      ended_you: "Tinjauan anda telah berakhir"
-      ended_voted: "Tinjauan yang anda undi telah berakhir"
+      ended_you: Tinjauan anda telah berakhir
+      ended_voted: Tinjauan yang anda undi telah berakhir
     mention:
       direct_message: "%{name} telah menghantar mesej kepada anda"
-      conversation_request: "Anda mempunyai permintaan perbualan baharu."
+      conversation_request: Anda mempunyai permintaan perbualan baharu.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Saudara %{name},"
-      instruction: "Kod OTP pengesahan akaun anda ialah:"
-      note: "Jika anda tidak meminta ini, sila abaikan emel ini"
+      greeting: Saudara %{name},
+      instruction: 'Kod OTP pengesahan akaun anda ialah:'
+      note: Jika anda tidak meminta ini, sila abaikan emel ini
   login_service:
     errors:
-      invalid_credentials: "Kelayakan tidak sah. Sila cuba lagi"
-      unauthorized_access: "Anda tidak mempunyai akses untuk log masuk"
-      channel_not_created: "Kelayakan tidak sah. Pastikan anda telah membuat saluran"
-      account_deleted: "Akaun anda telah dipadamkan"
+      invalid_credentials: Kelayakan tidak sah. Sila cuba lagi
+      unauthorized_access: Anda tidak mempunyai akses untuk log masuk
+      channel_not_created: Kelayakan tidak sah. Pastikan anda telah membuat saluran
+      account_deleted: Akaun anda telah dipadamkan
       invalid_role_access: "%{role} tidak dibenarkan untuk log masuk"
-      deactivated_channel: "Saluran anda dinyahaktifkan. Sila hubungi sokongan"
-      two_factor_enabled: "Pengesahan dua faktor diaktifkan. Sila log masuk melalui antara muka web"
-
+      deactivated_channel: Saluran anda dinyahaktifkan. Sila hubungi sokongan
+      two_factor_enabled: Pengesahan dua faktor diaktifkan. Sila log masuk melalui
+        antara muka web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Sila cuba lagi. Kelayakan tidak sah daripada beebee.io"
-      registration_required: "Sila daftarkan akaun tempatan. data: %{data}"
-      connection_error: "Ralat menyambung ke perkhidmatan keahlian: %{error}"
+      invalid_credentials: Sila cuba lagi. Kelayakan tidak sah daripada beebee.io
+      registration_required: 'Sila daftarkan akaun tempatan. data: %{data}'
+      connection_error: 'Ralat menyambung ke perkhidmatan keahlian: %{error}'
   api:
     errors:
-      unauthorized: "Anda tidak dibenarkan untuk melakukan tindakan ini"
-      forbidden: "Akses dinafikan!"
-      not_found: "Sumber tidak dijumpai"
-      unprocessable_entity: "Permintaan tidak dapat diproses"
-      internal_server_error: "Ralat pelayan dalaman berlaku"
-      validation_failed: "Pengesahan gagal!"
-      invalid_request: "Permintaan tidak sah!"
-      rate_limit_exceeded: "Had permintaan telah melebihi. Sila cuba lagi nanti"
+      unauthorized: Anda tidak dibenarkan untuk melakukan tindakan ini
+      forbidden: Akses dinafikan!
+      not_found: Sumber tidak dijumpai
+      unprocessable_entity: Permintaan tidak dapat diproses
+      internal_server_error: Ralat pelayan dalaman berlaku
+      validation_failed: Pengesahan gagal!
+      invalid_request: Permintaan tidak sah!
+      rate_limit_exceeded: Had permintaan telah melebihi. Sila cuba lagi nanti
     messages:
-      success: "Operasi berjaya diselesaikan"
-      created: "Sumber berjaya dicipta"
-      updated: "Sumber berjaya dikemas kini"
-      deleted: "Sumber berjaya dipadamkan"
+      success: Operasi berjaya diselesaikan
+      created: Sumber berjaya dicipta
+      updated: Sumber berjaya dikemas kini
+      deleted: Sumber berjaya dipadamkan
     notification:
       messages:
-        token_already_exists: "Token notifikasi sudah wujud"
-        token_saved: "Token notifikasi disimpan"
-        token_deleted: "Token notifikasi berjaya dipadamkan"
-        token_not_found: "Tiada token notifikasi dijumpai"
-        mute_updated: "Status bisu berjaya dikemas kini"
+        token_already_exists: Token notifikasi sudah wujud
+        token_saved: Token notifikasi disimpan
+        token_deleted: Token notifikasi berjaya dipadamkan
+        token_not_found: Tiada token notifikasi dijumpai
+        mute_updated: Status bisu berjaya dikemas kini
     account:
       errors:
-        email_not_found: "E-mel tidak dijumpai!"
-        email_invalid: "Format e-mel tidak sah"
-        email_taken: "E-mel sudah digunakan"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Kemas kini e-mel gagal"
-        password_unmatch: "Kata laluan tidak sepadan"
-        password_update_fail: "Kemas kini kata laluan gagal"
-        otp_invalid: "OTP tidak sah!"
-        register_not_allow: "Anda tidak dibenarkan untuk mendaftar!"
-        missing_field: "Medan yang diperlukan tiada"
-        password_incorrect: "Kata laluan semasa tidak betul"
-        username_taken: "Nama pengguna sudah digunakan"
+        email_not_found: E-mel tidak dijumpai!
+        email_invalid: Format e-mel tidak sah
+        email_taken: E-mel sudah digunakan
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Kemas kini e-mel gagal
+        password_unmatch: Kata laluan tidak sepadan
+        password_update_fail: Kemas kini kata laluan gagal
+        otp_invalid: OTP tidak sah!
+        register_not_allow: Anda tidak dibenarkan untuk mendaftar!
+        missing_field: Medan yang diperlukan tiada
+        password_incorrect: Kata laluan semasa tidak betul
+        username_taken: Nama pengguna sudah digunakan
       messages:
-        password_updated: "Kata laluan telah dikemas kini"
+        password_updated: Kata laluan telah dikemas kini
     domain:
       messages:
-        dns_verified: "DNS dikonfigurasi dengan betul"
+        dns_verified: DNS dikonfigurasi dengan betul
     conversation:
       messages:
         marked_read: "%{updated_count} perbualan ditandakan sebagai telah dibaca"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Tindak balas tidak dikenali
+      emoji_limit_exceeded: Had emoji terlampaui

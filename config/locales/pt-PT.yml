@@ -1,75 +1,82 @@
+---
 pt-PT:
   locale:
-    name: "Portuguese (Portugal)"
-    native_name: "Português (Portugal)"
+    name: Portuguese (Portugal)
+    native_name: Português (Portugal)
   notification:
     poll:
-      ended_you: "A sua sondagem terminou"
-      ended_voted: "Uma sondagem em que votou terminou"
+      ended_you: A sua sondagem terminou
+      ended_voted: Uma sondagem em que votou terminou
     mention:
       direct_message: "%{name} enviou-lhe uma mensagem"
-      conversation_request: "Tem um novo pedido de conversa."
+      conversation_request: Tem um novo pedido de conversa.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Caro(a) %{name},"
-      instruction: "O seu código OTP de verificação de conta é:"
-      note: "Se não pediu isto, por favor ignore este e-mail"
+      greeting: Caro(a) %{name},
+      instruction: 'O seu código OTP de verificação de conta é:'
+      note: Se não pediu isto, por favor ignore este e-mail
   login_service:
     errors:
-      invalid_credentials: "Credenciais inválidas. Por favor, tente novamente"
-      unauthorized_access: "Não tem permissão para iniciar sessão"
-      channel_not_created: "Credenciais inválidas. Certifique-se de que criou um canal"
-      account_deleted: "A sua conta já foi eliminada"
+      invalid_credentials: Credenciais inválidas. Por favor, tente novamente
+      unauthorized_access: Não tem permissão para iniciar sessão
+      channel_not_created: Credenciais inválidas. Certifique-se de que criou um canal
+      account_deleted: A sua conta já foi eliminada
       invalid_role_access: "%{role} não tem permissão para iniciar sessão"
-      deactivated_channel: "O seu canal está desativado. Contacte o suporte"
-      two_factor_enabled: "A autenticação de dois fatores está ativada. Por favor, inicie sessão através da interface web"
-
+      deactivated_channel: O seu canal está desativado. Contacte o suporte
+      two_factor_enabled: A autenticação de dois fatores está ativada. Por favor,
+        inicie sessão através da interface web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Por favor, tente novamente. Credenciais inválidas de beebee.io"
-      registration_required: "Por favor, registe uma conta local. dados: %{data}"
-      connection_error: "Erro ao conectar ao serviço de associação: %{error}"
+      invalid_credentials: Por favor, tente novamente. Credenciais inválidas de beebee.io
+      registration_required: 'Por favor, registe uma conta local. dados: %{data}'
+      connection_error: 'Erro ao conectar ao serviço de associação: %{error}'
   api:
     errors:
-      unauthorized: "Não está autorizado a realizar esta ação"
-      forbidden: "Acesso negado!"
-      not_found: "Recurso não encontrado"
-      unprocessable_entity: "O pedido não pôde ser processado"
-      internal_server_error: "Ocorreu um erro interno do servidor"
-      validation_failed: "Falha na validação!"
-      invalid_request: "Pedido inválido!"
-      rate_limit_exceeded: "Limite de pedidos excedido. Por favor, tente novamente mais tarde"
+      unauthorized: Não está autorizado a realizar esta ação
+      forbidden: Acesso negado!
+      not_found: Recurso não encontrado
+      unprocessable_entity: O pedido não pôde ser processado
+      internal_server_error: Ocorreu um erro interno do servidor
+      validation_failed: Falha na validação!
+      invalid_request: Pedido inválido!
+      rate_limit_exceeded: Limite de pedidos excedido. Por favor, tente novamente
+        mais tarde
     messages:
-      success: "Operação concluída com sucesso"
-      created: "Recurso criado com sucesso"
-      updated: "Recurso atualizado com sucesso"
-      deleted: "Recurso eliminado com sucesso"
+      success: Operação concluída com sucesso
+      created: Recurso criado com sucesso
+      updated: Recurso atualizado com sucesso
+      deleted: Recurso eliminado com sucesso
     notification:
       messages:
-        token_already_exists: "Token de notificação já existe"
-        token_saved: "Token de notificação guardado"
-        token_deleted: "Token de notificação eliminado com sucesso"
-        token_not_found: "Nenhum token de notificação encontrado"
-        mute_updated: "Estado de silêncio atualizado com sucesso"
+        token_already_exists: Token de notificação já existe
+        token_saved: Token de notificação guardado
+        token_deleted: Token de notificação eliminado com sucesso
+        token_not_found: Nenhum token de notificação encontrado
+        mute_updated: Estado de silêncio atualizado com sucesso
     account:
       errors:
-        email_not_found: "E-mail não encontrado!"
-        email_invalid: "Formato de e-mail inválido"
-        email_taken: "E-mail já está em uso"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "A atualização do e-mail falhou"
-        password_unmatch: "As palavras-passe não coincidem"
-        password_update_fail: "A atualização da palavra-passe falhou"
-        otp_invalid: "OTP inválido!"
-        register_not_allow: "Não tem permissão para se registar!"
-        missing_field: "Campos obrigatórios em falta"
-        password_incorrect: "A palavra-passe atual está incorreta"
-        username_taken: "Nome de utilizador já está em uso"
+        email_not_found: E-mail não encontrado!
+        email_invalid: Formato de e-mail inválido
+        email_taken: E-mail já está em uso
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: A atualização do e-mail falhou
+        password_unmatch: As palavras-passe não coincidem
+        password_update_fail: A atualização da palavra-passe falhou
+        otp_invalid: OTP inválido!
+        register_not_allow: Não tem permissão para se registar!
+        missing_field: Campos obrigatórios em falta
+        password_incorrect: A palavra-passe atual está incorreta
+        username_taken: Nome de utilizador já está em uso
       messages:
-        password_updated: "A palavra-passe foi atualizada"
+        password_updated: A palavra-passe foi atualizada
     domain:
       messages:
-        dns_verified: "DNS está corretamente configurado"
+        dns_verified: DNS está corretamente configurado
     conversation:
       messages:
         marked_read: "%{updated_count} conversa(s) marcada(s) como lida(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reação não reconhecida
+      emoji_limit_exceeded: Limite de emoji excedido

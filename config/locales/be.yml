@@ -1,75 +1,82 @@
+---
 be:
   locale:
-    name: "Belarusian"
-    native_name: "Беларуская"
+    name: Belarusian
+    native_name: Беларуская
   notification:
     poll:
-      ended_you: "Ваша апытанне завершана"
-      ended_voted: "Апытанне, у якім вы галасавалі, завершана"
+      ended_you: Ваша апытанне завершана
+      ended_voted: Апытанне, у якім вы галасавалі, завершана
     mention:
       direct_message: "%{name} даслаў вам паведамленне"
-      conversation_request: "У вас новы запыт на размову."
+      conversation_request: У вас новы запыт на размову.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Паважаны %{name},"
-      instruction: "Ваш код OTP для пацверджання акаўнта:"
-      note: "Калі вы не запытвалі гэта, праігнаруйце гэты ліст"
+      greeting: Паважаны %{name},
+      instruction: 'Ваш код OTP для пацверджання акаўнта:'
+      note: Калі вы не запытвалі гэта, праігнаруйце гэты ліст
   login_service:
     errors:
-      invalid_credentials: "Няправільныя дадзеныя. Паспрабуйце яшчэ раз"
-      unauthorized_access: "У вас няма доступу для ўваходу"
-      channel_not_created: "Няправільныя дадзеныя. Пераканайцеся, што вы стварылі канал"
-      account_deleted: "Ваш акаўнт ужо выдалены"
+      invalid_credentials: Няправільныя дадзеныя. Паспрабуйце яшчэ раз
+      unauthorized_access: У вас няма доступу для ўваходу
+      channel_not_created: Няправільныя дадзеныя. Пераканайцеся, што вы стварылі канал
+      account_deleted: Ваш акаўнт ужо выдалены
       invalid_role_access: "%{role} не мае доступу для ўваходу"
-      deactivated_channel: "Ваш канал дэактываваны. Звярніцеся ў падтрымку"
-      two_factor_enabled: "Двухфактарная аўтэнтыфікацыя ўключана. Калі ласка, увайдзіце праз вэб-інтэрфейс"
-
+      deactivated_channel: Ваш канал дэактываваны. Звярніцеся ў падтрымку
+      two_factor_enabled: Двухфактарная аўтэнтыфікацыя ўключана. Калі ласка, увайдзіце
+        праз вэб-інтэрфейс
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Паспрабуйце яшчэ раз. Няправільныя дадзеныя з beebee.io"
-      registration_required: "Калі ласка, зарэгіструйце лакальны акаўнт. дадзеныя: %{data}"
-      connection_error: "Памылка падключэння да сэрвісу членства: %{error}"
+      invalid_credentials: Паспрабуйце яшчэ раз. Няправільныя дадзеныя з beebee.io
+      registration_required: 'Калі ласка, зарэгіструйце лакальны акаўнт. дадзеныя:
+        %{data}'
+      connection_error: 'Памылка падключэння да сэрвісу членства: %{error}'
   api:
     errors:
-      unauthorized: "У вас няма дазволу на выкананне гэтай дзеяння"
-      forbidden: "Доступ забаронены!"
-      not_found: "Рэсурс не знойдзены"
-      unprocessable_entity: "Запыт не можа быць апрацаваны"
-      internal_server_error: "Унутраная памылка сервера"
-      validation_failed: "Праверка не прайшла!"
-      invalid_request: "Няправільны запыт!"
-      rate_limit_exceeded: "Ліміт запытаў перавышаны. Паспрабуйце пазней"
+      unauthorized: У вас няма дазволу на выкананне гэтай дзеяння
+      forbidden: Доступ забаронены!
+      not_found: Рэсурс не знойдзены
+      unprocessable_entity: Запыт не можа быць апрацаваны
+      internal_server_error: Унутраная памылка сервера
+      validation_failed: Праверка не прайшла!
+      invalid_request: Няправільны запыт!
+      rate_limit_exceeded: Ліміт запытаў перавышаны. Паспрабуйце пазней
     messages:
-      success: "Аперацыя паспяхова завершана"
-      created: "Рэсурс паспяхова створаны"
-      updated: "Рэсурс паспяхова абноўлены"
-      deleted: "Рэсурс паспяхова выдалены"
+      success: Аперацыя паспяхова завершана
+      created: Рэсурс паспяхова створаны
+      updated: Рэсурс паспяхова абноўлены
+      deleted: Рэсурс паспяхова выдалены
     notification:
       messages:
-        token_already_exists: "Токен апавяшчэння ўжо існуе"
-        token_saved: "Токен апавяшчэння захаваны"
-        token_deleted: "Токен апавяшчэння паспяхова выдалены"
-        token_not_found: "Токены апавяшчэння не знойдзены"
-        mute_updated: "Статус заглушэння паспяхова абноўлены"
+        token_already_exists: Токен апавяшчэння ўжо існуе
+        token_saved: Токен апавяшчэння захаваны
+        token_deleted: Токен апавяшчэння паспяхова выдалены
+        token_not_found: Токены апавяшчэння не знойдзены
+        mute_updated: Статус заглушэння паспяхова абноўлены
     account:
       errors:
-        email_not_found: "Электронная пошта не знойдзена!"
-        email_invalid: "Няправільны фармат электроннай пошты"
-        email_taken: "Электронная пошта ўжо занята"
-        membership_not_eligible: "Рэгістрацыя адкрыта толькі для асноўных членаў, каманды CSIDNet і членаў падтрымкі"
-        email_update_fail: "Абнаўленне электроннай пошты не атрымалася"
-        password_unmatch: "Паролі не супадаюць"
-        password_update_fail: "Абнаўленне пароля не атрымалася"
-        otp_invalid: "Няправільны OTP!"
-        register_not_allow: "Вам не дазволена рэгістравацца!"
-        missing_field: "Адсутнічаюць неабходныя палі"
-        password_incorrect: "Бягучы пароль няправільны"
-        username_taken: "Імя карыстальніка ўжо занята"
+        email_not_found: Электронная пошта не знойдзена!
+        email_invalid: Няправільны фармат электроннай пошты
+        email_taken: Электронная пошта ўжо занята
+        membership_not_eligible: Рэгістрацыя адкрыта толькі для асноўных членаў, каманды
+          CSIDNet і членаў падтрымкі
+        email_update_fail: Абнаўленне электроннай пошты не атрымалася
+        password_unmatch: Паролі не супадаюць
+        password_update_fail: Абнаўленне пароля не атрымалася
+        otp_invalid: Няправільны OTP!
+        register_not_allow: Вам не дазволена рэгістравацца!
+        missing_field: Адсутнічаюць неабходныя палі
+        password_incorrect: Бягучы пароль няправільны
+        username_taken: Імя карыстальніка ўжо занята
       messages:
-        password_updated: "Пароль абноўлены"
+        password_updated: Пароль абноўлены
     domain:
       messages:
-        dns_verified: "DNS наладжаны правільна"
+        dns_verified: DNS наладжаны правільна
     conversation:
       messages:
         marked_read: "%{updated_count} размова(ы) адзначаны як прачытаныя"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Рэакцыя не распазнана
+      emoji_limit_exceeded: Ліміт эмодзі перавышаны

@@ -1,75 +1,81 @@
+---
 eo:
   locale:
-    name: "Esperanto"
-    native_name: "Esperanto"
+    name: Esperanto
+    native_name: Esperanto
   notification:
     poll:
-      ended_you: "Via enketo finiĝis"
-      ended_voted: "Enketo, en kiu vi voĉdonis, finiĝis"
+      ended_you: Via enketo finiĝis
+      ended_voted: Enketo, en kiu vi voĉdonis, finiĝis
     mention:
       direct_message: "%{name} sendis al vi mesaĝon"
-      conversation_request: "Vi havas novan konversacian peton."
+      conversation_request: Vi havas novan konversacian peton.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kara %{name},"
-      instruction: "Via OTP-kodo por konto-verifiko estas jen:"
-      note: "Se vi ne petis tion, bonvolu ignori ĉi tiun retpoŝton"
+      greeting: Kara %{name},
+      instruction: 'Via OTP-kodo por konto-verifiko estas jen:'
+      note: Se vi ne petis tion, bonvolu ignori ĉi tiun retpoŝton
   login_service:
     errors:
-      invalid_credentials: "Nevalidaj akreditaĵoj. Bonvolu provi denove"
-      unauthorized_access: "Vi ne havas aliron por ensaluti"
-      channel_not_created: "Nevalidaj akreditaĵoj. Bonvolu certigi, ke vi kreis kanalon"
-      account_deleted: "Via konto jam estas forigita"
+      invalid_credentials: Nevalidaj akreditaĵoj. Bonvolu provi denove
+      unauthorized_access: Vi ne havas aliron por ensaluti
+      channel_not_created: Nevalidaj akreditaĵoj. Bonvolu certigi, ke vi kreis kanalon
+      account_deleted: Via konto jam estas forigita
       invalid_role_access: "%{role} ne rajtas ensaluti"
-      deactivated_channel: "Via kanalo estas malaktivigita. Bonvolu kontakti subtenon"
-      two_factor_enabled: "Dupaŝa aŭtentigo estas ŝaltita. Bonvolu ensaluti per la retinterfaco"
-
+      deactivated_channel: Via kanalo estas malaktivigita. Bonvolu kontakti subtenon
+      two_factor_enabled: Dupaŝa aŭtentigo estas ŝaltita. Bonvolu ensaluti per la
+        retinterfaco
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Bonvolu provi denove. Nevalidaj akreditaĵoj de beebee.io"
-      registration_required: "Bonvolu registri lokan konton. datumoj: %{data}"
-      connection_error: "Eraro konektante al membraro-servo: %{error}"
+      invalid_credentials: Bonvolu provi denove. Nevalidaj akreditaĵoj de beebee.io
+      registration_required: 'Bonvolu registri lokan konton. datumoj: %{data}'
+      connection_error: 'Eraro konektante al membraro-servo: %{error}'
   api:
     errors:
-      unauthorized: "Vi ne estas rajtigita plenumi ĉi tiun agon"
-      forbidden: "Aliro rifuzita!"
-      not_found: "Rimedo ne trovita"
-      unprocessable_entity: "La peto ne povis esti prilaborita"
-      internal_server_error: "Okazis interna servila eraro"
-      validation_failed: "Validigo malsukcesis!"
-      invalid_request: "Nevalida peto!"
-      rate_limit_exceeded: "Petlimo superita. Bonvolu provi poste"
+      unauthorized: Vi ne estas rajtigita plenumi ĉi tiun agon
+      forbidden: Aliro rifuzita!
+      not_found: Rimedo ne trovita
+      unprocessable_entity: La peto ne povis esti prilaborita
+      internal_server_error: Okazis interna servila eraro
+      validation_failed: Validigo malsukcesis!
+      invalid_request: Nevalida peto!
+      rate_limit_exceeded: Petlimo superita. Bonvolu provi poste
     messages:
-      success: "Operacio sukcese kompletigita"
-      created: "Rimedo sukcese kreita"
-      updated: "Rimedo sukcese ĝisdatigita"
-      deleted: "Rimedo sukcese forigita"
+      success: Operacio sukcese kompletigita
+      created: Rimedo sukcese kreita
+      updated: Rimedo sukcese ĝisdatigita
+      deleted: Rimedo sukcese forigita
     notification:
       messages:
-        token_already_exists: "Sciiga ĵetono jam ekzistas"
-        token_saved: "Sciiga ĵetono konservita"
-        token_deleted: "Sciiga ĵetono sukcese forigita"
-        token_not_found: "Neniuj sciigaj ĵetonoj trovitaj"
-        mute_updated: "Silentiga stato sukcese ĝisdatigita"
+        token_already_exists: Sciiga ĵetono jam ekzistas
+        token_saved: Sciiga ĵetono konservita
+        token_deleted: Sciiga ĵetono sukcese forigita
+        token_not_found: Neniuj sciigaj ĵetonoj trovitaj
+        mute_updated: Silentiga stato sukcese ĝisdatigita
     account:
       errors:
-        email_not_found: "Retpoŝto ne trovita!"
-        email_invalid: "Nevalida retpoŝta formato"
-        email_taken: "Retpoŝto jam estas uzata"
-        membership_not_eligible: "Registrado estas malfermita nur al Kernaj membroj, CSIDNet Teamo kaj Subtenantaj membroj"
-        email_update_fail: "La retpoŝta ĝisdatigo malsukcesis"
-        password_unmatch: "Pasvortoj ne kongruas"
-        password_update_fail: "La pasvorta ĝisdatigo malsukcesis"
-        otp_invalid: "Nevalida OTP!"
-        register_not_allow: "Vi ne rajtas registriĝi!"
-        missing_field: "Mankas postulataj kampoj"
-        password_incorrect: "Nuna pasvorto estas malĝusta"
-        username_taken: "Uzantnomo jam estas uzata"
+        email_not_found: Retpoŝto ne trovita!
+        email_invalid: Nevalida retpoŝta formato
+        email_taken: Retpoŝto jam estas uzata
+        membership_not_eligible: Registrado estas malfermita nur al Kernaj membroj,
+          CSIDNet Teamo kaj Subtenantaj membroj
+        email_update_fail: La retpoŝta ĝisdatigo malsukcesis
+        password_unmatch: Pasvortoj ne kongruas
+        password_update_fail: La pasvorta ĝisdatigo malsukcesis
+        otp_invalid: Nevalida OTP!
+        register_not_allow: Vi ne rajtas registriĝi!
+        missing_field: Mankas postulataj kampoj
+        password_incorrect: Nuna pasvorto estas malĝusta
+        username_taken: Uzantnomo jam estas uzata
       messages:
-        password_updated: "La pasvorto estas ĝisdatigita"
+        password_updated: La pasvorto estas ĝisdatigita
     domain:
       messages:
-        dns_verified: "DNS estas ĝuste agordita"
+        dns_verified: DNS estas ĝuste agordita
     conversation:
       messages:
         marked_read: "%{updated_count} konversacio(j) markita(j) kiel legitaj"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reago ne estas rekognita
+      emoji_limit_exceeded: Limito de ĝujo superita

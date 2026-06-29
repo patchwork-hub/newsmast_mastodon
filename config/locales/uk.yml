@@ -1,75 +1,82 @@
+---
 uk:
   locale:
-    name: "Ukrainian"
-    native_name: "Українська"
+    name: Ukrainian
+    native_name: Українська
   notification:
     poll:
-      ended_you: "Ваше опитування завершено"
-      ended_voted: "Опитування, в якому ви брали участь, завершено"
+      ended_you: Ваше опитування завершено
+      ended_voted: Опитування, в якому ви брали участь, завершено
     mention:
       direct_message: "%{name} надіслав вам повідомлення"
-      conversation_request: "У вас новий запит на розмову."
+      conversation_request: У вас новий запит на розмову.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Шановний %{name},"
-      instruction: "Ваш код OTP для підтвердження акаунта нижче:"
-      note: "Якщо ви не запитували це, просто ігноруйте цей лист"
+      greeting: Шановний %{name},
+      instruction: 'Ваш код OTP для підтвердження акаунта нижче:'
+      note: Якщо ви не запитували це, просто ігноруйте цей лист
   login_service:
     errors:
-      invalid_credentials: "Невірні облікові дані. Спробуйте ще раз"
-      unauthorized_access: "Ви не маєте доступу до входу"
-      channel_not_created: "Невірні облікові дані. Переконайтеся, що ви створили канал"
-      account_deleted: "Ваш акаунт вже видалено"
+      invalid_credentials: Невірні облікові дані. Спробуйте ще раз
+      unauthorized_access: Ви не маєте доступу до входу
+      channel_not_created: Невірні облікові дані. Переконайтеся, що ви створили канал
+      account_deleted: Ваш акаунт вже видалено
       invalid_role_access: "%{role} не має доступу до входу"
-      deactivated_channel: "Ваш канал деактивовано. Зверніться до підтримки"
-      two_factor_enabled: "Двофакторну автентифікацію ввімкнено. Будь ласка, увійдіть через веб-інтерфейс"
-
+      deactivated_channel: Ваш канал деактивовано. Зверніться до підтримки
+      two_factor_enabled: Двофакторну автентифікацію ввімкнено. Будь ласка, увійдіть
+        через веб-інтерфейс
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Спробуйте ще раз. Невірні облікові дані від beebee.io"
-      registration_required: "Будь ласка, зареєструйте локальний обліковий запис. дані: %{data}"
-      connection_error: "Помилка підключення до служби членства: %{error}"
+      invalid_credentials: Спробуйте ще раз. Невірні облікові дані від beebee.io
+      registration_required: 'Будь ласка, зареєструйте локальний обліковий запис.
+        дані: %{data}'
+      connection_error: 'Помилка підключення до служби членства: %{error}'
   api:
     errors:
-      unauthorized: "Ви не маєте права виконувати цю дію"
-      forbidden: "Доступ заборонено!"
-      not_found: "Ресурс не знайдено"
-      unprocessable_entity: "Запит не може бути оброблений"
-      internal_server_error: "Виникла внутрішня помилка сервера"
-      validation_failed: "Валідація не вдалася!"
-      invalid_request: "Невірний запит!"
-      rate_limit_exceeded: "Перевищено ліміт запитів. Спробуйте пізніше"
+      unauthorized: Ви не маєте права виконувати цю дію
+      forbidden: Доступ заборонено!
+      not_found: Ресурс не знайдено
+      unprocessable_entity: Запит не може бути оброблений
+      internal_server_error: Виникла внутрішня помилка сервера
+      validation_failed: Валідація не вдалася!
+      invalid_request: Невірний запит!
+      rate_limit_exceeded: Перевищено ліміт запитів. Спробуйте пізніше
     messages:
-      success: "Операцію успішно завершено"
-      created: "Ресурс успішно створено"
-      updated: "Ресурс успішно оновлено"
-      deleted: "Ресурс успішно видалено"
+      success: Операцію успішно завершено
+      created: Ресурс успішно створено
+      updated: Ресурс успішно оновлено
+      deleted: Ресурс успішно видалено
     notification:
       messages:
-        token_already_exists: "Токен сповіщення вже існує"
-        token_saved: "Токен сповіщення збережено"
-        token_deleted: "Токен сповіщення успішно видалено"
-        token_not_found: "Токени сповіщення не знайдено"
-        mute_updated: "Статус \"Без звуку\" успішно оновлено"
+        token_already_exists: Токен сповіщення вже існує
+        token_saved: Токен сповіщення збережено
+        token_deleted: Токен сповіщення успішно видалено
+        token_not_found: Токени сповіщення не знайдено
+        mute_updated: Статус "Без звуку" успішно оновлено
     account:
       errors:
-        email_not_found: "Електронну пошту не знайдено!"
-        email_invalid: "Невірний формат електронної пошти"
-        email_taken: "Електронна пошта вже зайнята"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Оновлення електронної пошти не вдалося"
-        password_unmatch: "Паролі не співпадають"
-        password_update_fail: "Оновлення пароля не вдалося"
-        otp_invalid: "Невірний OTP!"
-        register_not_allow: "Вам не дозволено реєструватися!"
-        missing_field: "Відсутні обов'язкові поля"
-        password_incorrect: "Поточний пароль невірний"
-        username_taken: "Ім'я користувача вже зайняте"
+        email_not_found: Електронну пошту не знайдено!
+        email_invalid: Невірний формат електронної пошти
+        email_taken: Електронна пошта вже зайнята
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Оновлення електронної пошти не вдалося
+        password_unmatch: Паролі не співпадають
+        password_update_fail: Оновлення пароля не вдалося
+        otp_invalid: Невірний OTP!
+        register_not_allow: Вам не дозволено реєструватися!
+        missing_field: Відсутні обов'язкові поля
+        password_incorrect: Поточний пароль невірний
+        username_taken: Ім'я користувача вже зайняте
       messages:
-        password_updated: "Пароль оновлено"
+        password_updated: Пароль оновлено
     domain:
       messages:
-        dns_verified: "DNS налаштовано правильно"
+        dns_verified: DNS налаштовано правильно
     conversation:
       messages:
         marked_read: "%{updated_count} розмову(и) позначено як прочитано"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Реакція не розпізнана
+      emoji_limit_exceeded: Лімітом емодз​ї перевищено

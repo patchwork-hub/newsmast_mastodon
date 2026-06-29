@@ -1,75 +1,83 @@
+---
 pl:
   locale:
-    name: "Polish"
-    native_name: "Polski"
+    name: Polish
+    native_name: Polski
   notification:
     poll:
-      ended_you: "Twoja ankieta została zakończona"
-      ended_voted: "Ankieta, w której głosowałeś, została zakończona"
+      ended_you: Twoja ankieta została zakończona
+      ended_voted: Ankieta, w której głosowałeś, została zakończona
     mention:
       direct_message: "%{name} wysłał(a) Ci wiadomość"
-      conversation_request: "Masz nowe żądanie konwersacji."
+      conversation_request: Masz nowe żądanie konwersacji.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Drogi/a %{name},"
-      instruction: "Twój kod OTP do weryfikacji konta to:"
-      note: "Jeśli nie prosiłeś o to, zignoruj tę wiadomość e-mail"
+      greeting: Drogi/a %{name},
+      instruction: 'Twój kod OTP do weryfikacji konta to:'
+      note: Jeśli nie prosiłeś o to, zignoruj tę wiadomość e-mail
   login_service:
     errors:
-      invalid_credentials: "Nieprawidłowe dane logowania. Spróbuj ponownie"
-      unauthorized_access: "Nie masz dostępu do logowania"
-      channel_not_created: "Nieprawidłowe dane logowania. Upewnij się, że utworzyłeś kanał"
-      account_deleted: "Twoje konto zostało już usunięte"
+      invalid_credentials: Nieprawidłowe dane logowania. Spróbuj ponownie
+      unauthorized_access: Nie masz dostępu do logowania
+      channel_not_created: Nieprawidłowe dane logowania. Upewnij się, że utworzyłeś
+        kanał
+      account_deleted: Twoje konto zostało już usunięte
       invalid_role_access: "%{role} nie ma dostępu do logowania"
-      deactivated_channel: "Twój kanał jest dezaktywowany. Skontaktuj się z pomocą techniczną"
-      two_factor_enabled: "Uwierzytelnianie dwuetapowe jest włączone. Proszę zalogować się przez interfejs webowy"
-
+      deactivated_channel: Twój kanał jest dezaktywowany. Skontaktuj się z pomocą
+        techniczną
+      two_factor_enabled: Uwierzytelnianie dwuetapowe jest włączone. Proszę zalogować
+        się przez interfejs webowy
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Spróbuj ponownie. Nieprawidłowe dane logowania z beebee.io"
-      registration_required: "Zarejestruj konto lokalne. dane: %{data}"
-      connection_error: "Błąd połączenia z usługą członkowską: %{error}"
+      invalid_credentials: Spróbuj ponownie. Nieprawidłowe dane logowania z beebee.io
+      registration_required: 'Zarejestruj konto lokalne. dane: %{data}'
+      connection_error: 'Błąd połączenia z usługą członkowską: %{error}'
   api:
     errors:
-      unauthorized: "Nie masz uprawnień do wykonania tej akcji"
-      forbidden: "Dostęp zabroniony!"
-      not_found: "Nie znaleziono zasobu"
-      unprocessable_entity: "Nie można przetworzyć żądania"
-      internal_server_error: "Wystąpił wewnętrzny błąd serwera"
-      validation_failed: "Walidacja nie powiodła się!"
-      invalid_request: "Nieprawidłowe żądanie!"
-      rate_limit_exceeded: "Przekroczono limit żądań. Spróbuj ponownie później"
+      unauthorized: Nie masz uprawnień do wykonania tej akcji
+      forbidden: Dostęp zabroniony!
+      not_found: Nie znaleziono zasobu
+      unprocessable_entity: Nie można przetworzyć żądania
+      internal_server_error: Wystąpił wewnętrzny błąd serwera
+      validation_failed: Walidacja nie powiodła się!
+      invalid_request: Nieprawidłowe żądanie!
+      rate_limit_exceeded: Przekroczono limit żądań. Spróbuj ponownie później
     messages:
-      success: "Operacja zakończona pomyślnie"
-      created: "Zasób został pomyślnie utworzony"
-      updated: "Zasób został pomyślnie zaktualizowany"
-      deleted: "Zasób został pomyślnie usunięty"
+      success: Operacja zakończona pomyślnie
+      created: Zasób został pomyślnie utworzony
+      updated: Zasób został pomyślnie zaktualizowany
+      deleted: Zasób został pomyślnie usunięty
     notification:
       messages:
-        token_already_exists: "Token powiadomień już istnieje"
-        token_saved: "Token powiadomień zapisany"
-        token_deleted: "Token powiadomień został pomyślnie usunięty"
-        token_not_found: "Nie znaleziono tokenów powiadomień"
-        mute_updated: "Status wyciszenia został pomyślnie zaktualizowany"
+        token_already_exists: Token powiadomień już istnieje
+        token_saved: Token powiadomień zapisany
+        token_deleted: Token powiadomień został pomyślnie usunięty
+        token_not_found: Nie znaleziono tokenów powiadomień
+        mute_updated: Status wyciszenia został pomyślnie zaktualizowany
     account:
       errors:
-        email_not_found: "Nie znaleziono e-maila!"
-        email_invalid: "Nieprawidłowy format e-maila"
-        email_taken: "E-mail jest już zajęty"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Aktualizacja e-maila nie powiodła się"
-        password_unmatch: "Hasła nie pasują do siebie"
-        password_update_fail: "Aktualizacja hasła nie powiodła się"
-        otp_invalid: "Nieprawidłowy OTP!"
-        register_not_allow: "Nie masz uprawnień do rejestracji!"
-        missing_field: "Brak wymaganych pól"
-        password_incorrect: "Aktualne hasło jest nieprawidłowe"
-        username_taken: "Nazwa użytkownika jest już zajęta"
+        email_not_found: Nie znaleziono e-maila!
+        email_invalid: Nieprawidłowy format e-maila
+        email_taken: E-mail jest już zajęty
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Aktualizacja e-maila nie powiodła się
+        password_unmatch: Hasła nie pasują do siebie
+        password_update_fail: Aktualizacja hasła nie powiodła się
+        otp_invalid: Nieprawidłowy OTP!
+        register_not_allow: Nie masz uprawnień do rejestracji!
+        missing_field: Brak wymaganych pól
+        password_incorrect: Aktualne hasło jest nieprawidłowe
+        username_taken: Nazwa użytkownika jest już zajęta
       messages:
-        password_updated: "Hasło zostało zaktualizowane"
+        password_updated: Hasło zostało zaktualizowane
     domain:
       messages:
-        dns_verified: "DNS jest poprawnie skonfigurowany"
+        dns_verified: DNS jest poprawnie skonfigurowany
     conversation:
       messages:
         marked_read: "%{updated_count} rozmowa(y) oznaczona(e) jako przeczytana(e)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakcja nie rozpoznana
+      emoji_limit_exceeded: Limit emoji przekroczony

@@ -1,75 +1,81 @@
+---
 fa:
   locale:
-    name: "Persian"
-    native_name: "فارسی"
+    name: Persian
+    native_name: فارسی
   notification:
     poll:
-      ended_you: "نظرسنجی شما به پایان رسید"
-      ended_voted: "نظرسنجی که در آن رأی داده‌اید به پایان رسید"
+      ended_you: نظرسنجی شما به پایان رسید
+      ended_voted: نظرسنجی که در آن رأی داده‌اید به پایان رسید
     mention:
       direct_message: "%{name} برای شما پیامی ارسال کرد"
-      conversation_request: "شما یک درخواست مکالمه جدید دارید."
+      conversation_request: شما یک درخواست مکالمه جدید دارید.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "کاربر گرامی %{name}،"
-      instruction: "کد OTP تأیید حساب شما به شرح زیر است:"
-      note: "اگر این درخواست را نداده‌اید، لطفاً این ایمیل را نادیده بگیرید"
+      greeting: کاربر گرامی %{name}،
+      instruction: 'کد OTP تأیید حساب شما به شرح زیر است:'
+      note: اگر این درخواست را نداده‌اید، لطفاً این ایمیل را نادیده بگیرید
   login_service:
     errors:
-      invalid_credentials: "اطلاعات نامعتبر. لطفاً دوباره تلاش کنید"
-      unauthorized_access: "شما اجازه ورود ندارید"
-      channel_not_created: "اطلاعات نامعتبر. لطفاً مطمئن شوید که یک کانال ایجاد کرده‌اید"
-      account_deleted: "حساب شما قبلاً حذف شده است"
+      invalid_credentials: اطلاعات نامعتبر. لطفاً دوباره تلاش کنید
+      unauthorized_access: شما اجازه ورود ندارید
+      channel_not_created: اطلاعات نامعتبر. لطفاً مطمئن شوید که یک کانال ایجاد کرده‌اید
+      account_deleted: حساب شما قبلاً حذف شده است
       invalid_role_access: "%{role} اجازه ورود ندارد"
-      deactivated_channel: "کانال شما غیرفعال است. لطفاً با پشتیبانی تماس بگیرید"
-      two_factor_enabled: "احراز هویت دو مرحله‌ای فعال است. لطفاً از طریق رابط وب وارد شوید"
-
+      deactivated_channel: کانال شما غیرفعال است. لطفاً با پشتیبانی تماس بگیرید
+      two_factor_enabled: احراز هویت دو مرحله‌ای فعال است. لطفاً از طریق رابط وب وارد
+        شوید
   bristolcable_login_service:
     errors:
-      invalid_credentials: "لطفاً دوباره تلاش کنید. اطلاعات نامعتبر از beebee.io"
-      registration_required: "لطفاً حساب محلی ثبت کنید. داده‌ها: %{data}"
-      connection_error: "خطا در اتصال به سرویس عضویت: %{error}"
+      invalid_credentials: لطفاً دوباره تلاش کنید. اطلاعات نامعتبر از beebee.io
+      registration_required: 'لطفاً حساب محلی ثبت کنید. داده‌ها: %{data}'
+      connection_error: 'خطا در اتصال به سرویس عضویت: %{error}'
   api:
     errors:
-      unauthorized: "شما مجاز به انجام این عملیات نیستید"
-      forbidden: "دسترسی رد شد!"
-      not_found: "منبع پیدا نشد"
-      unprocessable_entity: "درخواست قابل پردازش نیست"
-      internal_server_error: "خطای داخلی سرور رخ داد"
-      validation_failed: "اعتبارسنجی ناموفق بود!"
-      invalid_request: "درخواست نامعتبر!"
-      rate_limit_exceeded: "محدودیت درخواست‌ها فراتر رفت. لطفاً بعداً تلاش کنید"
+      unauthorized: شما مجاز به انجام این عملیات نیستید
+      forbidden: دسترسی رد شد!
+      not_found: منبع پیدا نشد
+      unprocessable_entity: درخواست قابل پردازش نیست
+      internal_server_error: خطای داخلی سرور رخ داد
+      validation_failed: اعتبارسنجی ناموفق بود!
+      invalid_request: درخواست نامعتبر!
+      rate_limit_exceeded: محدودیت درخواست‌ها فراتر رفت. لطفاً بعداً تلاش کنید
     messages:
-      success: "عملیات با موفقیت انجام شد"
-      created: "منبع با موفقیت ایجاد شد"
-      updated: "منبع با موفقیت به‌روزرسانی شد"
-      deleted: "منبع با موفقیت حذف شد"
+      success: عملیات با موفقیت انجام شد
+      created: منبع با موفقیت ایجاد شد
+      updated: منبع با موفقیت به‌روزرسانی شد
+      deleted: منبع با موفقیت حذف شد
     notification:
       messages:
-        token_already_exists: "توکن اعلان قبلاً وجود دارد"
-        token_saved: "توکن اعلان ذخیره شد"
-        token_deleted: "توکن اعلان با موفقیت حذف شد"
-        token_not_found: "هیچ توکن اعلانی پیدا نشد"
-        mute_updated: "وضعیت بی‌صدا با موفقیت به‌روزرسانی شد"
+        token_already_exists: توکن اعلان قبلاً وجود دارد
+        token_saved: توکن اعلان ذخیره شد
+        token_deleted: توکن اعلان با موفقیت حذف شد
+        token_not_found: هیچ توکن اعلانی پیدا نشد
+        mute_updated: وضعیت بی‌صدا با موفقیت به‌روزرسانی شد
     account:
       errors:
-        email_not_found: "ایمیل پیدا نشد!"
-        email_invalid: "فرمت ایمیل نامعتبر است"
-        email_taken: "ایمیل قبلاً استفاده شده است"
-        membership_not_eligible: "ثبت نام فقط برای اعضای اصلی، تیم CSIDNet و اعضای حامی باز است"
-        email_update_fail: "به‌روزرسانی ایمیل موفق نبود"
-        password_unmatch: "رمز عبور مطابقت ندارد"
-        password_update_fail: "به‌روزرسانی رمز عبور موفق نبود"
-        otp_invalid: "OTP نامعتبر!"
-        register_not_allow: "شما اجازه ثبت‌نام ندارید!"
-        missing_field: "فیلدهای مورد نیاز وجود ندارد"
-        password_incorrect: "رمز عبور فعلی اشتباه است"
-        username_taken: "نام کاربری قبلاً استفاده شده است"
+        email_not_found: ایمیل پیدا نشد!
+        email_invalid: فرمت ایمیل نامعتبر است
+        email_taken: ایمیل قبلاً استفاده شده است
+        membership_not_eligible: ثبت نام فقط برای اعضای اصلی، تیم CSIDNet و اعضای
+          حامی باز است
+        email_update_fail: به‌روزرسانی ایمیل موفق نبود
+        password_unmatch: رمز عبور مطابقت ندارد
+        password_update_fail: به‌روزرسانی رمز عبور موفق نبود
+        otp_invalid: OTP نامعتبر!
+        register_not_allow: شما اجازه ثبت‌نام ندارید!
+        missing_field: فیلدهای مورد نیاز وجود ندارد
+        password_incorrect: رمز عبور فعلی اشتباه است
+        username_taken: نام کاربری قبلاً استفاده شده است
       messages:
-        password_updated: "رمز عبور به‌روزرسانی شد"
+        password_updated: رمز عبور به‌روزرسانی شد
     domain:
       messages:
-        dns_verified: "DNS به درستی پیکربندی شده است"
+        dns_verified: DNS به درستی پیکربندی شده است
     conversation:
       messages:
         marked_read: "%{updated_count} گفتگو به عنوان خوانده شده علامت‌گذاری شد"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: واکنش شناخته نشده
+      emoji_limit_exceeded: حد ایموجی تجاوز شد

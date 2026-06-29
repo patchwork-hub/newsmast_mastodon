@@ -121,7 +121,7 @@ See `config/routes.rb` for the full route list.
 | --- | --- | --- |
 | `CSID_MEMBERSHIP_CHECK_ENABLED` | No | Enable/disable CiviCRM membership verification (default: `false`). |
 | `CIVICRM_BASE_URL` | Yes (if enabled) | Base URL for CiviCRM instance (e.g., `https://civicrm.example.com`). |
-| `CIVICRM_AUTH_TOKEN` | Yes (if enabled) | CiviCRM API authentication token. Include `Bearer ` prefix or it will be added automatically. |
+| `CIVICRM_AUTH_TOKEN` | Yes (if enabled) | CiviCRM API authentication token. Include `Bearer` prefix or it will be added automatically. |
 | `CSID_MEMBERSHIP_ALLOWLIST_EMAILS` | No | Comma-separated email addresses that bypass the CiviCRM membership check. |
 
 ### Firebase notification environment variables
@@ -199,6 +199,71 @@ See `config/routes.rb` for the full route list.
 | `LOCAL_DOMAIN` | No | Local domain for the Mastodon instance (e.g., `example.social`). Used for deep links and channel detection. |
 | `MAIN_CHANNEL` | No | Enable main channel mode (affects login behavior). |
 | `AUTO_FOLLOW_ACCOUNTS` | No | Comma-separated list of accounts to auto-follow on user registration. |
+
+### Custom relay / instances timeline environment variables
+
+The custom relay timeline feature subscribes the host Mastodon instance to
+
+## FediBuzz instance relay URLs, stores delivered statuses in per-domain Redis
+
+feeds, and exposes a merged home + instance timeline endpoint.
+
+Configured domains are converted to relay inbox URLs in this format:
+
+```text
+https://relay.fedi.buzz/instance/<domain>
+```
+
+Example:
+
+```bash
+CUSTOM_RELAY_DOMAINS=mastodon.social,mastodon.beer
+```
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| `CUSTOM_RELAY_DOMAINS` | No | Comma-separated source instance domains to subscribe to via #FediBuzz relay endpoints. Example: `mastodon.social,mastodon.beer`. |
+
+Stored statuses use Redis sorted sets:
+
+```text
+feed:relay:<sanitized-domain>
+```
+
+Example:
+
+```text
+feed:relay:mastodon-social
+```
+
+The instances timeline endpoint always includes the authenticated user's home
+timeline and can include one, many, or all enabled relay domains:
+
+```text
+GET /api/v1/timelines/instances_timeline
+GET /api/v1/timelines/instances_timeline?domain=mastodon.social
+GET /api/v1/timelines/instances_timeline?domain=mastodon.social,mastodon.beer
+GET /api/v1/timelines/instances_timeline?domain[]=mastodon.social&domain[]=mastodon.beer
+```
+
+Legacy relay routes are also routed to the same behavior:
+
+```text
+GET /api/v1/timelines/relay
+GET /api/v1/timelines/relay/:domain
+```
+
+To verify stored statuses from Rails console:
+
+```ruby
+domain = 'mastodon.social'
+key = NewsmastMastodon::RelayFeed.timeline_key(domain)
+
+RedisConnection.with do |redis|
+  puts redis.zcard(key)
+  puts redis.zrevrange(key, 0, 10)
+end
+```
 
 ### WordPress integration environment variables
 

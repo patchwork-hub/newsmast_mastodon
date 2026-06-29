@@ -1,75 +1,84 @@
+---
 gd:
   locale:
-    name: "Scottish Gaelic"
-    native_name: "Gàidhlig"
+    name: Scottish Gaelic
+    native_name: Gàidhlig
   notification:
     poll:
-      ended_you: "Tha do pholl air tighinn gu crìch"
-      ended_voted: "Tha poll anns an do bhòt thu air tighinn gu crìch"
+      ended_you: Tha do pholl air tighinn gu crìch
+      ended_voted: Tha poll anns an do bhòt thu air tighinn gu crìch
     mention:
       direct_message: "%{name} chuir teachdaireachd thugad"
-      conversation_request: "Tha iarrtas còmhraidh ùr agad."
+      conversation_request: Tha iarrtas còmhraidh ùr agad.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "A %{name}, a charaid,"
-      instruction: "Is e seo do chòd OTP dearbhaidh cunntais:"
-      note: "Mur do dh'iarr thu seo, leig seachad am post-d seo"
+      greeting: A %{name}, a charaid,
+      instruction: 'Is e seo do chòd OTP dearbhaidh cunntais:'
+      note: Mur do dh'iarr thu seo, leig seachad am post-d seo
   login_service:
     errors:
-      invalid_credentials: "Cothrom-freagairt mì-dhligheach. Feuch ris a-rithist"
-      unauthorized_access: "Chan eil cead agad logadh a-steach"
-      channel_not_created: "Cothrom-freagairt mì-dhligheach. Dèan cinnteach gun do chruthaich thu sianal"
-      account_deleted: "Tha do chunntas air a sguabadh às mar-thà"
-      invalid_role_access: "Chan eil cead aig %{role} logadh a-steach"
-      deactivated_channel: "Tha do shianal air a chur à comas. Cuir fios gu taic"
-      two_factor_enabled: "Tha dearbhadh dà-fhactair comasaichte. Feuch an log thu a-steach tron eadar-aghaidh lìn"
-
+      invalid_credentials: Cothrom-freagairt mì-dhligheach. Feuch ris a-rithist
+      unauthorized_access: Chan eil cead agad logadh a-steach
+      channel_not_created: Cothrom-freagairt mì-dhligheach. Dèan cinnteach gun do
+        chruthaich thu sianal
+      account_deleted: Tha do chunntas air a sguabadh às mar-thà
+      invalid_role_access: Chan eil cead aig %{role} logadh a-steach
+      deactivated_channel: Tha do shianal air a chur à comas. Cuir fios gu taic
+      two_factor_enabled: Tha dearbhadh dà-fhactair comasaichte. Feuch an log thu
+        a-steach tron eadar-aghaidh lìn
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Feuch ris a-rithist. Cothrom-freagairt mì-dhligheach bho beebee.io"
-      registration_required: "Clàraich cunntas ionadail. dàta: %{data}"
-      connection_error: "Mearachd a' ceangal ri seirbheis ballrachd: %{error}"
+      invalid_credentials: Feuch ris a-rithist. Cothrom-freagairt mì-dhligheach bho
+        beebee.io
+      registration_required: 'Clàraich cunntas ionadail. dàta: %{data}'
+      connection_error: 'Mearachd a'' ceangal ri seirbheis ballrachd: %{error}'
   api:
     errors:
-      unauthorized: "Chan eil cead agad an gnìomh seo a dhèanamh"
-      forbidden: "Ruigsinneachd air a dhiùltadh!"
-      not_found: "Cha deach an goireas a lorg"
-      unprocessable_entity: "Cha b' urrainn an t-iarrtas a phròiseasadh"
-      internal_server_error: "Thachair mearachd fhreastalaiche a-staigh"
-      validation_failed: "Dh'fhàillig an dearbhadh!"
-      invalid_request: "Iarrtas mì-dhligheach!"
-      rate_limit_exceeded: "Chaidh an ìre iarrtas a shàradh. Feuch ris a-rithist nas fhaide air adhart"
+      unauthorized: Chan eil cead agad an gnìomh seo a dhèanamh
+      forbidden: Ruigsinneachd air a dhiùltadh!
+      not_found: Cha deach an goireas a lorg
+      unprocessable_entity: Cha b' urrainn an t-iarrtas a phròiseasadh
+      internal_server_error: Thachair mearachd fhreastalaiche a-staigh
+      validation_failed: Dh'fhàillig an dearbhadh!
+      invalid_request: Iarrtas mì-dhligheach!
+      rate_limit_exceeded: Chaidh an ìre iarrtas a shàradh. Feuch ris a-rithist nas
+        fhaide air adhart
     messages:
-      success: "Obrachadh air a chrìochnachadh gu soirbheachail"
-      created: "Goireas air a chruthachadh gu soirbheachail"
-      updated: "Goireas air ùrachadh gu soirbheachail"
-      deleted: "Goireas air a sguabadh às gu soirbheachail"
+      success: Obrachadh air a chrìochnachadh gu soirbheachail
+      created: Goireas air a chruthachadh gu soirbheachail
+      updated: Goireas air ùrachadh gu soirbheachail
+      deleted: Goireas air a sguabadh às gu soirbheachail
     notification:
       messages:
-        token_already_exists: "Tha an token fiosrachaidh ann mu thràth"
-        token_saved: "Token fiosrachaidh air a shàbhaladh"
-        token_deleted: "Token fiosrachaidh air a sguabadh às gu soirbheachail"
-        token_not_found: "Cha deach token fiosrachaidh a lorg"
-        mute_updated: "Staid mute air ùrachadh gu soirbheachail"
+        token_already_exists: Tha an token fiosrachaidh ann mu thràth
+        token_saved: Token fiosrachaidh air a shàbhaladh
+        token_deleted: Token fiosrachaidh air a sguabadh às gu soirbheachail
+        token_not_found: Cha deach token fiosrachaidh a lorg
+        mute_updated: Staid mute air ùrachadh gu soirbheachail
     account:
       errors:
-        email_not_found: "Cha deach an t-seòladh puist-d a lorg!"
-        email_invalid: "Cruth puist-d mì-dhligheach"
-        email_taken: "Tha an t-seòladh puist-d air a chleachdadh mu thràth"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Dh'fhàillig ùrachadh an t-seòlaidh puist-d"
-        password_unmatch: "Chan eil na faclan-faire a' freagairt"
-        password_update_fail: "Dh'fhàillig ùrachadh an fhacail-fhaire"
-        otp_invalid: "OTP mì-dhligheach!"
-        register_not_allow: "Chan eil cead agad clàradh!"
-        missing_field: "Raointean riatanach a dhìth"
-        password_incorrect: "Tha am facal-faire làithreach ceàrr"
-        username_taken: "Tha an t-ainm-cleachdaiche air a chleachdadh mu thràth"
+        email_not_found: Cha deach an t-seòladh puist-d a lorg!
+        email_invalid: Cruth puist-d mì-dhligheach
+        email_taken: Tha an t-seòladh puist-d air a chleachdadh mu thràth
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Dh'fhàillig ùrachadh an t-seòlaidh puist-d
+        password_unmatch: Chan eil na faclan-faire a' freagairt
+        password_update_fail: Dh'fhàillig ùrachadh an fhacail-fhaire
+        otp_invalid: OTP mì-dhligheach!
+        register_not_allow: Chan eil cead agad clàradh!
+        missing_field: Raointean riatanach a dhìth
+        password_incorrect: Tha am facal-faire làithreach ceàrr
+        username_taken: Tha an t-ainm-cleachdaiche air a chleachdadh mu thràth
       messages:
-        password_updated: "Facal-faire air ùrachadh"
+        password_updated: Facal-faire air ùrachadh
     domain:
       messages:
-        dns_verified: "Tha an DNS air a rèiteachadh gu ceart"
+        dns_verified: Tha an DNS air a rèiteachadh gu ceart
     conversation:
       messages:
-        marked_read: "Comharraichte %{updated_count} còmhradh(an) mar leughadh"
+        marked_read: Comharraichte %{updated_count} còmhradh(an) mar leughadh
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Freagairt nach eil aithnichte
+      emoji_limit_exceeded: Crìoch emoji air a dhol thairis

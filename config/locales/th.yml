@@ -1,75 +1,80 @@
+---
 th:
   locale:
-    name: "Thai"
-    native_name: "ไทย"
+    name: Thai
+    native_name: ไทย
   notification:
     poll:
-      ended_you: "แบบสำรวจของคุณสิ้นสุดแล้ว"
-      ended_voted: "แบบสำรวจที่คุณโหวตสิ้นสุดแล้ว"
+      ended_you: แบบสำรวจของคุณสิ้นสุดแล้ว
+      ended_voted: แบบสำรวจที่คุณโหวตสิ้นสุดแล้ว
     mention:
       direct_message: "%{name} ส่งข้อความถึงคุณ"
-      conversation_request: "คุณมีคำขอสนทนาใหม่"
+      conversation_request: คุณมีคำขอสนทนาใหม่
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "เรียน %{name},"
-      instruction: "รหัส OTP สำหรับยืนยันบัญชีของคุณคือ:"
-      note: "หากคุณไม่ได้ร้องขอ กรุณาละเว้นอีเมลนี้"
+      greeting: เรียน %{name},
+      instruction: 'รหัส OTP สำหรับยืนยันบัญชีของคุณคือ:'
+      note: หากคุณไม่ได้ร้องขอ กรุณาละเว้นอีเมลนี้
   login_service:
     errors:
-      invalid_credentials: "ข้อมูลเข้าสู่ระบบไม่ถูกต้อง กรุณาลองใหม่"
-      unauthorized_access: "คุณไม่มีสิทธิ์เข้าสู่ระบบ"
-      channel_not_created: "ข้อมูลเข้าสู่ระบบไม่ถูกต้อง กรุณาสร้างช่องทางก่อน"
-      account_deleted: "บัญชีของคุณถูกลบแล้ว"
+      invalid_credentials: ข้อมูลเข้าสู่ระบบไม่ถูกต้อง กรุณาลองใหม่
+      unauthorized_access: คุณไม่มีสิทธิ์เข้าสู่ระบบ
+      channel_not_created: ข้อมูลเข้าสู่ระบบไม่ถูกต้อง กรุณาสร้างช่องทางก่อน
+      account_deleted: บัญชีของคุณถูกลบแล้ว
       invalid_role_access: "%{role} ไม่ได้รับอนุญาตให้เข้าสู่ระบบ"
-      deactivated_channel: "ช่องทางของคุณถูกปิดใช้งาน กรุณาติดต่อฝ่ายสนับสนุน"
-      two_factor_enabled: "การยืนยันตัวตนสองปัจจัยถูกเปิดใช้งานแล้ว กรุณาเข้าสู่ระบบผ่านอินเทอร์เฟซเว็บ"
-
+      deactivated_channel: ช่องทางของคุณถูกปิดใช้งาน กรุณาติดต่อฝ่ายสนับสนุน
+      two_factor_enabled: การยืนยันตัวตนสองปัจจัยถูกเปิดใช้งานแล้ว กรุณาเข้าสู่ระบบผ่านอินเทอร์เฟซเว็บ
   bristolcable_login_service:
     errors:
-      invalid_credentials: "กรุณาลองใหม่ ข้อมูลเข้าสู่ระบบไม่ถูกต้องจาก beebee.io"
-      registration_required: "กรุณาลงทะเบียนบัญชีในเครื่อง ข้อมูล: %{data}"
-      connection_error: "เกิดข้อผิดพลาดในการเชื่อมต่อกับบริการสมาชิก: %{error}"
+      invalid_credentials: กรุณาลองใหม่ ข้อมูลเข้าสู่ระบบไม่ถูกต้องจาก beebee.io
+      registration_required: 'กรุณาลงทะเบียนบัญชีในเครื่อง ข้อมูล: %{data}'
+      connection_error: 'เกิดข้อผิดพลาดในการเชื่อมต่อกับบริการสมาชิก: %{error}'
   api:
     errors:
-      unauthorized: "คุณไม่ได้รับอนุญาตให้ดำเนินการนี้"
-      forbidden: "การเข้าถึงถูกปฏิเสธ!"
-      not_found: "ไม่พบทรัพยากร"
-      unprocessable_entity: "ไม่สามารถดำเนินการคำขอได้"
-      internal_server_error: "เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์"
-      validation_failed: "การตรวจสอบล้มเหลว!"
-      invalid_request: "คำขอไม่ถูกต้อง!"
-      rate_limit_exceeded: "เกินขีดจำกัด กรุณาลองใหม่ภายหลัง"
+      unauthorized: คุณไม่ได้รับอนุญาตให้ดำเนินการนี้
+      forbidden: การเข้าถึงถูกปฏิเสธ!
+      not_found: ไม่พบทรัพยากร
+      unprocessable_entity: ไม่สามารถดำเนินการคำขอได้
+      internal_server_error: เกิดข้อผิดพลาดภายในเซิร์ฟเวอร์
+      validation_failed: การตรวจสอบล้มเหลว!
+      invalid_request: คำขอไม่ถูกต้อง!
+      rate_limit_exceeded: เกินขีดจำกัด กรุณาลองใหม่ภายหลัง
     messages:
-      success: "ดำเนินการสำเร็จ"
-      created: "สร้างทรัพยากรสำเร็จ"
-      updated: "อัปเดตทรัพยากรสำเร็จ"
-      deleted: "ลบทรัพยากรสำเร็จ"
+      success: ดำเนินการสำเร็จ
+      created: สร้างทรัพยากรสำเร็จ
+      updated: อัปเดตทรัพยากรสำเร็จ
+      deleted: ลบทรัพยากรสำเร็จ
     notification:
       messages:
-        token_already_exists: "โทเค็นการแจ้งเตือนมีอยู่แล้ว"
-        token_saved: "บันทึกโทเค็นการแจ้งเตือนแล้ว"
-        token_deleted: "ลบโทเค็นการแจ้งเตือนสำเร็จ"
-        token_not_found: "ไม่พบโทเค็นการแจ้งเตือน"
-        mute_updated: "อัปเดตสถานะปิดเสียงสำเร็จ"
+        token_already_exists: โทเค็นการแจ้งเตือนมีอยู่แล้ว
+        token_saved: บันทึกโทเค็นการแจ้งเตือนแล้ว
+        token_deleted: ลบโทเค็นการแจ้งเตือนสำเร็จ
+        token_not_found: ไม่พบโทเค็นการแจ้งเตือน
+        mute_updated: อัปเดตสถานะปิดเสียงสำเร็จ
     account:
       errors:
-        email_not_found: "ไม่พบอีเมล!"
-        email_invalid: "รูปแบบอีเมลไม่ถูกต้อง"
-        email_taken: "อีเมลนี้ถูกใช้แล้ว"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "อัปเดตอีเมลไม่สำเร็จ"
-        password_unmatch: "รหัสผ่านไม่ตรงกัน"
-        password_update_fail: "อัปเดตรหัสผ่านไม่สำเร็จ"
-        otp_invalid: "OTP ไม่ถูกต้อง!"
-        register_not_allow: "คุณไม่ได้รับอนุญาตให้ลงทะเบียน!"
-        missing_field: "ขาดข้อมูลที่จำเป็น"
-        password_incorrect: "รหัสผ่านปัจจุบันไม่ถูกต้อง"
-        username_taken: "ชื่อผู้ใช้ถูกใช้แล้ว"
+        email_not_found: ไม่พบอีเมล!
+        email_invalid: รูปแบบอีเมลไม่ถูกต้อง
+        email_taken: อีเมลนี้ถูกใช้แล้ว
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: อัปเดตอีเมลไม่สำเร็จ
+        password_unmatch: รหัสผ่านไม่ตรงกัน
+        password_update_fail: อัปเดตรหัสผ่านไม่สำเร็จ
+        otp_invalid: OTP ไม่ถูกต้อง!
+        register_not_allow: คุณไม่ได้รับอนุญาตให้ลงทะเบียน!
+        missing_field: ขาดข้อมูลที่จำเป็น
+        password_incorrect: รหัสผ่านปัจจุบันไม่ถูกต้อง
+        username_taken: ชื่อผู้ใช้ถูกใช้แล้ว
       messages:
-        password_updated: "อัปเดตรหัสผ่านสำเร็จ"
+        password_updated: อัปเดตรหัสผ่านสำเร็จ
     domain:
       messages:
-        dns_verified: "DNS ถูกกำหนดค่าอย่างถูกต้อง"
+        dns_verified: DNS ถูกกำหนดค่าอย่างถูกต้อง
     conversation:
       messages:
-        marked_read: "ทำเครื่องหมาย %{updated_count} การสนทนาเป็นอ่านแล้ว"
+        marked_read: ทำเครื่องหมาย %{updated_count} การสนทนาเป็นอ่านแล้ว
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ไม่รู้จักปฏิกิริยา
+      emoji_limit_exceeded: เกินขีดจำกัดอีโมจิ

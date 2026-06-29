@@ -1,84 +1,82 @@
+---
 pt:
   locale:
-    name: "Português"
-    native_name: "Português"
-
+    name: Português
+    native_name: Português
   notification:
     poll:
-      ended_you: "Sua enquete terminou"
-      ended_voted: "Uma enquete na qual você votou terminou"
+      ended_you: Sua enquete terminou
+      ended_voted: Uma enquete na qual você votou terminou
     mention:
       direct_message: "%{name} enviou uma mensagem para você"
-      conversation_request: "Tem um novo pedido de conversa."
-  
+      conversation_request: Tem um novo pedido de conversa.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Caro(a) %{name},"
-      instruction: "O código OTP de verificação da sua conta é o seguinte:"
-      note: "Se você não solicitou isso, por favor ignore este e-mail"
-  
+      greeting: Caro(a) %{name},
+      instruction: 'O código OTP de verificação da sua conta é o seguinte:'
+      note: Se você não solicitou isso, por favor ignore este e-mail
   login_service:
     errors:
-      invalid_credentials: "Credenciais inválidas. Por favor, tente novamente"
-      unauthorized_access: "Você não tem acesso para fazer login"
-      channel_not_created: "Credenciais inválidas. Por favor, certifique-se de que você criou um canal"
-      account_deleted: "Sua conta já foi excluída"
+      invalid_credentials: Credenciais inválidas. Por favor, tente novamente
+      unauthorized_access: Você não tem acesso para fazer login
+      channel_not_created: Credenciais inválidas. Por favor, certifique-se de que
+        você criou um canal
+      account_deleted: Sua conta já foi excluída
       invalid_role_access: "%{role} não tem permissão para fazer login"
-      deactivated_channel: "O seu canal está desativado. Entre em contato com o suporte"
-      two_factor_enabled: "A autenticação de dois fatores está ativada. Por favor, faça login pela interface web"
-
+      deactivated_channel: O seu canal está desativado. Entre em contato com o suporte
+      two_factor_enabled: A autenticação de dois fatores está ativada. Por favor,
+        faça login pela interface web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Por favor, tente novamente. Credenciais inválidas de beebee.io"
-      registration_required: "Por favor, registe uma conta local. dados: %{data}"
-      connection_error: "Erro ao conectar ao serviço de associação: %{error}"
-
+      invalid_credentials: Por favor, tente novamente. Credenciais inválidas de beebee.io
+      registration_required: 'Por favor, registe uma conta local. dados: %{data}'
+      connection_error: 'Erro ao conectar ao serviço de associação: %{error}'
   api:
     errors:
-      unauthorized: "Não está autorizado a realizar esta ação"
-      forbidden: "Acesso negado!"
-      not_found: "Recurso não encontrado"
-      unprocessable_entity: "O pedido não pôde ser processado"
-      internal_server_error: "Ocorreu um erro interno no servidor"
-      validation_failed: "A validação falhou!"
-      invalid_request: "Pedido inválido!"
-      rate_limit_exceeded: "Limite de taxa excedido. Tente novamente mais tarde"
-
+      unauthorized: Não está autorizado a realizar esta ação
+      forbidden: Acesso negado!
+      not_found: Recurso não encontrado
+      unprocessable_entity: O pedido não pôde ser processado
+      internal_server_error: Ocorreu um erro interno no servidor
+      validation_failed: A validação falhou!
+      invalid_request: Pedido inválido!
+      rate_limit_exceeded: Limite de taxa excedido. Tente novamente mais tarde
     messages:
-      success: "Operação concluída com sucesso"
-      created: "Recurso criado com sucesso"
-      updated: "Recurso atualizado com sucesso"
-      deleted: "Recurso eliminado com sucesso"
-
+      success: Operação concluída com sucesso
+      created: Recurso criado com sucesso
+      updated: Recurso atualizado com sucesso
+      deleted: Recurso eliminado com sucesso
     notification:
       messages:
-        token_already_exists: "O token de notificação já existe"
-        token_saved: "Token de notificação guardado"
-        token_deleted: "Token de notificação eliminado com sucesso"
-        token_not_found: "Não foram encontrados tokens de notificação"
-        mute_updated: "Estado de silenciamento atualizado com sucesso"
-
+        token_already_exists: O token de notificação já existe
+        token_saved: Token de notificação guardado
+        token_deleted: Token de notificação eliminado com sucesso
+        token_not_found: Não foram encontrados tokens de notificação
+        mute_updated: Estado de silenciamento atualizado com sucesso
     account:
       errors:
-        email_not_found: "Email não encontrado!"
-        email_invalid: "Formato de email inválido"
-        email_taken: "Este email já está a ser utilizado"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "A atualização do email não foi bem-sucedida"
-        password_unmatch: "As senhas não correspondem"
-        password_update_fail: "A atualização da senha não foi bem-sucedida"
-        otp_invalid: "OTP inválido!"
-        register_not_allow: "Não tem permissão para se registar!"
-        missing_field: "Campos obrigatórios em falta"
-        password_incorrect: "A senha atual está incorreta"
-        username_taken: "O nome de usuário já está em uso"
+        email_not_found: Email não encontrado!
+        email_invalid: Formato de email inválido
+        email_taken: Este email já está a ser utilizado
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: A atualização do email não foi bem-sucedida
+        password_unmatch: As senhas não correspondem
+        password_update_fail: A atualização da senha não foi bem-sucedida
+        otp_invalid: OTP inválido!
+        register_not_allow: Não tem permissão para se registar!
+        missing_field: Campos obrigatórios em falta
+        password_incorrect: A senha atual está incorreta
+        username_taken: O nome de usuário já está em uso
       messages:
-        password_updated: "A senha foi atualizada"
-
+        password_updated: A senha foi atualizada
     domain:
       messages:
-        dns_verified: "O DNS está corretamente configurado"
-    
+        dns_verified: O DNS está corretamente configurado
     conversation:
       messages:
         marked_read: "%{updated_count} conversas marcadas como lidas"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reação não reconhecida
+      emoji_limit_exceeded: Limite de emoji excedido

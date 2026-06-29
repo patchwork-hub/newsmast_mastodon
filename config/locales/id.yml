@@ -1,75 +1,81 @@
+---
 id:
   locale:
-    name: "Indonesian"
-    native_name: "Bahasa Indonesia"
+    name: Indonesian
+    native_name: Bahasa Indonesia
   notification:
     poll:
-      ended_you: "Jajak pendapat Anda telah berakhir"
-      ended_voted: "Jajak pendapat yang Anda ikuti telah berakhir"
+      ended_you: Jajak pendapat Anda telah berakhir
+      ended_voted: Jajak pendapat yang Anda ikuti telah berakhir
     mention:
       direct_message: "%{name} mengirimkan pesan kepada Anda"
-      conversation_request: "Anda memiliki permintaan percakapan baru."
+      conversation_request: Anda memiliki permintaan percakapan baru.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Yth. %{name},"
-      instruction: "Kode OTP verifikasi akun Anda adalah:"
-      note: "Jika Anda tidak meminta ini, abaikan email ini"
+      greeting: Yth. %{name},
+      instruction: 'Kode OTP verifikasi akun Anda adalah:'
+      note: Jika Anda tidak meminta ini, abaikan email ini
   login_service:
     errors:
-      invalid_credentials: "Kredensial tidak valid. Silakan coba lagi"
-      unauthorized_access: "Anda tidak memiliki akses untuk login"
-      channel_not_created: "Kredensial tidak valid. Pastikan Anda telah membuat saluran"
-      account_deleted: "Akun Anda sudah dihapus"
+      invalid_credentials: Kredensial tidak valid. Silakan coba lagi
+      unauthorized_access: Anda tidak memiliki akses untuk login
+      channel_not_created: Kredensial tidak valid. Pastikan Anda telah membuat saluran
+      account_deleted: Akun Anda sudah dihapus
       invalid_role_access: "%{role} tidak diizinkan untuk login"
-      deactivated_channel: "Saluran Anda dinonaktifkan. Silakan hubungi dukungan"
-      two_factor_enabled: "Autentikasi dua faktor diaktifkan. Silakan masuk melalui antarmuka web"
-
+      deactivated_channel: Saluran Anda dinonaktifkan. Silakan hubungi dukungan
+      two_factor_enabled: Autentikasi dua faktor diaktifkan. Silakan masuk melalui
+        antarmuka web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Silakan coba lagi. Kredensial tidak valid dari beebee.io"
-      registration_required: "Silakan daftarkan akun lokal. data: %{data}"
-      connection_error: "Kesalahan menghubungkan ke layanan keanggotaan: %{error}"
+      invalid_credentials: Silakan coba lagi. Kredensial tidak valid dari beebee.io
+      registration_required: 'Silakan daftarkan akun lokal. data: %{data}'
+      connection_error: 'Kesalahan menghubungkan ke layanan keanggotaan: %{error}'
   api:
     errors:
-      unauthorized: "Anda tidak diizinkan untuk melakukan tindakan ini"
-      forbidden: "Akses ditolak!"
-      not_found: "Sumber daya tidak ditemukan"
-      unprocessable_entity: "Permintaan tidak dapat diproses"
-      internal_server_error: "Terjadi kesalahan server internal"
-      validation_failed: "Validasi gagal!"
-      invalid_request: "Permintaan tidak valid!"
-      rate_limit_exceeded: "Batas permintaan terlampaui. Silakan coba lagi nanti"
+      unauthorized: Anda tidak diizinkan untuk melakukan tindakan ini
+      forbidden: Akses ditolak!
+      not_found: Sumber daya tidak ditemukan
+      unprocessable_entity: Permintaan tidak dapat diproses
+      internal_server_error: Terjadi kesalahan server internal
+      validation_failed: Validasi gagal!
+      invalid_request: Permintaan tidak valid!
+      rate_limit_exceeded: Batas permintaan terlampaui. Silakan coba lagi nanti
     messages:
-      success: "Operasi berhasil diselesaikan"
-      created: "Sumber daya berhasil dibuat"
-      updated: "Sumber daya berhasil diperbarui"
-      deleted: "Sumber daya berhasil dihapus"
+      success: Operasi berhasil diselesaikan
+      created: Sumber daya berhasil dibuat
+      updated: Sumber daya berhasil diperbarui
+      deleted: Sumber daya berhasil dihapus
     notification:
       messages:
-        token_already_exists: "Token notifikasi sudah ada"
-        token_saved: "Token notifikasi disimpan"
-        token_deleted: "Token notifikasi berhasil dihapus"
-        token_not_found: "Tidak ada token notifikasi ditemukan"
-        mute_updated: "Status bisu berhasil diperbarui"
+        token_already_exists: Token notifikasi sudah ada
+        token_saved: Token notifikasi disimpan
+        token_deleted: Token notifikasi berhasil dihapus
+        token_not_found: Tidak ada token notifikasi ditemukan
+        mute_updated: Status bisu berhasil diperbarui
     account:
       errors:
-        email_not_found: "Email tidak ditemukan!"
-        email_invalid: "Format email tidak valid"
-        email_taken: "Email sudah digunakan"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Pembaruan email gagal"
-        password_unmatch: "Kata sandi tidak cocok"
-        password_update_fail: "Pembaruan kata sandi gagal"
-        otp_invalid: "OTP tidak valid!"
-        register_not_allow: "Anda tidak diizinkan untuk mendaftar!"
-        missing_field: "Bidang yang diperlukan hilang"
-        password_incorrect: "Kata sandi saat ini salah"
-        username_taken: "Nama pengguna sudah digunakan"
+        email_not_found: Email tidak ditemukan!
+        email_invalid: Format email tidak valid
+        email_taken: Email sudah digunakan
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Pembaruan email gagal
+        password_unmatch: Kata sandi tidak cocok
+        password_update_fail: Pembaruan kata sandi gagal
+        otp_invalid: OTP tidak valid!
+        register_not_allow: Anda tidak diizinkan untuk mendaftar!
+        missing_field: Bidang yang diperlukan hilang
+        password_incorrect: Kata sandi saat ini salah
+        username_taken: Nama pengguna sudah digunakan
       messages:
-        password_updated: "Kata sandi telah diperbarui"
+        password_updated: Kata sandi telah diperbarui
     domain:
       messages:
-        dns_verified: "DNS dikonfigurasi dengan benar"
+        dns_verified: DNS dikonfigurasi dengan benar
     conversation:
       messages:
         marked_read: "%{updated_count} percakapan ditandai sebagai telah dibaca"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksi tidak dikenal
+      emoji_limit_exceeded: Batas emoji terlampaui

@@ -1,75 +1,81 @@
+---
 ast:
   locale:
-    name: "Asturian"
-    native_name: "Asturianu"
+    name: Asturian
+    native_name: Asturianu
   notification:
     poll:
-      ended_you: "La to encuesta remató"
-      ended_voted: "Remató una encuesta na que votasti"
+      ended_you: La to encuesta remató
+      ended_voted: Remató una encuesta na que votasti
     mention:
       direct_message: "%{name} unvióte un mensaxe"
-      conversation_request: "Tienes una nueva solicitud de conversación."
+      conversation_request: Tienes una nueva solicitud de conversación.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Queríu/a %{name},"
-      instruction: "El to códigu OTP de verificación de cuenta ye:"
-      note: "Si nun solicitasti esto, por favor, iguora esti corréu"
+      greeting: Queríu/a %{name},
+      instruction: 'El to códigu OTP de verificación de cuenta ye:'
+      note: Si nun solicitasti esto, por favor, iguora esti corréu
   login_service:
     errors:
-      invalid_credentials: "Credenciales non válides. Inténtalo de nuevu"
-      unauthorized_access: "Nun tienes permisu pa aniciar sesión"
-      channel_not_created: "Credenciales non válides. Asegúrate de crear un canal"
-      account_deleted: "La to cuenta yá ta desaniciada"
+      invalid_credentials: Credenciales non válides. Inténtalo de nuevu
+      unauthorized_access: Nun tienes permisu pa aniciar sesión
+      channel_not_created: Credenciales non válides. Asegúrate de crear un canal
+      account_deleted: La to cuenta yá ta desaniciada
       invalid_role_access: "%{role} nun tien permisu pa aniciar sesión"
-      deactivated_channel: "El to canal ta desactiváu. Contauta col soporte"
-      two_factor_enabled: "L'autenticación en dos pasos ta activada. Por favor, inicia sesión cola interfaz web"
-
+      deactivated_channel: El to canal ta desactiváu. Contauta col soporte
+      two_factor_enabled: L'autenticación en dos pasos ta activada. Por favor, inicia
+        sesión cola interfaz web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Inténtalo de nuevu. Credenciales non válides de beebee.io"
-      registration_required: "Rexistra una cuenta llocal. datos: %{data}"
-      connection_error: "Fallu al coneutase col serviciu de miembros: %{error}"
+      invalid_credentials: Inténtalo de nuevu. Credenciales non válides de beebee.io
+      registration_required: 'Rexistra una cuenta llocal. datos: %{data}'
+      connection_error: 'Fallu al coneutase col serviciu de miembros: %{error}'
   api:
     errors:
-      unauthorized: "Nun tienes permisu pa realizar esta aición"
+      unauthorized: Nun tienes permisu pa realizar esta aición
       forbidden: "¡Accesu denegáu!"
-      not_found: "Recurso non atopáu"
-      unprocessable_entity: "Nun se pudo procesar la solicitú"
-      internal_server_error: "Ocurrió un error internu nel sirvidor"
+      not_found: Recurso non atopáu
+      unprocessable_entity: Nun se pudo procesar la solicitú
+      internal_server_error: Ocurrió un error internu nel sirvidor
       validation_failed: "¡Falló la validación!"
       invalid_request: "¡Solicitú non válida!"
-      rate_limit_exceeded: "Llímiti de solicitúes superáu. Inténtalo más tarde"
+      rate_limit_exceeded: Llímiti de solicitúes superáu. Inténtalo más tarde
     messages:
-      success: "Operación completada con ésitu"
-      created: "Recurso creáu con ésitu"
-      updated: "Recurso actualizáu con ésitu"
-      deleted: "Recurso desaniciáu con ésitu"
+      success: Operación completada con ésitu
+      created: Recurso creáu con ésitu
+      updated: Recurso actualizáu con ésitu
+      deleted: Recurso desaniciáu con ésitu
     notification:
       messages:
-        token_already_exists: "El token de notificación yá existe"
-        token_saved: "Token de notificación guardáu"
-        token_deleted: "Token de notificación desaniciáu con ésitu"
-        token_not_found: "Nun s'atoparon tokens de notificación"
-        mute_updated: "Estáu de silenciu actualizáu con ésitu"
+        token_already_exists: El token de notificación yá existe
+        token_saved: Token de notificación guardáu
+        token_deleted: Token de notificación desaniciáu con ésitu
+        token_not_found: Nun s'atoparon tokens de notificación
+        mute_updated: Estáu de silenciu actualizáu con ésitu
     account:
       errors:
         email_not_found: "¡Corréu electrónicu non atopáu!"
-        email_invalid: "Formatu de corréu electrónicu non válidu"
-        email_taken: "El corréu electrónicu yá ta usáu"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "La actualización del corréu electrónicu falló"
-        password_unmatch: "Les contraseñes nun coinciden"
-        password_update_fail: "La actualización de la contraseña falló"
+        email_invalid: Formatu de corréu electrónicu non válidu
+        email_taken: El corréu electrónicu yá ta usáu
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: La actualización del corréu electrónicu falló
+        password_unmatch: Les contraseñes nun coinciden
+        password_update_fail: La actualización de la contraseña falló
         otp_invalid: "¡OTP non válidu!"
         register_not_allow: "¡Nun tienes permisu pa rexistrate!"
-        missing_field: "Falten campos requeríos"
-        password_incorrect: "La contraseña actual ye incorreuta"
-        username_taken: "El nome d'usuariu yá ta usáu"
+        missing_field: Falten campos requeríos
+        password_incorrect: La contraseña actual ye incorreuta
+        username_taken: El nome d'usuariu yá ta usáu
       messages:
-        password_updated: "La contraseña foi actualizada"
+        password_updated: La contraseña foi actualizada
     domain:
       messages:
-        dns_verified: "El DNS ta configuráu correutamente"
+        dns_verified: El DNS ta configuráu correutamente
     conversation:
       messages:
-        marked_read: "Marcáronse %{updated_count} conversación(es) como lleíes"
+        marked_read: Marcáronse %{updated_count} conversación(es) como lleíes
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reacción non reconocida
+      emoji_limit_exceeded: Llímite d'emojis superáu

@@ -1,84 +1,82 @@
+---
 kn:
   locale:
-    name: "Kannada"
-    native_name: "ಕನ್ನಡ"
-  
+    name: Kannada
+    native_name: ಕನ್ನಡ
   notification:
     poll:
-      ended_you: "ನಿಮ್ಮ ಮತದಾನ ಮುಗಿದಿದೆ"
-      ended_voted: "ನೀವು ಮತ ಹಾಕಿದ ಮತದಾನ ಮುಗಿದಿದೆ"
+      ended_you: ನಿಮ್ಮ ಮತದಾನ ಮುಗಿದಿದೆ
+      ended_voted: ನೀವು ಮತ ಹಾಕಿದ ಮತದಾನ ಮುಗಿದಿದೆ
     mention:
       direct_message: "%{name} ನಿಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿದ್ದಾರೆ"
-      conversation_request: "ನಿಮಗೆ ಹೊಸ ಸಂಭಾಷಣೆ ವಿನಂತಿ ಇದೆ."
-
+      conversation_request: ನಿಮಗೆ ಹೊಸ ಸಂಭಾಷಣೆ ವಿನಂತಿ ಇದೆ.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ಪ್ರಿಯ %{name},"
-      instruction: "ನಿಮ್ಮ ಖಾತೆ ಪರಿಶೀಲನೆ OTP ಕೋಡ್:"
-      note: "ನೀವು ಇದನ್ನು ಕೇಳಿರದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಈ ಇಮೇಲ್ ಅನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ"
-  
+      greeting: ಪ್ರಿಯ %{name},
+      instruction: 'ನಿಮ್ಮ ಖಾತೆ ಪರಿಶೀಲನೆ OTP ಕೋಡ್:'
+      note: ನೀವು ಇದನ್ನು ಕೇಳಿರದಿದ್ದರೆ, ದಯವಿಟ್ಟು ಈ ಇಮೇಲ್ ಅನ್ನು ನಿರ್ಲಕ್ಷಿಸಿ
   login_service:
     errors:
-      invalid_credentials: "ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ"
-      unauthorized_access: "ನೀವು ಲಾಗಿನ್ ಮಾಡಲು ಅನುಮತಿ ಇಲ್ಲ"
-      channel_not_created: "ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು. ದಯವಿಟ್ಟು ಚಾನಲ್ ರಚಿಸಿರುವುದನ್ನು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ"
-      account_deleted: "ನಿಮ್ಮ ಖಾತೆ ಈಗಾಗಲೇ ಅಳಿಸಲಾಗಿದೆ"
+      invalid_credentials: ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು. ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ
+      unauthorized_access: ನೀವು ಲಾಗಿನ್ ಮಾಡಲು ಅನುಮತಿ ಇಲ್ಲ
+      channel_not_created: ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು. ದಯವಿಟ್ಟು ಚಾನಲ್ ರಚಿಸಿರುವುದನ್ನು
+        ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ
+      account_deleted: ನಿಮ್ಮ ಖಾತೆ ಈಗಾಗಲೇ ಅಳಿಸಲಾಗಿದೆ
       invalid_role_access: "%{role} ಲಾಗಿನ್ ಮಾಡಲು ಅನುಮತಿ ಇಲ್ಲ"
-      deactivated_channel: "ನಿಮ್ಮ ಚಾನಲ್ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ದಯವಿಟ್ಟು ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ"
-      two_factor_enabled: "ಎರಡು-ಅಂಶ ದೃಢೀಕರಣ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ವೆಬ್ ಇಂಟರ್‌ಫೇಸ್ ಮೂಲಕ ಲಾಗಿನ್ ಮಾಡಿ"
-
+      deactivated_channel: ನಿಮ್ಮ ಚಾನಲ್ ನಿಷ್ಕ್ರಿಯವಾಗಿದೆ. ದಯವಿಟ್ಟು ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ
+      two_factor_enabled: ಎರಡು-ಅಂಶ ದೃಢೀಕರಣ ಸಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ. ದಯವಿಟ್ಟು ವೆಬ್ ಇಂಟರ್‌ಫೇಸ್
+        ಮೂಲಕ ಲಾಗಿನ್ ಮಾಡಿ
   bristolcable_login_service:
     errors:
-      invalid_credentials: "ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. beebee.io ನಿಂದ ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು"
-      registration_required: "ದಯವಿಟ್ಟು ಸ್ಥಾನಿಕ ಖಾತೆಯನ್ನು ನೋಂದಾಯಿಸಿ. ಡೇಟಾ: %{data}"
-      connection_error: "ಸದಸ್ಯತ್ವ ಸೇವೆಗೆ ಕನೆಕ್ಟ್ ಮಾಡುವಲ್ಲಿ ತಪ್ಪು: %{error}"
-
+      invalid_credentials: ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ. beebee.io ನಿಂದ ಅಮಾನ್ಯವಾದ ಪ್ರಮಾಣಪತ್ರಗಳು
+      registration_required: 'ದಯವಿಟ್ಟು ಸ್ಥಾನಿಕ ಖಾತೆಯನ್ನು ನೋಂದಾಯಿಸಿ. ಡೇಟಾ: %{data}'
+      connection_error: 'ಸದಸ್ಯತ್ವ ಸೇವೆಗೆ ಕನೆಕ್ಟ್ ಮಾಡುವಲ್ಲಿ ತಪ್ಪು: %{error}'
   api:
     errors:
-      unauthorized: "ನೀವು ಈ ಕ್ರಿಯೆಯನ್ನು ಮಾಡಲು ಅನುಮತಿ ಇಲ್ಲ"
-      forbidden: "ಪ್ರವೇಶ ನಿರಾಕರಿಸಲಾಗಿದೆ!"
-      not_found: "ಸಂಪನ್ಮೂಲ ಕಂಡುಬಂದಿಲ್ಲ"
-      unprocessable_entity: "ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಲಿಲ್ಲ"
-      internal_server_error: "ಆಂತರಿಕ ಸರ್ವರ್ ದೋಷ ಸಂಭವಿಸಿದೆ"
-      validation_failed: "ಮಾನ್ಯತೆ ವಿಫಲವಾಗಿದೆ!"
-      invalid_request: "ಅಮಾನ್ಯವಾದ ವಿನಂತಿ!"
-      rate_limit_exceeded: "ವಿನಂತಿ ಮಿತಿ ಮೀರಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ"
-
+      unauthorized: ನೀವು ಈ ಕ್ರಿಯೆಯನ್ನು ಮಾಡಲು ಅನುಮತಿ ಇಲ್ಲ
+      forbidden: ಪ್ರವೇಶ ನಿರಾಕರಿಸಲಾಗಿದೆ!
+      not_found: ಸಂಪನ್ಮೂಲ ಕಂಡುಬಂದಿಲ್ಲ
+      unprocessable_entity: ವಿನಂತಿಯನ್ನು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸಲಾಗಲಿಲ್ಲ
+      internal_server_error: ಆಂತರಿಕ ಸರ್ವರ್ ದೋಷ ಸಂಭವಿಸಿದೆ
+      validation_failed: ಮಾನ್ಯತೆ ವಿಫಲವಾಗಿದೆ!
+      invalid_request: ಅಮಾನ್ಯವಾದ ವಿನಂತಿ!
+      rate_limit_exceeded: ವಿನಂತಿ ಮಿತಿ ಮೀರಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ
     messages:
-      success: "ಕಾರ್ಯಾಚರಣೆ ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಂಡಿದೆ"
-      created: "ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ"
-      updated: "ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ"
-      deleted: "ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ"
-
+      success: ಕಾರ್ಯಾಚರಣೆ ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಂಡಿದೆ
+      created: ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ
+      updated: ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ
+      deleted: ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ
     notification:
       messages:
-        token_already_exists: "ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಈಗಾಗಲೇ ಇದೆ"
-        token_saved: "ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಉಳಿಸಲಾಗಿದೆ"
-        token_deleted: "ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ"
-        token_not_found: "ಯಾವುದೇ ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಕಂಡುಬಂದಿಲ್ಲ"
-        mute_updated: "ಮೌನ ಸ್ಥಿತಿ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ"
-
+        token_already_exists: ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಈಗಾಗಲೇ ಇದೆ
+        token_saved: ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಉಳಿಸಲಾಗಿದೆ
+        token_deleted: ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಯಶಸ್ವಿಯಾಗಿ ಅಳಿಸಲಾಗಿದೆ
+        token_not_found: ಯಾವುದೇ ಅಧಿಸೂಚನೆ ಟೋಕನ್ ಕಂಡುಬಂದಿಲ್ಲ
+        mute_updated: ಮೌನ ಸ್ಥಿತಿ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ
     account:
       errors:
-        email_not_found: "ಇಮೇಲ್ ಕಂಡುಬಂದಿಲ್ಲ!"
-        email_invalid: "ಅಮಾನ್ಯವಾದ ಇಮೇಲ್ ಸ್ವರೂಪ"
-        email_taken: "ಈ ಇಮೇಲ್ ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ಇಮೇಲ್ ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ"
-        password_unmatch: "ಪಾಸ್ವರ್ಡ್ ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ"
-        password_update_fail: "ಪಾಸ್ವರ್ಡ್ ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ"
-        otp_invalid: "ಅಮಾನ್ಯವಾದ OTP!"
-        register_not_allow: "ನೀವು ನೋಂದಾಯಿಸಲು ಅನುಮತಿ ಇಲ್ಲ!"
-        missing_field: "ಅಗತ್ಯವಿರುವ ಕ್ಷೇತ್ರಗಳು ಕಾಣುತ್ತಿಲ್ಲ"
-        password_incorrect: "ಪ್ರಸ್ತುತ ಪಾಸ್ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ"
-        username_taken: "ಬಳಕೆದಾರರ ಹೆಸರು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ"
+        email_not_found: ಇಮೇಲ್ ಕಂಡುಬಂದಿಲ್ಲ!
+        email_invalid: ಅಮಾನ್ಯವಾದ ಇಮೇಲ್ ಸ್ವರೂಪ
+        email_taken: ಈ ಇಮೇಲ್ ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ಇಮೇಲ್ ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ
+        password_unmatch: ಪಾಸ್ವರ್ಡ್ ಗಳು ಹೊಂದಿಕೆಯಾಗುತ್ತಿಲ್ಲ
+        password_update_fail: ಪಾಸ್ವರ್ಡ್ ನವೀಕರಣ ವಿಫಲವಾಗಿದೆ
+        otp_invalid: ಅಮಾನ್ಯವಾದ OTP!
+        register_not_allow: ನೀವು ನೋಂದಾಯಿಸಲು ಅನುಮತಿ ಇಲ್ಲ!
+        missing_field: ಅಗತ್ಯವಿರುವ ಕ್ಷೇತ್ರಗಳು ಕಾಣುತ್ತಿಲ್ಲ
+        password_incorrect: ಪ್ರಸ್ತುತ ಪಾಸ್ವರ್ಡ್ ತಪ್ಪಾಗಿದೆ
+        username_taken: ಬಳಕೆದಾರರ ಹೆಸರು ಈಗಾಗಲೇ ಬಳಸಲಾಗಿದೆ
       messages:
-        password_updated: "ಪಾಸ್ವರ್ಡ್ ನವೀಕರಿಸಲಾಗಿದೆ"
-
+        password_updated: ಪಾಸ್ವರ್ಡ್ ನವೀಕರಿಸಲಾಗಿದೆ
     domain:
       messages:
-        dns_verified: "DNS ಸರಿಯಾಗಿ ಸಂರಚಿಸಲಾಗಿದೆ"
-
+        dns_verified: DNS ಸರಿಯಾಗಿ ಸಂರಚಿಸಲಾಗಿದೆ
     conversation:
       messages:
         marked_read: "%{updated_count} ಸಂವಾದ(ಗಳು) ಓದಲಾಗಿದೆ ಎಂದು ಗುರುತಿಸಲಾಗಿದೆ"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ಪ್ರತಿಕ್ರಿಯೆ ಗುರುತಿಸಲಾಗಿಲ್ಲ
+      emoji_limit_exceeded: ಎಮೋಜಿ ಮಿತಿ ಮೀರಿದೆ

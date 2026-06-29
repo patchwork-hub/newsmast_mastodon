@@ -1,75 +1,82 @@
+---
 vi:
   locale:
-    name: "Vietnamese"
-    native_name: "Tiếng Việt"
+    name: Vietnamese
+    native_name: Tiếng Việt
   notification:
     poll:
-      ended_you: "Cuộc thăm dò của bạn đã kết thúc"
-      ended_voted: "Cuộc thăm dò bạn đã tham gia đã kết thúc"
+      ended_you: Cuộc thăm dò của bạn đã kết thúc
+      ended_voted: Cuộc thăm dò bạn đã tham gia đã kết thúc
     mention:
       direct_message: "%{name} đã gửi cho bạn một tin nhắn"
-      conversation_request: "Bạn có một yêu cầu hội thoại mới."
+      conversation_request: Bạn có một yêu cầu hội thoại mới.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kính gửi %{name},"
-      instruction: "Mã OTP xác thực tài khoản của bạn là:"
-      note: "Nếu bạn không yêu cầu, vui lòng bỏ qua email này"
+      greeting: Kính gửi %{name},
+      instruction: 'Mã OTP xác thực tài khoản của bạn là:'
+      note: Nếu bạn không yêu cầu, vui lòng bỏ qua email này
   login_service:
     errors:
-      invalid_credentials: "Thông tin đăng nhập không hợp lệ. Vui lòng thử lại"
-      unauthorized_access: "Bạn không có quyền đăng nhập"
-      channel_not_created: "Thông tin đăng nhập không hợp lệ. Vui lòng đảm bảo bạn đã tạo kênh"
-      account_deleted: "Tài khoản của bạn đã bị xóa"
+      invalid_credentials: Thông tin đăng nhập không hợp lệ. Vui lòng thử lại
+      unauthorized_access: Bạn không có quyền đăng nhập
+      channel_not_created: Thông tin đăng nhập không hợp lệ. Vui lòng đảm bảo bạn
+        đã tạo kênh
+      account_deleted: Tài khoản của bạn đã bị xóa
       invalid_role_access: "%{role} không được phép đăng nhập"
-      deactivated_channel: "Kênh của bạn đã bị vô hiệu hóa. Vui lòng liên hệ hỗ trợ"
-      two_factor_enabled: "Xác thực hai yếu tố đã được bật. Vui lòng đăng nhập qua giao diện web"
-
+      deactivated_channel: Kênh của bạn đã bị vô hiệu hóa. Vui lòng liên hệ hỗ trợ
+      two_factor_enabled: Xác thực hai yếu tố đã được bật. Vui lòng đăng nhập qua
+        giao diện web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Vui lòng thử lại. Thông tin đăng nhập không hợp lệ từ beebee.io"
-      registration_required: "Vui lòng đăng ký tài khoản cục bộ. dữ liệu: %{data}"
-      connection_error: "Lỗi kết nối đến dịch vụ thành viên: %{error}"
+      invalid_credentials: Vui lòng thử lại. Thông tin đăng nhập không hợp lệ từ beebee.io
+      registration_required: 'Vui lòng đăng ký tài khoản cục bộ. dữ liệu: %{data}'
+      connection_error: 'Lỗi kết nối đến dịch vụ thành viên: %{error}'
   api:
     errors:
-      unauthorized: "Bạn không được phép thực hiện hành động này"
-      forbidden: "Truy cập bị từ chối!"
-      not_found: "Không tìm thấy tài nguyên"
-      unprocessable_entity: "Yêu cầu không thể xử lý"
-      internal_server_error: "Đã xảy ra lỗi máy chủ nội bộ"
-      validation_failed: "Xác thực thất bại!"
-      invalid_request: "Yêu cầu không hợp lệ!"
-      rate_limit_exceeded: "Vượt quá giới hạn yêu cầu. Vui lòng thử lại sau"
+      unauthorized: Bạn không được phép thực hiện hành động này
+      forbidden: Truy cập bị từ chối!
+      not_found: Không tìm thấy tài nguyên
+      unprocessable_entity: Yêu cầu không thể xử lý
+      internal_server_error: Đã xảy ra lỗi máy chủ nội bộ
+      validation_failed: Xác thực thất bại!
+      invalid_request: Yêu cầu không hợp lệ!
+      rate_limit_exceeded: Vượt quá giới hạn yêu cầu. Vui lòng thử lại sau
     messages:
-      success: "Thao tác hoàn tất thành công"
-      created: "Tài nguyên được tạo thành công"
-      updated: "Tài nguyên được cập nhật thành công"
-      deleted: "Tài nguyên được xóa thành công"
+      success: Thao tác hoàn tất thành công
+      created: Tài nguyên được tạo thành công
+      updated: Tài nguyên được cập nhật thành công
+      deleted: Tài nguyên được xóa thành công
     notification:
       messages:
-        token_already_exists: "Token thông báo đã tồn tại"
-        token_saved: "Token thông báo đã lưu"
-        token_deleted: "Token thông báo đã xóa thành công"
-        token_not_found: "Không tìm thấy token thông báo"
-        mute_updated: "Trạng thái tắt thông báo đã được cập nhật thành công"
+        token_already_exists: Token thông báo đã tồn tại
+        token_saved: Token thông báo đã lưu
+        token_deleted: Token thông báo đã xóa thành công
+        token_not_found: Không tìm thấy token thông báo
+        mute_updated: Trạng thái tắt thông báo đã được cập nhật thành công
     account:
       errors:
-        email_not_found: "Không tìm thấy email!"
-        email_invalid: "Định dạng email không hợp lệ"
-        email_taken: "Email đã được sử dụng"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Cập nhật email không thành công"
-        password_unmatch: "Mật khẩu không khớp"
-        password_update_fail: "Cập nhật mật khẩu không thành công"
-        otp_invalid: "OTP không hợp lệ!"
-        register_not_allow: "Bạn không được phép đăng ký!"
-        missing_field: "Thiếu trường bắt buộc"
-        password_incorrect: "Mật khẩu hiện tại không đúng"
-        username_taken: "Tên người dùng đã được sử dụng"
+        email_not_found: Không tìm thấy email!
+        email_invalid: Định dạng email không hợp lệ
+        email_taken: Email đã được sử dụng
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Cập nhật email không thành công
+        password_unmatch: Mật khẩu không khớp
+        password_update_fail: Cập nhật mật khẩu không thành công
+        otp_invalid: OTP không hợp lệ!
+        register_not_allow: Bạn không được phép đăng ký!
+        missing_field: Thiếu trường bắt buộc
+        password_incorrect: Mật khẩu hiện tại không đúng
+        username_taken: Tên người dùng đã được sử dụng
       messages:
-        password_updated: "Mật khẩu đã được cập nhật"
+        password_updated: Mật khẩu đã được cập nhật
     domain:
       messages:
-        dns_verified: "DNS đã được cấu hình đúng"
+        dns_verified: DNS đã được cấu hình đúng
     conversation:
       messages:
-        marked_read: "Đã đánh dấu %{updated_count} cuộc trò chuyện là đã đọc"
+        marked_read: Đã đánh dấu %{updated_count} cuộc trò chuyện là đã đọc
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Phản ứng không được nhận biết
+      emoji_limit_exceeded: Vượt quá giới hạn emoji

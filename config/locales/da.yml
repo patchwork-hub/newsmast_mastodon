@@ -1,75 +1,82 @@
+---
 da:
   locale:
-    name: "Danish"
-    native_name: "Dansk"
+    name: Danish
+    native_name: Dansk
   notification:
     poll:
-      ended_you: "Din afstemning er afsluttet"
-      ended_voted: "En afstemning, du har stemt i, er afsluttet"
+      ended_you: Din afstemning er afsluttet
+      ended_voted: En afstemning, du har stemt i, er afsluttet
     mention:
       direct_message: "%{name} har sendt dig en besked"
-      conversation_request: "Du har en ny samtaleanmodning."
+      conversation_request: Du har en ny samtaleanmodning.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kære %{name},"
-      instruction: "Din OTP-kode til kontobekræftelse er:"
-      note: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail"
+      greeting: Kære %{name},
+      instruction: 'Din OTP-kode til kontobekræftelse er:'
+      note: Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail
   login_service:
     errors:
-      invalid_credentials: "Ugyldige legitimationsoplysninger. Prøv igen"
-      unauthorized_access: "Du har ikke adgang til at logge ind"
-      channel_not_created: "Ugyldige legitimationsoplysninger. Sørg for, at du har oprettet en kanal"
-      account_deleted: "Din konto er allerede blevet slettet"
+      invalid_credentials: Ugyldige legitimationsoplysninger. Prøv igen
+      unauthorized_access: Du har ikke adgang til at logge ind
+      channel_not_created: Ugyldige legitimationsoplysninger. Sørg for, at du har
+        oprettet en kanal
+      account_deleted: Din konto er allerede blevet slettet
       invalid_role_access: "%{role} har ikke tilladelse til at logge ind"
-      deactivated_channel: "Din kanal er deaktiveret. Kontakt supporten"
-      two_factor_enabled: "To-faktor-godkendelse er aktiveret. Log venligst ind via webgrænsefladen"
-
+      deactivated_channel: Din kanal er deaktiveret. Kontakt supporten
+      two_factor_enabled: To-faktor-godkendelse er aktiveret. Log venligst ind via
+        webgrænsefladen
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Prøv igen. Ugyldige legitimationsoplysninger fra beebee.io"
-      registration_required: "Opret venligst en lokal konto. data: %{data}"
-      connection_error: "Fejl ved forbindelse til medlemstjeneste: %{error}"
+      invalid_credentials: Prøv igen. Ugyldige legitimationsoplysninger fra beebee.io
+      registration_required: 'Opret venligst en lokal konto. data: %{data}'
+      connection_error: 'Fejl ved forbindelse til medlemstjeneste: %{error}'
   api:
     errors:
-      unauthorized: "Du er ikke autoriseret til at udføre denne handling"
-      forbidden: "Adgang nægtet!"
-      not_found: "Ressource ikke fundet"
-      unprocessable_entity: "Anmodningen kunne ikke behandles"
-      internal_server_error: "Der opstod en intern serverfejl"
-      validation_failed: "Validering mislykkedes!"
-      invalid_request: "Ugyldig anmodning!"
-      rate_limit_exceeded: "Grænsen for anmodninger er overskredet. Prøv igen senere"
+      unauthorized: Du er ikke autoriseret til at udføre denne handling
+      forbidden: Adgang nægtet!
+      not_found: Ressource ikke fundet
+      unprocessable_entity: Anmodningen kunne ikke behandles
+      internal_server_error: Der opstod en intern serverfejl
+      validation_failed: Validering mislykkedes!
+      invalid_request: Ugyldig anmodning!
+      rate_limit_exceeded: Grænsen for anmodninger er overskredet. Prøv igen senere
     messages:
-      success: "Handlingen blev gennemført med succes"
-      created: "Ressourcen blev oprettet med succes"
-      updated: "Ressourcen blev opdateret med succes"
-      deleted: "Ressourcen blev slettet med succes"
+      success: Handlingen blev gennemført med succes
+      created: Ressourcen blev oprettet med succes
+      updated: Ressourcen blev opdateret med succes
+      deleted: Ressourcen blev slettet med succes
     notification:
       messages:
-        token_already_exists: "Notifikationstoken findes allerede"
-        token_saved: "Notifikationstoken gemt"
-        token_deleted: "Notifikationstoken blev slettet med succes"
-        token_not_found: "Ingen notifikationstokener fundet"
-        mute_updated: "Lydløs status blev opdateret med succes"
+        token_already_exists: Notifikationstoken findes allerede
+        token_saved: Notifikationstoken gemt
+        token_deleted: Notifikationstoken blev slettet med succes
+        token_not_found: Ingen notifikationstokener fundet
+        mute_updated: Lydløs status blev opdateret med succes
     account:
       errors:
-        email_not_found: "E-mail ikke fundet!"
-        email_invalid: "Ugyldigt e-mailformat"
-        email_taken: "E-mailen er allerede taget"
-        membership_not_eligible: "Registrering er kun åben for kernemedlemmer, CSIDNet Team og Supportermedlemmer"
-        email_update_fail: "Opdatering af e-mailen mislykkedes"
-        password_unmatch: "Adgangskoderne stemmer ikke overens"
-        password_update_fail: "Opdatering af adgangskoden mislykkedes"
-        otp_invalid: "Ugyldig OTP!"
-        register_not_allow: "Du har ikke tilladelse til at registrere dig!"
-        missing_field: "Påkrævede felter mangler"
-        password_incorrect: "Nuværende adgangskode er forkert"
-        username_taken: "Brugernavnet er allerede taget"
+        email_not_found: E-mail ikke fundet!
+        email_invalid: Ugyldigt e-mailformat
+        email_taken: E-mailen er allerede taget
+        membership_not_eligible: Registrering er kun åben for kernemedlemmer, CSIDNet
+          Team og Supportermedlemmer
+        email_update_fail: Opdatering af e-mailen mislykkedes
+        password_unmatch: Adgangskoderne stemmer ikke overens
+        password_update_fail: Opdatering af adgangskoden mislykkedes
+        otp_invalid: Ugyldig OTP!
+        register_not_allow: Du har ikke tilladelse til at registrere dig!
+        missing_field: Påkrævede felter mangler
+        password_incorrect: Nuværende adgangskode er forkert
+        username_taken: Brugernavnet er allerede taget
       messages:
-        password_updated: "Adgangskoden er blevet opdateret"
+        password_updated: Adgangskoden er blevet opdateret
     domain:
       messages:
-        dns_verified: "DNS er korrekt konfigureret"
+        dns_verified: DNS er korrekt konfigureret
     conversation:
       messages:
-        marked_read: "Markerede %{updated_count} samtale(r) som læst"
+        marked_read: Markerede %{updated_count} samtale(r) som læst
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktion ikke genkendt
+      emoji_limit_exceeded: Emoji-grænse overskredet

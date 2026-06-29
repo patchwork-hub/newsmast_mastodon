@@ -1,75 +1,82 @@
+---
 de:
   locale:
-    name: "German"
-    native_name: "Deutsch"
+    name: German
+    native_name: Deutsch
   notification:
     poll:
-      ended_you: "Deine Umfrage ist beendet"
-      ended_voted: "Eine Umfrage, an der du teilgenommen hast, ist beendet"
+      ended_you: Deine Umfrage ist beendet
+      ended_voted: Eine Umfrage, an der du teilgenommen hast, ist beendet
     mention:
       direct_message: "%{name} hat dir eine Nachricht gesendet"
-      conversation_request: "Du hast eine neue Konversationsanfrage."
+      conversation_request: Du hast eine neue Konversationsanfrage.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Lieber %{name},"
-      instruction: "Dein OTP-Code zur Kontoverifizierung lautet:"
-      note: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail"
+      greeting: Lieber %{name},
+      instruction: 'Dein OTP-Code zur Kontoverifizierung lautet:'
+      note: Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail
   login_service:
     errors:
-      invalid_credentials: "Ungültige Zugangsdaten. Bitte versuche es erneut"
-      unauthorized_access: "Du hast keinen Zugriff zum Einloggen"
-      channel_not_created: "Ungültige Zugangsdaten. Bitte stelle sicher, dass du einen Kanal erstellt hast"
-      account_deleted: "Dein Konto wurde bereits gelöscht"
+      invalid_credentials: Ungültige Zugangsdaten. Bitte versuche es erneut
+      unauthorized_access: Du hast keinen Zugriff zum Einloggen
+      channel_not_created: Ungültige Zugangsdaten. Bitte stelle sicher, dass du einen
+        Kanal erstellt hast
+      account_deleted: Dein Konto wurde bereits gelöscht
       invalid_role_access: "%{role} ist nicht zum Einloggen berechtigt"
-      deactivated_channel: "Dein Kanal ist deaktiviert. Bitte kontaktiere den Support"
-      two_factor_enabled: "Zwei-Faktor-Authentifizierung ist aktiviert. Bitte melde dich über die Weboberfläche an"
-
+      deactivated_channel: Dein Kanal ist deaktiviert. Bitte kontaktiere den Support
+      two_factor_enabled: Zwei-Faktor-Authentifizierung ist aktiviert. Bitte melde
+        dich über die Weboberfläche an
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Bitte versuche es erneut. Ungültige Zugangsdaten von beebee.io"
-      registration_required: "Bitte registriere ein lokales Konto. Daten: %{data}"
-      connection_error: "Fehler beim Verbinden mit dem Mitgliedschaftsdienst: %{error}"
+      invalid_credentials: Bitte versuche es erneut. Ungültige Zugangsdaten von beebee.io
+      registration_required: 'Bitte registriere ein lokales Konto. Daten: %{data}'
+      connection_error: 'Fehler beim Verbinden mit dem Mitgliedschaftsdienst: %{error}'
   api:
     errors:
-      unauthorized: "Du bist nicht berechtigt, diese Aktion auszuführen"
-      forbidden: "Zugriff verweigert!"
-      not_found: "Ressource nicht gefunden"
-      unprocessable_entity: "Die Anfrage konnte nicht verarbeitet werden"
-      internal_server_error: "Ein interner Serverfehler ist aufgetreten"
-      validation_failed: "Validierung fehlgeschlagen!"
-      invalid_request: "Ungültige Anfrage!"
-      rate_limit_exceeded: "Anfragelimit überschritten. Bitte versuche es später erneut"
+      unauthorized: Du bist nicht berechtigt, diese Aktion auszuführen
+      forbidden: Zugriff verweigert!
+      not_found: Ressource nicht gefunden
+      unprocessable_entity: Die Anfrage konnte nicht verarbeitet werden
+      internal_server_error: Ein interner Serverfehler ist aufgetreten
+      validation_failed: Validierung fehlgeschlagen!
+      invalid_request: Ungültige Anfrage!
+      rate_limit_exceeded: Anfragelimit überschritten. Bitte versuche es später erneut
     messages:
-      success: "Vorgang erfolgreich abgeschlossen"
-      created: "Ressource erfolgreich erstellt"
-      updated: "Ressource erfolgreich aktualisiert"
-      deleted: "Ressource erfolgreich gelöscht"
+      success: Vorgang erfolgreich abgeschlossen
+      created: Ressource erfolgreich erstellt
+      updated: Ressource erfolgreich aktualisiert
+      deleted: Ressource erfolgreich gelöscht
     notification:
       messages:
-        token_already_exists: "Benachrichtigungstoken existiert bereits"
-        token_saved: "Benachrichtigungstoken gespeichert"
-        token_deleted: "Benachrichtigungstoken erfolgreich gelöscht"
-        token_not_found: "Keine Benachrichtigungstoken gefunden"
-        mute_updated: "Stummschaltungsstatus erfolgreich aktualisiert"
+        token_already_exists: Benachrichtigungstoken existiert bereits
+        token_saved: Benachrichtigungstoken gespeichert
+        token_deleted: Benachrichtigungstoken erfolgreich gelöscht
+        token_not_found: Keine Benachrichtigungstoken gefunden
+        mute_updated: Stummschaltungsstatus erfolgreich aktualisiert
     account:
       errors:
-        email_not_found: "E-Mail nicht gefunden!"
-        email_invalid: "Ungültiges E-Mail-Format"
-        email_taken: "E-Mail ist bereits vergeben"
-        membership_not_eligible: "Die Registrierung steht nur Core-Mitgliedern, CSIDNet-Team- und Supporter-Mitgliedern offen"
-        email_update_fail: "Die E-Mail-Aktualisierung war nicht erfolgreich"
-        password_unmatch: "Passwörter stimmen nicht überein"
-        password_update_fail: "Die Passwortaktualisierung war nicht erfolgreich"
-        otp_invalid: "Ungültiges OTP!"
-        register_not_allow: "Du bist nicht berechtigt, dich zu registrieren!"
-        missing_field: "Erforderliche Felder fehlen"
-        password_incorrect: "Aktuelles Passwort ist falsch"
-        username_taken: "Benutzername ist bereits vergeben"
+        email_not_found: E-Mail nicht gefunden!
+        email_invalid: Ungültiges E-Mail-Format
+        email_taken: E-Mail ist bereits vergeben
+        membership_not_eligible: Die Registrierung steht nur Core-Mitgliedern, CSIDNet-Team-
+          und Supporter-Mitgliedern offen
+        email_update_fail: Die E-Mail-Aktualisierung war nicht erfolgreich
+        password_unmatch: Passwörter stimmen nicht überein
+        password_update_fail: Die Passwortaktualisierung war nicht erfolgreich
+        otp_invalid: Ungültiges OTP!
+        register_not_allow: Du bist nicht berechtigt, dich zu registrieren!
+        missing_field: Erforderliche Felder fehlen
+        password_incorrect: Aktuelles Passwort ist falsch
+        username_taken: Benutzername ist bereits vergeben
       messages:
-        password_updated: "Das Passwort wurde aktualisiert"
+        password_updated: Das Passwort wurde aktualisiert
     domain:
       messages:
-        dns_verified: "DNS ist korrekt konfiguriert"
+        dns_verified: DNS ist korrekt konfiguriert
     conversation:
       messages:
         marked_read: "%{updated_count} Konversation(en) als gelesen markiert"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktion nicht erkannt
+      emoji_limit_exceeded: Emoji-Limit überschritten

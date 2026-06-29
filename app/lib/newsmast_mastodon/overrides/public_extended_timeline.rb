@@ -3,7 +3,21 @@
 module NewsmastMastodon
   module Overrides
     module PublicExtendedTimeline
-      PERMITTED_PARAMS = %i[local remote limit only_media with_reblogs with_replies grouped_admin_statuses].freeze
+      include TimelinePatchworkPostReactions
+
+      PERMITTED_PARAMS = %i(local remote limit only_media with_reblogs with_replies grouped_admin_statuses).freeze
+
+      def show
+        cache_if_unauthenticated!
+        @statuses = load_statuses
+        @patchwork_post_reactions = build_patchwork_post_reactions(@statuses)
+
+        render json: @statuses,
+               each_serializer: REST::StatusSerializer,
+               relationships: StatusRelationshipsPresenter.new(@statuses, current_user&.account_id),
+               include_patchwork_post_reactions: true,
+               patchwork_post_reactions: @patchwork_post_reactions
+      end
 
       def public_feed
         PublicFeed.new(

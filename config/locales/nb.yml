@@ -1,84 +1,82 @@
+---
 nb:
   locale:
-    name: "Norwegian Bokmål"
-    native_name: "Norsk bokmål"
-  
+    name: Norwegian Bokmål
+    native_name: Norsk bokmål
   notification:
     poll:
-      ended_you: "Avstemningen din er avsluttet"
-      ended_voted: "En avstemning du stemte i er avsluttet"
+      ended_you: Avstemningen din er avsluttet
+      ended_voted: En avstemning du stemte i er avsluttet
     mention:
       direct_message: "%{name} sendte deg en melding"
-      conversation_request: "Du har en ny samtaleforespørsel."
-
+      conversation_request: Du har en ny samtaleforespørsel.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kjære %{name},"
-      instruction: "Din kontoverifiserings-OTP-kode er som følger:"
-      note: "Hvis du ikke ba om dette, vennligst ignorer denne e-posten"
-  
+      greeting: Kjære %{name},
+      instruction: 'Din kontoverifiserings-OTP-kode er som følger:'
+      note: Hvis du ikke ba om dette, vennligst ignorer denne e-posten
   login_service:
     errors:
-      invalid_credentials: "Ugyldige legitimasjonsopplysninger. Vennligst prøv igjen"
-      unauthorized_access: "Du har ikke tilgang til å logge inn"
-      channel_not_created: "Ugyldige legitimasjonsopplysninger. Vennligst sørg for at du har opprettet en kanal"
-      account_deleted: "Kontoen din er allerede slettet"
+      invalid_credentials: Ugyldige legitimasjonsopplysninger. Vennligst prøv igjen
+      unauthorized_access: Du har ikke tilgang til å logge inn
+      channel_not_created: Ugyldige legitimasjonsopplysninger. Vennligst sørg for
+        at du har opprettet en kanal
+      account_deleted: Kontoen din er allerede slettet
       invalid_role_access: "%{role} har ikke tillatelse til å logge inn"
-      deactivated_channel: "Kanalen din er deaktivert. Vennligst kontakt støtte"
-      two_factor_enabled: "Tofaktorautentisering er aktivert. Logg inn via webgrensesnittet"
-
+      deactivated_channel: Kanalen din er deaktivert. Vennligst kontakt støtte
+      two_factor_enabled: Tofaktorautentisering er aktivert. Logg inn via webgrensesnittet
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Vennligst prøv igjen. Ugyldige legitimasjonsopplysninger fra beebee.io"
-      registration_required: "Vennligst registrer en lokal konto. data: %{data}"
-      connection_error: "Feil ved tilkobling til medlemstjeneste: %{error}"
-
+      invalid_credentials: Vennligst prøv igjen. Ugyldige legitimasjonsopplysninger
+        fra beebee.io
+      registration_required: 'Vennligst registrer en lokal konto. data: %{data}'
+      connection_error: 'Feil ved tilkobling til medlemstjeneste: %{error}'
   api:
     errors:
-      unauthorized: "Du har ikke tillatelse til å utføre denne handlingen"
-      forbidden: "Tilgang nektet!"
-      not_found: "Ressurs ikke funnet"
-      unprocessable_entity: "Forespørselen kunne ikke behandles"
-      internal_server_error: "En intern serverfeil oppstod"
-      validation_failed: "Validering mislyktes!"
-      invalid_request: "Ugyldig forespørsel!"
-      rate_limit_exceeded: "Forespørselsgrense overskredet. Vennligst prøv igjen senere"
-
+      unauthorized: Du har ikke tillatelse til å utføre denne handlingen
+      forbidden: Tilgang nektet!
+      not_found: Ressurs ikke funnet
+      unprocessable_entity: Forespørselen kunne ikke behandles
+      internal_server_error: En intern serverfeil oppstod
+      validation_failed: Validering mislyktes!
+      invalid_request: Ugyldig forespørsel!
+      rate_limit_exceeded: Forespørselsgrense overskredet. Vennligst prøv igjen senere
     messages:
-      success: "Operasjonen ble fullført"
-      created: "Ressurs opprettet"
-      updated: "Ressurs oppdatert"
-      deleted: "Ressurs slettet"
-
+      success: Operasjonen ble fullført
+      created: Ressurs opprettet
+      updated: Ressurs oppdatert
+      deleted: Ressurs slettet
     notification:
       messages:
-        token_already_exists: "Varslingstoken eksisterer allerede"
-        token_saved: "Varslingstoken lagret"
-        token_deleted: "Varslingstoken slettet"
-        token_not_found: "Ingen varslingstokener funnet"
-        mute_updated: "Dempestatus oppdatert"
-
+        token_already_exists: Varslingstoken eksisterer allerede
+        token_saved: Varslingstoken lagret
+        token_deleted: Varslingstoken slettet
+        token_not_found: Ingen varslingstokener funnet
+        mute_updated: Dempestatus oppdatert
     account:
       errors:
-        email_not_found: "E-post ikke funnet!"
-        email_invalid: "Ugyldig e-postformat"
-        email_taken: "E-posten er allerede i bruk"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "E-postoppdatering mislyktes"
-        password_unmatch: "Passordene samsvarer ikke"
-        password_update_fail: "Passordoppdatering mislyktes"
-        otp_invalid: "Ugyldig OTP!"
-        register_not_allow: "Du har ikke tillatelse til å registrere deg!"
-        missing_field: "Obligatoriske felt mangler"
-        password_incorrect: "Nåværende passord er feil"
-        username_taken: "Brukernavnet er allerede i bruk"
+        email_not_found: E-post ikke funnet!
+        email_invalid: Ugyldig e-postformat
+        email_taken: E-posten er allerede i bruk
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: E-postoppdatering mislyktes
+        password_unmatch: Passordene samsvarer ikke
+        password_update_fail: Passordoppdatering mislyktes
+        otp_invalid: Ugyldig OTP!
+        register_not_allow: Du har ikke tillatelse til å registrere deg!
+        missing_field: Obligatoriske felt mangler
+        password_incorrect: Nåværende passord er feil
+        username_taken: Brukernavnet er allerede i bruk
       messages:
-        password_updated: "Passordet er oppdatert"
-
+        password_updated: Passordet er oppdatert
     domain:
       messages:
-        dns_verified: "DNS er riktig konfigurert"
-
+        dns_verified: DNS er riktig konfigurert
     conversation:
       messages:
         marked_read: "%{updated_count} samtale(r) merket som lest"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksjon ikke gjenkjent
+      emoji_limit_exceeded: Emoji-grense overskredet

@@ -1,75 +1,82 @@
+---
 ka:
   locale:
-    name: "Georgian"
-    native_name: "ქართული"
+    name: Georgian
+    native_name: ქართული
   notification:
     poll:
-      ended_you: "თქვენი გამოკითხვა დასრულდა"
-      ended_voted: "გამოკითხვა, რომელშიც ხმა მიეცით, დასრულდა"
+      ended_you: თქვენი გამოკითხვა დასრულდა
+      ended_voted: გამოკითხვა, რომელშიც ხმა მიეცით, დასრულდა
     mention:
       direct_message: "%{name} გამოგიგზავნათ შეტყობინება"
-      conversation_request: "თქვენ გაქვთ ახალი საუბრის მოთხოვნა."
+      conversation_request: თქვენ გაქვთ ახალი საუბრის მოთხოვნა.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "ძვირფასო %{name},"
-      instruction: "თქვენი ანგარიშის დადასტურების OTP კოდია:"
-      note: "თუ ეს თქვენ არ მოგითხოვიათ, გთხოვთ, უგულებელყოთ ეს ელფოსტა"
+      greeting: ძვირფასო %{name},
+      instruction: 'თქვენი ანგარიშის დადასტურების OTP კოდია:'
+      note: თუ ეს თქვენ არ მოგითხოვიათ, გთხოვთ, უგულებელყოთ ეს ელფოსტა
   login_service:
     errors:
-      invalid_credentials: "არასწორი ავტორიზაცია. გთხოვთ, სცადეთ თავიდან"
-      unauthorized_access: "თქვენ არ გაქვთ შესვლის უფლება"
-      channel_not_created: "არასწორი ავტორიზაცია. დარწმუნდით, რომ არხი შექმნილია"
-      account_deleted: "თქვენი ანგარიში უკვე წაშლილია"
+      invalid_credentials: არასწორი ავტორიზაცია. გთხოვთ, სცადეთ თავიდან
+      unauthorized_access: თქვენ არ გაქვთ შესვლის უფლება
+      channel_not_created: არასწორი ავტორიზაცია. დარწმუნდით, რომ არხი შექმნილია
+      account_deleted: თქვენი ანგარიში უკვე წაშლილია
       invalid_role_access: "%{role} არ არის დაშვებული შესვლაზე"
-      deactivated_channel: "თქვენი არხი დეაქტივირებულია. დაუკავშირდით მხარდაჭერას"
-      two_factor_enabled: "ორფაქტორიანი ავთენტიფიკაცია ჩართულია. გთხოვთ, შეხვიდეთ ვებ-ინტერფეისის მეშვეობით"
-
+      deactivated_channel: თქვენი არხი დეაქტივირებულია. დაუკავშირდით მხარდაჭერას
+      two_factor_enabled: ორფაქტორიანი ავთენტიფიკაცია ჩართულია. გთხოვთ, შეხვიდეთ ვებ-ინტერფეისის
+        მეშვეობით
   bristolcable_login_service:
     errors:
-      invalid_credentials: "გთხოვთ, სცადეთ თავიდან. არასწორი ავტორიზაცია beebee.io-დან"
-      registration_required: "გთხოვთ, დარეგისტრიროთ ლოკალური ანგარიში. მონაცემები: %{data}"
-      connection_error: "შეცდომა წევრობის სერვისთან დაკავშირებისას: %{error}"
+      invalid_credentials: გთხოვთ, სცადეთ თავიდან. არასწორი ავტორიზაცია beebee.io-დან
+      registration_required: 'გთხოვთ, დარეგისტრიროთ ლოკალური ანგარიში. მონაცემები:
+        %{data}'
+      connection_error: 'შეცდომა წევრობის სერვისთან დაკავშირებისას: %{error}'
   api:
     errors:
-      unauthorized: "თქვენ არ გაქვთ ამ ქმედების შესრულების უფლება"
-      forbidden: "წვდომა უარყოფილია!"
-      not_found: "რესურსი ვერ მოიძებნა"
-      unprocessable_entity: "მოთხოვნის დამუშავება შეუძლებელია"
-      internal_server_error: "შიდა სერვერის შეცდომა მოხდა"
-      validation_failed: "ვალიდაცია ვერ შესრულდა!"
-      invalid_request: "არასწორი მოთხოვნა!"
-      rate_limit_exceeded: "მოთხოვნების ლიმიტი გადაჭარბებულია. სცადეთ მოგვიანებით"
+      unauthorized: თქვენ არ გაქვთ ამ ქმედების შესრულების უფლება
+      forbidden: წვდომა უარყოფილია!
+      not_found: რესურსი ვერ მოიძებნა
+      unprocessable_entity: მოთხოვნის დამუშავება შეუძლებელია
+      internal_server_error: შიდა სერვერის შეცდომა მოხდა
+      validation_failed: ვალიდაცია ვერ შესრულდა!
+      invalid_request: არასწორი მოთხოვნა!
+      rate_limit_exceeded: მოთხოვნების ლიმიტი გადაჭარბებულია. სცადეთ მოგვიანებით
     messages:
-      success: "ოპერაცია წარმატებით დასრულდა"
-      created: "რესურსი წარმატებით შეიქმნა"
-      updated: "რესურსი წარმატებით განახლდა"
-      deleted: "რესურსი წარმატებით წაიშალა"
+      success: ოპერაცია წარმატებით დასრულდა
+      created: რესურსი წარმატებით შეიქმნა
+      updated: რესურსი წარმატებით განახლდა
+      deleted: რესურსი წარმატებით წაიშალა
     notification:
       messages:
-        token_already_exists: "შეტყობინების ტოკენი უკვე არსებობს"
-        token_saved: "შეტყობინების ტოკენი შენახულია"
-        token_deleted: "შეტყობინების ტოკენი წარმატებით წაიშალა"
-        token_not_found: "შეტყობინების ტოკენი ვერ მოიძებნა"
-        mute_updated: "დადუმების სტატუსი წარმატებით განახლდა"
+        token_already_exists: შეტყობინების ტოკენი უკვე არსებობს
+        token_saved: შეტყობინების ტოკენი შენახულია
+        token_deleted: შეტყობინების ტოკენი წარმატებით წაიშალა
+        token_not_found: შეტყობინების ტოკენი ვერ მოიძებნა
+        mute_updated: დადუმების სტატუსი წარმატებით განახლდა
     account:
       errors:
-        email_not_found: "ელფოსტა ვერ მოიძებნა!"
-        email_invalid: "ელფოსტის არასწორი ფორმატი"
-        email_taken: "ელფოსტა უკვე გამოყენებულია"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ელფოსტის განახლება ვერ მოხერხდა"
-        password_unmatch: "პაროლები არ ემთხვევა"
-        password_update_fail: "პაროლის განახლება ვერ მოხერხდა"
-        otp_invalid: "არასწორი OTP!"
-        register_not_allow: "თქვენ არ გაქვთ რეგისტრაციის უფლება!"
-        missing_field: "სავალდებულო ველები აკლია"
-        password_incorrect: "მიმდინარე პაროლი არასწორია"
-        username_taken: "მომხმარებლის სახელი უკვე გამოყენებულია"
+        email_not_found: ელფოსტა ვერ მოიძებნა!
+        email_invalid: ელფოსტის არასწორი ფორმატი
+        email_taken: ელფოსტა უკვე გამოყენებულია
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ელფოსტის განახლება ვერ მოხერხდა
+        password_unmatch: პაროლები არ ემთხვევა
+        password_update_fail: პაროლის განახლება ვერ მოხერხდა
+        otp_invalid: არასწორი OTP!
+        register_not_allow: თქვენ არ გაქვთ რეგისტრაციის უფლება!
+        missing_field: სავალდებულო ველები აკლია
+        password_incorrect: მიმდინარე პაროლი არასწორია
+        username_taken: მომხმარებლის სახელი უკვე გამოყენებულია
       messages:
-        password_updated: "პაროლი განახლდა"
+        password_updated: პაროლი განახლდა
     domain:
       messages:
-        dns_verified: "DNS სწორად არის კონფიგურირებული"
+        dns_verified: DNS სწორად არის კონფიგურირებული
     conversation:
       messages:
         marked_read: "%{updated_count} საუბარი მონიშნულია როგორც წაკითხული"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ფიქცია არ არის ცნობილი
+      emoji_limit_exceeded: ემოჯი ლიმიტი აღემატა

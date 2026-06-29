@@ -1,84 +1,81 @@
+---
 kw:
   locale:
-    name: "Cornish"
-    native_name: "Kernewek"
-  
+    name: Cornish
+    native_name: Kernewek
   notification:
     poll:
-      ended_you: "Termyn ow holi a veu wor"
-      ended_voted: "Hol an termyn y'n termyn a veu wor"
+      ended_you: Termyn ow holi a veu wor
+      ended_voted: Hol an termyn y'n termyn a veu wor
     mention:
       direct_message: "%{name} a dhedh dhis messaj"
-      conversation_request: "Yma govynnadow keskowsans nowyth dhywgh."
-
+      conversation_request: Yma govynnadow keskowsans nowyth dhywgh.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Ker %{name},"
-      instruction: "Godhvos OTP a dhyver an akont yw:"
-      note: "Mar ne wre'ta gorthyp an dra-ma, gwra an lyther-ma anjydh"
-  
+      greeting: Ker %{name},
+      instruction: 'Godhvos OTP a dhyver an akont yw:'
+      note: Mar ne wre'ta gorthyp an dra-ma, gwra an lyther-ma anjydh
   login_service:
     errors:
-      invalid_credentials: "Kredensyow didhys. Piwgh an gath"
-      unauthorized_access: "Nyns eus dhis kevrin dhe omgelwel"
-      channel_not_created: "Kredensyow didhys. Gwra sur dhe vos ow kreya kanol"
-      account_deleted: "An akont a veu dilea"
-      invalid_role_access: "Nyns eus kevrin dhe %{role} omgelwel"
-      deactivated_channel: "Kanol ow kelwel. Gwra omwul an skoodh"
-      two_factor_enabled: "Dew-factor authentifikasyon yw gwrys. Gofynnir dhywgh yntra dre an etherwerk weben"
-
+      invalid_credentials: Kredensyow didhys. Piwgh an gath
+      unauthorized_access: Nyns eus dhis kevrin dhe omgelwel
+      channel_not_created: Kredensyow didhys. Gwra sur dhe vos ow kreya kanol
+      account_deleted: An akont a veu dilea
+      invalid_role_access: Nyns eus kevrin dhe %{role} omgelwel
+      deactivated_channel: Kanol ow kelwel. Gwra omwul an skoodh
+      two_factor_enabled: Dew-factor authentifikasyon yw gwrys. Gofynnir dhywgh yntra
+        dre an etherwerk weben
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Piwgh an gath. Kredensyow didhys a beebee.io"
-      registration_required: "Gwra omgelmi akont leel. data: %{data}"
-      connection_error: "Gwall ow kelmya dhe servys eseleth: %{error}"
-
+      invalid_credentials: Piwgh an gath. Kredensyow didhys a beebee.io
+      registration_required: 'Gwra omgelmi akont leel. data: %{data}'
+      connection_error: 'Gwall ow kelmya dhe servys eseleth: %{error}'
   api:
     errors:
-      unauthorized: "Nyns eus kevrin dhis dhe wul an ober-ma"
-      forbidden: "Kynsa kevrin!"
-      not_found: "Ressours ny gavas"
-      unprocessable_entity: "Ny yllir gwul an gorthyp"
-      internal_server_error: "Fatel servyer a veu gwrys"
-      validation_failed: "Nyns eus gwirheans!"
-      invalid_request: "Gorthyp didhys!"
-      rate_limit_exceeded: "Termyn gorthyp a veu treus. Piwgh an gath"
-
+      unauthorized: Nyns eus kevrin dhis dhe wul an ober-ma
+      forbidden: Kynsa kevrin!
+      not_found: Ressours ny gavas
+      unprocessable_entity: Ny yllir gwul an gorthyp
+      internal_server_error: Fatel servyer a veu gwrys
+      validation_failed: Nyns eus gwirheans!
+      invalid_request: Gorthyp didhys!
+      rate_limit_exceeded: Termyn gorthyp a veu treus. Piwgh an gath
     messages:
-      success: "Ober a veu gwrys yn sewen"
-      created: "Ressours a veu gwrys yn sewen"
-      updated: "Ressours a veu kemmyn yn sewen"
-      deleted: "Ressours a veu dilea yn sewen"
-
+      success: Ober a veu gwrys yn sewen
+      created: Ressours a veu gwrys yn sewen
+      updated: Ressours a veu kemmyn yn sewen
+      deleted: Ressours a veu dilea yn sewen
     notification:
       messages:
-        token_already_exists: "Token notys a gavas"
-        token_saved: "Token notys a veu gwithys"
-        token_deleted: "Token notys a veu dilea yn sewen"
-        token_not_found: "Token notys ny gavas"
-        mute_updated: "Stad taw a veu kemmyn yn sewen"
-
+        token_already_exists: Token notys a gavas
+        token_saved: Token notys a veu gwithys
+        token_deleted: Token notys a veu dilea yn sewen
+        token_not_found: Token notys ny gavas
+        mute_updated: Stad taw a veu kemmyn yn sewen
     account:
       errors:
-        email_not_found: "E-bost ny gavas!"
-        email_invalid: "Furv e-bost didhys"
-        email_taken: "E-bost a veu usys"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Kemmys e-bost a veu treus"
-        password_unmatch: "Ger-tremenaow nyns owth omwul"
-        password_update_fail: "Kemmys ger-tremena a veu treus"
-        otp_invalid: "OTP didhys!"
-        register_not_allow: "Nyns eus kevrin dhis dhe omgelwel!"
-        missing_field: "Meythow res a vynn"
-        password_incorrect: "Ger-tremena a-lemmyn yw kamm"
-        username_taken: "Hanow-usys a veu usys"
+        email_not_found: E-bost ny gavas!
+        email_invalid: Furv e-bost didhys
+        email_taken: E-bost a veu usys
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Kemmys e-bost a veu treus
+        password_unmatch: Ger-tremenaow nyns owth omwul
+        password_update_fail: Kemmys ger-tremena a veu treus
+        otp_invalid: OTP didhys!
+        register_not_allow: Nyns eus kevrin dhis dhe omgelwel!
+        missing_field: Meythow res a vynn
+        password_incorrect: Ger-tremena a-lemmyn yw kamm
+        username_taken: Hanow-usys a veu usys
       messages:
-        password_updated: "Ger-tremena a veu kemmyn"
-
+        password_updated: Ger-tremena a veu kemmyn
     domain:
       messages:
-        dns_verified: "DNS a veu gwrys yn gwir"
-
+        dns_verified: DNS a veu gwrys yn gwir
     conversation:
       messages:
         marked_read: "%{updated_count} keskomunyans(ow) a veu markys kepar del lenwys"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Responsyon nag-usbong
+      emoji_limit_exceeded: Holan emoji gwithsorra

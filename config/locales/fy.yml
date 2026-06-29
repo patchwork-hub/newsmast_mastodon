@@ -1,75 +1,82 @@
+---
 fy:
   locale:
-    name: "Western Frisian"
-    native_name: "Frysk"
+    name: Western Frisian
+    native_name: Frysk
   notification:
     poll:
-      ended_you: "Jo peiling is ôfrûn"
-      ended_voted: "In peiling dêr't jo yn stimd hawwe is ôfrûn"
+      ended_you: Jo peiling is ôfrûn
+      ended_voted: In peiling dêr't jo yn stimd hawwe is ôfrûn
     mention:
       direct_message: "%{name} hat jo in berjocht stjoerd"
-      conversation_request: "Jo hawwe in nij petear fersyk."
+      conversation_request: Jo hawwe in nij petear fersyk.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Achte %{name},"
-      instruction: "Jo akkount-ferifikaasje OTP-koade is:"
-      note: "As jo dit net oanfrege hawwe, negearje dizze e-post dan"
+      greeting: Achte %{name},
+      instruction: 'Jo akkount-ferifikaasje OTP-koade is:'
+      note: As jo dit net oanfrege hawwe, negearje dizze e-post dan
   login_service:
     errors:
-      invalid_credentials: "Unjildige credentials. Besykje it nochris"
-      unauthorized_access: "Jo hawwe gjin tagong om yn te loggen"
-      channel_not_created: "Unjildige credentials. Soargje derfoar dat jo in kanaal makke hawwe"
-      account_deleted: "Jo akkount is al fuorthelle"
+      invalid_credentials: Unjildige credentials. Besykje it nochris
+      unauthorized_access: Jo hawwe gjin tagong om yn te loggen
+      channel_not_created: Unjildige credentials. Soargje derfoar dat jo in kanaal
+        makke hawwe
+      account_deleted: Jo akkount is al fuorthelle
       invalid_role_access: "%{role} hat gjin tastimming om yn te loggen"
-      deactivated_channel: "Jo kanaal is deaktivearre. Nim kontakt op mei stipe"
-      two_factor_enabled: "Twa-faktor-ferifikaasje is ynskeakele. Meld jo oan fia de webynterface"
-
+      deactivated_channel: Jo kanaal is deaktivearre. Nim kontakt op mei stipe
+      two_factor_enabled: Twa-faktor-ferifikaasje is ynskeakele. Meld jo oan fia de
+        webynterface
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Besykje it nochris. Unjildige credentials fan beebee.io"
-      registration_required: "Registrearje in lokaal akkount. gegevens: %{data}"
-      connection_error: "Flater by ferbining mei lidmaatskipstsjinst: %{error}"
+      invalid_credentials: Besykje it nochris. Unjildige credentials fan beebee.io
+      registration_required: 'Registrearje in lokaal akkount. gegevens: %{data}'
+      connection_error: 'Flater by ferbining mei lidmaatskipstsjinst: %{error}'
   api:
     errors:
-      unauthorized: "Jo binne net autorisearre om dizze aksje út te fieren"
-      forbidden: "Tagong wegere!"
-      not_found: "Boarne net fûn"
-      unprocessable_entity: "It fersyk koe net ferwurke wurde"
-      internal_server_error: "Der is in ynterne serverflater bard"
-      validation_failed: "Falidaasje mislearre!"
-      invalid_request: "Unjildich fersyk!"
-      rate_limit_exceeded: "Fersyklimyt oerskreau. Besykje it letter nochris"
+      unauthorized: Jo binne net autorisearre om dizze aksje út te fieren
+      forbidden: Tagong wegere!
+      not_found: Boarne net fûn
+      unprocessable_entity: It fersyk koe net ferwurke wurde
+      internal_server_error: Der is in ynterne serverflater bard
+      validation_failed: Falidaasje mislearre!
+      invalid_request: Unjildich fersyk!
+      rate_limit_exceeded: Fersyklimyt oerskreau. Besykje it letter nochris
     messages:
-      success: "Operaasje suksesfol foltôge"
-      created: "Boarne suksesfol oanmakke"
-      updated: "Boarne suksesfol bywurke"
-      deleted: "Boarne suksesfol fuorthelle"
+      success: Operaasje suksesfol foltôge
+      created: Boarne suksesfol oanmakke
+      updated: Boarne suksesfol bywurke
+      deleted: Boarne suksesfol fuorthelle
     notification:
       messages:
-        token_already_exists: "Notifikaasje-token bestiet al"
-        token_saved: "Notifikaasje-token bewarre"
-        token_deleted: "Notifikaasje-token suksesfol fuorthelle"
-        token_not_found: "Gjin notifikaasje-tokens fûn"
-        mute_updated: "Stilstatus suksesfol bywurke"
+        token_already_exists: Notifikaasje-token bestiet al
+        token_saved: Notifikaasje-token bewarre
+        token_deleted: Notifikaasje-token suksesfol fuorthelle
+        token_not_found: Gjin notifikaasje-tokens fûn
+        mute_updated: Stilstatus suksesfol bywurke
     account:
       errors:
-        email_not_found: "E-post net fûn!"
-        email_invalid: "Unjildich e-postformaat"
-        email_taken: "E-post is al yn gebrûk"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "De e-postbywurking is mislearre"
-        password_unmatch: "Wachtwurden komme net oerien"
-        password_update_fail: "De wachtwurdbywurking is mislearre"
-        otp_invalid: "Unjildige OTP!"
-        register_not_allow: "Jo meie jo net registrearje!"
-        missing_field: "Fereaske fjilden ûntbrekke"
-        password_incorrect: "Hjoeddeistige wachtwurd is ferkeard"
-        username_taken: "Brûkersnamme is al yn gebrûk"
+        email_not_found: E-post net fûn!
+        email_invalid: Unjildich e-postformaat
+        email_taken: E-post is al yn gebrûk
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: De e-postbywurking is mislearre
+        password_unmatch: Wachtwurden komme net oerien
+        password_update_fail: De wachtwurdbywurking is mislearre
+        otp_invalid: Unjildige OTP!
+        register_not_allow: Jo meie jo net registrearje!
+        missing_field: Fereaske fjilden ûntbrekke
+        password_incorrect: Hjoeddeistige wachtwurd is ferkeard
+        username_taken: Brûkersnamme is al yn gebrûk
       messages:
-        password_updated: "It wachtwurd is bywurke"
+        password_updated: It wachtwurd is bywurke
     domain:
       messages:
-        dns_verified: "DNS is goed ynsteld"
+        dns_verified: DNS is goed ynsteld
     conversation:
       messages:
         marked_read: "%{updated_count} petear(ren) markearre as lêzen"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksje net herkend
+      emoji_limit_exceeded: Emoji-limyt oerskrêden

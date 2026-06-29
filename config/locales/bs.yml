@@ -1,75 +1,81 @@
+---
 bs:
   locale:
-    name: "Bosnian"
-    native_name: "Bosanski"
+    name: Bosnian
+    native_name: Bosanski
   notification:
     poll:
-      ended_you: "Vaša anketa je završena"
-      ended_voted: "Anketa u kojoj ste glasali je završena"
+      ended_you: Vaša anketa je završena
+      ended_voted: Anketa u kojoj ste glasali je završena
     mention:
       direct_message: "%{name} vam je poslao poruku"
-      conversation_request: "Imate novi zahtjev za razgovor."
+      conversation_request: Imate novi zahtjev za razgovor.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Dragi %{name},"
-      instruction: "Vaš OTP kod za verifikaciju naloga je:"
-      note: "Ako niste tražili ovo, zanemarite ovaj email"
+      greeting: Dragi %{name},
+      instruction: 'Vaš OTP kod za verifikaciju naloga je:'
+      note: Ako niste tražili ovo, zanemarite ovaj email
   login_service:
     errors:
-      invalid_credentials: "Neispravni podaci. Pokušajte ponovo"
-      unauthorized_access: "Nemate pristup za prijavu"
-      channel_not_created: "Neispravni podaci. Provjerite da li ste kreirali kanal"
-      account_deleted: "Vaš nalog je već obrisan"
+      invalid_credentials: Neispravni podaci. Pokušajte ponovo
+      unauthorized_access: Nemate pristup za prijavu
+      channel_not_created: Neispravni podaci. Provjerite da li ste kreirali kanal
+      account_deleted: Vaš nalog je već obrisan
       invalid_role_access: "%{role} nema dozvolu za prijavu"
-      deactivated_channel: "Vaš kanal je deaktiviran. Kontaktirajte podršku"
-      two_factor_enabled: "Dvofaktorska autentifikacija je omogućena. Molimo prijavite se putem web sučelja"
-
+      deactivated_channel: Vaš kanal je deaktiviran. Kontaktirajte podršku
+      two_factor_enabled: Dvofaktorska autentifikacija je omogućena. Molimo prijavite
+        se putem web sučelja
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Pokušajte ponovo. Neispravni podaci sa beebee.io"
-      registration_required: "Molimo registrujte lokalni nalog. podaci: %{data}"
-      connection_error: "Greška povezivanja sa servisom članstva: %{error}"
+      invalid_credentials: Pokušajte ponovo. Neispravni podaci sa beebee.io
+      registration_required: 'Molimo registrujte lokalni nalog. podaci: %{data}'
+      connection_error: 'Greška povezivanja sa servisom članstva: %{error}'
   api:
     errors:
-      unauthorized: "Niste ovlašteni za ovu radnju"
-      forbidden: "Pristup odbijen!"
-      not_found: "Resurs nije pronađen"
-      unprocessable_entity: "Zahtjev nije moguće obraditi"
-      internal_server_error: "Došlo je do interne greške servera"
-      validation_failed: "Validacija nije uspjela!"
-      invalid_request: "Neispravan zahtjev!"
-      rate_limit_exceeded: "Prekoračen je limit zahtjeva. Pokušajte kasnije"
+      unauthorized: Niste ovlašteni za ovu radnju
+      forbidden: Pristup odbijen!
+      not_found: Resurs nije pronađen
+      unprocessable_entity: Zahtjev nije moguće obraditi
+      internal_server_error: Došlo je do interne greške servera
+      validation_failed: Validacija nije uspjela!
+      invalid_request: Neispravan zahtjev!
+      rate_limit_exceeded: Prekoračen je limit zahtjeva. Pokušajte kasnije
     messages:
-      success: "Operacija je uspješno završena"
-      created: "Resurs je uspješno kreiran"
-      updated: "Resurs je uspješno ažuriran"
-      deleted: "Resurs je uspješno obrisan"
+      success: Operacija je uspješno završena
+      created: Resurs je uspješno kreiran
+      updated: Resurs je uspješno ažuriran
+      deleted: Resurs je uspješno obrisan
     notification:
       messages:
-        token_already_exists: "Token za obavijest već postoji"
-        token_saved: "Token za obavijest je sačuvan"
-        token_deleted: "Token za obavijest je uspješno obrisan"
-        token_not_found: "Nema pronađenih tokena za obavijest"
-        mute_updated: "Status utišavanja je uspješno ažuriran"
+        token_already_exists: Token za obavijest već postoji
+        token_saved: Token za obavijest je sačuvan
+        token_deleted: Token za obavijest je uspješno obrisan
+        token_not_found: Nema pronađenih tokena za obavijest
+        mute_updated: Status utišavanja je uspješno ažuriran
     account:
       errors:
-        email_not_found: "Email nije pronađen!"
-        email_invalid: "Neispravan format emaila"
-        email_taken: "Email je već zauzet"
-        membership_not_eligible: "Registracija je otvorena samo za članove Core, CSIDNet tima i članove Supporter"
-        email_update_fail: "Ažuriranje emaila nije uspjelo"
-        password_unmatch: "Lozinke se ne podudaraju"
-        password_update_fail: "Ažuriranje lozinke nije uspjelo"
-        otp_invalid: "Neispravan OTP!"
-        register_not_allow: "Nije vam dozvoljeno da se registrujete!"
-        missing_field: "Nedostaju obavezna polja"
-        password_incorrect: "Trenutna lozinka je netačna"
-        username_taken: "Korisničko ime je već zauzeto"
+        email_not_found: Email nije pronađen!
+        email_invalid: Neispravan format emaila
+        email_taken: Email je već zauzet
+        membership_not_eligible: Registracija je otvorena samo za članove Core, CSIDNet
+          tima i članove Supporter
+        email_update_fail: Ažuriranje emaila nije uspjelo
+        password_unmatch: Lozinke se ne podudaraju
+        password_update_fail: Ažuriranje lozinke nije uspjelo
+        otp_invalid: Neispravan OTP!
+        register_not_allow: Nije vam dozvoljeno da se registrujete!
+        missing_field: Nedostaju obavezna polja
+        password_incorrect: Trenutna lozinka je netačna
+        username_taken: Korisničko ime je već zauzeto
       messages:
-        password_updated: "Lozinka je ažurirana"
+        password_updated: Lozinka je ažurirana
     domain:
       messages:
-        dns_verified: "DNS je ispravno konfigurisan"
+        dns_verified: DNS je ispravno konfigurisan
     conversation:
       messages:
-        marked_read: "Označeno %{updated_count} razgovora kao pročitano"
+        marked_read: Označeno %{updated_count} razgovora kao pročitano
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakcija nije prepoznata
+      emoji_limit_exceeded: Granica emojija je premašena

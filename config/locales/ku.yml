@@ -1,84 +1,82 @@
+---
 ku:
   locale:
-    name: "Kurdish"
-    native_name: "Kurdî"
-  
+    name: Kurdish
+    native_name: Kurdî
   notification:
     poll:
-      ended_you: "Dengdanê te qediyayê"
-      ended_voted: "Dengdanek ku tu de destnîşan kirî, qediyayê"
+      ended_you: Dengdanê te qediyayê
+      ended_voted: Dengdanek ku tu de destnîşan kirî, qediyayê
     mention:
       direct_message: "%{name} ji te re peyamê şand"
-      conversation_request: "Daxwaziya axaftineke nû heye."
-
+      conversation_request: Daxwaziya axaftineke nû heye.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Eziz %{name},"
-      instruction: "Koda OTP ya piştrastkirina hesabê te ye:"
-      note: "Ger tu vê daxwaz nekirî, ji kerema xwe vê e-nameyê bêbextî bibîre"
-  
+      greeting: Eziz %{name},
+      instruction: 'Koda OTP ya piştrastkirina hesabê te ye:'
+      note: Ger tu vê daxwaz nekirî, ji kerema xwe vê e-nameyê bêbextî bibîre
   login_service:
     errors:
-      invalid_credentials: "Nasnameyên nederbasdar. Ji kerema xwe dîsa biceribîne"
-      unauthorized_access: "Te destûr nîne ku têkeve"
-      channel_not_created: "Nasnameyên nederbasdar. Pêwîste ku tu kanalek çêkiribî"
-      account_deleted: "Hesabê te jixwe hate jêbirin"
+      invalid_credentials: Nasnameyên nederbasdar. Ji kerema xwe dîsa biceribîne
+      unauthorized_access: Te destûr nîne ku têkeve
+      channel_not_created: Nasnameyên nederbasdar. Pêwîste ku tu kanalek çêkiribî
+      account_deleted: Hesabê te jixwe hate jêbirin
       invalid_role_access: "%{role} destûr nîne ku têkeve"
-      deactivated_channel: "Kanala te neçalak e. Ji kerema xwe bi piştgirê re têkilî bide"
-      two_factor_enabled: "Rastkirina du-faktorî çalak e. Ji kerema xwe bi navgina têkiliya webê têkeve"
-
+      deactivated_channel: Kanala te neçalak e. Ji kerema xwe bi piştgirê re têkilî
+        bide
+      two_factor_enabled: Rastkirina du-faktorî çalak e. Ji kerema xwe bi navgina
+        têkiliya webê têkeve
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Te destûr nîne ku vê kiryarê bike"
-      forbidden: "Destûr red kirin!"
-      not_found: "Çavkaniyê nehat dîtin"
-      unprocessable_entity: "Daxwazê nehat xebitandin"
-      internal_server_error: "Çewtiya serverê ya hundirîn derket holê"
-      validation_failed: "Pêwîstiyê têk çû!"
-      invalid_request: "Daxwazê nederbasdar!"
-      rate_limit_exceeded: "Sînorê daxwazê tê derbas kirin. Ji kerema xwe paşê biceribîne"
-
+      unauthorized: Te destûr nîne ku vê kiryarê bike
+      forbidden: Destûr red kirin!
+      not_found: Çavkaniyê nehat dîtin
+      unprocessable_entity: Daxwazê nehat xebitandin
+      internal_server_error: Çewtiya serverê ya hundirîn derket holê
+      validation_failed: Pêwîstiyê têk çû!
+      invalid_request: Daxwazê nederbasdar!
+      rate_limit_exceeded: Sînorê daxwazê tê derbas kirin. Ji kerema xwe paşê biceribîne
     messages:
-      success: "Kar bi serketinî qediyayê"
-      created: "Çavkaniyê bi serketinî hate çêkirin"
-      updated: "Çavkaniyê bi serketinî hate nûkirin"
-      deleted: "Çavkaniyê bi serketinî hate jêbirin"
-
+      success: Kar bi serketinî qediyayê
+      created: Çavkaniyê bi serketinî hate çêkirin
+      updated: Çavkaniyê bi serketinî hate nûkirin
+      deleted: Çavkaniyê bi serketinî hate jêbirin
     notification:
       messages:
-        token_already_exists: "Tokena agahdariyê jixwe heye"
-        token_saved: "Tokena agahdariyê hate tomar kirin"
-        token_deleted: "Tokena agahdariyê bi serketinî hate jêbirin"
-        token_not_found: "Tokenên agahdariyê nehatin dîtin"
-        mute_updated: "Rewşa bêdengî bi serketinî hate nûkirin"
-
+        token_already_exists: Tokena agahdariyê jixwe heye
+        token_saved: Tokena agahdariyê hate tomar kirin
+        token_deleted: Tokena agahdariyê bi serketinî hate jêbirin
+        token_not_found: Tokenên agahdariyê nehatin dîtin
+        mute_updated: Rewşa bêdengî bi serketinî hate nûkirin
     account:
       errors:
-        email_not_found: "E-name nehat dîtin!"
-        email_invalid: "Şêwaza e-nameyê nederbasdar e"
-        email_taken: "E-name jixwe tê bikaranîn"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Nûkirina e-nameyê serketin nedaye"
-        password_unmatch: "Şîfre nehevgirtin"
-        password_update_fail: "Nûkirina şîfreyê serketin nedaye"
-        otp_invalid: "OTP nederbasdar e!"
-        register_not_allow: "Te destûr nîne ku qeyd bibî!"
-        missing_field: "Zeviyên pêwîst tune ne"
-        password_incorrect: "Şîfreya heyî şaş e"
-        username_taken: "Navê bikarhênerê jixwe tê bikaranîn"
+        email_not_found: E-name nehat dîtin!
+        email_invalid: Şêwaza e-nameyê nederbasdar e
+        email_taken: E-name jixwe tê bikaranîn
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Nûkirina e-nameyê serketin nedaye
+        password_unmatch: Şîfre nehevgirtin
+        password_update_fail: Nûkirina şîfreyê serketin nedaye
+        otp_invalid: OTP nederbasdar e!
+        register_not_allow: Te destûr nîne ku qeyd bibî!
+        missing_field: Zeviyên pêwîst tune ne
+        password_incorrect: Şîfreya heyî şaş e
+        username_taken: Navê bikarhênerê jixwe tê bikaranîn
       messages:
-        password_updated: "Şîfre hate nûkirin"
-
+        password_updated: Şîfre hate nûkirin
     domain:
       messages:
-        dns_verified: "DNS bi rastî hate saz kirin"
-
+        dns_verified: DNS bi rastî hate saz kirin
     conversation:
       messages:
         marked_read: "%{updated_count} gotûbêj(an) wek xwendî hate nîşandan"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Bersiv nayê nasîn
+      emoji_limit_exceeded: Sînorê emoji derbasî

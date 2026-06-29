@@ -1,84 +1,80 @@
+---
 zh-Hans:
   locale:
-    name: "Chinese (Simplified)"
-    native_name: "简体中文"
-  
+    name: Chinese (Simplified)
+    native_name: 简体中文
   notification:
     poll:
-      ended_you: "您的投票已结束"
-      ended_voted: "您参与的投票已结束"
+      ended_you: 您的投票已结束
+      ended_voted: 您参与的投票已结束
     mention:
       direct_message: "%{name} 给您发送了一条消息"
-      conversation_request: "您有一个新的对话请求。"
-
+      conversation_request: 您有一个新的对话请求。
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "尊敬的 %{name}，"
-      instruction: "您的账户验证OTP代码如下："
-      note: "如果您没有请求此操作，请忽略此邮件"
-  
+      greeting: 尊敬的 %{name}，
+      instruction: 您的账户验证OTP代码如下：
+      note: 如果您没有请求此操作，请忽略此邮件
   login_service:
     errors:
-      invalid_credentials: "凭据无效，请重试"
-      unauthorized_access: "您没有登录权限"
-      channel_not_created: "凭据无效，请确保您已创建频道"
-      account_deleted: "您的账户已被删除"
+      invalid_credentials: 凭据无效，请重试
+      unauthorized_access: 您没有登录权限
+      channel_not_created: 凭据无效，请确保您已创建频道
+      account_deleted: 您的账户已被删除
       invalid_role_access: "%{role} 不允许登录"
-      deactivated_channel: "您的频道已被停用。请联系客服"
-      two_factor_enabled: "已启用双因素身份验证。请通过网页界面登录"
-
+      deactivated_channel: 您的频道已被停用。请联系客服
+      two_factor_enabled: 已启用双因素身份验证。请通过网页界面登录
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "您无权执行此操作"
-      forbidden: "访问被拒绝！"
-      not_found: "资源未找到"
-      unprocessable_entity: "请求无法处理"
-      internal_server_error: "服务器内部错误"
-      validation_failed: "验证失败！"
-      invalid_request: "无效请求！"
-      rate_limit_exceeded: "请求频率超限，请稍后再试"
-
+      unauthorized: 您无权执行此操作
+      forbidden: 访问被拒绝！
+      not_found: 资源未找到
+      unprocessable_entity: 请求无法处理
+      internal_server_error: 服务器内部错误
+      validation_failed: 验证失败！
+      invalid_request: 无效请求！
+      rate_limit_exceeded: 请求频率超限，请稍后再试
     messages:
-      success: "操作成功完成"
-      created: "资源创建成功"
-      updated: "资源更新成功"
-      deleted: "资源删除成功"
-
+      success: 操作成功完成
+      created: 资源创建成功
+      updated: 资源更新成功
+      deleted: 资源删除成功
     notification:
       messages:
-        token_already_exists: "通知令牌已存在"
-        token_saved: "通知令牌已保存"
-        token_deleted: "通知令牌删除成功"
-        token_not_found: "未找到通知令牌"
-        mute_updated: "静音状态更新成功"
-
+        token_already_exists: 通知令牌已存在
+        token_saved: 通知令牌已保存
+        token_deleted: 通知令牌删除成功
+        token_not_found: 未找到通知令牌
+        mute_updated: 静音状态更新成功
     account:
       errors:
-        email_not_found: "邮箱未找到！"
-        email_invalid: "邮箱格式无效"
-        email_taken: "邮箱已被使用"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "邮箱更新失败"
-        password_unmatch: "密码不匹配"
-        password_update_fail: "密码更新失败"
-        otp_invalid: "OTP无效！"
-        register_not_allow: "您不允许注册！"
-        missing_field: "缺少必填字段"
-        password_incorrect: "当前密码错误"
-        username_taken: "用户名已被使用"
+        email_not_found: 邮箱未找到！
+        email_invalid: 邮箱格式无效
+        email_taken: 邮箱已被使用
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: 邮箱更新失败
+        password_unmatch: 密码不匹配
+        password_update_fail: 密码更新失败
+        otp_invalid: OTP无效！
+        register_not_allow: 您不允许注册！
+        missing_field: 缺少必填字段
+        password_incorrect: 当前密码错误
+        username_taken: 用户名已被使用
       messages:
-        password_updated: "密码已更新"
-
+        password_updated: 密码已更新
     domain:
       messages:
-        dns_verified: "DNS配置正确"
-
+        dns_verified: DNS配置正确
     conversation:
       messages:
-        marked_read: "已将 %{updated_count} 个对话标记为已读"
+        marked_read: 已将 %{updated_count} 个对话标记为已读
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: 无法识别的反应
+      emoji_limit_exceeded: 表情符号限制超过

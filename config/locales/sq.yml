@@ -1,75 +1,84 @@
+---
 sq:
   locale:
-    name: "Albanian"
-    native_name: "Shqip"
+    name: Albanian
+    native_name: Shqip
   notification:
     poll:
-      ended_you: "Sondazhi juaj ka përfunduar"
-      ended_voted: "Një sondazh ku keni votuar ka përfunduar"
+      ended_you: Sondazhi juaj ka përfunduar
+      ended_voted: Një sondazh ku keni votuar ka përfunduar
     mention:
       direct_message: "%{name} ju ka dërguar një mesazh"
-      conversation_request: "Keni një kërkesë të re bisede."
+      conversation_request: Keni një kërkesë të re bisede.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "I dashur %{name},"
-      instruction: "Kodi juaj OTP për verifikimin e llogarisë është:"
-      note: "Nëse nuk e keni kërkuar këtë, ju lutemi injoroni këtë email"
+      greeting: I dashur %{name},
+      instruction: 'Kodi juaj OTP për verifikimin e llogarisë është:'
+      note: Nëse nuk e keni kërkuar këtë, ju lutemi injoroni këtë email
   login_service:
     errors:
-      invalid_credentials: "Kredenciale të pavlefshme. Ju lutemi provoni përsëri"
-      unauthorized_access: "Nuk keni akses për të hyrë"
-      channel_not_created: "Kredenciale të pavlefshme. Sigurohuni që keni krijuar një kanal"
-      account_deleted: "Llogaria juaj është fshirë tashmë"
+      invalid_credentials: Kredenciale të pavlefshme. Ju lutemi provoni përsëri
+      unauthorized_access: Nuk keni akses për të hyrë
+      channel_not_created: Kredenciale të pavlefshme. Sigurohuni që keni krijuar një
+        kanal
+      account_deleted: Llogaria juaj është fshirë tashmë
       invalid_role_access: "%{role} nuk lejohet të hyjë"
-      deactivated_channel: "Kanali juaj është çaktivizuar. Kontaktoni mbështetjen"
-      two_factor_enabled: "Autentifikimi me dy faktorë është aktivizuar. Ju lutemi identifikohuni nëpërmjet ndërfaqes në internet"
-
+      deactivated_channel: Kanali juaj është çaktivizuar. Kontaktoni mbështetjen
+      two_factor_enabled: Autentifikimi me dy faktorë është aktivizuar. Ju lutemi
+        identifikohuni nëpërmjet ndërfaqes në internet
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Ju lutemi provoni përsëri. Kredenciale të pavlefshme nga beebee.io"
-      registration_required: "Ju lutemi regjistroni një llogari lokale. të dhëna: %{data}"
-      connection_error: "Gabim në lidhjen me shërbimin e anëtarimit: %{error}"
+      invalid_credentials: Ju lutemi provoni përsëri. Kredenciale të pavlefshme nga
+        beebee.io
+      registration_required: 'Ju lutemi regjistroni një llogari lokale. të dhëna:
+        %{data}'
+      connection_error: 'Gabim në lidhjen me shërbimin e anëtarimit: %{error}'
   api:
     errors:
-      unauthorized: "Nuk jeni të autorizuar të kryeni këtë veprim"
-      forbidden: "Akses i mohuar!"
-      not_found: "Burimi nuk u gjet"
-      unprocessable_entity: "Kërkesa nuk mund të përpunohej"
-      internal_server_error: "Ndodhi një gabim i brendshëm i serverit"
-      validation_failed: "Verifikimi dështoi!"
-      invalid_request: "Kërkesë e pavlefshme!"
-      rate_limit_exceeded: "Limiti i kërkesave u tejkalua. Ju lutemi provoni më vonë"
+      unauthorized: Nuk jeni të autorizuar të kryeni këtë veprim
+      forbidden: Akses i mohuar!
+      not_found: Burimi nuk u gjet
+      unprocessable_entity: Kërkesa nuk mund të përpunohej
+      internal_server_error: Ndodhi një gabim i brendshëm i serverit
+      validation_failed: Verifikimi dështoi!
+      invalid_request: Kërkesë e pavlefshme!
+      rate_limit_exceeded: Limiti i kërkesave u tejkalua. Ju lutemi provoni më vonë
     messages:
-      success: "Operacioni u përfundua me sukses"
-      created: "Burimi u krijua me sukses"
-      updated: "Burimi u përditësua me sukses"
-      deleted: "Burimi u fshi me sukses"
+      success: Operacioni u përfundua me sukses
+      created: Burimi u krijua me sukses
+      updated: Burimi u përditësua me sukses
+      deleted: Burimi u fshi me sukses
     notification:
       messages:
-        token_already_exists: "Tokeni i njoftimit ekziston tashmë"
-        token_saved: "Tokeni i njoftimit u ruajt"
-        token_deleted: "Tokeni i njoftimit u fshi me sukses"
-        token_not_found: "Nuk u gjetën tokenë njoftimi"
-        mute_updated: "Statusi i heshtjes u përditësua me sukses"
+        token_already_exists: Tokeni i njoftimit ekziston tashmë
+        token_saved: Tokeni i njoftimit u ruajt
+        token_deleted: Tokeni i njoftimit u fshi me sukses
+        token_not_found: Nuk u gjetën tokenë njoftimi
+        mute_updated: Statusi i heshtjes u përditësua me sukses
     account:
       errors:
-        email_not_found: "Emaili nuk u gjet!"
-        email_invalid: "Format emaili i pavlefshëm"
-        email_taken: "Emaili është marrë tashmë"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Përditësimi i emailit dështoi"
-        password_unmatch: "Fjalëkalimet nuk përputhen"
-        password_update_fail: "Përditësimi i fjalëkalimit dështoi"
-        otp_invalid: "OTP i pavlefshëm!"
-        register_not_allow: "Nuk jeni të lejuar të regjistroheni!"
-        missing_field: "Fusha të kërkuara mungojnë"
-        password_incorrect: "Fjalëkalimi aktual është i pasaktë"
-        username_taken: "Emri i përdoruesit është marrë tashmë"
+        email_not_found: Emaili nuk u gjet!
+        email_invalid: Format emaili i pavlefshëm
+        email_taken: Emaili është marrë tashmë
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Përditësimi i emailit dështoi
+        password_unmatch: Fjalëkalimet nuk përputhen
+        password_update_fail: Përditësimi i fjalëkalimit dështoi
+        otp_invalid: OTP i pavlefshëm!
+        register_not_allow: Nuk jeni të lejuar të regjistroheni!
+        missing_field: Fusha të kërkuara mungojnë
+        password_incorrect: Fjalëkalimi aktual është i pasaktë
+        username_taken: Emri i përdoruesit është marrë tashmë
       messages:
-        password_updated: "Fjalëkalimi është përditësuar"
+        password_updated: Fjalëkalimi është përditësuar
     domain:
       messages:
-        dns_verified: "DNS është konfiguruar saktë"
+        dns_verified: DNS është konfiguruar saktë
     conversation:
       messages:
         marked_read: "%{updated_count} bisedë(a) u shënua si e lexuar"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Përgjigja nuk është njohur
+      emoji_limit_exceeded: Kufiri i emoji-t është tejkaluar

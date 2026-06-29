@@ -1,75 +1,81 @@
+---
 et:
   locale:
-    name: "Estonian"
-    native_name: "Eesti"
+    name: Estonian
+    native_name: Eesti
   notification:
     poll:
-      ended_you: "Sinu küsitlus on lõppenud"
-      ended_voted: "Küsitlus, milles hääletasid, on lõppenud"
+      ended_you: Sinu küsitlus on lõppenud
+      ended_voted: Küsitlus, milles hääletasid, on lõppenud
     mention:
       direct_message: "%{name} saatis sulle sõnumi"
-      conversation_request: "Teil on uus vestlustaotlus."
+      conversation_request: Teil on uus vestlustaotlus.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Lugupeetud %{name},"
-      instruction: "Sinu konto kinnitamise OTP kood on:"
-      note: "Kui sa ei taotlenud seda, palun ignoreeri seda e-kirja"
+      greeting: Lugupeetud %{name},
+      instruction: 'Sinu konto kinnitamise OTP kood on:'
+      note: Kui sa ei taotlenud seda, palun ignoreeri seda e-kirja
   login_service:
     errors:
-      invalid_credentials: "Vigased andmed. Palun proovi uuesti"
-      unauthorized_access: "Sul ei ole õigust sisse logida"
-      channel_not_created: "Vigased andmed. Palun veendu, et oled loonud kanali"
-      account_deleted: "Sinu konto on juba kustutatud"
+      invalid_credentials: Vigased andmed. Palun proovi uuesti
+      unauthorized_access: Sul ei ole õigust sisse logida
+      channel_not_created: Vigased andmed. Palun veendu, et oled loonud kanali
+      account_deleted: Sinu konto on juba kustutatud
       invalid_role_access: "%{role} ei ole lubatud sisse logida"
-      deactivated_channel: "Sinu kanal on deaktiveeritud. Palun võta ühendust toega"
-      two_factor_enabled: "Kahefaktoriline autentimine on lubatud. Palun logige sisse veebiliidese kaudu"
-
+      deactivated_channel: Sinu kanal on deaktiveeritud. Palun võta ühendust toega
+      two_factor_enabled: Kahefaktoriline autentimine on lubatud. Palun logige sisse
+        veebiliidese kaudu
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Palun proovi uuesti. Vigased andmed beebee.io-st"
-      registration_required: "Palun registreeri kohalik konto. andmed: %{data}"
-      connection_error: "Viga liikmesuse teenusega ühendamisel: %{error}"
+      invalid_credentials: Palun proovi uuesti. Vigased andmed beebee.io-st
+      registration_required: 'Palun registreeri kohalik konto. andmed: %{data}'
+      connection_error: 'Viga liikmesuse teenusega ühendamisel: %{error}'
   api:
     errors:
-      unauthorized: "Sul ei ole õigust seda toimingut teha"
-      forbidden: "Juurdepääs keelatud!"
-      not_found: "Ressurssi ei leitud"
-      unprocessable_entity: "Päringut ei saanud töödelda"
-      internal_server_error: "Tekkis sisemine serveri viga"
-      validation_failed: "Valideerimine ebaõnnestus!"
-      invalid_request: "Vigane päring!"
-      rate_limit_exceeded: "Päringute limiit ületatud. Palun proovi hiljem uuesti"
+      unauthorized: Sul ei ole õigust seda toimingut teha
+      forbidden: Juurdepääs keelatud!
+      not_found: Ressurssi ei leitud
+      unprocessable_entity: Päringut ei saanud töödelda
+      internal_server_error: Tekkis sisemine serveri viga
+      validation_failed: Valideerimine ebaõnnestus!
+      invalid_request: Vigane päring!
+      rate_limit_exceeded: Päringute limiit ületatud. Palun proovi hiljem uuesti
     messages:
-      success: "Toiming edukalt lõpetatud"
-      created: "Ressurss edukalt loodud"
-      updated: "Ressurss edukalt uuendatud"
-      deleted: "Ressurss edukalt kustutatud"
+      success: Toiming edukalt lõpetatud
+      created: Ressurss edukalt loodud
+      updated: Ressurss edukalt uuendatud
+      deleted: Ressurss edukalt kustutatud
     notification:
       messages:
-        token_already_exists: "Teavitustoken on juba olemas"
-        token_saved: "Teavitustoken salvestatud"
-        token_deleted: "Teavitustoken edukalt kustutatud"
-        token_not_found: "Teavitustokenit ei leitud"
-        mute_updated: "Vaigistuse olek edukalt uuendatud"
+        token_already_exists: Teavitustoken on juba olemas
+        token_saved: Teavitustoken salvestatud
+        token_deleted: Teavitustoken edukalt kustutatud
+        token_not_found: Teavitustokenit ei leitud
+        mute_updated: Vaigistuse olek edukalt uuendatud
     account:
       errors:
-        email_not_found: "E-posti ei leitud!"
-        email_invalid: "Vigane e-posti formaat"
-        email_taken: "E-post on juba kasutusel"
-        membership_not_eligible: "Registreerimine on avatud ainult põhiliikmetele, CSIDNeti meeskonnale ja toetajaliikmetele"
-        email_update_fail: "E-posti uuendamine ebaõnnestus"
-        password_unmatch: "Paroolid ei ühti"
-        password_update_fail: "Parooli uuendamine ebaõnnestus"
-        otp_invalid: "Vigane OTP!"
-        register_not_allow: "Sul ei ole lubatud registreeruda!"
-        missing_field: "Nõutavad väljad puuduvad"
-        password_incorrect: "Praegune parool on vale"
-        username_taken: "Kasutajanimi on juba kasutusel"
+        email_not_found: E-posti ei leitud!
+        email_invalid: Vigane e-posti formaat
+        email_taken: E-post on juba kasutusel
+        membership_not_eligible: Registreerimine on avatud ainult põhiliikmetele,
+          CSIDNeti meeskonnale ja toetajaliikmetele
+        email_update_fail: E-posti uuendamine ebaõnnestus
+        password_unmatch: Paroolid ei ühti
+        password_update_fail: Parooli uuendamine ebaõnnestus
+        otp_invalid: Vigane OTP!
+        register_not_allow: Sul ei ole lubatud registreeruda!
+        missing_field: Nõutavad väljad puuduvad
+        password_incorrect: Praegune parool on vale
+        username_taken: Kasutajanimi on juba kasutusel
       messages:
-        password_updated: "Parool on uuendatud"
+        password_updated: Parool on uuendatud
     domain:
       messages:
-        dns_verified: "DNS on õigesti seadistatud"
+        dns_verified: DNS on õigesti seadistatud
     conversation:
       messages:
         marked_read: "%{updated_count} vestlus(t) märgitud loetuks"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktsioon ei ole tunnistatud
+      emoji_limit_exceeded: Emoji piir ületatud

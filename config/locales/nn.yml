@@ -1,75 +1,81 @@
+---
 nn:
   locale:
-    name: "Norwegian Nynorsk"
-    native_name: "Norsk nynorsk"
+    name: Norwegian Nynorsk
+    native_name: Norsk nynorsk
   notification:
     poll:
-      ended_you: "Din avstemming er avslutta"
-      ended_voted: "Ei avstemming du stemte i er avslutta"
+      ended_you: Din avstemming er avslutta
+      ended_voted: Ei avstemming du stemte i er avslutta
     mention:
       direct_message: "%{name} sende deg ei melding"
-      conversation_request: "Du har ei ny samtaleførespurnad."
+      conversation_request: Du har ei ny samtaleførespurnad.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kjære %{name},"
-      instruction: "OTP-koden for kontoverifiseringa di er:"
-      note: "Om du ikkje bad om dette, ignorer denne e-posten"
+      greeting: Kjære %{name},
+      instruction: 'OTP-koden for kontoverifiseringa di er:'
+      note: Om du ikkje bad om dette, ignorer denne e-posten
   login_service:
     errors:
-      invalid_credentials: "Ugyldige innloggingsdetaljar. Prøv igjen"
-      unauthorized_access: "Du har ikkje tilgang til å logge inn"
-      channel_not_created: "Ugyldige innloggingsdetaljar. Pass på at du har oppretta ein kanal"
-      account_deleted: "Kontoen din er allereie sletta"
+      invalid_credentials: Ugyldige innloggingsdetaljar. Prøv igjen
+      unauthorized_access: Du har ikkje tilgang til å logge inn
+      channel_not_created: Ugyldige innloggingsdetaljar. Pass på at du har oppretta
+        ein kanal
+      account_deleted: Kontoen din er allereie sletta
       invalid_role_access: "%{role} har ikkje tilgang til å logge inn"
-      deactivated_channel: "Kanalen din er deaktivert. Kontakt brukerstøtte"
-      two_factor_enabled: "Tofaktorautentisering er aktivert. Logg inn via webgrensesnittet"
-
+      deactivated_channel: Kanalen din er deaktivert. Kontakt brukerstøtte
+      two_factor_enabled: Tofaktorautentisering er aktivert. Logg inn via webgrensesnittet
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Prøv igjen. Ugyldige innloggingsdetaljar frå beebee.io"
-      registration_required: "Vennligst registrer ein lokal konto. data: %{data}"
-      connection_error: "Feil ved tilkopling til medlemsteneste: %{error}"
+      invalid_credentials: Prøv igjen. Ugyldige innloggingsdetaljar frå beebee.io
+      registration_required: 'Vennligst registrer ein lokal konto. data: %{data}'
+      connection_error: 'Feil ved tilkopling til medlemsteneste: %{error}'
   api:
     errors:
-      unauthorized: "Du har ikkje løyve til å utføre denne handlinga"
-      forbidden: "Tilgang nekta!"
-      not_found: "Ressurs ikkje funnen"
-      unprocessable_entity: "Førespurnaden kunne ikkje behandlast"
-      internal_server_error: "Ein intern serverfeil oppstod"
-      validation_failed: "Validering feila!"
-      invalid_request: "Ugyldig førespurnad!"
-      rate_limit_exceeded: "Førespurnadsgrensa er overskriden. Prøv igjen seinare"
+      unauthorized: Du har ikkje løyve til å utføre denne handlinga
+      forbidden: Tilgang nekta!
+      not_found: Ressurs ikkje funnen
+      unprocessable_entity: Førespurnaden kunne ikkje behandlast
+      internal_server_error: Ein intern serverfeil oppstod
+      validation_failed: Validering feila!
+      invalid_request: Ugyldig førespurnad!
+      rate_limit_exceeded: Førespurnadsgrensa er overskriden. Prøv igjen seinare
     messages:
-      success: "Handlinga vart fullført"
-      created: "Ressurs oppretta"
-      updated: "Ressurs oppdatert"
-      deleted: "Ressurs sletta"
+      success: Handlinga vart fullført
+      created: Ressurs oppretta
+      updated: Ressurs oppdatert
+      deleted: Ressurs sletta
     notification:
       messages:
-        token_already_exists: "Varslingstoken finst frå før"
-        token_saved: "Varslingstoken lagra"
-        token_deleted: "Varslingstoken sletta"
-        token_not_found: "Ingen varslingstoken funne"
-        mute_updated: "Stillemodus oppdatert"
+        token_already_exists: Varslingstoken finst frå før
+        token_saved: Varslingstoken lagra
+        token_deleted: Varslingstoken sletta
+        token_not_found: Ingen varslingstoken funne
+        mute_updated: Stillemodus oppdatert
     account:
       errors:
-        email_not_found: "E-post ikkje funnen!"
-        email_invalid: "Ugyldig e-postformat"
-        email_taken: "E-post er allereie i bruk"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Oppdatering av e-post feila"
-        password_unmatch: "Passorda stemmer ikkje overeins"
-        password_update_fail: "Oppdatering av passord feila"
-        otp_invalid: "Ugyldig OTP!"
-        register_not_allow: "Du har ikkje løyve til å registrere deg!"
-        missing_field: "Manglar påkravde felt"
-        password_incorrect: "Noverande passord er feil"
-        username_taken: "Brukarnamn er allereie i bruk"
+        email_not_found: E-post ikkje funnen!
+        email_invalid: Ugyldig e-postformat
+        email_taken: E-post er allereie i bruk
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Oppdatering av e-post feila
+        password_unmatch: Passorda stemmer ikkje overeins
+        password_update_fail: Oppdatering av passord feila
+        otp_invalid: Ugyldig OTP!
+        register_not_allow: Du har ikkje løyve til å registrere deg!
+        missing_field: Manglar påkravde felt
+        password_incorrect: Noverande passord er feil
+        username_taken: Brukarnamn er allereie i bruk
       messages:
-        password_updated: "Passordet er oppdatert"
+        password_updated: Passordet er oppdatert
     domain:
       messages:
-        dns_verified: "DNS er rett konfigurert"
+        dns_verified: DNS er rett konfigurert
     conversation:
       messages:
         marked_read: "%{updated_count} samtale(r) merka som lese"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksjon ikkje gjenkjend
+      emoji_limit_exceeded: Emoji-grense overskreden

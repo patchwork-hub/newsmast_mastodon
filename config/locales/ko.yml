@@ -1,84 +1,80 @@
+---
 ko:
   locale:
-    name: "Korean"
-    native_name: "한국어"
-  
+    name: Korean
+    native_name: 한국어
   notification:
     poll:
-      ended_you: "설문조사가 종료되었습니다"
-      ended_voted: "투표한 설문조사가 종료되었습니다"
+      ended_you: 설문조사가 종료되었습니다
+      ended_voted: 투표한 설문조사가 종료되었습니다
     mention:
       direct_message: "%{name}님이 메시지를 보냈습니다"
-      conversation_request: "새 대화 요청이 있습니다."
-
+      conversation_request: 새 대화 요청이 있습니다.
   custom_passwords_mailer:
     reset_password_confirmation:
       greeting: "%{name}님께,"
-      instruction: "계정 인증 OTP 코드는 다음과 같습니다:"
-      note: "요청하지 않으셨다면 이 이메일을 무시해 주세요"
-  
+      instruction: '계정 인증 OTP 코드는 다음과 같습니다:'
+      note: 요청하지 않으셨다면 이 이메일을 무시해 주세요
   login_service:
     errors:
-      invalid_credentials: "잘못된 자격 증명입니다. 다시 시도해 주세요"
-      unauthorized_access: "로그인 권한이 없습니다"
-      channel_not_created: "잘못된 자격 증명입니다. 채널을 생성했는지 확인해 주세요"
-      account_deleted: "계정이 이미 삭제되었습니다"
+      invalid_credentials: 잘못된 자격 증명입니다. 다시 시도해 주세요
+      unauthorized_access: 로그인 권한이 없습니다
+      channel_not_created: 잘못된 자격 증명입니다. 채널을 생성했는지 확인해 주세요
+      account_deleted: 계정이 이미 삭제되었습니다
       invalid_role_access: "%{role}은(는) 로그인이 허용되지 않습니다"
-      deactivated_channel: "채널이 비활성화되었습니다. 지원팀에 문의해 주세요"
-      two_factor_enabled: "이중 인증이 활성화되어 있습니다. 웹 인터페이스로 로그인해 주세요"
-
+      deactivated_channel: 채널이 비활성화되었습니다. 지원팀에 문의해 주세요
+      two_factor_enabled: 이중 인증이 활성화되어 있습니다. 웹 인터페이스로 로그인해 주세요
   bristolcable_login_service:
     errors:
-      invalid_credentials: "다시 시도해 주세요. beebee.io의 자격 증명이 잘못되었습니다"
-      registration_required: "로컬 계정을 등록해 주세요. 데이터: %{data}"
-      connection_error: "회원 서비스 연결 오류: %{error}"
-
+      invalid_credentials: 다시 시도해 주세요. beebee.io의 자격 증명이 잘못되었습니다
+      registration_required: '로컬 계정을 등록해 주세요. 데이터: %{data}'
+      connection_error: '회원 서비스 연결 오류: %{error}'
   api:
     errors:
-      unauthorized: "이 작업을 수행할 권한이 없습니다"
-      forbidden: "접근이 거부되었습니다!"
-      not_found: "리소스를 찾을 수 없습니다"
-      unprocessable_entity: "요청을 처리할 수 없습니다"
-      internal_server_error: "내부 서버 오류가 발생했습니다"
-      validation_failed: "유효성 검사에 실패했습니다!"
-      invalid_request: "잘못된 요청입니다!"
-      rate_limit_exceeded: "요청 제한을 초과했습니다. 나중에 다시 시도해 주세요"
-
+      unauthorized: 이 작업을 수행할 권한이 없습니다
+      forbidden: 접근이 거부되었습니다!
+      not_found: 리소스를 찾을 수 없습니다
+      unprocessable_entity: 요청을 처리할 수 없습니다
+      internal_server_error: 내부 서버 오류가 발생했습니다
+      validation_failed: 유효성 검사에 실패했습니다!
+      invalid_request: 잘못된 요청입니다!
+      rate_limit_exceeded: 요청 제한을 초과했습니다. 나중에 다시 시도해 주세요
     messages:
-      success: "작업이 성공적으로 완료되었습니다"
-      created: "리소스가 성공적으로 생성되었습니다"
-      updated: "리소스가 성공적으로 업데이트되었습니다"
-      deleted: "리소스가 성공적으로 삭제되었습니다"
-
+      success: 작업이 성공적으로 완료되었습니다
+      created: 리소스가 성공적으로 생성되었습니다
+      updated: 리소스가 성공적으로 업데이트되었습니다
+      deleted: 리소스가 성공적으로 삭제되었습니다
     notification:
       messages:
-        token_already_exists: "알림 토큰이 이미 존재합니다"
-        token_saved: "알림 토큰이 저장되었습니다"
-        token_deleted: "알림 토큰이 성공적으로 삭제되었습니다"
-        token_not_found: "알림 토큰을 찾을 수 없습니다"
-        mute_updated: "음소거 상태가 성공적으로 업데이트되었습니다"
-
+        token_already_exists: 알림 토큰이 이미 존재합니다
+        token_saved: 알림 토큰이 저장되었습니다
+        token_deleted: 알림 토큰이 성공적으로 삭제되었습니다
+        token_not_found: 알림 토큰을 찾을 수 없습니다
+        mute_updated: 음소거 상태가 성공적으로 업데이트되었습니다
     account:
       errors:
-        email_not_found: "이메일을 찾을 수 없습니다!"
-        email_invalid: "잘못된 이메일 형식입니다"
-        email_taken: "이미 사용 중인 이메일입니다"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "이메일 업데이트에 실패했습니다"
-        password_unmatch: "비밀번호가 일치하지 않습니다"
-        password_update_fail: "비밀번호 업데이트에 실패했습니다"
-        otp_invalid: "잘못된 OTP입니다!"
-        register_not_allow: "가입이 허용되지 않습니다!"
-        missing_field: "필수 항목이 누락되었습니다"
-        password_incorrect: "현재 비밀번호가 올바르지 않습니다"
-        username_taken: "이미 사용 중인 사용자 이름입니다"
+        email_not_found: 이메일을 찾을 수 없습니다!
+        email_invalid: 잘못된 이메일 형식입니다
+        email_taken: 이미 사용 중인 이메일입니다
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: 이메일 업데이트에 실패했습니다
+        password_unmatch: 비밀번호가 일치하지 않습니다
+        password_update_fail: 비밀번호 업데이트에 실패했습니다
+        otp_invalid: 잘못된 OTP입니다!
+        register_not_allow: 가입이 허용되지 않습니다!
+        missing_field: 필수 항목이 누락되었습니다
+        password_incorrect: 현재 비밀번호가 올바르지 않습니다
+        username_taken: 이미 사용 중인 사용자 이름입니다
       messages:
-        password_updated: "비밀번호가 업데이트되었습니다"
-
+        password_updated: 비밀번호가 업데이트되었습니다
     domain:
       messages:
-        dns_verified: "DNS가 올바르게 구성되었습니다"
-
+        dns_verified: DNS가 올바르게 구성되었습니다
     conversation:
       messages:
         marked_read: "%{updated_count}개의 대화가 읽음으로 표시되었습니다"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: 인식할 수 없는 반응
+      emoji_limit_exceeded: 이모지 제한 초과

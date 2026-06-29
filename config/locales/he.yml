@@ -1,75 +1,80 @@
+---
 he:
   locale:
-    name: "Hebrew"
-    native_name: "עברית"
+    name: Hebrew
+    native_name: עברית
   notification:
     poll:
-      ended_you: "הסקר שלך הסתיים"
-      ended_voted: "סקר שהצבעת בו הסתיים"
+      ended_you: הסקר שלך הסתיים
+      ended_voted: סקר שהצבעת בו הסתיים
     mention:
       direct_message: "%{name} שלח לך הודעה"
-      conversation_request: "יש לך בקשת שיחה חדשה."
+      conversation_request: יש לך בקשת שיחה חדשה.
   custom_passwords_mailer:
     reset_password_confirmation:
       greeting: "%{name} היקר/ה,"
-      instruction: "קוד ה-OTP לאימות החשבון שלך הוא:"
-      note: "אם לא ביקשת זאת, התעלם מהמייל הזה"
+      instruction: 'קוד ה-OTP לאימות החשבון שלך הוא:'
+      note: אם לא ביקשת זאת, התעלם מהמייל הזה
   login_service:
     errors:
-      invalid_credentials: "פרטי התחברות לא תקינים. נסה שוב"
-      unauthorized_access: "אין לך הרשאה להתחבר"
-      channel_not_created: "פרטי התחברות לא תקינים. ודא שיצרת ערוץ"
-      account_deleted: "החשבון שלך כבר נמחק"
+      invalid_credentials: פרטי התחברות לא תקינים. נסה שוב
+      unauthorized_access: אין לך הרשאה להתחבר
+      channel_not_created: פרטי התחברות לא תקינים. ודא שיצרת ערוץ
+      account_deleted: החשבון שלך כבר נמחק
       invalid_role_access: "%{role} אינו מורשה להתחבר"
-      deactivated_channel: "הערוץ שלך מושבת. פנה לתמיכה"
-      two_factor_enabled: "אימות דו-שלבי מופעל. אנא התחבר דרך ממשק האינטרנט"
-
+      deactivated_channel: הערוץ שלך מושבת. פנה לתמיכה
+      two_factor_enabled: אימות דו-שלבי מופעל. אנא התחבר דרך ממשק האינטרנט
   bristolcable_login_service:
     errors:
-      invalid_credentials: "נסה שוב. פרטי התחברות לא תקינים מ-beebee.io"
-      registration_required: "אנא צור חשבון מקומי. נתונים: %{data}"
-      connection_error: "שגיאה בחיבור לשירות החברות: %{error}"
+      invalid_credentials: נסה שוב. פרטי התחברות לא תקינים מ-beebee.io
+      registration_required: 'אנא צור חשבון מקומי. נתונים: %{data}'
+      connection_error: 'שגיאה בחיבור לשירות החברות: %{error}'
   api:
     errors:
-      unauthorized: "אין לך הרשאה לבצע פעולה זו"
-      forbidden: "הגישה נדחתה!"
-      not_found: "המשאב לא נמצא"
-      unprocessable_entity: "לא ניתן לעבד את הבקשה"
-      internal_server_error: "אירעה שגיאת שרת פנימית"
-      validation_failed: "האימות נכשל!"
-      invalid_request: "בקשה לא תקינה!"
-      rate_limit_exceeded: "חרגת ממגבלת הבקשות. נסה שוב מאוחר יותר"
+      unauthorized: אין לך הרשאה לבצע פעולה זו
+      forbidden: הגישה נדחתה!
+      not_found: המשאב לא נמצא
+      unprocessable_entity: לא ניתן לעבד את הבקשה
+      internal_server_error: אירעה שגיאת שרת פנימית
+      validation_failed: האימות נכשל!
+      invalid_request: בקשה לא תקינה!
+      rate_limit_exceeded: חרגת ממגבלת הבקשות. נסה שוב מאוחר יותר
     messages:
-      success: "הפעולה הושלמה בהצלחה"
-      created: "המשאב נוצר בהצלחה"
-      updated: "המשאב עודכן בהצלחה"
-      deleted: "המשאב נמחק בהצלחה"
+      success: הפעולה הושלמה בהצלחה
+      created: המשאב נוצר בהצלחה
+      updated: המשאב עודכן בהצלחה
+      deleted: המשאב נמחק בהצלחה
     notification:
       messages:
-        token_already_exists: "אסימון ההתראות כבר קיים"
-        token_saved: "אסימון ההתראות נשמר"
-        token_deleted: "אסימון ההתראות נמחק בהצלחה"
-        token_not_found: "לא נמצאו אסימוני התראות"
-        mute_updated: "סטטוס ההשתקה עודכן בהצלחה"
+        token_already_exists: אסימון ההתראות כבר קיים
+        token_saved: אסימון ההתראות נשמר
+        token_deleted: אסימון ההתראות נמחק בהצלחה
+        token_not_found: לא נמצאו אסימוני התראות
+        mute_updated: סטטוס ההשתקה עודכן בהצלחה
     account:
       errors:
-        email_not_found: "האימייל לא נמצא!"
-        email_invalid: "פורמט אימייל לא תקין"
-        email_taken: "האימייל כבר בשימוש"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "עדכון האימייל נכשל"
-        password_unmatch: "הסיסמאות אינן תואמות"
-        password_update_fail: "עדכון הסיסמה נכשל"
-        otp_invalid: "OTP לא תקין!"
-        register_not_allow: "אין לך הרשאה להירשם!"
-        missing_field: "שדות חובה חסרים"
-        password_incorrect: "הסיסמה הנוכחית שגויה"
-        username_taken: "שם המשתמש כבר בשימוש"
+        email_not_found: האימייל לא נמצא!
+        email_invalid: פורמט אימייל לא תקין
+        email_taken: האימייל כבר בשימוש
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: עדכון האימייל נכשל
+        password_unmatch: הסיסמאות אינן תואמות
+        password_update_fail: עדכון הסיסמה נכשל
+        otp_invalid: OTP לא תקין!
+        register_not_allow: אין לך הרשאה להירשם!
+        missing_field: שדות חובה חסרים
+        password_incorrect: הסיסמה הנוכחית שגויה
+        username_taken: שם המשתמש כבר בשימוש
       messages:
-        password_updated: "הסיסמה עודכנה"
+        password_updated: הסיסמה עודכנה
     domain:
       messages:
-        dns_verified: "ה-DNS מוגדר כראוי"
+        dns_verified: ה-DNS מוגדר כראוי
     conversation:
       messages:
-        marked_read: "סומנו %{updated_count} שיחות כנקראו"
+        marked_read: סומנו %{updated_count} שיחות כנקראו
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: תגובה לא מזוהה
+      emoji_limit_exceeded: חרגת מגבלת אמוג'י

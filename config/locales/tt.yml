@@ -1,75 +1,81 @@
+---
 tt:
   locale:
-    name: "Tatar"
-    native_name: "Татарча"
+    name: Tatar
+    native_name: Татарча
   notification:
     poll:
-      ended_you: "Сезнең сораштыру тәмамланды"
-      ended_voted: "Сез тавыш биргән сораштыру тәмамланды"
+      ended_you: Сезнең сораштыру тәмамланды
+      ended_voted: Сез тавыш биргән сораштыру тәмамланды
     mention:
       direct_message: "%{name} сезгә хәбәр җибәрде"
-      conversation_request: "Сездә яңа сөйләшү соравы бар."
+      conversation_request: Сездә яңа сөйләшү соравы бар.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Хөрмәтле %{name},"
-      instruction: "Сезнең аккаунтны раслау өчен OTP коды түбәндәге"
-      note: "Әгәр сез моны сорамаган булсагыз, бу хатны игътибарсыз калдырыгыз"
+      greeting: Хөрмәтле %{name},
+      instruction: Сезнең аккаунтны раслау өчен OTP коды түбәндәге
+      note: Әгәр сез моны сорамаган булсагыз, бу хатны игътибарсыз калдырыгыз
   login_service:
     errors:
-      invalid_credentials: "Яраксыз мәгълүматлар. Кабатлап карагыз"
-      unauthorized_access: "Сезгә керү рөхсәт ителмәгән"
-      channel_not_created: "Яраксыз мәгълүматлар. Канал булдырганыгызга инаныгыз"
-      account_deleted: "Сезнең аккаунт инде бетерелгән"
+      invalid_credentials: Яраксыз мәгълүматлар. Кабатлап карагыз
+      unauthorized_access: Сезгә керү рөхсәт ителмәгән
+      channel_not_created: Яраксыз мәгълүматлар. Канал булдырганыгызга инаныгыз
+      account_deleted: Сезнең аккаунт инде бетерелгән
       invalid_role_access: "%{role} керү рөхсәт ителмәгән"
-      deactivated_channel: "Сезнең канал деактивлаштырылган. Ярдәмгә мөрәҗәгать итегез"
-      two_factor_enabled: "Ике факторлы аутентификация ачыктырылган. Зинһар, веб-интерфейс аша керегез"
+      deactivated_channel: Сезнең канал деактивлаштырылган. Ярдәмгә мөрәҗәгать итегез
+      two_factor_enabled: Ике факторлы аутентификация ачыктырылган. Зинһар, веб-интерфейс
+        аша керегез
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Сез бу гамәлне үтәргә рөхсәт ителмәгән"
-      forbidden: "Керү тыелган!"
-      not_found: "Ресурс табылмады"
-      unprocessable_entity: "Сорау эшкәртелмәде"
-      internal_server_error: "Эчке сервер хатасы булды"
-      validation_failed: "Валидация уңышсыз!"
-      invalid_request: "Яраксыз сорау!"
-      rate_limit_exceeded: "Сорау лимиты артып китте. Соңрак кабатлап карагыз"
+      unauthorized: Сез бу гамәлне үтәргә рөхсәт ителмәгән
+      forbidden: Керү тыелган!
+      not_found: Ресурс табылмады
+      unprocessable_entity: Сорау эшкәртелмәде
+      internal_server_error: Эчке сервер хатасы булды
+      validation_failed: Валидация уңышсыз!
+      invalid_request: Яраксыз сорау!
+      rate_limit_exceeded: Сорау лимиты артып китте. Соңрак кабатлап карагыз
     messages:
-      success: "Операция уңышлы тәмамланды"
-      created: "Ресурс уңышлы булдырылды"
-      updated: "Ресурс уңышлы яңартылды"
-      deleted: "Ресурс уңышлы бетерелде"
+      success: Операция уңышлы тәмамланды
+      created: Ресурс уңышлы булдырылды
+      updated: Ресурс уңышлы яңартылды
+      deleted: Ресурс уңышлы бетерелде
     notification:
       messages:
-        token_already_exists: "Хәбәр токены инде бар"
-        token_saved: "Хәбәр токены сакланды"
-        token_deleted: "Хәбәр токены уңышлы бетерелде"
-        token_not_found: "Хәбәр токеннары табылмады"
-        mute_updated: "Тынлык статусы уңышлы яңартылды"
+        token_already_exists: Хәбәр токены инде бар
+        token_saved: Хәбәр токены сакланды
+        token_deleted: Хәбәр токены уңышлы бетерелде
+        token_not_found: Хәбәр токеннары табылмады
+        mute_updated: Тынлык статусы уңышлы яңартылды
     account:
       errors:
-        email_not_found: "Электрон почта табылмады!"
-        email_invalid: "Яраксыз электрон почта форматы"
-        email_taken: "Электрон почта инде алынган"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Электрон почта яңарту уңышсыз булды"
-        password_unmatch: "Парольләр туры килми"
-        password_update_fail: "Пароль яңарту уңышсыз булды"
-        otp_invalid: "Яраксыз OTP!"
-        register_not_allow: "Сезгә теркәлү рөхсәт ителмәгән!"
-        missing_field: "Таләп ителгән кырлар юк"
-        password_incorrect: "Агымдагы пароль дөрес түгел"
-        username_taken: "Кулланучы исеме инде алынган"
+        email_not_found: Электрон почта табылмады!
+        email_invalid: Яраксыз электрон почта форматы
+        email_taken: Электрон почта инде алынган
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Электрон почта яңарту уңышсыз булды
+        password_unmatch: Парольләр туры килми
+        password_update_fail: Пароль яңарту уңышсыз булды
+        otp_invalid: Яраксыз OTP!
+        register_not_allow: Сезгә теркәлү рөхсәт ителмәгән!
+        missing_field: Таләп ителгән кырлар юк
+        password_incorrect: Агымдагы пароль дөрес түгел
+        username_taken: Кулланучы исеме инде алынган
       messages:
-        password_updated: "Пароль яңартылды"
+        password_updated: Пароль яңартылды
     domain:
       messages:
-        dns_verified: "DNS дөрес конфигурацияләнгән"
+        dns_verified: DNS дөрес конфигурацияләнгән
     conversation:
       messages:
         marked_read: "%{updated_count} сөйләшү укылган дип билгеләнде"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Рәакция танылмаган
+      emoji_limit_exceeded: Эмодзи чиге артты

@@ -1,74 +1,83 @@
+---
 bn:
   locale:
-    name: "Bengali"
-    native_name: "বাংলা"
+    name: Bengali
+    native_name: বাংলা
   notification:
     poll:
-      ended_you: "আপনার ভোট শেষ হয়েছে"
-      ended_voted: "আপনি যে ভোটে ভোট দিয়েছেন তা শেষ হয়েছে"
+      ended_you: আপনার ভোট শেষ হয়েছে
+      ended_voted: আপনি যে ভোটে ভোট দিয়েছেন তা শেষ হয়েছে
     mention:
       direct_message: "%{name} আপনাকে একটি বার্তা পাঠিয়েছে"
-      conversation_request: "আপনার একটি নতুন কথোপকথনের অনুরোধ আছে।"
+      conversation_request: আপনার একটি নতুন কথোপকথনের অনুরোধ আছে।
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "প্রিয় %{name},"
-      instruction: "আপনার অ্যাকাউন্ট যাচাইকরণ OTP কোডটি হল:"
-      note: "আপনি যদি এটি অনুরোধ না করে থাকেন, দয়া করে এই ইমেলটি উপেক্ষা করুন"
+      greeting: প্রিয় %{name},
+      instruction: 'আপনার অ্যাকাউন্ট যাচাইকরণ OTP কোডটি হল:'
+      note: আপনি যদি এটি অনুরোধ না করে থাকেন, দয়া করে এই ইমেলটি উপেক্ষা করুন
   login_service:
     errors:
-      invalid_credentials: "অবৈধ শংসাপত্র। অনুগ্রহ করে আবার চেষ্টা করুন"
-      unauthorized_access: "আপনার লগইন করার অনুমতি নেই"
-      channel_not_created: "অবৈধ শংসাপত্র। অনুগ্রহ করে নিশ্চিত করুন যে আপনি একটি চ্যানেল তৈরি করেছেন"
-      account_deleted: "আপনার অ্যাকাউন্ট ইতিমধ্যে মুছে ফেলা হয়েছে"
+      invalid_credentials: অবৈধ শংসাপত্র। অনুগ্রহ করে আবার চেষ্টা করুন
+      unauthorized_access: আপনার লগইন করার অনুমতি নেই
+      channel_not_created: অবৈধ শংসাপত্র। অনুগ্রহ করে নিশ্চিত করুন যে আপনি একটি চ্যানেল
+        তৈরি করেছেন
+      account_deleted: আপনার অ্যাকাউন্ট ইতিমধ্যে মুছে ফেলা হয়েছে
       invalid_role_access: "%{role} লগইন করার অনুমতি নেই"
-      deactivated_channel: "আপনার চ্যানেল নিষ্ক্রিয়। অনুগ্রহ করে সহায়তার সাথে যোগাযোগ করুন"
-      two_factor_enabled: "দুই-ফ্যাক্টর প্রমাণীকরণ সক্রিয় করা হয়েছে। অনুগ্রহ করে ওয়েব ইন্টারফেসের মাধ্যমে লগইন করুন"
+      deactivated_channel: আপনার চ্যানেল নিষ্ক্রিয়। অনুগ্রহ করে সহায়তার সাথে যোগাযোগ
+        করুন
+      two_factor_enabled: দুই-ফ্যাক্টর প্রমাণীকরণ সক্রিয় করা হয়েছে। অনুগ্রহ করে
+        ওয়েব ইন্টারফেসের মাধ্যমে লগইন করুন
   bristolcable_login_service:
     errors:
-      invalid_credentials: "অনুগ্রহ করে আবার চেষ্টা করুন। beebee.io থেকে অবৈধ শংসাপত্র"
-      registration_required: "অনুগ্রহ করে স্থানীয় অ্যাকাউন্ট নিবন্ধন করুন। ডেটা: %{data}"
-      connection_error: "সদস্যতা সেবার সাথে সংযোগ করতে ত্রুটি: %{error}"
+      invalid_credentials: অনুগ্রহ করে আবার চেষ্টা করুন। beebee.io থেকে অবৈধ শংসাপত্র
+      registration_required: 'অনুগ্রহ করে স্থানীয় অ্যাকাউন্ট নিবন্ধন করুন। ডেটা: %{data}'
+      connection_error: 'সদস্যতা সেবার সাথে সংযোগ করতে ত্রুটি: %{error}'
   api:
     errors:
-      unauthorized: "আপনি এই কাজটি করার অনুমতি নেই"
-      forbidden: "প্রবেশাধিকার অস্বীকৃত!"
-      not_found: "রিসোর্স পাওয়া যায়নি"
-      unprocessable_entity: "অনুরোধটি প্রক্রিয়া করা যায়নি"
-      internal_server_error: "একটি অভ্যন্তরীণ সার্ভার ত্রুটি ঘটেছে"
-      validation_failed: "যাচাইকরণ ব্যর্থ হয়েছে!"
-      invalid_request: "অবৈধ অনুরোধ!"
-      rate_limit_exceeded: "অনুরোধের সীমা অতিক্রম করেছে। পরে আবার চেষ্টা করুন"
+      unauthorized: আপনি এই কাজটি করার অনুমতি নেই
+      forbidden: প্রবেশাধিকার অস্বীকৃত!
+      not_found: রিসোর্স পাওয়া যায়নি
+      unprocessable_entity: অনুরোধটি প্রক্রিয়া করা যায়নি
+      internal_server_error: একটি অভ্যন্তরীণ সার্ভার ত্রুটি ঘটেছে
+      validation_failed: যাচাইকরণ ব্যর্থ হয়েছে!
+      invalid_request: অবৈধ অনুরোধ!
+      rate_limit_exceeded: অনুরোধের সীমা অতিক্রম করেছে। পরে আবার চেষ্টা করুন
     messages:
-      success: "অপারেশন সফলভাবে সম্পন্ন হয়েছে"
-      created: "রিসোর্স সফলভাবে তৈরি হয়েছে"
-      updated: "রিসোর্স সফলভাবে আপডেট হয়েছে"
-      deleted: "রিসোর্স সফলভাবে মুছে ফেলা হয়েছে"
+      success: অপারেশন সফলভাবে সম্পন্ন হয়েছে
+      created: রিসোর্স সফলভাবে তৈরি হয়েছে
+      updated: রিসোর্স সফলভাবে আপডেট হয়েছে
+      deleted: রিসোর্স সফলভাবে মুছে ফেলা হয়েছে
     notification:
       messages:
-        token_already_exists: "নোটিফিকেশন টোকেন ইতিমধ্যে বিদ্যমান"
-        token_saved: "নোটিফিকেশন টোকেন সংরক্ষিত হয়েছে"
-        token_deleted: "নোটিফিকেশন টোকেন সফলভাবে মুছে ফেলা হয়েছে"
-        token_not_found: "কোনও নোটিফিকেশন টোকেন পাওয়া যায়নি"
-        mute_updated: "মিউট স্ট্যাটাস সফলভাবে আপডেট হয়েছে"
+        token_already_exists: নোটিফিকেশন টোকেন ইতিমধ্যে বিদ্যমান
+        token_saved: নোটিফিকেশন টোকেন সংরক্ষিত হয়েছে
+        token_deleted: নোটিফিকেশন টোকেন সফলভাবে মুছে ফেলা হয়েছে
+        token_not_found: কোনও নোটিফিকেশন টোকেন পাওয়া যায়নি
+        mute_updated: মিউট স্ট্যাটাস সফলভাবে আপডেট হয়েছে
     account:
       errors:
-        email_not_found: "ইমেল পাওয়া যায়নি!"
-        email_invalid: "অবৈধ ইমেল ফরম্যাট"
-        email_taken: "ইমেল ইতিমধ্যে নেওয়া হয়েছে"
-        membership_not_eligible: "রেজিস্ট্রেশন শুধুমাত্র মূল সদস্য, CSIDNet টিম এবং সমর্থক সদস্যদের জন্য উন্মুক্ত"
-        email_update_fail: "ইমেল আপডেট সফল হয়নি"
-        password_unmatch: "পাসওয়ার্ড মেলেনি"
-        password_update_fail: "পাসওয়ার্ড আপডেট সফল হয়নি"
-        otp_invalid: "অবৈধ OTP!"
-        register_not_allow: "আপনি নিবন্ধন করার অনুমতি নেই!"
-        missing_field: "প্রয়োজনীয় ক্ষেত্রগুলি অনুপস্থিত"
-        password_incorrect: "বর্তমান পাসওয়ার্ড ভুল"
-        username_taken: "ইউজারনেম ইতিমধ্যে নেওয়া হয়েছে"
+        email_not_found: ইমেল পাওয়া যায়নি!
+        email_invalid: অবৈধ ইমেল ফরম্যাট
+        email_taken: ইমেল ইতিমধ্যে নেওয়া হয়েছে
+        membership_not_eligible: রেজিস্ট্রেশন শুধুমাত্র মূল সদস্য, CSIDNet টিম এবং
+          সমর্থক সদস্যদের জন্য উন্মুক্ত
+        email_update_fail: ইমেল আপডেট সফল হয়নি
+        password_unmatch: পাসওয়ার্ড মেলেনি
+        password_update_fail: পাসওয়ার্ড আপডেট সফল হয়নি
+        otp_invalid: অবৈধ OTP!
+        register_not_allow: আপনি নিবন্ধন করার অনুমতি নেই!
+        missing_field: প্রয়োজনীয় ক্ষেত্রগুলি অনুপস্থিত
+        password_incorrect: বর্তমান পাসওয়ার্ড ভুল
+        username_taken: ইউজারনেম ইতিমধ্যে নেওয়া হয়েছে
       messages:
-        password_updated: "পাসওয়ার্ড আপডেট হয়েছে"
+        password_updated: পাসওয়ার্ড আপডেট হয়েছে
     domain:
       messages:
-        dns_verified: "DNS সঠিকভাবে কনফিগার করা হয়েছে"
+        dns_verified: DNS সঠিকভাবে কনফিগার করা হয়েছে
     conversation:
       messages:
         marked_read: "%{updated_count}টি কথোপকথন পড়া হয়েছে হিসাবে চিহ্নিত করা হয়েছে"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: প্রতিক্রিয়া স্বীকৃত নয়
+      emoji_limit_exceeded: ইমোজি সীমা অতিক্রম করা হয়েছে

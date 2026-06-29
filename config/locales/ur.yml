@@ -1,75 +1,81 @@
+---
 ur:
   locale:
-    name: "Urdu"
-    native_name: "اردو"
+    name: Urdu
+    native_name: اردو
   notification:
     poll:
-      ended_you: "آپ کا پول ختم ہو گیا ہے"
-      ended_voted: "جس پول میں آپ نے ووٹ دیا وہ ختم ہو گیا ہے"
+      ended_you: آپ کا پول ختم ہو گیا ہے
+      ended_voted: جس پول میں آپ نے ووٹ دیا وہ ختم ہو گیا ہے
     mention:
       direct_message: "%{name} نے آپ کو پیغام بھیجا"
-      conversation_request: "آپ کے پاس ایک نئی بات چیت کی درخواست ہے۔"
+      conversation_request: آپ کے پاس ایک نئی بات چیت کی درخواست ہے۔
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "محترم %{name},"
-      instruction: "آپ کے اکاؤنٹ کی تصدیق کے لیے OTP کوڈ درج ذیل ہے:"
-      note: "اگر آپ نے یہ درخواست نہیں کی تو براہ کرم اس ای میل کو نظر انداز کریں"
+      greeting: محترم %{name},
+      instruction: 'آپ کے اکاؤنٹ کی تصدیق کے لیے OTP کوڈ درج ذیل ہے:'
+      note: اگر آپ نے یہ درخواست نہیں کی تو براہ کرم اس ای میل کو نظر انداز کریں
   login_service:
     errors:
-      invalid_credentials: "غلط اسناد۔ دوبارہ کوشش کریں"
-      unauthorized_access: "آپ کو لاگ ان کرنے کی اجازت نہیں ہے"
-      channel_not_created: "غلط اسناد۔ براہ کرم یقینی بنائیں کہ آپ نے چینل بنایا ہے"
-      account_deleted: "آپ کا اکاؤنٹ پہلے ہی حذف ہو چکا ہے"
+      invalid_credentials: غلط اسناد۔ دوبارہ کوشش کریں
+      unauthorized_access: آپ کو لاگ ان کرنے کی اجازت نہیں ہے
+      channel_not_created: غلط اسناد۔ براہ کرم یقینی بنائیں کہ آپ نے چینل بنایا ہے
+      account_deleted: آپ کا اکاؤنٹ پہلے ہی حذف ہو چکا ہے
       invalid_role_access: "%{role} کو لاگ ان کرنے کی اجازت نہیں ہے"
-      deactivated_channel: "آپ کا چینل غیر فعال ہے۔ براہ کرم سپورٹ سے رابطہ کریں"
-      two_factor_enabled: "دو عنصری تصدیق فعال ہے۔ براہ کرم ویب انٹرفیس کے ذریعے لاگ ان کریں"
-
+      deactivated_channel: آپ کا چینل غیر فعال ہے۔ براہ کرم سپورٹ سے رابطہ کریں
+      two_factor_enabled: دو عنصری تصدیق فعال ہے۔ براہ کرم ویب انٹرفیس کے ذریعے لاگ
+        ان کریں
   bristolcable_login_service:
     errors:
-      invalid_credentials: "دوبارہ کوشش کریں۔ beebee.io سے غلط اسناد"
-      registration_required: "براہ کرم مقامی اکاؤنٹ رجسٹر کریں۔ ڈیٹا: %{data}"
-      connection_error: "رکنیت کی خدمت سے منسلک ہونے میں خرابی: %{error}"
+      invalid_credentials: دوبارہ کوشش کریں۔ beebee.io سے غلط اسناد
+      registration_required: 'براہ کرم مقامی اکاؤنٹ رجسٹر کریں۔ ڈیٹا: %{data}'
+      connection_error: 'رکنیت کی خدمت سے منسلک ہونے میں خرابی: %{error}'
   api:
     errors:
-      unauthorized: "آپ کو یہ عمل کرنے کی اجازت نہیں ہے"
-      forbidden: "رسائی مسترد کر دی گئی!"
-      not_found: "وسیلہ نہیں ملا"
-      unprocessable_entity: "درخواست پر عمل نہیں ہو سکا"
-      internal_server_error: "اندرونی سرور کی خرابی ہوئی"
-      validation_failed: "تصدیق ناکام ہوئی!"
-      invalid_request: "غلط درخواست!"
-      rate_limit_exceeded: "درخواست کی حد تجاوز کر گئی ہے۔ براہ کرم بعد میں کوشش کریں"
+      unauthorized: آپ کو یہ عمل کرنے کی اجازت نہیں ہے
+      forbidden: رسائی مسترد کر دی گئی!
+      not_found: وسیلہ نہیں ملا
+      unprocessable_entity: درخواست پر عمل نہیں ہو سکا
+      internal_server_error: اندرونی سرور کی خرابی ہوئی
+      validation_failed: تصدیق ناکام ہوئی!
+      invalid_request: غلط درخواست!
+      rate_limit_exceeded: درخواست کی حد تجاوز کر گئی ہے۔ براہ کرم بعد میں کوشش کریں
     messages:
-      success: "عمل کامیابی سے مکمل ہوا"
-      created: "وسیلہ کامیابی سے بنایا گیا"
-      updated: "وسیلہ کامیابی سے اپ ڈیٹ ہوا"
-      deleted: "وسیلہ کامیابی سے حذف ہوا"
+      success: عمل کامیابی سے مکمل ہوا
+      created: وسیلہ کامیابی سے بنایا گیا
+      updated: وسیلہ کامیابی سے اپ ڈیٹ ہوا
+      deleted: وسیلہ کامیابی سے حذف ہوا
     notification:
       messages:
-        token_already_exists: "نوٹیفکیشن ٹوکن پہلے سے موجود ہے"
-        token_saved: "نوٹیفکیشن ٹوکن محفوظ ہو گیا"
-        token_deleted: "نوٹیفکیشن ٹوکن کامیابی سے حذف ہو گیا"
-        token_not_found: "کوئی نوٹیفکیشن ٹوکن نہیں ملا"
-        mute_updated: "خاموشی کی حالت کامیابی سے اپ ڈیٹ ہو گئی"
+        token_already_exists: نوٹیفکیشن ٹوکن پہلے سے موجود ہے
+        token_saved: نوٹیفکیشن ٹوکن محفوظ ہو گیا
+        token_deleted: نوٹیفکیشن ٹوکن کامیابی سے حذف ہو گیا
+        token_not_found: کوئی نوٹیفکیشن ٹوکن نہیں ملا
+        mute_updated: خاموشی کی حالت کامیابی سے اپ ڈیٹ ہو گئی
     account:
       errors:
-        email_not_found: "ای میل نہیں ملی!"
-        email_invalid: "غلط ای میل فارمیٹ"
-        email_taken: "ای میل پہلے سے لی جا چکی ہے"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ای میل اپ ڈیٹ ناکام ہوئی"
-        password_unmatch: "پاس ورڈ مماثل نہیں ہیں"
-        password_update_fail: "پاس ورڈ اپ ڈیٹ ناکام ہوئی"
-        otp_invalid: "غلط OTP!"
-        register_not_allow: "آپ کو رجسٹر کرنے کی اجازت نہیں ہے!"
-        missing_field: "ضروری فیلڈز غائب ہیں"
-        password_incorrect: "موجودہ پاس ورڈ غلط ہے"
-        username_taken: "یوزر نیم پہلے سے لیا جا چکا ہے"
+        email_not_found: ای میل نہیں ملی!
+        email_invalid: غلط ای میل فارمیٹ
+        email_taken: ای میل پہلے سے لی جا چکی ہے
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ای میل اپ ڈیٹ ناکام ہوئی
+        password_unmatch: پاس ورڈ مماثل نہیں ہیں
+        password_update_fail: پاس ورڈ اپ ڈیٹ ناکام ہوئی
+        otp_invalid: غلط OTP!
+        register_not_allow: آپ کو رجسٹر کرنے کی اجازت نہیں ہے!
+        missing_field: ضروری فیلڈز غائب ہیں
+        password_incorrect: موجودہ پاس ورڈ غلط ہے
+        username_taken: یوزر نیم پہلے سے لیا جا چکا ہے
       messages:
-        password_updated: "پاس ورڈ اپ ڈیٹ ہو گیا"
+        password_updated: پاس ورڈ اپ ڈیٹ ہو گیا
     domain:
       messages:
-        dns_verified: "DNS درست طریقے سے ترتیب دیا گیا ہے"
+        dns_verified: DNS درست طریقے سے ترتیب دیا گیا ہے
     conversation:
       messages:
         marked_read: "%{updated_count} گفتگو(ئیں) بطور پڑھی ہوئی نشان زد کی گئی"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: ردعمل شناخت نہیں
+      emoji_limit_exceeded: ای موجی کی حد سے تجاوز

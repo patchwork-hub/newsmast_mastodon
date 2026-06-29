@@ -1,75 +1,83 @@
+---
 lt:
   locale:
-    name: "Lithuanian"
-    native_name: "Lietuvių"
+    name: Lithuanian
+    native_name: Lietuvių
   notification:
     poll:
-      ended_you: "Jūsų apklausa baigėsi"
-      ended_voted: "Apklausa, kurioje balsavote, baigėsi"
+      ended_you: Jūsų apklausa baigėsi
+      ended_voted: Apklausa, kurioje balsavote, baigėsi
     mention:
       direct_message: "%{name} atsiuntė jums žinutę"
-      conversation_request: "Turite naują pokalbio užklausą."
+      conversation_request: Turite naują pokalbio užklausą.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Gerb. %{name},"
-      instruction: "Jūsų paskyros patvirtinimo OTP kodas yra:"
-      note: "Jei to neprašėte, ignoruokite šį el. laišką"
+      greeting: Gerb. %{name},
+      instruction: 'Jūsų paskyros patvirtinimo OTP kodas yra:'
+      note: Jei to neprašėte, ignoruokite šį el. laišką
   login_service:
     errors:
-      invalid_credentials: "Neteisingi prisijungimo duomenys. Bandykite dar kartą"
-      unauthorized_access: "Jūs neturite teisės prisijungti"
-      channel_not_created: "Neteisingi prisijungimo duomenys. Įsitikinkite, kad sukūrėte kanalą"
-      account_deleted: "Jūsų paskyra jau ištrinta"
+      invalid_credentials: Neteisingi prisijungimo duomenys. Bandykite dar kartą
+      unauthorized_access: Jūs neturite teisės prisijungti
+      channel_not_created: Neteisingi prisijungimo duomenys. Įsitikinkite, kad sukūrėte
+        kanalą
+      account_deleted: Jūsų paskyra jau ištrinta
       invalid_role_access: "%{role} neturi teisės prisijungti"
-      deactivated_channel: "Jūsų kanalas išjungtas. Susisiekite su palaikymu"
-      two_factor_enabled: "Dviejų veiksnių autentifikavimas įjungtas. Prisijunkite per žiniatinklio sąsają"
-
+      deactivated_channel: Jūsų kanalas išjungtas. Susisiekite su palaikymu
+      two_factor_enabled: Dviejų veiksnių autentifikavimas įjungtas. Prisijunkite
+        per žiniatinklio sąsają
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Bandykite dar kartą. Neteisingi prisijungimo duomenys iš beebee.io"
-      registration_required: "Prašome užregistruoti vietinę paskyrą. duomenys: %{data}"
-      connection_error: "Klaida jungiantis prie narių paslaugos: %{error}"
+      invalid_credentials: Bandykite dar kartą. Neteisingi prisijungimo duomenys iš
+        beebee.io
+      registration_required: 'Prašome užregistruoti vietinę paskyrą. duomenys: %{data}'
+      connection_error: 'Klaida jungiantis prie narių paslaugos: %{error}'
   api:
     errors:
-      unauthorized: "Jūs neturite teisės atlikti šio veiksmo"
-      forbidden: "Prieiga uždrausta!"
-      not_found: "Ištekliaus nerasta"
-      unprocessable_entity: "Užklausos apdoroti nepavyko"
-      internal_server_error: "Įvyko vidinė serverio klaida"
-      validation_failed: "Validacija nepavyko!"
-      invalid_request: "Neteisinga užklausa!"
-      rate_limit_exceeded: "Užklausų limitas viršytas. Bandykite vėliau"
+      unauthorized: Jūs neturite teisės atlikti šio veiksmo
+      forbidden: Prieiga uždrausta!
+      not_found: Ištekliaus nerasta
+      unprocessable_entity: Užklausos apdoroti nepavyko
+      internal_server_error: Įvyko vidinė serverio klaida
+      validation_failed: Validacija nepavyko!
+      invalid_request: Neteisinga užklausa!
+      rate_limit_exceeded: Užklausų limitas viršytas. Bandykite vėliau
     messages:
-      success: "Operacija sėkmingai baigta"
-      created: "Išteklius sėkmingai sukurtas"
-      updated: "Išteklius sėkmingai atnaujintas"
-      deleted: "Išteklius sėkmingai ištrintas"
+      success: Operacija sėkmingai baigta
+      created: Išteklius sėkmingai sukurtas
+      updated: Išteklius sėkmingai atnaujintas
+      deleted: Išteklius sėkmingai ištrintas
     notification:
       messages:
-        token_already_exists: "Pranešimo raktas jau egzistuoja"
-        token_saved: "Pranešimo raktas išsaugotas"
-        token_deleted: "Pranešimo raktas sėkmingai ištrintas"
-        token_not_found: "Nerasta pranešimo raktų"
-        mute_updated: "Nutildymo būsena sėkmingai atnaujinta"
+        token_already_exists: Pranešimo raktas jau egzistuoja
+        token_saved: Pranešimo raktas išsaugotas
+        token_deleted: Pranešimo raktas sėkmingai ištrintas
+        token_not_found: Nerasta pranešimo raktų
+        mute_updated: Nutildymo būsena sėkmingai atnaujinta
     account:
       errors:
-        email_not_found: "El. paštas nerastas!"
-        email_invalid: "Neteisingas el. pašto formatas"
-        email_taken: "El. paštas jau naudojamas"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "El. pašto atnaujinimas nepavyko"
-        password_unmatch: "Slaptažodžiai nesutampa"
-        password_update_fail: "Slaptažodžio atnaujinimas nepavyko"
-        otp_invalid: "Neteisingas OTP!"
-        register_not_allow: "Jūs neturite teisės registruotis!"
-        missing_field: "Trūksta privalomų laukų"
-        password_incorrect: "Dabartinis slaptažodis neteisingas"
-        username_taken: "Vartotojo vardas jau naudojamas"
+        email_not_found: El. paštas nerastas!
+        email_invalid: Neteisingas el. pašto formatas
+        email_taken: El. paštas jau naudojamas
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: El. pašto atnaujinimas nepavyko
+        password_unmatch: Slaptažodžiai nesutampa
+        password_update_fail: Slaptažodžio atnaujinimas nepavyko
+        otp_invalid: Neteisingas OTP!
+        register_not_allow: Jūs neturite teisės registruotis!
+        missing_field: Trūksta privalomų laukų
+        password_incorrect: Dabartinis slaptažodis neteisingas
+        username_taken: Vartotojo vardas jau naudojamas
       messages:
-        password_updated: "Slaptažodis atnaujintas"
+        password_updated: Slaptažodis atnaujintas
     domain:
       messages:
-        dns_verified: "DNS tinkamai sukonfigūruotas"
+        dns_verified: DNS tinkamai sukonfigūruotas
     conversation:
       messages:
         marked_read: "%{updated_count} pokalbis(-iai) pažymėtas(-i) kaip perskaitytas(-i)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakcija neatpažinta
+      emoji_limit_exceeded: Emoji riba viršyta

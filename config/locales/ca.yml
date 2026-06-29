@@ -1,75 +1,82 @@
+---
 ca:
   locale:
-    name: "Catalan"
-    native_name: "Català"
+    name: Catalan
+    native_name: Català
   notification:
     poll:
-      ended_you: "La teva enquesta ha finalitzat"
-      ended_voted: "Una enquesta en la qual has votat ha finalitzat"
+      ended_you: La teva enquesta ha finalitzat
+      ended_voted: Una enquesta en la qual has votat ha finalitzat
     mention:
       direct_message: "%{name} t'ha enviat un missatge"
-      conversation_request: "Tens una nova sol·licitud de conversa."
+      conversation_request: Tens una nova sol·licitud de conversa.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Benvolgut/da %{name},"
-      instruction: "El teu codi OTP de verificació del compte és:"
-      note: "Si no has sol·licitat això, ignora aquest correu electrònic"
+      greeting: Benvolgut/da %{name},
+      instruction: 'El teu codi OTP de verificació del compte és:'
+      note: Si no has sol·licitat això, ignora aquest correu electrònic
   login_service:
     errors:
-      invalid_credentials: "Credencials no vàlides. Torna-ho a provar"
-      unauthorized_access: "No tens accés per iniciar sessió"
-      channel_not_created: "Credencials no vàlides. Assegura't d'haver creat un canal"
-      account_deleted: "El teu compte ja ha estat eliminat"
+      invalid_credentials: Credencials no vàlides. Torna-ho a provar
+      unauthorized_access: No tens accés per iniciar sessió
+      channel_not_created: Credencials no vàlides. Assegura't d'haver creat un canal
+      account_deleted: El teu compte ja ha estat eliminat
       invalid_role_access: "%{role} no té permís per iniciar sessió"
-      deactivated_channel: "El teu canal està desactivat. Contacta amb el suport"
-      two_factor_enabled: "L'autenticació de dos factors està activada. Si us plau, inicieu sessió amb la interfície web"
-
+      deactivated_channel: El teu canal està desactivat. Contacta amb el suport
+      two_factor_enabled: L'autenticació de dos factors està activada. Si us plau,
+        inicieu sessió amb la interfície web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Torna-ho a provar. Credencials no vàlides de beebee.io"
-      registration_required: "Si us plau, registra un compte local. dades: %{data}"
-      connection_error: "Error en connectar amb el servei de membres: %{error}"
+      invalid_credentials: Torna-ho a provar. Credencials no vàlides de beebee.io
+      registration_required: 'Si us plau, registra un compte local. dades: %{data}'
+      connection_error: 'Error en connectar amb el servei de membres: %{error}'
   api:
     errors:
-      unauthorized: "No estàs autoritzat a realitzar aquesta acció"
-      forbidden: "Accés denegat!"
-      not_found: "Recurs no trobat"
-      unprocessable_entity: "No s'ha pogut processar la sol·licitud"
-      internal_server_error: "S'ha produït un error intern del servidor"
-      validation_failed: "La validació ha fallat!"
-      invalid_request: "Sol·licitud no vàlida!"
-      rate_limit_exceeded: "S'ha superat el límit de sol·licituds. Torna-ho a provar més tard"
+      unauthorized: No estàs autoritzat a realitzar aquesta acció
+      forbidden: Accés denegat!
+      not_found: Recurs no trobat
+      unprocessable_entity: No s'ha pogut processar la sol·licitud
+      internal_server_error: S'ha produït un error intern del servidor
+      validation_failed: La validació ha fallat!
+      invalid_request: Sol·licitud no vàlida!
+      rate_limit_exceeded: S'ha superat el límit de sol·licituds. Torna-ho a provar
+        més tard
     messages:
-      success: "Operació completada amb èxit"
-      created: "Recurs creat amb èxit"
-      updated: "Recurs actualitzat amb èxit"
-      deleted: "Recurs eliminat amb èxit"
+      success: Operació completada amb èxit
+      created: Recurs creat amb èxit
+      updated: Recurs actualitzat amb èxit
+      deleted: Recurs eliminat amb èxit
     notification:
       messages:
-        token_already_exists: "El token de notificació ja existeix"
-        token_saved: "Token de notificació desat"
-        token_deleted: "Token de notificació eliminat amb èxit"
-        token_not_found: "No s'han trobat tokens de notificació"
-        mute_updated: "Estat de silenci actualitzat amb èxit"
+        token_already_exists: El token de notificació ja existeix
+        token_saved: Token de notificació desat
+        token_deleted: Token de notificació eliminat amb èxit
+        token_not_found: No s'han trobat tokens de notificació
+        mute_updated: Estat de silenci actualitzat amb èxit
     account:
       errors:
-        email_not_found: "Correu electrònic no trobat!"
-        email_invalid: "Format de correu electrònic no vàlid"
-        email_taken: "El correu electrònic ja està en ús"
-        membership_not_eligible: "El registre només està obert als membres bàsics, l'equip CSIDNet i els membres de suport"
-        email_update_fail: "L'actualització del correu electrònic no ha tingut èxit"
-        password_unmatch: "Les contrasenyes no coincideixen"
-        password_update_fail: "L'actualització de la contrasenya no ha tingut èxit"
-        otp_invalid: "OTP no vàlid!"
-        register_not_allow: "No tens permís per registrar-te!"
-        missing_field: "Falten camps obligatoris"
-        password_incorrect: "La contrasenya actual és incorrecta"
-        username_taken: "El nom d'usuari ja està en ús"
+        email_not_found: Correu electrònic no trobat!
+        email_invalid: Format de correu electrònic no vàlid
+        email_taken: El correu electrònic ja està en ús
+        membership_not_eligible: El registre només està obert als membres bàsics,
+          l'equip CSIDNet i els membres de suport
+        email_update_fail: L'actualització del correu electrònic no ha tingut èxit
+        password_unmatch: Les contrasenyes no coincideixen
+        password_update_fail: L'actualització de la contrasenya no ha tingut èxit
+        otp_invalid: OTP no vàlid!
+        register_not_allow: No tens permís per registrar-te!
+        missing_field: Falten camps obligatoris
+        password_incorrect: La contrasenya actual és incorrecta
+        username_taken: El nom d'usuari ja està en ús
       messages:
-        password_updated: "La contrasenya s'ha actualitzat"
+        password_updated: La contrasenya s'ha actualitzat
     domain:
       messages:
-        dns_verified: "El DNS està configurat correctament"
+        dns_verified: El DNS està configurat correctament
     conversation:
       messages:
-        marked_read: "S'han marcat %{updated_count} converses com a llegides"
+        marked_read: S'han marcat %{updated_count} converses com a llegides
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reacció no reconeguda
+      emoji_limit_exceeded: Límit d'emoji superat

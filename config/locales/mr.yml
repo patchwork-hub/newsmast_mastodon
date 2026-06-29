@@ -1,75 +1,83 @@
+---
 mr:
   locale:
-    name: "Marathi"
-    native_name: "मराठी"
+    name: Marathi
+    native_name: मराठी
   notification:
     poll:
-      ended_you: "तुमचा मतदान संपला आहे"
-      ended_voted: "तुम्ही ज्या मतदानात मत दिले ते संपले आहे"
+      ended_you: तुमचा मतदान संपला आहे
+      ended_voted: तुम्ही ज्या मतदानात मत दिले ते संपले आहे
     mention:
       direct_message: "%{name} ने तुम्हाला संदेश पाठवला आहे"
-      conversation_request: "तुमच्याकडे एक नवीन संभाषण विनंती आहे."
+      conversation_request: तुमच्याकडे एक नवीन संभाषण विनंती आहे.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "प्रिय %{name},"
-      instruction: "तुमचा खाते पडताळणी OTP कोड आहे:"
-      note: "जर तुम्ही ही विनंती केलेली नसेल, तर कृपया हा ईमेल दुर्लक्षित करा"
+      greeting: प्रिय %{name},
+      instruction: 'तुमचा खाते पडताळणी OTP कोड आहे:'
+      note: जर तुम्ही ही विनंती केलेली नसेल, तर कृपया हा ईमेल दुर्लक्षित करा
   login_service:
     errors:
-      invalid_credentials: "अवैध क्रेडेन्शियल्स. कृपया पुन्हा प्रयत्न करा"
-      unauthorized_access: "तुम्हाला लॉगिन करण्याची परवानगी नाही"
-      channel_not_created: "अवैध क्रेडेन्शियल्स. कृपया खात्री करा की तुम्ही चॅनेल तयार केला आहे"
-      account_deleted: "तुमचे खाते आधीच हटवले आहे"
+      invalid_credentials: अवैध क्रेडेन्शियल्स. कृपया पुन्हा प्रयत्न करा
+      unauthorized_access: तुम्हाला लॉगिन करण्याची परवानगी नाही
+      channel_not_created: अवैध क्रेडेन्शियल्स. कृपया खात्री करा की तुम्ही चॅनेल तयार
+        केला आहे
+      account_deleted: तुमचे खाते आधीच हटवले आहे
       invalid_role_access: "%{role} ला लॉगिन करण्याची परवानगी नाही"
-      deactivated_channel: "तुमचा चॅनेल निष्क्रिय आहे. कृपया समर्थनाशी संपर्क करा"
-      two_factor_enabled: "दोन-घटक प्रमाणीकरण सक्षम आहे. कृपया वेब इंटरफेसद्वारे लॉगिन करा"
-
+      deactivated_channel: तुमचा चॅनेल निष्क्रिय आहे. कृपया समर्थनाशी संपर्क करा
+      two_factor_enabled: दोन-घटक प्रमाणीकरण सक्षम आहे. कृपया वेब इंटरफेसद्वारे लॉगिन
+        करा
   bristolcable_login_service:
     errors:
-      invalid_credentials: "कृपया पुन्हा प्रयत्न करा. beebee.io कडून अवैध क्रेडेन्शियल्स"
-      registration_required: "कृपया स्थानिक खाते नोंदणी करा. डेटा: %{data}"
-      connection_error: "सदस्यत्व सेवा शी जोडताना त्रुटी: %{error}"
+      invalid_credentials: कृपया पुन्हा प्रयत्न करा. beebee.io कडून अवैध क्रेडेन्शियल्स
+      registration_required: 'कृपया स्थानिक खाते नोंदणी करा. डेटा: %{data}'
+      connection_error: 'सदस्यत्व सेवा शी जोडताना त्रुटी: %{error}'
   api:
     errors:
-      unauthorized: "तुम्हाला ही क्रिया करण्याची परवानगी नाही"
-      forbidden: "प्रवेश नाकारला!"
-      not_found: "संसाधन सापडले नाही"
-      unprocessable_entity: "विनंती प्रक्रिया करता आली नाही"
-      internal_server_error: "आंतरिक सर्व्हर त्रुटी आली"
-      validation_failed: "सत्यापन अयशस्वी!"
-      invalid_request: "अवैध विनंती!"
-      rate_limit_exceeded: "विनंत्यांची मर्यादा ओलांडली आहे. कृपया नंतर पुन्हा प्रयत्न करा"
+      unauthorized: तुम्हाला ही क्रिया करण्याची परवानगी नाही
+      forbidden: प्रवेश नाकारला!
+      not_found: संसाधन सापडले नाही
+      unprocessable_entity: विनंती प्रक्रिया करता आली नाही
+      internal_server_error: आंतरिक सर्व्हर त्रुटी आली
+      validation_failed: सत्यापन अयशस्वी!
+      invalid_request: अवैध विनंती!
+      rate_limit_exceeded: विनंत्यांची मर्यादा ओलांडली आहे. कृपया नंतर पुन्हा प्रयत्न
+        करा
     messages:
-      success: "ऑपरेशन यशस्वीरित्या पूर्ण झाले"
-      created: "संसाधन यशस्वीरित्या तयार केले"
-      updated: "संसाधन यशस्वीरित्या अद्ययावत केले"
-      deleted: "संसाधन यशस्वीरित्या हटवले"
+      success: ऑपरेशन यशस्वीरित्या पूर्ण झाले
+      created: संसाधन यशस्वीरित्या तयार केले
+      updated: संसाधन यशस्वीरित्या अद्ययावत केले
+      deleted: संसाधन यशस्वीरित्या हटवले
     notification:
       messages:
-        token_already_exists: "सूचना टोकन आधीच अस्तित्वात आहे"
-        token_saved: "सूचना टोकन जतन केले"
-        token_deleted: "सूचना टोकन यशस्वीरित्या हटवले"
-        token_not_found: "कोणतेही सूचना टोकन सापडले नाही"
-        mute_updated: "म्यूट स्थिती यशस्वीरित्या अद्ययावत केली"
+        token_already_exists: सूचना टोकन आधीच अस्तित्वात आहे
+        token_saved: सूचना टोकन जतन केले
+        token_deleted: सूचना टोकन यशस्वीरित्या हटवले
+        token_not_found: कोणतेही सूचना टोकन सापडले नाही
+        mute_updated: म्यूट स्थिती यशस्वीरित्या अद्ययावत केली
     account:
       errors:
-        email_not_found: "ईमेल सापडले नाही!"
-        email_invalid: "अवैध ईमेल स्वरूप"
-        email_taken: "ईमेल आधीच घेतले आहे"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ईमेल अद्ययावत करणे अयशस्वी"
-        password_unmatch: "पासवर्ड जुळत नाहीत"
-        password_update_fail: "पासवर्ड अद्ययावत करणे अयशस्वी"
-        otp_invalid: "अवैध OTP!"
-        register_not_allow: "तुम्हाला नोंदणी करण्याची परवानगी नाही!"
-        missing_field: "आवश्यक फील्ड्स गायब आहेत"
-        password_incorrect: "सध्याचा पासवर्ड चुकीचा आहे"
-        username_taken: "वापरकर्ता नाव आधीच घेतले आहे"
+        email_not_found: ईमेल सापडले नाही!
+        email_invalid: अवैध ईमेल स्वरूप
+        email_taken: ईमेल आधीच घेतले आहे
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ईमेल अद्ययावत करणे अयशस्वी
+        password_unmatch: पासवर्ड जुळत नाहीत
+        password_update_fail: पासवर्ड अद्ययावत करणे अयशस्वी
+        otp_invalid: अवैध OTP!
+        register_not_allow: तुम्हाला नोंदणी करण्याची परवानगी नाही!
+        missing_field: आवश्यक फील्ड्स गायब आहेत
+        password_incorrect: सध्याचा पासवर्ड चुकीचा आहे
+        username_taken: वापरकर्ता नाव आधीच घेतले आहे
       messages:
-        password_updated: "पासवर्ड अद्ययावत केला आहे"
+        password_updated: पासवर्ड अद्ययावत केला आहे
     domain:
       messages:
-        dns_verified: "DNS योग्यरित्या कॉन्फिगर केले आहे"
+        dns_verified: DNS योग्यरित्या कॉन्फिगर केले आहे
     conversation:
       messages:
         marked_read: "%{updated_count} संभाषण वाचले म्हणून चिन्हांकित केले"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: प्रतिक्रिया ओळखली जात नाही
+      emoji_limit_exceeded: इमोजी मर्यादा ओलांडली गेली

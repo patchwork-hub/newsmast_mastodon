@@ -1,84 +1,81 @@
+---
 ckb:
   locale:
-    name: "Central Kurdish"
-    native_name: "کوردیی ناوەندی"
-
+    name: Central Kurdish
+    native_name: کوردیی ناوەندی
   notification:
     poll:
-      ended_you: "ڕاپرسییەکەت کۆتایی هات"
-      ended_voted: "ڕاپرسییەکەی کە تۆ تێیدا دەنگت دا کۆتایی هات"
+      ended_you: ڕاپرسییەکەت کۆتایی هات
+      ended_voted: ڕاپرسییەکەی کە تۆ تێیدا دەنگت دا کۆتایی هات
     mention:
       direct_message: "%{name} نامەیەکت بۆ نارد"
-      conversation_request: "داواکاریی گفتوگۆیەکی نوێت هەیە."
-
+      conversation_request: داواکاریی گفتوگۆیەکی نوێت هەیە.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "بەڕێز %{name}،"
-      instruction: "کۆدی OTPی پشتڕاستکردنی هەژمارت ئەمەیە:"
-      note: "ئەگەر داوای ئەمە نەکردووە، تکایە ئەم ئیمەیڵە پەڕە بکەوە"
-
+      greeting: بەڕێز %{name}،
+      instruction: 'کۆدی OTPی پشتڕاستکردنی هەژمارت ئەمەیە:'
+      note: ئەگەر داوای ئەمە نەکردووە، تکایە ئەم ئیمەیڵە پەڕە بکەوە
   login_service:
     errors:
-      invalid_credentials: "زانیاری نادروست. تکایە دووبارە هەوڵ بدەوە"
-      unauthorized_access: "دەسەڵاتت نییە بۆ چوونەژوورەوە"
-      channel_not_created: "زانیاری نادروست. تکایە دڵنیابە لە دروستکردنی کەنال"
-      account_deleted: "هەژمارت پێشتر سڕاوە"
+      invalid_credentials: زانیاری نادروست. تکایە دووبارە هەوڵ بدەوە
+      unauthorized_access: دەسەڵاتت نییە بۆ چوونەژوورەوە
+      channel_not_created: زانیاری نادروست. تکایە دڵنیابە لە دروستکردنی کەنال
+      account_deleted: هەژمارت پێشتر سڕاوە
       invalid_role_access: "%{role} دەسەڵات نییە بۆ چوونەژوورەوە"
-      deactivated_channel: "کەنالت ناچالاکە. تکایە پەیوەندی بکە بە پشتیوانی"
-      two_factor_enabled: "دوو-فاکتەری ئەوتێنتیکەیشن چالاک کراوە. تکایە لەڕێگای ئینتەرفەیسی وێبەوە بچووژووەوە"
-
+      deactivated_channel: کەنالت ناچالاکە. تکایە پەیوەندی بکە بە پشتیوانی
+      two_factor_enabled: دوو-فاکتەری ئەوتێنتیکەیشن چالاک کراوە. تکایە لەڕێگای ئینتەرفەیسی
+        وێبەوە بچووژووەوە
   bristolcable_login_service:
     errors:
-      invalid_credentials: "تکایە دووبارە هەوڵ بدەوە. زانیاری نادروست لە beebee.io"
-      registration_required: "تکایە هەژمارێکی ناوخۆیی تۆمار بکە. زانیاری: %{data}"
-      connection_error: "هەڵە لە پەیوەندی بە خزمەتگوزاری ئەندامیەتی: %{error}"
-
+      invalid_credentials: تکایە دووبارە هەوڵ بدەوە. زانیاری نادروست لە beebee.io
+      registration_required: 'تکایە هەژمارێکی ناوخۆیی تۆمار بکە. زانیاری: %{data}'
+      connection_error: 'هەڵە لە پەیوەندی بە خزمەتگوزاری ئەندامیەتی: %{error}'
   api:
     errors:
-      unauthorized: "دەسەڵاتت نییە بۆ ئەم کردارە"
-      forbidden: "دەسەڵات ڕەتکرایەوە!"
-      not_found: "سەرچاوە نەدۆزرایەوە"
-      unprocessable_entity: "داواکارییەکە نەتوانرا پڕۆسە بکرێت"
-      internal_server_error: "هەڵەیەکی ناوخۆیی سێرڤەر ڕووی دا"
-      validation_failed: "پشتڕاستکردن سەرکەوتوو نەبوو!"
-      invalid_request: "داواکاری نادروست!"
-      rate_limit_exceeded: "سنوری داواکاری تێپەڕدرا. تکایە دوای کاتێک هەوڵ بدەوە"
-
+      unauthorized: دەسەڵاتت نییە بۆ ئەم کردارە
+      forbidden: دەسەڵات ڕەتکرایەوە!
+      not_found: سەرچاوە نەدۆزرایەوە
+      unprocessable_entity: داواکارییەکە نەتوانرا پڕۆسە بکرێت
+      internal_server_error: هەڵەیەکی ناوخۆیی سێرڤەر ڕووی دا
+      validation_failed: پشتڕاستکردن سەرکەوتوو نەبوو!
+      invalid_request: داواکاری نادروست!
+      rate_limit_exceeded: سنوری داواکاری تێپەڕدرا. تکایە دوای کاتێک هەوڵ بدەوە
     messages:
-      success: "کردار بەسەرکەوتوویی تەواو بوو"
-      created: "سەرچاوە بەسەرکەوتوویی دروستکرا"
-      updated: "سەرچاوە بەسەرکەوتوویی نوێکرایەوە"
-      deleted: "سەرچاوە بەسەرکەوتوویی سڕایەوە"
-
+      success: کردار بەسەرکەوتوویی تەواو بوو
+      created: سەرچاوە بەسەرکەوتوویی دروستکرا
+      updated: سەرچاوە بەسەرکەوتوویی نوێکرایەوە
+      deleted: سەرچاوە بەسەرکەوتوویی سڕایەوە
     notification:
       messages:
-        token_already_exists: "تۆکنی ئاگادارکردنەوە پێشتر هەیە"
-        token_saved: "تۆکنی ئاگادارکردنەوە پاشەکەوتکرا"
-        token_deleted: "تۆکنی ئاگادارکردنەوە بەسەرکەوتوویی سڕایەوە"
-        token_not_found: "هیچ تۆکنی ئاگادارکردنەوە نەدۆزرایەوە"
-        mute_updated: "دۆخی بێدەنگی بەسەرکەوتوویی نوێکرایەوە"
-
+        token_already_exists: تۆکنی ئاگادارکردنەوە پێشتر هەیە
+        token_saved: تۆکنی ئاگادارکردنەوە پاشەکەوتکرا
+        token_deleted: تۆکنی ئاگادارکردنەوە بەسەرکەوتوویی سڕایەوە
+        token_not_found: هیچ تۆکنی ئاگادارکردنەوە نەدۆزرایەوە
+        mute_updated: دۆخی بێدەنگی بەسەرکەوتوویی نوێکرایەوە
     account:
       errors:
-        email_not_found: "ئیمەیڵ نەدۆزرایەوە!"
-        email_invalid: "فۆرمی ئیمەیڵ نادروستە"
-        email_taken: "ئیمەیڵ پێشتر بەکارهاتووە"
-        membership_not_eligible: "ناو تۆمارکردن تەنها کراوەیە بۆ ئەندامانی Core، CSIDNet Team، و ئەندامانی Supporter"
-        email_update_fail: "نوێکردنەوەی ئیمەیڵ سەرکەوتوو نەبوو"
-        password_unmatch: "وشەی نهێنی هاوتا نییە"
-        password_update_fail: "نوێکردنەوەی وشەی نهێنی سەرکەوتوو نەبوو"
-        otp_invalid: "OTP نادروستە!"
-        register_not_allow: "دەسەڵاتت نییە بۆ تۆماربوون!"
-        missing_field: "خانە پێویستەکان نەمانەوە"
-        password_incorrect: "وشەی نهێنی ئێستا هەڵەیە"
-        username_taken: "ناوی بەکارهێنەر پێشتر بەکارهاتووە"
+        email_not_found: ئیمەیڵ نەدۆزرایەوە!
+        email_invalid: فۆرمی ئیمەیڵ نادروستە
+        email_taken: ئیمەیڵ پێشتر بەکارهاتووە
+        membership_not_eligible: ناو تۆمارکردن تەنها کراوەیە بۆ ئەندامانی Core، CSIDNet
+          Team، و ئەندامانی Supporter
+        email_update_fail: نوێکردنەوەی ئیمەیڵ سەرکەوتوو نەبوو
+        password_unmatch: وشەی نهێنی هاوتا نییە
+        password_update_fail: نوێکردنەوەی وشەی نهێنی سەرکەوتوو نەبوو
+        otp_invalid: OTP نادروستە!
+        register_not_allow: دەسەڵاتت نییە بۆ تۆماربوون!
+        missing_field: خانە پێویستەکان نەمانەوە
+        password_incorrect: وشەی نهێنی ئێستا هەڵەیە
+        username_taken: ناوی بەکارهێنەر پێشتر بەکارهاتووە
       messages:
-        password_updated: "وشەی نهێنی نوێکرایەوە"
-
+        password_updated: وشەی نهێنی نوێکرایەوە
     domain:
       messages:
-        dns_verified: "DNS بە دروستی ڕێکخراوە"
-
+        dns_verified: DNS بە دروستی ڕێکخراوە
     conversation:
       messages:
         marked_read: "%{updated_count} گفتوگۆ وەک خوێندراو نیشاندران"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: بۆچوونی بەدیدانبوو
+      emoji_limit_exceeded: سنووری ئیموجی تێدرایە

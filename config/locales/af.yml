@@ -1,75 +1,83 @@
+---
 af:
   locale:
-    name: "Afrikaans"
-    native_name: "Afrikaans"
+    name: Afrikaans
+    native_name: Afrikaans
   notification:
     poll:
-      ended_you: "Jou peiling het geëindig"
+      ended_you: Jou peiling het geëindig
       ended_voted: "'n Peiling waarin jy gestem het, het geëindig"
     mention:
       direct_message: "%{name} het vir jou 'n boodskap gestuur"
-      conversation_request: "Jy het 'n nuwe gesprekversoek."
+      conversation_request: Jy het 'n nuwe gesprekversoek.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Beste %{name},"
-      instruction: "Jou OTP-kode vir rekeningverifikasie is soos volg:"
-      note: "As jy nie hiervoor aansoek gedoen het nie, ignoreer asseblief hierdie e-pos"
+      greeting: Beste %{name},
+      instruction: 'Jou OTP-kode vir rekeningverifikasie is soos volg:'
+      note: As jy nie hiervoor aansoek gedoen het nie, ignoreer asseblief hierdie
+        e-pos
   login_service:
     errors:
-      invalid_credentials: "Ongeldige besonderhede. Probeer asseblief weer"
-      unauthorized_access: "Jy het nie toegang om aan te meld nie"
-      channel_not_created: "Ongeldige besonderhede. Maak asseblief seker jy het 'n kanaal geskep"
-      account_deleted: "Jou rekening is reeds uitgevee"
+      invalid_credentials: Ongeldige besonderhede. Probeer asseblief weer
+      unauthorized_access: Jy het nie toegang om aan te meld nie
+      channel_not_created: Ongeldige besonderhede. Maak asseblief seker jy het 'n
+        kanaal geskep
+      account_deleted: Jou rekening is reeds uitgevee
       invalid_role_access: "%{role} mag nie aanmeld nie"
-      deactivated_channel: "Jou kanaal is gedeaktiveer. Kontak asseblief ondersteuning"
-      two_factor_enabled: "Twee-faktor-verifikasie is geaktiveer. Meld asseblief aan via die webkoppelvlak"
-
+      deactivated_channel: Jou kanaal is gedeaktiveer. Kontak asseblief ondersteuning
+      two_factor_enabled: Twee-faktor-verifikasie is geaktiveer. Meld asseblief aan
+        via die webkoppelvlak
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Probeer asseblief weer. Ongeldige besonderhede van beebee.io"
-      registration_required: "Registreer asseblief 'n plaaslike rekening. data: %{data}"
-      connection_error: "Fout met verbinding aan lidmaatskapdiens: %{error}"
+      invalid_credentials: Probeer asseblief weer. Ongeldige besonderhede van beebee.io
+      registration_required: 'Registreer asseblief ''n plaaslike rekening. data: %{data}'
+      connection_error: 'Fout met verbinding aan lidmaatskapdiens: %{error}'
   api:
     errors:
-      unauthorized: "Jy is nie gemagtig om hierdie aksie uit te voer nie"
-      forbidden: "Toegang geweier!"
-      not_found: "Hulpbron nie gevind nie"
-      unprocessable_entity: "Die versoek kon nie verwerk word nie"
+      unauthorized: Jy is nie gemagtig om hierdie aksie uit te voer nie
+      forbidden: Toegang geweier!
+      not_found: Hulpbron nie gevind nie
+      unprocessable_entity: Die versoek kon nie verwerk word nie
       internal_server_error: "'n Interne bedienerfout het voorgekom"
-      validation_failed: "Validering het misluk!"
-      invalid_request: "Ongeldige versoek!"
-      rate_limit_exceeded: "Versoeklimiet oorskry. Probeer asseblief later weer"
+      validation_failed: Validering het misluk!
+      invalid_request: Ongeldige versoek!
+      rate_limit_exceeded: Versoeklimiet oorskry. Probeer asseblief later weer
     messages:
-      success: "Operasie suksesvol voltooi"
-      created: "Hulpbron suksesvol geskep"
-      updated: "Hulpbron suksesvol opgedateer"
-      deleted: "Hulpbron suksesvol uitgevee"
+      success: Operasie suksesvol voltooi
+      created: Hulpbron suksesvol geskep
+      updated: Hulpbron suksesvol opgedateer
+      deleted: Hulpbron suksesvol uitgevee
     notification:
       messages:
-        token_already_exists: "Kennisgewing-token bestaan reeds"
-        token_saved: "Kennisgewing-token gestoor"
-        token_deleted: "Kennisgewing-token suksesvol uitgevee"
-        token_not_found: "Geen kennisgewing-tokens gevind nie"
-        mute_updated: "Stiltestatus suksesvol opgedateer"
+        token_already_exists: Kennisgewing-token bestaan reeds
+        token_saved: Kennisgewing-token gestoor
+        token_deleted: Kennisgewing-token suksesvol uitgevee
+        token_not_found: Geen kennisgewing-tokens gevind nie
+        mute_updated: Stiltestatus suksesvol opgedateer
     account:
       errors:
-        email_not_found: "E-pos nie gevind nie!"
-        email_invalid: "Ongeldige e-posformaat"
-        email_taken: "E-pos is reeds geneem"
-        membership_not_eligible: "Registrasie is slegs oop vir kernlede, CSIDNet-span en ondersteunerlede"
-        email_update_fail: "Die e-posopdatering was onsuksesvol"
-        password_unmatch: "Wagwoorde stem nie ooreen nie"
-        password_update_fail: "Die wagwoordopdatering was onsuksesvol"
-        otp_invalid: "Ongeldige OTP!"
-        register_not_allow: "Jy mag nie registreer nie!"
-        missing_field: "Vereiste velde ontbreek"
-        password_incorrect: "Huidige wagwoord is verkeerd"
-        username_taken: "Gebruikersnaam is reeds geneem"
+        email_not_found: E-pos nie gevind nie!
+        email_invalid: Ongeldige e-posformaat
+        email_taken: E-pos is reeds geneem
+        membership_not_eligible: Registrasie is slegs oop vir kernlede, CSIDNet-span
+          en ondersteunerlede
+        email_update_fail: Die e-posopdatering was onsuksesvol
+        password_unmatch: Wagwoorde stem nie ooreen nie
+        password_update_fail: Die wagwoordopdatering was onsuksesvol
+        otp_invalid: Ongeldige OTP!
+        register_not_allow: Jy mag nie registreer nie!
+        missing_field: Vereiste velde ontbreek
+        password_incorrect: Huidige wagwoord is verkeerd
+        username_taken: Gebruikersnaam is reeds geneem
       messages:
-        password_updated: "Die wagwoord is opgedateer"
+        password_updated: Die wagwoord is opgedateer
     domain:
       messages:
-        dns_verified: "DNS is korrek gekonfigureer"
+        dns_verified: DNS is korrek gekonfigureer
     conversation:
       messages:
         marked_read: "%{updated_count} gesprek(ke) as gelees gemerk"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksie nie herken
+      emoji_limit_exceeded: Emoji-limiet oorskry

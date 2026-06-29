@@ -1,75 +1,81 @@
+---
 bg:
   locale:
-    name: "Bulgarian"
-    native_name: "Български"
+    name: Bulgarian
+    native_name: Български
   notification:
     poll:
-      ended_you: "Вашата анкета приключи"
-      ended_voted: "Анкета, в която сте гласували, приключи"
+      ended_you: Вашата анкета приключи
+      ended_voted: Анкета, в която сте гласували, приключи
     mention:
       direct_message: "%{name} ви изпрати съобщение"
-      conversation_request: "Имате нова заявка за разговор."
+      conversation_request: Имате нова заявка за разговор.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Уважаеми %{name},"
-      instruction: "Вашият OTP код за потвърждение на акаунта е:"
-      note: "Ако не сте поискали това, моля игнорирайте този имейл"
+      greeting: Уважаеми %{name},
+      instruction: 'Вашият OTP код за потвърждение на акаунта е:'
+      note: Ако не сте поискали това, моля игнорирайте този имейл
   login_service:
     errors:
-      invalid_credentials: "Невалидни данни. Моля, опитайте отново"
-      unauthorized_access: "Нямате достъп до вход"
-      channel_not_created: "Невалидни данни. Уверете се, че сте създали канал"
-      account_deleted: "Вашият акаунт вече е изтрит"
+      invalid_credentials: Невалидни данни. Моля, опитайте отново
+      unauthorized_access: Нямате достъп до вход
+      channel_not_created: Невалидни данни. Уверете се, че сте създали канал
+      account_deleted: Вашият акаунт вече е изтрит
       invalid_role_access: "%{role} няма достъп до вход"
-      deactivated_channel: "Вашият канал е деактивиран. Моля, свържете се с поддръжка"
-      two_factor_enabled: "Двуфакторното удостоверяване е активирано. Моля, влезте чрез уеб интерфейса"
-
+      deactivated_channel: Вашият канал е деактивиран. Моля, свържете се с поддръжка
+      two_factor_enabled: Двуфакторното удостоверяване е активирано. Моля, влезте
+        чрез уеб интерфейса
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Моля, опитайте отново. Невалидни данни от beebee.io"
-      registration_required: "Моля, регистрирайте локален акаунт. данни: %{data}"
-      connection_error: "Грешка при свързване със службата за членство: %{error}"
+      invalid_credentials: Моля, опитайте отново. Невалидни данни от beebee.io
+      registration_required: 'Моля, регистрирайте локален акаунт. данни: %{data}'
+      connection_error: 'Грешка при свързване със службата за членство: %{error}'
   api:
     errors:
-      unauthorized: "Нямате разрешение за това действие"
-      forbidden: "Достъпът е отказан!"
-      not_found: "Ресурсът не е намерен"
-      unprocessable_entity: "Заявката не може да бъде обработена"
-      internal_server_error: "Възникна вътрешна грешка в сървъра"
-      validation_failed: "Валидирането не бе успешно!"
-      invalid_request: "Невалидна заявка!"
-      rate_limit_exceeded: "Превишен лимит на заявки. Моля, опитайте по-късно"
+      unauthorized: Нямате разрешение за това действие
+      forbidden: Достъпът е отказан!
+      not_found: Ресурсът не е намерен
+      unprocessable_entity: Заявката не може да бъде обработена
+      internal_server_error: Възникна вътрешна грешка в сървъра
+      validation_failed: Валидирането не бе успешно!
+      invalid_request: Невалидна заявка!
+      rate_limit_exceeded: Превишен лимит на заявки. Моля, опитайте по-късно
     messages:
-      success: "Операцията е успешна"
-      created: "Ресурсът е създаден успешно"
-      updated: "Ресурсът е актуализиран успешно"
-      deleted: "Ресурсът е изтрит успешно"
+      success: Операцията е успешна
+      created: Ресурсът е създаден успешно
+      updated: Ресурсът е актуализиран успешно
+      deleted: Ресурсът е изтрит успешно
     notification:
       messages:
-        token_already_exists: "Токенът за известие вече съществува"
-        token_saved: "Токенът за известие е запазен"
-        token_deleted: "Токенът за известие е изтрит успешно"
-        token_not_found: "Не са намерени токени за известие"
-        mute_updated: "Статусът на заглушаване е актуализиран успешно"
+        token_already_exists: Токенът за известие вече съществува
+        token_saved: Токенът за известие е запазен
+        token_deleted: Токенът за известие е изтрит успешно
+        token_not_found: Не са намерени токени за известие
+        mute_updated: Статусът на заглушаване е актуализиран успешно
     account:
       errors:
-        email_not_found: "Имейлът не е намерен!"
-        email_invalid: "Невалиден имейл формат"
-        email_taken: "Имейлът вече е зает"
-        membership_not_eligible: "Регистрацията е отворена само за основни членове, екип на CSIDNet и членове на поддръжника"
-        email_update_fail: "Актуализацията на имейла не бе успешна"
-        password_unmatch: "Паролите не съвпадат"
-        password_update_fail: "Актуализацията на паролата не бе успешна"
-        otp_invalid: "Невалиден OTP!"
-        register_not_allow: "Нямате право да се регистрирате!"
-        missing_field: "Липсват задължителни полета"
-        password_incorrect: "Текущата парола е грешна"
-        username_taken: "Потребителското име вече е заето"
+        email_not_found: Имейлът не е намерен!
+        email_invalid: Невалиден имейл формат
+        email_taken: Имейлът вече е зает
+        membership_not_eligible: Регистрацията е отворена само за основни членове,
+          екип на CSIDNet и членове на поддръжника
+        email_update_fail: Актуализацията на имейла не бе успешна
+        password_unmatch: Паролите не съвпадат
+        password_update_fail: Актуализацията на паролата не бе успешна
+        otp_invalid: Невалиден OTP!
+        register_not_allow: Нямате право да се регистрирате!
+        missing_field: Липсват задължителни полета
+        password_incorrect: Текущата парола е грешна
+        username_taken: Потребителското име вече е заето
       messages:
-        password_updated: "Паролата е актуализирана"
+        password_updated: Паролата е актуализирана
     domain:
       messages:
-        dns_verified: "DNS е конфигуриран правилно"
+        dns_verified: DNS е конфигуриран правилно
     conversation:
       messages:
-        marked_read: "Маркирани %{updated_count} разговор(и) като прочетени"
+        marked_read: Маркирани %{updated_count} разговор(и) като прочетени
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Реакция не е разпозната
+      emoji_limit_exceeded: Лимитът на емотиконите е превишен

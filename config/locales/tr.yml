@@ -1,75 +1,83 @@
+---
 tr:
   locale:
-    name: "Turkish"
-    native_name: "Türkçe"
+    name: Turkish
+    native_name: Türkçe
   notification:
     poll:
-      ended_you: "Anketiniz sona erdi"
-      ended_voted: "Oy verdiğiniz anket sona erdi"
+      ended_you: Anketiniz sona erdi
+      ended_voted: Oy verdiğiniz anket sona erdi
     mention:
       direct_message: "%{name} size bir mesaj gönderdi"
-      conversation_request: "Yeni bir konuşma isteğiniz var."
+      conversation_request: Yeni bir konuşma isteğiniz var.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Sayın %{name},"
-      instruction: "Hesap doğrulama OTP kodunuz aşağıdadır:"
-      note: "Bunu talep etmediyseniz, lütfen bu e-postayı dikkate almayın"
+      greeting: Sayın %{name},
+      instruction: 'Hesap doğrulama OTP kodunuz aşağıdadır:'
+      note: Bunu talep etmediyseniz, lütfen bu e-postayı dikkate almayın
   login_service:
     errors:
-      invalid_credentials: "Geçersiz kimlik bilgileri. Lütfen tekrar deneyin"
-      unauthorized_access: "Giriş yapma izniniz yok"
-      channel_not_created: "Geçersiz kimlik bilgileri. Lütfen bir kanal oluşturduğunuzdan emin olun"
-      account_deleted: "Hesabınız zaten silinmiş"
+      invalid_credentials: Geçersiz kimlik bilgileri. Lütfen tekrar deneyin
+      unauthorized_access: Giriş yapma izniniz yok
+      channel_not_created: Geçersiz kimlik bilgileri. Lütfen bir kanal oluşturduğunuzdan
+        emin olun
+      account_deleted: Hesabınız zaten silinmiş
       invalid_role_access: "%{role} giriş yapmaya yetkili değil"
-      deactivated_channel: "Kanalınız devre dışı bırakıldı. Lütfen destek ile iletişime geçin"
-      two_factor_enabled: "İki faktörlü kimlik doğrulama etkinleştirildi. Lütfen web arayüzü ile giriş yapın"
-
+      deactivated_channel: Kanalınız devre dışı bırakıldı. Lütfen destek ile iletişime
+        geçin
+      two_factor_enabled: İki faktörlü kimlik doğrulama etkinleştirildi. Lütfen web
+        arayüzü ile giriş yapın
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Lütfen tekrar deneyin. beebee.io'dan geçersiz kimlik bilgileri"
-      registration_required: "Lütfen yerel hesap oluşturun. veri: %{data}"
-      connection_error: "Üyelik hizmetine bağlanırken hata oluştu: %{error}"
+      invalid_credentials: Lütfen tekrar deneyin. beebee.io'dan geçersiz kimlik bilgileri
+      registration_required: 'Lütfen yerel hesap oluşturun. veri: %{data}'
+      connection_error: 'Üyelik hizmetine bağlanırken hata oluştu: %{error}'
   api:
     errors:
-      unauthorized: "Bu işlemi yapmaya yetkiniz yok"
-      forbidden: "Erişim reddedildi!"
-      not_found: "Kaynak bulunamadı"
-      unprocessable_entity: "İstek işlenemedi"
-      internal_server_error: "Dahili sunucu hatası oluştu"
-      validation_failed: "Doğrulama başarısız oldu!"
-      invalid_request: "Geçersiz istek!"
-      rate_limit_exceeded: "İstek limiti aşıldı. Lütfen daha sonra tekrar deneyin"
+      unauthorized: Bu işlemi yapmaya yetkiniz yok
+      forbidden: Erişim reddedildi!
+      not_found: Kaynak bulunamadı
+      unprocessable_entity: İstek işlenemedi
+      internal_server_error: Dahili sunucu hatası oluştu
+      validation_failed: Doğrulama başarısız oldu!
+      invalid_request: Geçersiz istek!
+      rate_limit_exceeded: İstek limiti aşıldı. Lütfen daha sonra tekrar deneyin
     messages:
-      success: "İşlem başarıyla tamamlandı"
-      created: "Kaynak başarıyla oluşturuldu"
-      updated: "Kaynak başarıyla güncellendi"
-      deleted: "Kaynak başarıyla silindi"
+      success: İşlem başarıyla tamamlandı
+      created: Kaynak başarıyla oluşturuldu
+      updated: Kaynak başarıyla güncellendi
+      deleted: Kaynak başarıyla silindi
     notification:
       messages:
-        token_already_exists: "Bildirim tokeni zaten mevcut"
-        token_saved: "Bildirim tokeni kaydedildi"
-        token_deleted: "Bildirim tokeni başarıyla silindi"
-        token_not_found: "Bildirim tokeni bulunamadı"
-        mute_updated: "Sessiz durumu başarıyla güncellendi"
+        token_already_exists: Bildirim tokeni zaten mevcut
+        token_saved: Bildirim tokeni kaydedildi
+        token_deleted: Bildirim tokeni başarıyla silindi
+        token_not_found: Bildirim tokeni bulunamadı
+        mute_updated: Sessiz durumu başarıyla güncellendi
     account:
       errors:
-        email_not_found: "E-posta bulunamadı!"
-        email_invalid: "Geçersiz e-posta formatı"
-        email_taken: "E-posta zaten alınmış"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "E-posta güncellemesi başarısız oldu"
-        password_unmatch: "Şifreler eşleşmiyor"
-        password_update_fail: "Şifre güncellemesi başarısız oldu"
-        otp_invalid: "Geçersiz OTP!"
-        register_not_allow: "Kayıt olmanıza izin verilmiyor!"
-        missing_field: "Gerekli alanlar eksik"
-        password_incorrect: "Mevcut şifre yanlış"
-        username_taken: "Kullanıcı adı zaten alınmış"
+        email_not_found: E-posta bulunamadı!
+        email_invalid: Geçersiz e-posta formatı
+        email_taken: E-posta zaten alınmış
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: E-posta güncellemesi başarısız oldu
+        password_unmatch: Şifreler eşleşmiyor
+        password_update_fail: Şifre güncellemesi başarısız oldu
+        otp_invalid: Geçersiz OTP!
+        register_not_allow: Kayıt olmanıza izin verilmiyor!
+        missing_field: Gerekli alanlar eksik
+        password_incorrect: Mevcut şifre yanlış
+        username_taken: Kullanıcı adı zaten alınmış
       messages:
-        password_updated: "Şifre güncellendi"
+        password_updated: Şifre güncellendi
     domain:
       messages:
-        dns_verified: "DNS doğru şekilde yapılandırıldı"
+        dns_verified: DNS doğru şekilde yapılandırıldı
     conversation:
       messages:
         marked_read: "%{updated_count} sohbet okundu olarak işaretlendi"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Tepki tanınmadı
+      emoji_limit_exceeded: Emoji sınırı aşıldı

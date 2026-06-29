@@ -1,75 +1,81 @@
+---
 szl:
   locale:
-    name: "Silesian"
-    native_name: "Ślůnski"
+    name: Silesian
+    native_name: Ślůnski
   notification:
     poll:
-      ended_you: "Twoja ankieta sie skończyła"
-      ended_voted: "Ankieta, w kerej głosowołś, sie skończyła"
+      ended_you: Twoja ankieta sie skończyła
+      ended_voted: Ankieta, w kerej głosowołś, sie skończyła
     mention:
       direct_message: "%{name} posłał ci wiadōmość"
-      conversation_request: "Mosz nowe żōndanie kōnwersacyje."
+      conversation_request: Mosz nowe żōndanie kōnwersacyje.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Drogi %{name},"
-      instruction: "Twōj kod OTP do weryfikacyje konta to:"
-      note: "Jak niy prosiłś o to, zignoruj tyn email"
+      greeting: Drogi %{name},
+      instruction: 'Twōj kod OTP do weryfikacyje konta to:'
+      note: Jak niy prosiłś o to, zignoruj tyn email
   login_service:
     errors:
-      invalid_credentials: "Niywłaściwe dane logowanio. Sprōbuj jeszcze raz"
-      unauthorized_access: "Niy masz dostympu do logowanio"
-      channel_not_created: "Niywłaściwe dane logowanio. Upewnij sie, że stworzyłś kanał"
-      account_deleted: "Twōje konto już je skasowane"
+      invalid_credentials: Niywłaściwe dane logowanio. Sprōbuj jeszcze raz
+      unauthorized_access: Niy masz dostympu do logowanio
+      channel_not_created: Niywłaściwe dane logowanio. Upewnij sie, że stworzyłś kanał
+      account_deleted: Twōje konto już je skasowane
       invalid_role_access: "%{role} niy mo dostympu do logowanio"
-      deactivated_channel: "Twōj kanał je dezaktywowany. Skontaktuj sie z supportym"
-      two_factor_enabled: "Dwuczynnikowe ôwierzytelnianie je włůnczone. Proszã sie zalogować bez webowy interfejs"
+      deactivated_channel: Twōj kanał je dezaktywowany. Skontaktuj sie z supportym
+      two_factor_enabled: Dwuczynnikowe ôwierzytelnianie je włůnczone. Proszã sie
+        zalogować bez webowy interfejs
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Niy masz uprawniyń do wykōnania tego działania"
-      forbidden: "Dostymp zabroniōny!"
-      not_found: "Niy znaleziono zasobu"
-      unprocessable_entity: "Niy idzie przetwōrzyć żōndanie"
-      internal_server_error: "Wystōmpił wewnętrzny błąd serwera"
-      validation_failed: "Weryfikacyjo niy powiodła sie!"
-      invalid_request: "Niywłaściwe żōndanie!"
-      rate_limit_exceeded: "Przekroczōno limit żōndań. Sprōbuj jeszcze raz pōźni"
+      unauthorized: Niy masz uprawniyń do wykōnania tego działania
+      forbidden: Dostymp zabroniōny!
+      not_found: Niy znaleziono zasobu
+      unprocessable_entity: Niy idzie przetwōrzyć żōndanie
+      internal_server_error: Wystōmpił wewnętrzny błąd serwera
+      validation_failed: Weryfikacyjo niy powiodła sie!
+      invalid_request: Niywłaściwe żōndanie!
+      rate_limit_exceeded: Przekroczōno limit żōndań. Sprōbuj jeszcze raz pōźni
     messages:
-      success: "Operacyjo zakończōno z powodzeniem"
-      created: "Zasōb stworzōny z powodzeniem"
-      updated: "Zasōb zaktualizowany z powodzeniem"
-      deleted: "Zasōb skasowany z powodzeniem"
+      success: Operacyjo zakończōno z powodzeniem
+      created: Zasōb stworzōny z powodzeniem
+      updated: Zasōb zaktualizowany z powodzeniem
+      deleted: Zasōb skasowany z powodzeniem
     notification:
       messages:
-        token_already_exists: "Token powiadomień już je"
-        token_saved: "Token powiadomień zapisany"
-        token_deleted: "Token powiadomień skasowany z powodzeniem"
-        token_not_found: "Niy znaleziono tokenōw powiadomień"
-        mute_updated: "Status wyciszynio zaktualizowany z powodzeniem"
+        token_already_exists: Token powiadomień już je
+        token_saved: Token powiadomień zapisany
+        token_deleted: Token powiadomień skasowany z powodzeniem
+        token_not_found: Niy znaleziono tokenōw powiadomień
+        mute_updated: Status wyciszynio zaktualizowany z powodzeniem
     account:
       errors:
-        email_not_found: "Niy znaleziono e-maila!"
-        email_invalid: "Niywłaściwy format e-maila"
-        email_taken: "E-mail już je zajęty"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Aktualizacyjo e-maila niy powiodła sie"
-        password_unmatch: "Hasła niy pasujōm do siebie"
-        password_update_fail: "Aktualizacyjo hasła niy powiodła sie"
-        otp_invalid: "Niywłaściwy OTP!"
-        register_not_allow: "Niy masz uprawniyń do rejestracyje!"
-        missing_field: "Brakuje wymaganych pól"
-        password_incorrect: "Aktualne hasło je niywłaściwe"
-        username_taken: "Miano użytkownika już je zajęte"
+        email_not_found: Niy znaleziono e-maila!
+        email_invalid: Niywłaściwy format e-maila
+        email_taken: E-mail już je zajęty
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Aktualizacyjo e-maila niy powiodła sie
+        password_unmatch: Hasła niy pasujōm do siebie
+        password_update_fail: Aktualizacyjo hasła niy powiodła sie
+        otp_invalid: Niywłaściwy OTP!
+        register_not_allow: Niy masz uprawniyń do rejestracyje!
+        missing_field: Brakuje wymaganych pól
+        password_incorrect: Aktualne hasło je niywłaściwe
+        username_taken: Miano użytkownika już je zajęte
       messages:
-        password_updated: "Hasło zaktualizowane"
+        password_updated: Hasło zaktualizowane
     domain:
       messages:
-        dns_verified: "DNS je poprawnie skonfigurowany"
+        dns_verified: DNS je poprawnie skonfigurowany
     conversation:
       messages:
         marked_read: "%{updated_count} rozmowa(y) oznaczōno jako przeczytano"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktja niy rozpoznana
+      emoji_limit_exceeded: Limit emoji przykroczony

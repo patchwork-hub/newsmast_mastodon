@@ -1,74 +1,84 @@
+---
 ml:
   locale:
-    name: "Malayalam"
-    native_name: "മലയാളം"
+    name: Malayalam
+    native_name: മലയാളം
   notification:
     poll:
-      ended_you: "നിങ്ങളുടെ പോൾ അവസാനിച്ചു"
-      ended_voted: "നിങ്ങൾ വോട്ടുചെയ്ത പോൾ അവസാനിച്ചു"
+      ended_you: നിങ്ങളുടെ പോൾ അവസാനിച്ചു
+      ended_voted: നിങ്ങൾ വോട്ടുചെയ്ത പോൾ അവസാനിച്ചു
     mention:
       direct_message: "%{name} നിങ്ങൾക്ക് സന്ദേശം അയച്ചു"
-      conversation_request: "നിങ്ങൾക്ക് ഒരു പുതിയ സംഭാഷണ അഭ്യർത്ഥന ഉണ്ട്."
+      conversation_request: നിങ്ങൾക്ക് ഒരു പുതിയ സംഭാഷണ അഭ്യർത്ഥന ഉണ്ട്.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "പ്രിയ %{name},"
-      instruction: "നിങ്ങളുടെ അക്കൗണ്ട് സ്ഥിരീകരണ OTP കോഡ് ഇതാണ്:"
-      note: "നിങ്ങൾ ഇത് അഭ്യർത്ഥിച്ചിട്ടില്ലെങ്കിൽ, ഈ ഇമെയിൽ അവഗണിക്കുക"
+      greeting: പ്രിയ %{name},
+      instruction: 'നിങ്ങളുടെ അക്കൗണ്ട് സ്ഥിരീകരണ OTP കോഡ് ഇതാണ്:'
+      note: നിങ്ങൾ ഇത് അഭ്യർത്ഥിച്ചിട്ടില്ലെങ്കിൽ, ഈ ഇമെയിൽ അവഗണിക്കുക
   login_service:
     errors:
-      invalid_credentials: "അസാധുവായ ക്രെഡൻഷ്യലുകൾ. ദയവായി വീണ്ടും ശ്രമിക്കുക"
-      unauthorized_access: "ലോഗിൻ ചെയ്യാൻ നിങ്ങൾക്ക് അനുമതിയില്ല"
-      channel_not_created: "അസാധുവായ ക്രെഡൻഷ്യലുകൾ. നിങ്ങൾ ഒരു ചാനൽ സൃഷ്ടിച്ചിട്ടുണ്ടെന്ന് ഉറപ്പാക്കുക"
-      account_deleted: "നിങ്ങളുടെ അക്കൗണ്ട് ഇതിനകം ഇല്ലാതാക്കി"
+      invalid_credentials: അസാധുവായ ക്രെഡൻഷ്യലുകൾ. ദയവായി വീണ്ടും ശ്രമിക്കുക
+      unauthorized_access: ലോഗിൻ ചെയ്യാൻ നിങ്ങൾക്ക് അനുമതിയില്ല
+      channel_not_created: അസാധുവായ ക്രെഡൻഷ്യലുകൾ. നിങ്ങൾ ഒരു ചാനൽ സൃഷ്ടിച്ചിട്ടുണ്ടെന്ന്
+        ഉറപ്പാക്കുക
+      account_deleted: നിങ്ങളുടെ അക്കൗണ്ട് ഇതിനകം ഇല്ലാതാക്കി
       invalid_role_access: "%{role} ലോഗിൻ ചെയ്യാൻ അനുവദനീയമല്ല"
-      deactivated_channel: "നിങ്ങളുടെ ചാനൽ പ്രവർത്തനരഹിതമാണ്. സഹായത്തിനായി ബന്ധപ്പെടുക"
-      two_factor_enabled: "ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കി. ദയവായി വെബ് ഇന്റർഫേസ് ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക"
+      deactivated_channel: നിങ്ങളുടെ ചാനൽ പ്രവർത്തനരഹിതമാണ്. സഹായത്തിനായി ബന്ധപ്പെടുക
+      two_factor_enabled: ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കി. ദയവായി വെബ്
+        ഇന്റർഫേസ് ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക
   bristolcable_login_service:
     errors:
-      invalid_credentials: "ദയവായി വീണ്ടും ശ്രമിക്കുക. beebee.io യിൽനിന്ന് അസാധുവായ ക്രെഡൻഷ്യലുകൾ"
-      registration_required: "ദയവായി സ്ഥലത്തെ അക്കൗണ്ട് രജിസ്റ്റർ ചെയ്യുക. ഡാറ്റ: %{data}"
-      connection_error: "അംഗത്വ സേവനവുമായി കനക്ട് ചെയ്യുന്നതിൽ പ്രശ്നം: %{error}"
+      invalid_credentials: ദയവായി വീണ്ടും ശ്രമിക്കുക. beebee.io യിൽനിന്ന് അസാധുവായ
+        ക്രെഡൻഷ്യലുകൾ
+      registration_required: 'ദയവായി സ്ഥലത്തെ അക്കൗണ്ട് രജിസ്റ്റർ ചെയ്യുക. ഡാറ്റ:
+        %{data}'
+      connection_error: 'അംഗത്വ സേവനവുമായി കനക്ട് ചെയ്യുന്നതിൽ പ്രശ്നം: %{error}'
   api:
     errors:
-      unauthorized: "ഈ പ്രവർത്തനം നടത്താൻ നിങ്ങൾക്ക് അനുമതിയില്ല"
-      forbidden: "പ്രവേശനം നിരസിച്ചു!"
-      not_found: "വിഭവം കണ്ടെത്തിയില്ല"
-      unprocessable_entity: "അഭ്യർത്ഥന പ്രോസസ്സ് ചെയ്യാനായില്ല"
-      internal_server_error: "ആന്തരിക സെർവർ പിശക് സംഭവിച്ചു"
-      validation_failed: "വാലിഡേഷൻ പരാജയപ്പെട്ടു!"
-      invalid_request: "അസാധുവായ അഭ്യർത്ഥന!"
-      rate_limit_exceeded: "അഭ്യർത്ഥന പരിധി കവിഞ്ഞു. ദയവായി പിന്നീട് ശ്രമിക്കുക"
+      unauthorized: ഈ പ്രവർത്തനം നടത്താൻ നിങ്ങൾക്ക് അനുമതിയില്ല
+      forbidden: പ്രവേശനം നിരസിച്ചു!
+      not_found: വിഭവം കണ്ടെത്തിയില്ല
+      unprocessable_entity: അഭ്യർത്ഥന പ്രോസസ്സ് ചെയ്യാനായില്ല
+      internal_server_error: ആന്തരിക സെർവർ പിശക് സംഭവിച്ചു
+      validation_failed: വാലിഡേഷൻ പരാജയപ്പെട്ടു!
+      invalid_request: അസാധുവായ അഭ്യർത്ഥന!
+      rate_limit_exceeded: അഭ്യർത്ഥന പരിധി കവിഞ്ഞു. ദയവായി പിന്നീട് ശ്രമിക്കുക
     messages:
-      success: "പ്രവർത്തനം വിജയകരമായി പൂർത്തിയായി"
-      created: "വിഭവം വിജയകരമായി സൃഷ്ടിച്ചു"
-      updated: "വിഭവം വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു"
-      deleted: "വിഭവം വിജയകരമായി ഇല്ലാതാക്കി"
+      success: പ്രവർത്തനം വിജയകരമായി പൂർത്തിയായി
+      created: വിഭവം വിജയകരമായി സൃഷ്ടിച്ചു
+      updated: വിഭവം വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു
+      deleted: വിഭവം വിജയകരമായി ഇല്ലാതാക്കി
     notification:
       messages:
-        token_already_exists: "അറിയിപ്പ് ടോക്കൺ ഇതിനകം നിലവിലുണ്ട്"
-        token_saved: "അറിയിപ്പ് ടോക്കൺ സംരക്ഷിച്ചു"
-        token_deleted: "അറിയിപ്പ് ടോക്കൺ വിജയകരമായി ഇല്ലാതാക്കി"
-        token_not_found: "അറിയിപ്പ് ടോക്കൺ കണ്ടെത്തിയില്ല"
-        mute_updated: "മ്യൂട്ട് സ്റ്റാറ്റസ് വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു"
+        token_already_exists: അറിയിപ്പ് ടോക്കൺ ഇതിനകം നിലവിലുണ്ട്
+        token_saved: അറിയിപ്പ് ടോക്കൺ സംരക്ഷിച്ചു
+        token_deleted: അറിയിപ്പ് ടോക്കൺ വിജയകരമായി ഇല്ലാതാക്കി
+        token_not_found: അറിയിപ്പ് ടോക്കൺ കണ്ടെത്തിയില്ല
+        mute_updated: മ്യൂട്ട് സ്റ്റാറ്റസ് വിജയകരമായി അപ്ഡേറ്റ് ചെയ്തു
     account:
       errors:
-        email_not_found: "ഇമെയിൽ കണ്ടെത്തിയില്ല!"
-        email_invalid: "അസാധുവായ ഇമെയിൽ ഫോർമാറ്റ്"
-        email_taken: "ഇമെയിൽ ഇതിനകം ഉപയോഗത്തിലാണ്"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ഇമെയിൽ അപ്ഡേറ്റ് പരാജയപ്പെട്ടു"
-        password_unmatch: "പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല"
-        password_update_fail: "പാസ്‌വേഡ് അപ്ഡേറ്റ് പരാജയപ്പെട്ടു"
-        otp_invalid: "അസാധുവായ OTP!"
-        register_not_allow: "നിങ്ങൾക്ക് രജിസ്റ്റർ ചെയ്യാൻ അനുമതിയില്ല!"
-        missing_field: "ആവശ്യമായ ഫീൽഡുകൾ കാണുന്നില്ല"
-        password_incorrect: "നിലവിലെ പാസ്‌വേഡ് തെറ്റാണ്"
-        username_taken: "ഉപയോക്തൃനാമം ഇതിനകം ഉപയോഗത്തിലാണ്"
+        email_not_found: ഇമെയിൽ കണ്ടെത്തിയില്ല!
+        email_invalid: അസാധുവായ ഇമെയിൽ ഫോർമാറ്റ്
+        email_taken: ഇമെയിൽ ഇതിനകം ഉപയോഗത്തിലാണ്
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ഇമെയിൽ അപ്ഡേറ്റ് പരാജയപ്പെട്ടു
+        password_unmatch: പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല
+        password_update_fail: പാസ്‌വേഡ് അപ്ഡേറ്റ് പരാജയപ്പെട്ടു
+        otp_invalid: അസാധുവായ OTP!
+        register_not_allow: നിങ്ങൾക്ക് രജിസ്റ്റർ ചെയ്യാൻ അനുമതിയില്ല!
+        missing_field: ആവശ്യമായ ഫീൽഡുകൾ കാണുന്നില്ല
+        password_incorrect: നിലവിലെ പാസ്‌വേഡ് തെറ്റാണ്
+        username_taken: ഉപയോക്തൃനാമം ഇതിനകം ഉപയോഗത്തിലാണ്
       messages:
-        password_updated: "പാസ്‌വേഡ് അപ്ഡേറ്റ് ചെയ്തു"
+        password_updated: പാസ്‌വേഡ് അപ്ഡേറ്റ് ചെയ്തു
     domain:
       messages:
-        dns_verified: "DNS ശരിയായി കോൺഫിഗർ ചെയ്തിരിക്കുന്നു"
+        dns_verified: DNS ശരിയായി കോൺഫിഗർ ചെയ്തിരിക്കുന്നു
     conversation:
       messages:
         marked_read: "%{updated_count} സംഭാഷണം വായിച്ചതായി അടയാളപ്പെടുത്തി"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: പ്രതികരണം തിരിച്ചറിയാത്തത്
+      emoji_limit_exceeded: ഇമോജി ലിമിറ്റ് കവിഞ്ഞു

@@ -1,75 +1,82 @@
+---
 oc:
   locale:
-    name: "Occitan"
-    native_name: "Occitan"
+    name: Occitan
+    native_name: Occitan
   notification:
     poll:
-      ended_you: "Vòstra enquèsta es acabada"
-      ended_voted: "Una enquèsta ont avètz votat es acabada"
+      ended_you: Vòstra enquèsta es acabada
+      ended_voted: Una enquèsta ont avètz votat es acabada
     mention:
       direct_message: "%{name} vos a mandat un messatge"
-      conversation_request: "Avètz una nòva demanda de conversacion."
+      conversation_request: Avètz una nòva demanda de conversacion.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Car/Chèra %{name},"
-      instruction: "Vòstre còdi OTP de verificacion de compte es :"
-      note: "Se demandètz pas aquò, ignoratz aqueste corrièl"
+      greeting: Car/Chèra %{name},
+      instruction: 'Vòstre còdi OTP de verificacion de compte es :'
+      note: Se demandètz pas aquò, ignoratz aqueste corrièl
   login_service:
     errors:
-      invalid_credentials: "Identificants invalids. Tornatz ensajar"
-      unauthorized_access: "Avètz pas accès per vos connectar"
-      channel_not_created: "Identificants invalids. Asseguratz-vos d'aver creat un canal"
-      account_deleted: "Vòstre compte es ja suprimit"
+      invalid_credentials: Identificants invalids. Tornatz ensajar
+      unauthorized_access: Avètz pas accès per vos connectar
+      channel_not_created: Identificants invalids. Asseguratz-vos d'aver creat un
+        canal
+      account_deleted: Vòstre compte es ja suprimit
       invalid_role_access: "%{role} es pas autorizat a se connectar"
-      deactivated_channel: "Vòstre canal es desactivat. Contactatz lo supòrt"
-      two_factor_enabled: "L'autentificacion a dos factors es activada. Vos pregam de vos connectar via l'interfàcia web"
+      deactivated_channel: Vòstre canal es desactivat. Contactatz lo supòrt
+      two_factor_enabled: L'autentificacion a dos factors es activada. Vos pregam
+        de vos connectar via l'interfàcia web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Sètz pas autorizat a realizar aquesta accion"
-      forbidden: "Accès refusat!"
-      not_found: "Ressorsa pas trobada"
-      unprocessable_entity: "La demanda a pas pogut èsser tractada"
-      internal_server_error: "Una error intèrna del servidor s'es producha"
-      validation_failed: "La validacion a fracassat!"
-      invalid_request: "Demanda invalida!"
-      rate_limit_exceeded: "Limit de demanda depassat. Tornatz ensajar mai tard"
+      unauthorized: Sètz pas autorizat a realizar aquesta accion
+      forbidden: Accès refusat!
+      not_found: Ressorsa pas trobada
+      unprocessable_entity: La demanda a pas pogut èsser tractada
+      internal_server_error: Una error intèrna del servidor s'es producha
+      validation_failed: La validacion a fracassat!
+      invalid_request: Demanda invalida!
+      rate_limit_exceeded: Limit de demanda depassat. Tornatz ensajar mai tard
     messages:
-      success: "Operacion completada amb succès"
-      created: "Ressorsa creada amb succès"
-      updated: "Ressorsa mesa a jorn amb succès"
-      deleted: "Ressorsa suprimida amb succès"
+      success: Operacion completada amb succès
+      created: Ressorsa creada amb succès
+      updated: Ressorsa mesa a jorn amb succès
+      deleted: Ressorsa suprimida amb succès
     notification:
       messages:
-        token_already_exists: "Lo jeton de notificacion existís ja"
-        token_saved: "Jeton de notificacion enregistrat"
-        token_deleted: "Jeton de notificacion suprimit amb succès"
-        token_not_found: "Cap de jeton de notificacion pas trobat"
-        mute_updated: "Estat de silenci mes a jorn amb succès"
+        token_already_exists: Lo jeton de notificacion existís ja
+        token_saved: Jeton de notificacion enregistrat
+        token_deleted: Jeton de notificacion suprimit amb succès
+        token_not_found: Cap de jeton de notificacion pas trobat
+        mute_updated: Estat de silenci mes a jorn amb succès
     account:
       errors:
-        email_not_found: "Corrièl pas trobat!"
-        email_invalid: "Format de corrièl invalid"
-        email_taken: "Lo corrièl es ja utilizat"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "La mesa a jorn del corrièl a fracassat"
-        password_unmatch: "Los senhals correspondon pas"
-        password_update_fail: "La mesa a jorn del senhal a fracassat"
-        otp_invalid: "OTP invalid!"
-        register_not_allow: "Sètz pas autorizat a vos enregistrar!"
-        missing_field: "Campos obligatòris mancan"
-        password_incorrect: "Lo senhal actual es incorrècte"
-        username_taken: "Nom d'utilizaire ja utilizat"
+        email_not_found: Corrièl pas trobat!
+        email_invalid: Format de corrièl invalid
+        email_taken: Lo corrièl es ja utilizat
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: La mesa a jorn del corrièl a fracassat
+        password_unmatch: Los senhals correspondon pas
+        password_update_fail: La mesa a jorn del senhal a fracassat
+        otp_invalid: OTP invalid!
+        register_not_allow: Sètz pas autorizat a vos enregistrar!
+        missing_field: Campos obligatòris mancan
+        password_incorrect: Lo senhal actual es incorrècte
+        username_taken: Nom d'utilizaire ja utilizat
       messages:
-        password_updated: "Lo senhal es estat mes a jorn"
+        password_updated: Lo senhal es estat mes a jorn
     domain:
       messages:
-        dns_verified: "Lo DNS es corrèctament configurat"
+        dns_verified: Lo DNS es corrèctament configurat
     conversation:
       messages:
         marked_read: "%{updated_count} conversacion(s) marcada(s) coma legida(s)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaccion pas reconeguda
+      emoji_limit_exceeded: Limita d'emoji depassada

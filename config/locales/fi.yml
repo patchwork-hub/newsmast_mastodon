@@ -1,75 +1,82 @@
+---
 fi:
   locale:
-    name: "Finnish"
-    native_name: "Suomi"
+    name: Finnish
+    native_name: Suomi
   notification:
     poll:
-      ended_you: "Kyselysi on päättynyt"
-      ended_voted: "Kysely, johon äänestit, on päättynyt"
+      ended_you: Kyselysi on päättynyt
+      ended_voted: Kysely, johon äänestit, on päättynyt
     mention:
       direct_message: "%{name} lähetti sinulle viestin"
-      conversation_request: "Sinulle on uusi keskustelupyyntö."
+      conversation_request: Sinulle on uusi keskustelupyyntö.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Hyvä %{name},"
-      instruction: "Tilisi vahvistuksen OTP-koodi on:"
-      note: "Jos et pyytänyt tätä, jätä tämä sähköposti huomiotta"
+      greeting: Hyvä %{name},
+      instruction: 'Tilisi vahvistuksen OTP-koodi on:'
+      note: Jos et pyytänyt tätä, jätä tämä sähköposti huomiotta
   login_service:
     errors:
-      invalid_credentials: "Virheelliset tunnistetiedot. Yritä uudelleen"
-      unauthorized_access: "Sinulla ei ole oikeutta kirjautua sisään"
-      channel_not_created: "Virheelliset tunnistetiedot. Varmista, että olet luonut kanavan"
-      account_deleted: "Tilisi on jo poistettu"
+      invalid_credentials: Virheelliset tunnistetiedot. Yritä uudelleen
+      unauthorized_access: Sinulla ei ole oikeutta kirjautua sisään
+      channel_not_created: Virheelliset tunnistetiedot. Varmista, että olet luonut
+        kanavan
+      account_deleted: Tilisi on jo poistettu
       invalid_role_access: "%{role} ei saa kirjautua sisään"
-      deactivated_channel: "Kanavasi on deaktivoitu. Ota yhteyttä tukeen"
-      two_factor_enabled: "Kaksivaiheinen todennus on käytössä. Kirjaudu sisään verkkokäyttöliittymän kautta"
-
+      deactivated_channel: Kanavasi on deaktivoitu. Ota yhteyttä tukeen
+      two_factor_enabled: Kaksivaiheinen todennus on käytössä. Kirjaudu sisään verkkokäyttöliittymän
+        kautta
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Yritä uudelleen. Virheelliset tunnistetiedot beebee.io:sta"
-      registration_required: "Rekisteröi paikallinen tili. tiedot: %{data}"
-      connection_error: "Virhe yhdistäessä jäsenpalveluun: %{error}"
+      invalid_credentials: Yritä uudelleen. Virheelliset tunnistetiedot beebee.io:sta
+      registration_required: 'Rekisteröi paikallinen tili. tiedot: %{data}'
+      connection_error: 'Virhe yhdistäessä jäsenpalveluun: %{error}'
   api:
     errors:
-      unauthorized: "Sinulla ei ole oikeutta suorittaa tätä toimintoa"
-      forbidden: "Pääsy evätty!"
-      not_found: "Resurssia ei löytynyt"
-      unprocessable_entity: "Pyyntöä ei voitu käsitellä"
-      internal_server_error: "Tapahtui sisäinen palvelinvirhe"
-      validation_failed: "Vahvistus epäonnistui!"
-      invalid_request: "Virheellinen pyyntö!"
-      rate_limit_exceeded: "Pyyntöjen raja ylitetty. Yritä myöhemmin uudelleen"
+      unauthorized: Sinulla ei ole oikeutta suorittaa tätä toimintoa
+      forbidden: Pääsy evätty!
+      not_found: Resurssia ei löytynyt
+      unprocessable_entity: Pyyntöä ei voitu käsitellä
+      internal_server_error: Tapahtui sisäinen palvelinvirhe
+      validation_failed: Vahvistus epäonnistui!
+      invalid_request: Virheellinen pyyntö!
+      rate_limit_exceeded: Pyyntöjen raja ylitetty. Yritä myöhemmin uudelleen
     messages:
-      success: "Toiminto suoritettu onnistuneesti"
-      created: "Resurssi luotu onnistuneesti"
-      updated: "Resurssi päivitetty onnistuneesti"
-      deleted: "Resurssi poistettu onnistuneesti"
+      success: Toiminto suoritettu onnistuneesti
+      created: Resurssi luotu onnistuneesti
+      updated: Resurssi päivitetty onnistuneesti
+      deleted: Resurssi poistettu onnistuneesti
     notification:
       messages:
-        token_already_exists: "Ilmoitustunnus on jo olemassa"
-        token_saved: "Ilmoitustunnus tallennettu"
-        token_deleted: "Ilmoitustunnus poistettu onnistuneesti"
-        token_not_found: "Ilmoitustunnuksia ei löytynyt"
-        mute_updated: "Mykistystila päivitetty onnistuneesti"
+        token_already_exists: Ilmoitustunnus on jo olemassa
+        token_saved: Ilmoitustunnus tallennettu
+        token_deleted: Ilmoitustunnus poistettu onnistuneesti
+        token_not_found: Ilmoitustunnuksia ei löytynyt
+        mute_updated: Mykistystila päivitetty onnistuneesti
     account:
       errors:
-        email_not_found: "Sähköpostia ei löytynyt!"
-        email_invalid: "Virheellinen sähköpostimuoto"
-        email_taken: "Sähköposti on jo käytössä"
-        membership_not_eligible: "Rekisteröityminen on avoin vain Core-jäsenille, CSIDNet Teamille ja tukijajäsenille"
-        email_update_fail: "Sähköpostin päivitys epäonnistui"
-        password_unmatch: "Salasanat eivät täsmää"
-        password_update_fail: "Salasanan päivitys epäonnistui"
-        otp_invalid: "Virheellinen OTP!"
-        register_not_allow: "Sinulla ei ole oikeutta rekisteröityä!"
-        missing_field: "Pakolliset kentät puuttuvat"
-        password_incorrect: "Nykyinen salasana on väärä"
-        username_taken: "Käyttäjänimi on jo käytössä"
+        email_not_found: Sähköpostia ei löytynyt!
+        email_invalid: Virheellinen sähköpostimuoto
+        email_taken: Sähköposti on jo käytössä
+        membership_not_eligible: Rekisteröityminen on avoin vain Core-jäsenille, CSIDNet
+          Teamille ja tukijajäsenille
+        email_update_fail: Sähköpostin päivitys epäonnistui
+        password_unmatch: Salasanat eivät täsmää
+        password_update_fail: Salasanan päivitys epäonnistui
+        otp_invalid: Virheellinen OTP!
+        register_not_allow: Sinulla ei ole oikeutta rekisteröityä!
+        missing_field: Pakolliset kentät puuttuvat
+        password_incorrect: Nykyinen salasana on väärä
+        username_taken: Käyttäjänimi on jo käytössä
       messages:
-        password_updated: "Salasana on päivitetty"
+        password_updated: Salasana on päivitetty
     domain:
       messages:
-        dns_verified: "DNS on oikein määritetty"
+        dns_verified: DNS on oikein määritetty
     conversation:
       messages:
         marked_read: "%{updated_count} keskustelu(a) merkitty luetuksi"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktiota ei tunnistettu
+      emoji_limit_exceeded: Emoji-raja ylitetty

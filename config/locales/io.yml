@@ -1,75 +1,81 @@
+---
 io:
   locale:
-    name: "Ido"
-    native_name: "Ido"
+    name: Ido
+    native_name: Ido
   notification:
     poll:
-      ended_you: "Vua poll esis finita"
-      ended_voted: "Un poll ube votez esis finita"
+      ended_you: Vua poll esis finita
+      ended_voted: Un poll ube votez esis finita
     mention:
       direct_message: "%{name} sendis a vu un mesajo"
-      conversation_request: "Vi havas nova konverso-requesto."
+      conversation_request: Vi havas nova konverso-requesto.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kara %{name},"
-      instruction: "Vua konto-verifikala OTP-kodo esas:"
-      note: "Se vu ne petis to, ignorar ca emailo"
+      greeting: Kara %{name},
+      instruction: 'Vua konto-verifikala OTP-kodo esas:'
+      note: Se vu ne petis to, ignorar ca emailo
   login_service:
     errors:
-      invalid_credentials: "Nevalida kredentiali. Provez denove"
-      unauthorized_access: "Vu ne havas accesso por enirar"
-      channel_not_created: "Nevalida kredentiali. Asigurizar ke vu kreis un canalo"
-      account_deleted: "Vua konto jam esas deletita"
+      invalid_credentials: Nevalida kredentiali. Provez denove
+      unauthorized_access: Vu ne havas accesso por enirar
+      channel_not_created: Nevalida kredentiali. Asigurizar ke vu kreis un canalo
+      account_deleted: Vua konto jam esas deletita
       invalid_role_access: "%{role} ne esas permisita enirar"
-      deactivated_channel: "Vua canalo esas deaktivesita. Kontaktar supporto"
-      two_factor_enabled: "Du-faktora autentikado esas aktivigita. Bonvole enirez per la reta interfaco"
-
+      deactivated_channel: Vua canalo esas deaktivesita. Kontaktar supporto
+      two_factor_enabled: Du-faktora autentikado esas aktivigita. Bonvole enirez per
+        la reta interfaco
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Provez denove. Nevalida kredentiali de beebee.io"
-      registration_required: "Registragez lokala konto. datumi: %{data}"
-      connection_error: "Eroro kontaktante la servilo di membri: %{error}"
+      invalid_credentials: Provez denove. Nevalida kredentiali de beebee.io
+      registration_required: 'Registragez lokala konto. datumi: %{data}'
+      connection_error: 'Eroro kontaktante la servilo di membri: %{error}'
   api:
     errors:
-      unauthorized: "Vu ne esas autorizita por facar ca ago"
-      forbidden: "Accesso refusita!"
-      not_found: "Ressurso ne trovita"
-      unprocessable_entity: "La requesto ne povis esar procesita"
-      internal_server_error: "Interna servilo-erro okurrezis"
-      validation_failed: "Validado ne sukcesis!"
-      invalid_request: "Nevalida requesto!"
-      rate_limit_exceeded: "Limito de requesti superita. Provez post tempo"
+      unauthorized: Vu ne esas autorizita por facar ca ago
+      forbidden: Accesso refusita!
+      not_found: Ressurso ne trovita
+      unprocessable_entity: La requesto ne povis esar procesita
+      internal_server_error: Interna servilo-erro okurrezis
+      validation_failed: Validado ne sukcesis!
+      invalid_request: Nevalida requesto!
+      rate_limit_exceeded: Limito de requesti superita. Provez post tempo
     messages:
-      success: "Opero kompletigita sukcese"
-      created: "Ressurso kreita sukcese"
-      updated: "Ressurso aktualigita sukcese"
-      deleted: "Ressurso deletita sukcese"
+      success: Opero kompletigita sukcese
+      created: Ressurso kreita sukcese
+      updated: Ressurso aktualigita sukcese
+      deleted: Ressurso deletita sukcese
     notification:
       messages:
-        token_already_exists: "Notifika token jam existas"
-        token_saved: "Notifika token savita"
-        token_deleted: "Notifika token deletita sukcese"
-        token_not_found: "Nula notifika token trovita"
-        mute_updated: "Mute-statuso aktualigita sukcese"
+        token_already_exists: Notifika token jam existas
+        token_saved: Notifika token savita
+        token_deleted: Notifika token deletita sukcese
+        token_not_found: Nula notifika token trovita
+        mute_updated: Mute-statuso aktualigita sukcese
     account:
       errors:
-        email_not_found: "E-mail ne trovita!"
-        email_invalid: "Nevalida e-mail-formato"
-        email_taken: "E-mail jam uzata"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "E-mail-aktualigo ne sukcesis"
-        password_unmatch: "La pasvorti ne konformas"
-        password_update_fail: "Pasvorto-aktualigo ne sukcesis"
-        otp_invalid: "Nevalida OTP!"
-        register_not_allow: "Vu ne esas permisita registracar!"
-        missing_field: "Mankas bezonata kampo"
-        password_incorrect: "La aktuala pasvorto esas incorekta"
-        username_taken: "La uzantonomo jam uzata"
+        email_not_found: E-mail ne trovita!
+        email_invalid: Nevalida e-mail-formato
+        email_taken: E-mail jam uzata
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: E-mail-aktualigo ne sukcesis
+        password_unmatch: La pasvorti ne konformas
+        password_update_fail: Pasvorto-aktualigo ne sukcesis
+        otp_invalid: Nevalida OTP!
+        register_not_allow: Vu ne esas permisita registracar!
+        missing_field: Mankas bezonata kampo
+        password_incorrect: La aktuala pasvorto esas incorekta
+        username_taken: La uzantonomo jam uzata
       messages:
-        password_updated: "Pasvorto aktualigita"
+        password_updated: Pasvorto aktualigita
     domain:
       messages:
-        dns_verified: "DNS esas korekte konfigurita"
+        dns_verified: DNS esas korekte konfigurita
     conversation:
       messages:
         marked_read: "%{updated_count} konversacio(j) markita kom lektita"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reakto ne recognita
+      emoji_limit_exceeded: Limito de emoji suprita

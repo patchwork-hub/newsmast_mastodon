@@ -1,75 +1,82 @@
+---
 tlh:
   locale:
-    name: "Klingon"
-    native_name: "tlhIngan Hol"
+    name: Klingon
+    native_name: tlhIngan Hol
   notification:
     poll:
-      ended_you: "Your poll has ended"
-      ended_voted: "A poll you voted in has ended"
+      ended_you: Your poll has ended
+      ended_voted: A poll you voted in has ended
     mention:
       direct_message: "%{name} send you a message"
-      conversation_request: "naDev QoQ QIn chu' Daghaj."
+      conversation_request: naDev QoQ QIn chu' Daghaj.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Dear %{name},"
-      instruction: "Your account verification OTP code is as below:"
-      note: "If you didn't request this, please ignore this email"
+      greeting: Dear %{name},
+      instruction: 'Your account verification OTP code is as below:'
+      note: If you didn't request this, please ignore this email
   login_service:
     errors:
-      invalid_credentials: "Invalid credentials. Please try again"
-      unauthorized_access: "You don't have access to login"
-      channel_not_created: "Invalid credentials. Please make sure you've created a channel"
-      account_deleted: "Your account is already deleted"
+      invalid_credentials: Invalid credentials. Please try again
+      unauthorized_access: You don't have access to login
+      channel_not_created: Invalid credentials. Please make sure you've created a
+        channel
+      account_deleted: Your account is already deleted
       invalid_role_access: "%{role} isn't allowed to access login"
-      deactivated_channel: "Your channel is deactivated. Please contact support"
-      two_factor_enabled: "cha' 'eb Human authentication nIv. web interface HIjmeH yI'el"
+      deactivated_channel: Your channel is deactivated. Please contact support
+      two_factor_enabled: cha' 'eb Human authentication nIv. web interface HIjmeH
+        yI'el
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "You are not authorized to perform this action"
-      forbidden: "Access denied!"
-      not_found: "Resource not found"
-      unprocessable_entity: "The request could not be processed"
-      internal_server_error: "An internal server error occurred"
-      validation_failed: "Validation failed!"
-      invalid_request: "Invalid request!"
-      rate_limit_exceeded: "Rate limit exceeded. Please try again later"
+      unauthorized: You are not authorized to perform this action
+      forbidden: Access denied!
+      not_found: Resource not found
+      unprocessable_entity: The request could not be processed
+      internal_server_error: An internal server error occurred
+      validation_failed: Validation failed!
+      invalid_request: Invalid request!
+      rate_limit_exceeded: Rate limit exceeded. Please try again later
     messages:
-      success: "Operation completed successfully"
-      created: "Resource created successfully"
-      updated: "Resource updated successfully"
-      deleted: "Resource deleted successfully"
+      success: Operation completed successfully
+      created: Resource created successfully
+      updated: Resource updated successfully
+      deleted: Resource deleted successfully
     notification:
       messages:
-        token_already_exists: "Notification token already exists"
-        token_saved: "Notification token saved"
-        token_deleted: "Notification token deleted successfully"
-        token_not_found: "No notification tokens found"
-        mute_updated: "Mute status updated successfully"
+        token_already_exists: Notification token already exists
+        token_saved: Notification token saved
+        token_deleted: Notification token deleted successfully
+        token_not_found: No notification tokens found
+        mute_updated: Mute status updated successfully
     account:
       errors:
-        email_not_found: "Email not found!"
-        email_invalid: "Invalid email format"
-        email_taken: "Email has already been taken"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "The email update was unsuccessful"
-        password_unmatch: "Password unmatch"
-        password_update_fail: "The password update was unsuccessful"
-        otp_invalid: "Invalid otp!"
-        register_not_allow: "You'r not allowed to register!"
-        missing_field: "Missing required fields"
-        password_incorrect: "Current password is incorrect"
-        username_taken: "Username has already been taken"
+        email_not_found: Email not found!
+        email_invalid: Invalid email format
+        email_taken: Email has already been taken
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: The email update was unsuccessful
+        password_unmatch: Password unmatch
+        password_update_fail: The password update was unsuccessful
+        otp_invalid: Invalid otp!
+        register_not_allow: You'r not allowed to register!
+        missing_field: Missing required fields
+        password_incorrect: Current password is incorrect
+        username_taken: Username has already been taken
       messages:
-        password_updated: "The password has been updated"
+        password_updated: The password has been updated
     domain:
       messages:
-        dns_verified: "DNS is correctly configured"
+        dns_verified: DNS is correctly configured
     conversation:
       messages:
-        marked_read: "Marked %{updated_count} conversation(s) as read"
+        marked_read: Marked %{updated_count} conversation(s) as read
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: nuqDaq be'chugh response
+      emoji_limit_exceeded: emoji limit pagh

@@ -1,75 +1,82 @@
+---
 sa:
   locale:
-    name: "Sanskrit"
-    native_name: "संस्कृतम्"
+    name: Sanskrit
+    native_name: संस्कृतम्
   notification:
     poll:
-      ended_you: "तव मतदानं समाप्तम् अभवत्"
-      ended_voted: "यत्र त्वया मतदानं कृतं तत् मतदानं समाप्तम् अभवत्"
+      ended_you: तव मतदानं समाप्तम् अभवत्
+      ended_voted: यत्र त्वया मतदानं कृतं तत् मतदानं समाप्तम् अभवत्
     mention:
       direct_message: "%{name} त्वां सन्देशं प्रेषितवान्"
-      conversation_request: "भवतः नूतनं संवादप्रार्थनम् अस्ति।"
+      conversation_request: भवतः नूतनं संवादप्रार्थनम् अस्ति।
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "प्रिय %{name},"
-      instruction: "तव खातस्य प्रमाणीकरण OTP कूटः अस्ति:"
-      note: "यदि त्वं एतत् न याचितवान्, तर्हि एतत् ईमेल् उपेक्ष्यताम्"
+      greeting: प्रिय %{name},
+      instruction: 'तव खातस्य प्रमाणीकरण OTP कूटः अस्ति:'
+      note: यदि त्वं एतत् न याचितवान्, तर्हि एतत् ईमेल् उपेक्ष्यताम्
   login_service:
     errors:
-      invalid_credentials: "अमान्य प्रमाणपत्राणि। पुनः प्रयासं कुरु"
-      unauthorized_access: "त्वं प्रविष्टुं न अर्हसि"
-      channel_not_created: "अमान्य प्रमाणपत्राणि। कृपया सुनिश्चित कुरु यत् त्वया एकः चैनल् निर्मितः अस्ति"
-      account_deleted: "तव खाता पूर्वमेव विलोपिता अस्ति"
+      invalid_credentials: अमान्य प्रमाणपत्राणि। पुनः प्रयासं कुरु
+      unauthorized_access: त्वं प्रविष्टुं न अर्हसि
+      channel_not_created: अमान्य प्रमाणपत्राणि। कृपया सुनिश्चित कुरु यत् त्वया एकः
+        चैनल् निर्मितः अस्ति
+      account_deleted: तव खाता पूर्वमेव विलोपिता अस्ति
       invalid_role_access: "%{role} प्रविष्टुं न अर्हति"
-      deactivated_channel: "तव चैनल् निष्क्रियः अस्ति। सहायता सम्पर्कं कुरु"
-      two_factor_enabled: "द्वि-कारक प्रमाणीकरणं सक्षमं अस्ति। कृपया जाल-अन्तःफलकेन प्रवेशं करोतु"
+      deactivated_channel: तव चैनल् निष्क्रियः अस्ति। सहायता सम्पर्कं कुरु
+      two_factor_enabled: द्वि-कारक प्रमाणीकरणं सक्षमं अस्ति। कृपया जाल-अन्तःफलकेन
+        प्रवेशं करोतु
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "त्वं एतत् कर्तुं न अर्हसि"
-      forbidden: "प्रवेशः निषिद्धः!"
-      not_found: "स्रोतः न प्राप्तः"
-      unprocessable_entity: "अनुरोधः संसाधयितुं न शक्यते"
-      internal_server_error: "आन्तरिक सर्वरदोषः अभवत्"
-      validation_failed: "मान्यता विफला!"
-      invalid_request: "अमान्य अनुरोधः!"
-      rate_limit_exceeded: "अनुरोधसीमा अतिक्रान्ता। कृपया पुनः प्रयासं कुरु"
+      unauthorized: त्वं एतत् कर्तुं न अर्हसि
+      forbidden: प्रवेशः निषिद्धः!
+      not_found: स्रोतः न प्राप्तः
+      unprocessable_entity: अनुरोधः संसाधयितुं न शक्यते
+      internal_server_error: आन्तरिक सर्वरदोषः अभवत्
+      validation_failed: मान्यता विफला!
+      invalid_request: अमान्य अनुरोधः!
+      rate_limit_exceeded: अनुरोधसीमा अतिक्रान्ता। कृपया पुनः प्रयासं कुरु
     messages:
-      success: "कार्य सफलतया समाप्तम् अभवत्"
-      created: "स्रोतः सफलतया निर्मितः"
-      updated: "स्रोतः सफलतया अद्यतनीकृतः"
-      deleted: "स्रोतः सफलतया विलोपितः"
+      success: कार्य सफलतया समाप्तम् अभवत्
+      created: स्रोतः सफलतया निर्मितः
+      updated: स्रोतः सफलतया अद्यतनीकृतः
+      deleted: स्रोतः सफलतया विलोपितः
     notification:
       messages:
-        token_already_exists: "सूचनाटोकन् पूर्वमेव अस्ति"
-        token_saved: "सूचनाटोकन् सुरक्षितः"
-        token_deleted: "सूचनाटोकन् सफलतया विलोपितः"
-        token_not_found: "सूचनाटोकन् न प्राप्तः"
-        mute_updated: "मौनस्थिति सफलतया अद्यतनीकृता"
+        token_already_exists: सूचनाटोकन् पूर्वमेव अस्ति
+        token_saved: सूचनाटोकन् सुरक्षितः
+        token_deleted: सूचनाटोकन् सफलतया विलोपितः
+        token_not_found: सूचनाटोकन् न प्राप्तः
+        mute_updated: मौनस्थिति सफलतया अद्यतनीकृता
     account:
       errors:
-        email_not_found: "ईमेल् न प्राप्तः!"
-        email_invalid: "अमान्य ईमेल् प्रारूपम्"
-        email_taken: "ईमेल् पूर्वमेव गृहीतः"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "ईमेल् अद्यतनीकरणं विफलम्"
-        password_unmatch: "गुप्तशब्दौ न मेलयतः"
-        password_update_fail: "गुप्तशब्दस्य अद्यतनीकरणं विफलम्"
-        otp_invalid: "अमान्य OTP!"
-        register_not_allow: "त्वं पञ्जीकर्तुं न अर्हसि!"
-        missing_field: "आवश्यकानि क्षेत्राणि न सन्ति"
-        password_incorrect: "वर्तमानगुप्तशब्दः अमान्यः"
-        username_taken: "उपयोक्तृनाम पूर्वमेव गृहीतम्"
+        email_not_found: ईमेल् न प्राप्तः!
+        email_invalid: अमान्य ईमेल् प्रारूपम्
+        email_taken: ईमेल् पूर्वमेव गृहीतः
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: ईमेल् अद्यतनीकरणं विफलम्
+        password_unmatch: गुप्तशब्दौ न मेलयतः
+        password_update_fail: गुप्तशब्दस्य अद्यतनीकरणं विफलम्
+        otp_invalid: अमान्य OTP!
+        register_not_allow: त्वं पञ्जीकर्तुं न अर्हसि!
+        missing_field: आवश्यकानि क्षेत्राणि न सन्ति
+        password_incorrect: वर्तमानगुप्तशब्दः अमान्यः
+        username_taken: उपयोक्तृनाम पूर्वमेव गृहीतम्
       messages:
-        password_updated: "गुप्तशब्दः अद्यतनीकृतः"
+        password_updated: गुप्तशब्दः अद्यतनीकृतः
     domain:
       messages:
-        dns_verified: "DNS सम्यक् प्रकारेण विन्यस्तम् अस्ति"
+        dns_verified: DNS सम्यक् प्रकारेण विन्यस्तम् अस्ति
     conversation:
       messages:
         marked_read: "%{updated_count} संवादः पठितः इति चिह्नितः"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: क्रियापतनः न स्वीकृतः
+      emoji_limit_exceeded: इमोजी सीमा अतिक्रमणम्

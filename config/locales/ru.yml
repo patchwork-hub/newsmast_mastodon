@@ -1,84 +1,82 @@
+---
 ru:
   locale:
-    name: "Russian"
-    native_name: "Русский"
-
+    name: Russian
+    native_name: Русский
   notification:
     poll:
-      ended_you: "Ваш опрос завершён"
-      ended_voted: "Опрос, в котором вы участвовали, завершён"
+      ended_you: Ваш опрос завершён
+      ended_voted: Опрос, в котором вы участвовали, завершён
     mention:
       direct_message: "%{name} отправил(а) вам сообщение"
-      conversation_request: "У вас новый запрос на разговор."
-  
+      conversation_request: У вас новый запрос на разговор.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Уважаемый(ая) %{name},"
-      instruction: "Ваш OTP-код для подтверждения аккаунта:"
-      note: "Если вы не запрашивали это, проигнорируйте это письмо"
-
+      greeting: Уважаемый(ая) %{name},
+      instruction: 'Ваш OTP-код для подтверждения аккаунта:'
+      note: Если вы не запрашивали это, проигнорируйте это письмо
   login_service:
     errors:
-      invalid_credentials: "Неверные учетные данные. Попробуйте снова"
-      unauthorized_access: "У вас нет доступа для входа"
-      channel_not_created: "Неверные учетные данные. Убедитесь, что вы создали канал"
-      account_deleted: "Ваш аккаунт уже удалён"
+      invalid_credentials: Неверные учетные данные. Попробуйте снова
+      unauthorized_access: У вас нет доступа для входа
+      channel_not_created: Неверные учетные данные. Убедитесь, что вы создали канал
+      account_deleted: Ваш аккаунт уже удалён
       invalid_role_access: "%{role} не имеет доступа для входа"
-      deactivated_channel: "Ваш канал деактивирован. Обратитесь в поддержку"
-      two_factor_enabled: "Двухфакторная аутентификация включена. Пожалуйста, войдите через веб-интерфейс"
-
+      deactivated_channel: Ваш канал деактивирован. Обратитесь в поддержку
+      two_factor_enabled: Двухфакторная аутентификация включена. Пожалуйста, войдите
+        через веб-интерфейс
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Попробуйте снова. Неверные учетные данные от beebee.io"
-      registration_required: "Пожалуйста, зарегистрируйте локальную учетную запись. данные: %{data}"
-      connection_error: "Ошибка подключения к службе членства: %{error}"
-
+      invalid_credentials: Попробуйте снова. Неверные учетные данные от beebee.io
+      registration_required: 'Пожалуйста, зарегистрируйте локальную учетную запись.
+        данные: %{data}'
+      connection_error: 'Ошибка подключения к службе членства: %{error}'
   api:
     errors:
-      unauthorized: "У вас нет прав для выполнения этого действия"
-      forbidden: "Доступ запрещён!"
-      not_found: "Ресурс не найден"
-      unprocessable_entity: "Запрос не может быть обработан"
-      internal_server_error: "Произошла внутренняя ошибка сервера"
-      validation_failed: "Ошибка валидации!"
-      invalid_request: "Неверный запрос!"
-      rate_limit_exceeded: "Превышен лимит запросов. Попробуйте позже"
-
+      unauthorized: У вас нет прав для выполнения этого действия
+      forbidden: Доступ запрещён!
+      not_found: Ресурс не найден
+      unprocessable_entity: Запрос не может быть обработан
+      internal_server_error: Произошла внутренняя ошибка сервера
+      validation_failed: Ошибка валидации!
+      invalid_request: Неверный запрос!
+      rate_limit_exceeded: Превышен лимит запросов. Попробуйте позже
     messages:
-      success: "Операция успешно завершена"
-      created: "Ресурс успешно создан"
-      updated: "Ресурс успешно обновлён"
-      deleted: "Ресурс успешно удалён"
-
+      success: Операция успешно завершена
+      created: Ресурс успешно создан
+      updated: Ресурс успешно обновлён
+      deleted: Ресурс успешно удалён
     notification:
       messages:
-        token_already_exists: "Токен уведомлений уже существует"
-        token_saved: "Токен уведомлений сохранён"
-        token_deleted: "Токен уведомлений успешно удалён"
-        token_not_found: "Токены уведомлений не найдены"
-        mute_updated: "Статус беззвучного режима успешно обновлён"
-
+        token_already_exists: Токен уведомлений уже существует
+        token_saved: Токен уведомлений сохранён
+        token_deleted: Токен уведомлений успешно удалён
+        token_not_found: Токены уведомлений не найдены
+        mute_updated: Статус беззвучного режима успешно обновлён
     account:
       errors:
-        email_not_found: "E-mail не найден!"
-        email_invalid: "Неверный формат e-mail"
-        email_taken: "E-mail уже используется"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Не удалось обновить e-mail"
-        password_unmatch: "Пароли не совпадают"
-        password_update_fail: "Не удалось обновить пароль"
-        otp_invalid: "Неверный OTP!"
-        register_not_allow: "Вам не разрешено регистрироваться!"
-        missing_field: "Отсутствуют обязательные поля"
-        password_incorrect: "Текущий пароль неверен"
-        username_taken: "Имя пользователя уже занято"
+        email_not_found: E-mail не найден!
+        email_invalid: Неверный формат e-mail
+        email_taken: E-mail уже используется
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Не удалось обновить e-mail
+        password_unmatch: Пароли не совпадают
+        password_update_fail: Не удалось обновить пароль
+        otp_invalid: Неверный OTP!
+        register_not_allow: Вам не разрешено регистрироваться!
+        missing_field: Отсутствуют обязательные поля
+        password_incorrect: Текущий пароль неверен
+        username_taken: Имя пользователя уже занято
       messages:
-        password_updated: "Пароль был обновлён"
-
+        password_updated: Пароль был обновлён
     domain:
       messages:
-        dns_verified: "DNS настроен правильно"
-
+        dns_verified: DNS настроен правильно
     conversation:
       messages:
         marked_read: "%{updated_count} беседа(ы) отмечена(ы) как прочитанная(ые)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Реакция не признана
+      emoji_limit_exceeded: Лимит эмодзи превышен

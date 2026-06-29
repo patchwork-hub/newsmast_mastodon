@@ -1,75 +1,81 @@
+---
 fil:
   locale:
-    name: "Filipino"
-    native_name: "Filipino"
+    name: Filipino
+    native_name: Filipino
   notification:
     poll:
-      ended_you: "Natapos na ang iyong botohan"
-      ended_voted: "Natapos na ang botohan na iyong binoto"
+      ended_you: Natapos na ang iyong botohan
+      ended_voted: Natapos na ang botohan na iyong binoto
     mention:
       direct_message: "%{name} ay nagpadala sa iyo ng mensahe"
-      conversation_request: "Mayroon kang bagong kahilingan sa pag-uusap."
+      conversation_request: Mayroon kang bagong kahilingan sa pag-uusap.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Mahal na %{name},"
-      instruction: "Ang iyong OTP code para sa beripikasyon ng account ay:"
-      note: "Kung hindi mo ito hiniling, pakisawalang-bahala ang email na ito"
+      greeting: Mahal na %{name},
+      instruction: 'Ang iyong OTP code para sa beripikasyon ng account ay:'
+      note: Kung hindi mo ito hiniling, pakisawalang-bahala ang email na ito
   login_service:
     errors:
-      invalid_credentials: "Di-wastong kredensyal. Pakisubukang muli"
-      unauthorized_access: "Wala kang access para mag-login"
-      channel_not_created: "Di-wastong kredensyal. Pakitiyak na nakagawa ka ng channel"
-      account_deleted: "Ang iyong account ay nabura na"
-      invalid_role_access: "Hindi pinapayagan si %{role} na mag-login"
-      deactivated_channel: "Na-deactivate ang iyong channel. Makipag-ugnayan sa suporta"
-      two_factor_enabled: "Ang two-factor authentication ay pinagana. Mangyaring mag-login gamit ang web interface"
-
+      invalid_credentials: Di-wastong kredensyal. Pakisubukang muli
+      unauthorized_access: Wala kang access para mag-login
+      channel_not_created: Di-wastong kredensyal. Pakitiyak na nakagawa ka ng channel
+      account_deleted: Ang iyong account ay nabura na
+      invalid_role_access: Hindi pinapayagan si %{role} na mag-login
+      deactivated_channel: Na-deactivate ang iyong channel. Makipag-ugnayan sa suporta
+      two_factor_enabled: Ang two-factor authentication ay pinagana. Mangyaring mag-login
+        gamit ang web interface
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Pakisubukang muli. Di-wastong kredensyal mula sa beebee.io"
-      registration_required: "Pakipagrehistro ng lokal na account. datos: %{data}"
-      connection_error: "Error sa pagkonekta sa membership service: %{error}"
+      invalid_credentials: Pakisubukang muli. Di-wastong kredensyal mula sa beebee.io
+      registration_required: 'Pakipagrehistro ng lokal na account. datos: %{data}'
+      connection_error: 'Error sa pagkonekta sa membership service: %{error}'
   api:
     errors:
-      unauthorized: "Wala kang pahintulot na gawin ito"
-      forbidden: "Access denied!"
-      not_found: "Hindi natagpuan ang resource"
-      unprocessable_entity: "Hindi maproseso ang request"
-      internal_server_error: "Nagkaroon ng internal server error"
-      validation_failed: "Nabigo ang validation!"
-      invalid_request: "Di-wastong request!"
-      rate_limit_exceeded: "Lumagpas sa limit ng request. Pakisubukang muli mamaya"
+      unauthorized: Wala kang pahintulot na gawin ito
+      forbidden: Access denied!
+      not_found: Hindi natagpuan ang resource
+      unprocessable_entity: Hindi maproseso ang request
+      internal_server_error: Nagkaroon ng internal server error
+      validation_failed: Nabigo ang validation!
+      invalid_request: Di-wastong request!
+      rate_limit_exceeded: Lumagpas sa limit ng request. Pakisubukang muli mamaya
     messages:
-      success: "Matagumpay na natapos ang operasyon"
-      created: "Matagumpay na nalikha ang resource"
-      updated: "Matagumpay na na-update ang resource"
-      deleted: "Matagumpay na nabura ang resource"
+      success: Matagumpay na natapos ang operasyon
+      created: Matagumpay na nalikha ang resource
+      updated: Matagumpay na na-update ang resource
+      deleted: Matagumpay na nabura ang resource
     notification:
       messages:
-        token_already_exists: "Umiiral na ang notification token"
-        token_saved: "Notification token na-save"
-        token_deleted: "Matagumpay na nabura ang notification token"
-        token_not_found: "Walang notification tokens na natagpuan"
-        mute_updated: "Matagumpay na na-update ang mute status"
+        token_already_exists: Umiiral na ang notification token
+        token_saved: Notification token na-save
+        token_deleted: Matagumpay na nabura ang notification token
+        token_not_found: Walang notification tokens na natagpuan
+        mute_updated: Matagumpay na na-update ang mute status
     account:
       errors:
-        email_not_found: "Hindi natagpuan ang email!"
-        email_invalid: "Di-wastong format ng email"
-        email_taken: "Nagamit na ang email"
-        membership_not_eligible: "Ang pagpaparehistro ay bukas lamang sa mga miyembro ng Core, CSIDNet Team, at mga miyembro ng Supporter"
-        email_update_fail: "Hindi nagtagumpay ang pag-update ng email"
-        password_unmatch: "Hindi tugma ang mga password"
-        password_update_fail: "Hindi nagtagumpay ang pag-update ng password"
-        otp_invalid: "Di-wastong OTP!"
-        register_not_allow: "Wala kang pahintulot na magrehistro!"
-        missing_field: "May kulang na kinakailangang field"
-        password_incorrect: "Mali ang kasalukuyang password"
-        username_taken: "Nagamit na ang username"
+        email_not_found: Hindi natagpuan ang email!
+        email_invalid: Di-wastong format ng email
+        email_taken: Nagamit na ang email
+        membership_not_eligible: Ang pagpaparehistro ay bukas lamang sa mga miyembro
+          ng Core, CSIDNet Team, at mga miyembro ng Supporter
+        email_update_fail: Hindi nagtagumpay ang pag-update ng email
+        password_unmatch: Hindi tugma ang mga password
+        password_update_fail: Hindi nagtagumpay ang pag-update ng password
+        otp_invalid: Di-wastong OTP!
+        register_not_allow: Wala kang pahintulot na magrehistro!
+        missing_field: May kulang na kinakailangang field
+        password_incorrect: Mali ang kasalukuyang password
+        username_taken: Nagamit na ang username
       messages:
-        password_updated: "Na-update ang password"
+        password_updated: Na-update ang password
     domain:
       messages:
-        dns_verified: "Tama ang pagkaka-configure ng DNS"
+        dns_verified: Tama ang pagkaka-configure ng DNS
     conversation:
       messages:
-        marked_read: "Na-mark bilang nabasa ang %{updated_count} pag-uusap"
+        marked_read: Na-mark bilang nabasa ang %{updated_count} pag-uusap
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksyon na hindi kinikilala
+      emoji_limit_exceeded: Lampasan ang limitasyon ng emoji

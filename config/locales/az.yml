@@ -1,75 +1,82 @@
+---
 az:
   locale:
-    name: "Azerbaijani"
-    native_name: "Azərbaycanca"
+    name: Azerbaijani
+    native_name: Azərbaycanca
   notification:
     poll:
-      ended_you: "Sorğunuz başa çatdı"
-      ended_voted: "Səs verdiyiniz sorğu başa çatdı"
+      ended_you: Sorğunuz başa çatdı
+      ended_voted: Səs verdiyiniz sorğu başa çatdı
     mention:
       direct_message: "%{name} sizə mesaj göndərdi"
-      conversation_request: "Yeni bir söhbət sorğunuz var."
+      conversation_request: Yeni bir söhbət sorğunuz var.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Hörmətli %{name},"
-      instruction: "Hesabınızı təsdiqləmək üçün OTP kodunuz budur:"
-      note: "Əgər bunu siz istəməmisinizsə, bu e-poçtu nəzərə almayın"
+      greeting: Hörmətli %{name},
+      instruction: 'Hesabınızı təsdiqləmək üçün OTP kodunuz budur:'
+      note: Əgər bunu siz istəməmisinizsə, bu e-poçtu nəzərə almayın
   login_service:
     errors:
-      invalid_credentials: "Yanlış məlumat. Yenidən cəhd edin"
-      unauthorized_access: "Daxil olmaq üçün icazəniz yoxdur"
-      channel_not_created: "Yanlış məlumat. Zəhmət olmasa kanal yaratdığınızdan əmin olun"
-      account_deleted: "Hesabınız artıq silinib"
+      invalid_credentials: Yanlış məlumat. Yenidən cəhd edin
+      unauthorized_access: Daxil olmaq üçün icazəniz yoxdur
+      channel_not_created: Yanlış məlumat. Zəhmət olmasa kanal yaratdığınızdan əmin
+        olun
+      account_deleted: Hesabınız artıq silinib
       invalid_role_access: "%{role} daxil olmaq üçün icazəsi yoxdur"
-      deactivated_channel: "Kanalınız deaktiv edilib. Dəstəyə müraciət edin"
-      two_factor_enabled: "İki faktorlu autentifikasiya aktivdir. Zəhmət olmasa veb interfeysi ilə daxil olun"
-
+      deactivated_channel: Kanalınız deaktiv edilib. Dəstəyə müraciət edin
+      two_factor_enabled: İki faktorlu autentifikasiya aktivdir. Zəhmət olmasa veb
+        interfeysi ilə daxil olun
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Yenidən cəhd edin. beebee.io-dan yanlış məlumat"
-      registration_required: "Zəhmət olmasa yerli hesab yaradın. məlumat: %{data}"
-      connection_error: "Üzvlük xidmətinə qoşulma xətası: %{error}"
+      invalid_credentials: Yenidən cəhd edin. beebee.io-dan yanlış məlumat
+      registration_required: 'Zəhmət olmasa yerli hesab yaradın. məlumat: %{data}'
+      connection_error: 'Üzvlük xidmətinə qoşulma xətası: %{error}'
   api:
     errors:
-      unauthorized: "Bu əməliyyatı yerinə yetirməyə icazəniz yoxdur"
-      forbidden: "Giriş qadağandır!"
-      not_found: "Resurs tapılmadı"
-      unprocessable_entity: "Sorğu işlənə bilmədi"
-      internal_server_error: "Daxili server xətası baş verdi"
-      validation_failed: "Doğrulama uğursuz oldu!"
-      invalid_request: "Yanlış sorğu!"
-      rate_limit_exceeded: "Sorğu limiti aşılıb. Sonra yenidən cəhd edin"
+      unauthorized: Bu əməliyyatı yerinə yetirməyə icazəniz yoxdur
+      forbidden: Giriş qadağandır!
+      not_found: Resurs tapılmadı
+      unprocessable_entity: Sorğu işlənə bilmədi
+      internal_server_error: Daxili server xətası baş verdi
+      validation_failed: Doğrulama uğursuz oldu!
+      invalid_request: Yanlış sorğu!
+      rate_limit_exceeded: Sorğu limiti aşılıb. Sonra yenidən cəhd edin
     messages:
-      success: "Əməliyyat uğurla tamamlandı"
-      created: "Resurs uğurla yaradıldı"
-      updated: "Resurs uğurla yeniləndi"
-      deleted: "Resurs uğurla silindi"
+      success: Əməliyyat uğurla tamamlandı
+      created: Resurs uğurla yaradıldı
+      updated: Resurs uğurla yeniləndi
+      deleted: Resurs uğurla silindi
     notification:
       messages:
-        token_already_exists: "Bildiriş tokeni artıq mövcuddur"
-        token_saved: "Bildiriş tokeni yadda saxlanıldı"
-        token_deleted: "Bildiriş tokeni uğurla silindi"
-        token_not_found: "Bildiriş tokeni tapılmadı"
-        mute_updated: "Səssiz statusu uğurla yeniləndi"
+        token_already_exists: Bildiriş tokeni artıq mövcuddur
+        token_saved: Bildiriş tokeni yadda saxlanıldı
+        token_deleted: Bildiriş tokeni uğurla silindi
+        token_not_found: Bildiriş tokeni tapılmadı
+        mute_updated: Səssiz statusu uğurla yeniləndi
     account:
       errors:
-        email_not_found: "E-poçt tapılmadı!"
-        email_invalid: "Yanlış e-poçt formatı"
-        email_taken: "E-poçt artıq istifadə olunur"
-        membership_not_eligible: "Qeydiyyat yalnız Əsas üzvlər, CSIDNet Komandası və Dəstəkçi üzvləri üçün açıqdır"
-        email_update_fail: "E-poçtun yenilənməsi uğursuz oldu"
-        password_unmatch: "Şifrələr uyğun gəlmir"
-        password_update_fail: "Şifrənin yenilənməsi uğursuz oldu"
-        otp_invalid: "Yanlış OTP!"
-        register_not_allow: "Qeydiyyatdan keçməyə icazəniz yoxdur!"
-        missing_field: "Tələb olunan sahələr çatışmır"
-        password_incorrect: "Cari şifrə yanlışdır"
-        username_taken: "İstifadəçi adı artıq istifadə olunur"
+        email_not_found: E-poçt tapılmadı!
+        email_invalid: Yanlış e-poçt formatı
+        email_taken: E-poçt artıq istifadə olunur
+        membership_not_eligible: Qeydiyyat yalnız Əsas üzvlər, CSIDNet Komandası və
+          Dəstəkçi üzvləri üçün açıqdır
+        email_update_fail: E-poçtun yenilənməsi uğursuz oldu
+        password_unmatch: Şifrələr uyğun gəlmir
+        password_update_fail: Şifrənin yenilənməsi uğursuz oldu
+        otp_invalid: Yanlış OTP!
+        register_not_allow: Qeydiyyatdan keçməyə icazəniz yoxdur!
+        missing_field: Tələb olunan sahələr çatışmır
+        password_incorrect: Cari şifrə yanlışdır
+        username_taken: İstifadəçi adı artıq istifadə olunur
       messages:
-        password_updated: "Şifrə yeniləndi"
+        password_updated: Şifrə yeniləndi
     domain:
       messages:
-        dns_verified: "DNS düzgün qurulub"
+        dns_verified: DNS düzgün qurulub
     conversation:
       messages:
         marked_read: "%{updated_count} söhbət oxunmuş kimi işarələndi"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaksiya tanınmadı
+      emoji_limit_exceeded: Emoji limitini aşdı

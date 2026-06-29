@@ -1,84 +1,81 @@
+---
 kab:
   locale:
-    name: "Kabyle"
-    native_name: "Taqbaylit"
-  
+    name: Kabyle
+    native_name: Taqbaylit
   notification:
     poll:
-      ended_you: "Tiririt-ik tzemreḍ"
-      ended_voted: "Tiririt i tzemreḍ deg-s tzemreḍ"
+      ended_you: Tiririt-ik tzemreḍ
+      ended_voted: Tiririt i tzemreḍ deg-s tzemreḍ
     mention:
       direct_message: "%{name} yebɣa ad ak-yini-d izen"
-      conversation_request: "Tesɛiḍ asuter n umeslay amaynut."
-
+      conversation_request: Tesɛiḍ asuter n umeslay amaynut.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "A %{name},"
-      instruction: "Tangalt n OTP n usenqed n umiḍan-ik d:"
-      note: "Ma ulac ayen tzemreḍ, tzemreḍ ad tessekcam amaynut-a"
-  
+      greeting: A %{name},
+      instruction: 'Tangalt n OTP n usenqed n umiḍan-ik d:'
+      note: Ma ulac ayen tzemreḍ, tzemreḍ ad tessekcam amaynut-a
   login_service:
     errors:
-      invalid_credentials: "Iɣewwaṛen ur nelli d imezgi. Ma ulac, ɛreḍ tikelt-nniḍen"
-      unauthorized_access: "Ur tesɛiḍ ara ad tkecmeḍ"
-      channel_not_created: "Iɣewwaṛen ur nelli d imezgi. Ssuref-d ad tesnulfaḍ akal"
-      account_deleted: "Amiḍan-ik yufa-d yella"
+      invalid_credentials: Iɣewwaṛen ur nelli d imezgi. Ma ulac, ɛreḍ tikelt-nniḍen
+      unauthorized_access: Ur tesɛiḍ ara ad tkecmeḍ
+      channel_not_created: Iɣewwaṛen ur nelli d imezgi. Ssuref-d ad tesnulfaḍ akal
+      account_deleted: Amiḍan-ik yufa-d yella
       invalid_role_access: "%{role} ur yesɛi ara ad ikcem"
-      deactivated_channel: "Akal-ik yufa-d yella. Mudd-d tazmert"
-      two_factor_enabled: "Tasestant s sin n yilugan ttwaktay. Ttxil-k kcem s usebter web"
-
+      deactivated_channel: Akal-ik yufa-d yella. Mudd-d tazmert
+      two_factor_enabled: Tasestant s sin n yilugan ttwaktay. Ttxil-k kcem s usebter
+        web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Ur tesɛiḍ ara ad tgeḍ amek yella"
-      forbidden: "Anekcum yufa-d yella!"
-      not_found: "Aɣbalu ur nufi ara"
-      unprocessable_entity: "Tazmert ur tzemreḍ ara ad ttwali"
-      internal_server_error: "Tella-d tuccḍa deg uselkim"
-      validation_failed: "Asentel ur yufa-d!"
-      invalid_request: "Tazmert ur tzemreḍ ara!"
-      rate_limit_exceeded: "Tazmert tzemreḍ-d. ɛreḍ tikelt-nniḍen"
-
+      unauthorized: Ur tesɛiḍ ara ad tgeḍ amek yella
+      forbidden: Anekcum yufa-d yella!
+      not_found: Aɣbalu ur nufi ara
+      unprocessable_entity: Tazmert ur tzemreḍ ara ad ttwali
+      internal_server_error: Tella-d tuccḍa deg uselkim
+      validation_failed: Asentel ur yufa-d!
+      invalid_request: Tazmert ur tzemreḍ ara!
+      rate_limit_exceeded: Tazmert tzemreḍ-d. ɛreḍ tikelt-nniḍen
     messages:
-      success: "Tigawt tzemreḍ-d"
-      created: "Aɣbalu ttwali-d"
-      updated: "Aɣbalu ttwali-d"
-      deleted: "Aɣbalu ttwali-d"
-
+      success: Tigawt tzemreḍ-d
+      created: Aɣbalu ttwali-d
+      updated: Aɣbalu ttwali-d
+      deleted: Aɣbalu ttwali-d
     notification:
       messages:
-        token_already_exists: "Aṭṭas n token yella yella"
-        token_saved: "Token ttwali-d"
-        token_deleted: "Token ttwali-d"
-        token_not_found: "Ulac token"
-        mute_updated: "Aṭṭas n tazmert ttwali-d"
-
+        token_already_exists: Aṭṭas n token yella yella
+        token_saved: Token ttwali-d
+        token_deleted: Token ttwali-d
+        token_not_found: Ulac token
+        mute_updated: Aṭṭas n tazmert ttwali-d
     account:
       errors:
-        email_not_found: "Imayl ur nufi ara!"
-        email_invalid: "Amasal n imayl ur nelli d imezgi"
-        email_taken: "Imayl yufa-d yella"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Imayl ur ttwali ara"
-        password_unmatch: "Awalen n uɛeddi ur nelli d imezgi"
-        password_update_fail: "Awalen n uɛeddi ur ttwali ara"
-        otp_invalid: "OTP ur nelli d imezgi!"
-        register_not_allow: "Ur tesɛiḍ ara ad tregister"
-        missing_field: "Iḥricen ur nelli d imezgi"
-        password_incorrect: "Awal n uɛeddi amiran ur nelli d imezgi"
-        username_taken: "Isem n useqdac yufa-d yella"
+        email_not_found: Imayl ur nufi ara!
+        email_invalid: Amasal n imayl ur nelli d imezgi
+        email_taken: Imayl yufa-d yella
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Imayl ur ttwali ara
+        password_unmatch: Awalen n uɛeddi ur nelli d imezgi
+        password_update_fail: Awalen n uɛeddi ur ttwali ara
+        otp_invalid: OTP ur nelli d imezgi!
+        register_not_allow: Ur tesɛiḍ ara ad tregister
+        missing_field: Iḥricen ur nelli d imezgi
+        password_incorrect: Awal n uɛeddi amiran ur nelli d imezgi
+        username_taken: Isem n useqdac yufa-d yella
       messages:
-        password_updated: "Awal n uɛeddi ttwali-d"
-
+        password_updated: Awal n uɛeddi ttwali-d
     domain:
       messages:
-        dns_verified: "DNS ttwali-d"
-
+        dns_verified: DNS ttwali-d
     conversation:
       messages:
         marked_read: "%{updated_count} ameslayen ttwali-d am leqra"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Ackli ur yettwassnen ara
+      emoji_limit_exceeded: Taggurt n ummoodi-s aγed

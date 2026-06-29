@@ -1,75 +1,81 @@
+---
 an:
   locale:
-    name: "Aragonese"
-    native_name: "Aragonés"
+    name: Aragonese
+    native_name: Aragonés
   notification:
     poll:
-      ended_you: "A tuya encuesta ha rematau"
-      ended_voted: "Una encuesta en a que has votau ha rematau"
+      ended_you: A tuya encuesta ha rematau
+      ended_voted: Una encuesta en a que has votau ha rematau
     mention:
       direct_message: "%{name} t'ha ninviato un mensache"
-      conversation_request: "Tiens una nueva solicitud de conversación."
+      conversation_request: Tiens una nueva solicitud de conversación.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Querido/a %{name},"
-      instruction: "O tuyo código OTP de verificación d'a cuenta ye:"
-      note: "Si no has solicitau isto, por favor ignora iste correu"
+      greeting: Querido/a %{name},
+      instruction: 'O tuyo código OTP de verificación d''a cuenta ye:'
+      note: Si no has solicitau isto, por favor ignora iste correu
   login_service:
     errors:
-      invalid_credentials: "Credencials no validas. Torna a prebar"
-      unauthorized_access: "No tienes acceso ta iniciar sesión"
-      channel_not_created: "Credencials no validas. Assegura-te d'haber creau un canal"
-      account_deleted: "A tuya cuenta ya ye eliminada"
+      invalid_credentials: Credencials no validas. Torna a prebar
+      unauthorized_access: No tienes acceso ta iniciar sesión
+      channel_not_created: Credencials no validas. Assegura-te d'haber creau un canal
+      account_deleted: A tuya cuenta ya ye eliminada
       invalid_role_access: "%{role} no tiene permiso ta iniciar sesión"
-      deactivated_channel: "O tuyo canal ye dezactivau. Contacta con o soporte"
-      two_factor_enabled: "L'autenticación de dos factores ye activata. Por favor inicia sesión con a interfaz web"
-
+      deactivated_channel: O tuyo canal ye dezactivau. Contacta con o soporte
+      two_factor_enabled: L'autenticación de dos factores ye activata. Por favor inicia
+        sesión con a interfaz web
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Torna a prebar. Credencials no validas de beebee.io"
-      registration_required: "Por favor, rechistra una cuenta local. datos: %{data}"
-      connection_error: "Error en connectar-se con o servicio de miembros: %{error}"
+      invalid_credentials: Torna a prebar. Credencials no validas de beebee.io
+      registration_required: 'Por favor, rechistra una cuenta local. datos: %{data}'
+      connection_error: 'Error en connectar-se con o servicio de miembros: %{error}'
   api:
     errors:
-      unauthorized: "No yes autorizaudo ta fer ista acción"
-      forbidden: "Acceso denegau!"
-      not_found: "Recurso no trobato"
-      unprocessable_entity: "No s'ha puesto procesar a petición"
-      internal_server_error: "S'ha produciu una error interna d'o servidor"
-      validation_failed: "A validación ha fallau!"
-      invalid_request: "Petición no valida!"
-      rate_limit_exceeded: "Limite de peticions superau. Torna a prebar dimpués"
+      unauthorized: No yes autorizaudo ta fer ista acción
+      forbidden: Acceso denegau!
+      not_found: Recurso no trobato
+      unprocessable_entity: No s'ha puesto procesar a petición
+      internal_server_error: S'ha produciu una error interna d'o servidor
+      validation_failed: A validación ha fallau!
+      invalid_request: Petición no valida!
+      rate_limit_exceeded: Limite de peticions superau. Torna a prebar dimpués
     messages:
-      success: "Operación completada con éxito"
-      created: "Recurso creau con éxito"
-      updated: "Recurso actualizau con éxito"
-      deleted: "Recurso eliminau con éxito"
+      success: Operación completada con éxito
+      created: Recurso creau con éxito
+      updated: Recurso actualizau con éxito
+      deleted: Recurso eliminau con éxito
     notification:
       messages:
-        token_already_exists: "O token de notificación ya existe"
-        token_saved: "Token de notificación guardau"
-        token_deleted: "Token de notificación eliminau con éxito"
-        token_not_found: "No s'han trobato tokens de notificación"
-        mute_updated: "Estau de silencio actualizau con éxito"
+        token_already_exists: O token de notificación ya existe
+        token_saved: Token de notificación guardau
+        token_deleted: Token de notificación eliminau con éxito
+        token_not_found: No s'han trobato tokens de notificación
+        mute_updated: Estau de silencio actualizau con éxito
     account:
       errors:
-        email_not_found: "Correo no trobato!"
-        email_invalid: "Formato de correo no valido"
-        email_taken: "O correo ya ye en uso"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "A actualización d'o correo ha fallau"
-        password_unmatch: "As contraseñas no coinciden"
-        password_update_fail: "A actualización d'a contraseña ha fallau"
-        otp_invalid: "OTP no valido!"
-        register_not_allow: "No tienes permiso ta rexistra-te!"
-        missing_field: "Faltan campos requeritos"
-        password_incorrect: "A contraseña actual ye incorrecta"
-        username_taken: "O nombre d'usuario ya ye en uso"
+        email_not_found: Correo no trobato!
+        email_invalid: Formato de correo no valido
+        email_taken: O correo ya ye en uso
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: A actualización d'o correo ha fallau
+        password_unmatch: As contraseñas no coinciden
+        password_update_fail: A actualización d'a contraseña ha fallau
+        otp_invalid: OTP no valido!
+        register_not_allow: No tienes permiso ta rexistra-te!
+        missing_field: Faltan campos requeritos
+        password_incorrect: A contraseña actual ye incorrecta
+        username_taken: O nombre d'usuario ya ye en uso
       messages:
-        password_updated: "A contraseña s'ha actualizau"
+        password_updated: A contraseña s'ha actualizau
     domain:
       messages:
-        dns_verified: "O DNS ye configurau correutament"
+        dns_verified: O DNS ye configurau correutament
     conversation:
       messages:
-        marked_read: "Marcadas %{updated_count} conversacións como leidas"
+        marked_read: Marcadas %{updated_count} conversacións como leidas
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reacción no reconoixida
+      emoji_limit_exceeded: Limite de emoji superada

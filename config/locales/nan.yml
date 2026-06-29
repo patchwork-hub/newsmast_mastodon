@@ -1,75 +1,81 @@
+---
 nan:
   locale:
-    name: "Min Nan Chinese"
-    native_name: "閩南語 / Bân-lâm-gú"
+    name: Min Nan Chinese
+    native_name: 閩南語 / Bân-lâm-gú
   notification:
     poll:
-      ended_you: "Lí ê pió-chhó͘ kái-sio̍k liáu"
-      ended_voted: "Lí ū thiaⁿ pió-chhó͘ kái-sio̍k liáu"
+      ended_you: Lí ê pió-chhó͘ kái-sio̍k liáu
+      ended_voted: Lí ū thiaⁿ pió-chhó͘ kái-sio̍k liáu
     mention:
       direct_message: "%{name} hō͘ lí chhòng chi̍t ê sìn-sik"
-      conversation_request: "你有一个新的对话请求。"
+      conversation_request: 你有一个新的对话请求。
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Chhiáⁿ %{name},"
-      instruction: "Lí ê account hō͘-chheng OTP kó͘ sī:"
-      note: "Sī bô lí chhōe, chhiáⁿ bē-tàng chú-iú chit ê email"
+      greeting: Chhiáⁿ %{name},
+      instruction: 'Lí ê account hō͘-chheng OTP kó͘ sī:'
+      note: Sī bô lí chhōe, chhiáⁿ bē-tàng chú-iú chit ê email
   login_service:
     errors:
-      invalid_credentials: "Bô hó ê sìn-bêng. Chhiáⁿ koh sióng-káng chhōe"
-      unauthorized_access: "Lí bô hō͘-hêng login"
-      channel_not_created: "Bô hó ê sìn-bêng. Chhiáⁿ kám lí ū chhè channel?"
-      account_deleted: "Lí ê account tī sióng-káng sī bē-tàng chhōe"
+      invalid_credentials: Bô hó ê sìn-bêng. Chhiáⁿ koh sióng-káng chhōe
+      unauthorized_access: Lí bô hō͘-hêng login
+      channel_not_created: Bô hó ê sìn-bêng. Chhiáⁿ kám lí ū chhè channel?
+      account_deleted: Lí ê account tī sióng-káng sī bē-tàng chhōe
       invalid_role_access: "%{role} bô hō͘-hêng login"
-      deactivated_channel: "Lí ê channel tī bē-tàng chhōe. Chhiáⁿ lia̍h support"
-      two_factor_enabled: "兩步驗證已啟用。請透過網頁介面登入"
+      deactivated_channel: Lí ê channel tī bē-tàng chhōe. Chhiáⁿ lia̍h support
+      two_factor_enabled: 兩步驗證已啟用。請透過網頁介面登入
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Please try again. Invalid credentials from beebee.io"
-      registration_required: "Please register account in local. data: %{data}"
-      connection_error: "Error connecting to membership service: %{error}"
-
+      invalid_credentials: Please try again. Invalid credentials from beebee.io
+      registration_required: 'Please register account in local. data: %{data}'
+      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
-      unauthorized: "Lí bô hō͘-hêng chhōe chit ê tōng-tsok"
-      forbidden: "Bē hō͘-hêng!"
-      not_found: "Bô hō͘-chhōe ê sán-goân"
-      unprocessable_entity: "Chhiáⁿ bē-tàng tsò lí ê chhōe-khì"
-      internal_server_error: "Ló͘-buē sióng-káng sī sióng-káng chhōe"
-      validation_failed: "Chhiáⁿ bē-tàng hō͘-chheng!"
-      invalid_request: "Bô hó ê chhōe-khì!"
-      rate_limit_exceeded: "Chhōe-khì lí-mí bē hō͘-hêng. Chhiáⁿ koh sióng-káng chhōe"
+      unauthorized: Lí bô hō͘-hêng chhōe chit ê tōng-tsok
+      forbidden: Bē hō͘-hêng!
+      not_found: Bô hō͘-chhōe ê sán-goân
+      unprocessable_entity: Chhiáⁿ bē-tàng tsò lí ê chhōe-khì
+      internal_server_error: Ló͘-buē sióng-káng sī sióng-káng chhōe
+      validation_failed: Chhiáⁿ bē-tàng hō͘-chheng!
+      invalid_request: Bô hó ê chhōe-khì!
+      rate_limit_exceeded: Chhōe-khì lí-mí bē hō͘-hêng. Chhiáⁿ koh sióng-káng chhōe
     messages:
-      success: "Tōng-tsok sī sióng-káng chhōe"
-      created: "Sán-goân sī sióng-káng chhōe"
-      updated: "Sán-goân sī sióng-káng koh chhōe"
-      deleted: "Sán-goân sī sióng-káng sióng-káng chhōe"
+      success: Tōng-tsok sī sióng-káng chhōe
+      created: Sán-goân sī sióng-káng chhōe
+      updated: Sán-goân sī sióng-káng koh chhōe
+      deleted: Sán-goân sī sióng-káng sióng-káng chhōe
     notification:
       messages:
-        token_already_exists: "Notification token tī sióng-káng ū"
-        token_saved: "Notification token sióng-káng chhōe"
-        token_deleted: "Notification token sióng-káng sióng-káng chhōe"
-        token_not_found: "Bô hō͘-chhōe ê notification token"
-        mute_updated: "Mute status sióng-káng koh chhōe"
+        token_already_exists: Notification token tī sióng-káng ū
+        token_saved: Notification token sióng-káng chhōe
+        token_deleted: Notification token sióng-káng sióng-káng chhōe
+        token_not_found: Bô hō͘-chhōe ê notification token
+        mute_updated: Mute status sióng-káng koh chhōe
     account:
       errors:
-        email_not_found: "Email bô hō͘-chhōe!"
-        email_invalid: "Email format bô hó"
-        email_taken: "Email tī sióng-káng ū"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Email update bē-tàng chhōe"
-        password_unmatch: "Password bē-tàng kah-tsham"
-        password_update_fail: "Password update bē-tàng chhōe"
-        otp_invalid: "OTP bô hó!"
-        register_not_allow: "Lí bô hō͘-hêng register!"
-        missing_field: "Missing required fields"
-        password_incorrect: "Current password bô hó"
-        username_taken: "Username tī sióng-káng ū"
+        email_not_found: Email bô hō͘-chhōe!
+        email_invalid: Email format bô hó
+        email_taken: Email tī sióng-káng ū
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Email update bē-tàng chhōe
+        password_unmatch: Password bē-tàng kah-tsham
+        password_update_fail: Password update bē-tàng chhōe
+        otp_invalid: OTP bô hó!
+        register_not_allow: Lí bô hō͘-hêng register!
+        missing_field: Missing required fields
+        password_incorrect: Current password bô hó
+        username_taken: Username tī sióng-káng ū
       messages:
-        password_updated: "Password sióng-káng koh chhōe"
+        password_updated: Password sióng-káng koh chhōe
     domain:
       messages:
-        dns_verified: "DNS sī sióng-káng chhōe"
+        dns_verified: DNS sī sióng-káng chhōe
     conversation:
       messages:
-        marked_read: "%{updated_count} conversation(s) sióng-káng chhōe hō͘ lí kā lí chhōe"
+        marked_read: "%{updated_count} conversation(s) sióng-káng chhōe hō͘ lí kā
+          lí chhōe"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Huē-bo̍k tsiong-tsiok
+      emoji_limit_exceeded: Guán-tsiok kua-tsiok

@@ -1,75 +1,81 @@
+---
 mk:
   locale:
-    name: "Macedonian"
-    native_name: "Македонски"
+    name: Macedonian
+    native_name: Македонски
   notification:
     poll:
-      ended_you: "Вашата анкета заврши"
-      ended_voted: "Анкета во која гласавте заврши"
+      ended_you: Вашата анкета заврши
+      ended_voted: Анкета во која гласавте заврши
     mention:
       direct_message: "%{name} ви испрати порака"
-      conversation_request: "Имате ново барање за разговор."
+      conversation_request: Имате ново барање за разговор.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Почитуван/а %{name},"
-      instruction: "Вашиот OTP код за верификација на сметка е:"
-      note: "Ако не сте го побарале ова, игнорирајте го овој е-маил"
+      greeting: Почитуван/а %{name},
+      instruction: 'Вашиот OTP код за верификација на сметка е:'
+      note: Ако не сте го побарале ова, игнорирајте го овој е-маил
   login_service:
     errors:
-      invalid_credentials: "Невалидни податоци. Обидете се повторно"
-      unauthorized_access: "Немате пристап за најава"
-      channel_not_created: "Невалидни податоци. Проверете дали сте креирале канал"
-      account_deleted: "Вашата сметка е веќе избришана"
+      invalid_credentials: Невалидни податоци. Обидете се повторно
+      unauthorized_access: Немате пристап за најава
+      channel_not_created: Невалидни податоци. Проверете дали сте креирале канал
+      account_deleted: Вашата сметка е веќе избришана
       invalid_role_access: "%{role} нема дозвола за најава"
-      deactivated_channel: "Вашиот канал е деактивиран. Контактирајте поддршка"
-      two_factor_enabled: "Двофакторната автентикација е овозможена. Ве молиме најавете се преку веб-интерфејсот"
-
+      deactivated_channel: Вашиот канал е деактивиран. Контактирајте поддршка
+      two_factor_enabled: Двофакторната автентикација е овозможена. Ве молиме најавете
+        се преку веб-интерфејсот
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Обидете се повторно. Невалидни податоци од beebee.io"
-      registration_required: "Молиме регистрирајте локална сметка. податоци: %{data}"
-      connection_error: "Грешка при поврзување со услугата за членство: %{error}"
+      invalid_credentials: Обидете се повторно. Невалидни податоци од beebee.io
+      registration_required: 'Молиме регистрирајте локална сметка. податоци: %{data}'
+      connection_error: 'Грешка при поврзување со услугата за членство: %{error}'
   api:
     errors:
-      unauthorized: "Немате дозвола да ја извршите оваа акција"
-      forbidden: "Пристапот е одбиен!"
-      not_found: "Ресурсот не е пронајден"
-      unprocessable_entity: "Барањето не може да се обработи"
-      internal_server_error: "Се случи внатрешна серверска грешка"
-      validation_failed: "Валидацијата не успеа!"
-      invalid_request: "Невалидно барање!"
-      rate_limit_exceeded: "Лимитот на барања е надминат. Обидете се подоцна"
+      unauthorized: Немате дозвола да ја извршите оваа акција
+      forbidden: Пристапот е одбиен!
+      not_found: Ресурсот не е пронајден
+      unprocessable_entity: Барањето не може да се обработи
+      internal_server_error: Се случи внатрешна серверска грешка
+      validation_failed: Валидацијата не успеа!
+      invalid_request: Невалидно барање!
+      rate_limit_exceeded: Лимитот на барања е надминат. Обидете се подоцна
     messages:
-      success: "Операцијата е успешно завршена"
-      created: "Ресурсот е успешно креиран"
-      updated: "Ресурсот е успешно ажуриран"
-      deleted: "Ресурсот е успешно избришан"
+      success: Операцијата е успешно завршена
+      created: Ресурсот е успешно креиран
+      updated: Ресурсот е успешно ажуриран
+      deleted: Ресурсот е успешно избришан
     notification:
       messages:
-        token_already_exists: "Токенот за известување веќе постои"
-        token_saved: "Токенот за известување е зачуван"
-        token_deleted: "Токенот за известување е успешно избришан"
-        token_not_found: "Не се пронајдени токени за известување"
-        mute_updated: "Статусот на тишина е успешно ажуриран"
+        token_already_exists: Токенот за известување веќе постои
+        token_saved: Токенот за известување е зачуван
+        token_deleted: Токенот за известување е успешно избришан
+        token_not_found: Не се пронајдени токени за известување
+        mute_updated: Статусот на тишина е успешно ажуриран
     account:
       errors:
-        email_not_found: "Е-поштата не е пронајдена!"
-        email_invalid: "Невалиден формат на е-пошта"
-        email_taken: "Е-поштата веќе е искористена"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Ажурирањето на е-поштата не успеа"
-        password_unmatch: "Лозинките не се совпаѓаат"
-        password_update_fail: "Ажурирањето на лозинката не успеа"
-        otp_invalid: "Невалиден OTP!"
-        register_not_allow: "Немате дозвола за регистрација!"
-        missing_field: "Недостасуваат задолжителни полиња"
-        password_incorrect: "Тековната лозинка е неточна"
-        username_taken: "Корисничкото име веќе е искористено"
+        email_not_found: Е-поштата не е пронајдена!
+        email_invalid: Невалиден формат на е-пошта
+        email_taken: Е-поштата веќе е искористена
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Ажурирањето на е-поштата не успеа
+        password_unmatch: Лозинките не се совпаѓаат
+        password_update_fail: Ажурирањето на лозинката не успеа
+        otp_invalid: Невалиден OTP!
+        register_not_allow: Немате дозвола за регистрација!
+        missing_field: Недостасуваат задолжителни полиња
+        password_incorrect: Тековната лозинка е неточна
+        username_taken: Корисничкото име веќе е искористено
       messages:
-        password_updated: "Лозинката е ажурирана"
+        password_updated: Лозинката е ажурирана
     domain:
       messages:
-        dns_verified: "DNS е правилно конфигуриран"
+        dns_verified: DNS е правилно конфигуриран
     conversation:
       messages:
         marked_read: "%{updated_count} разговор(и) означени како прочитани"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Реакцијата не е препозната
+      emoji_limit_exceeded: Ограничењето на емоџи е надмашено

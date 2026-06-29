@@ -1,75 +1,82 @@
+---
 ne:
   locale:
-    name: "Nepali"
-    native_name: "नेपाली"
+    name: Nepali
+    native_name: नेपाली
   notification:
     poll:
-      ended_you: "तपाईंको मतदान समाप्त भयो"
-      ended_voted: "तपाईंले मतदान गर्नुभएको मतदान समाप्त भयो"
+      ended_you: तपाईंको मतदान समाप्त भयो
+      ended_voted: तपाईंले मतदान गर्नुभएको मतदान समाप्त भयो
     mention:
       direct_message: "%{name} ले तपाईंलाई सन्देश पठाउनुभयो"
-      conversation_request: "तपाईंसँग नयाँ कुराकानी अनुरोध छ।"
+      conversation_request: तपाईंसँग नयाँ कुराकानी अनुरोध छ।
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "प्रिय %{name},"
-      instruction: "तपाईंको खाता प्रमाणीकरण OTP कोड:"
-      note: "यदि तपाईंले यो अनुरोध गर्नुभएको छैन भने, कृपया यो इमेललाई बेवास्ता गर्नुहोस्"
+      greeting: प्रिय %{name},
+      instruction: 'तपाईंको खाता प्रमाणीकरण OTP कोड:'
+      note: यदि तपाईंले यो अनुरोध गर्नुभएको छैन भने, कृपया यो इमेललाई बेवास्ता गर्नुहोस्
   login_service:
     errors:
-      invalid_credentials: "अवैध प्रमाणपत्रहरू। कृपया पुन: प्रयास गर्नुहोस्"
-      unauthorized_access: "तपाईंलाई लगइन गर्न अनुमति छैन"
-      channel_not_created: "अवैध प्रमाणपत्रहरू। कृपया सुनिश्चित गर्नुहोस् कि तपाईंले च्यानल सिर्जना गर्नुभएको छ"
-      account_deleted: "तपाईंको खाता पहिले नै हटाइएको छ"
+      invalid_credentials: 'अवैध प्रमाणपत्रहरू। कृपया पुन: प्रयास गर्नुहोस्'
+      unauthorized_access: तपाईंलाई लगइन गर्न अनुमति छैन
+      channel_not_created: अवैध प्रमाणपत्रहरू। कृपया सुनिश्चित गर्नुहोस् कि तपाईंले
+        च्यानल सिर्जना गर्नुभएको छ
+      account_deleted: तपाईंको खाता पहिले नै हटाइएको छ
       invalid_role_access: "%{role} लाई लगइन गर्न अनुमति छैन"
-      deactivated_channel: "तपाईंको च्यानल निष्क्रिय छ। कृपया समर्थनमा सम्पर्क गर्नुहोस्"
-      two_factor_enabled: "दुई-कारक प्रमाणीकरण सक्षम छ। कृपया वेब इन्टरफेस मार्फत लगइन गर्नुहोस्"
-
+      deactivated_channel: तपाईंको च्यानल निष्क्रिय छ। कृपया समर्थनमा सम्पर्क गर्नुहोस्
+      two_factor_enabled: दुई-कारक प्रमाणीकरण सक्षम छ। कृपया वेब इन्टरफेस मार्फत लगइन
+        गर्नुहोस्
   bristolcable_login_service:
     errors:
-      invalid_credentials: "कृपया पुन: प्रयास गर्नुहोस्। beebee.io बाट अवैध प्रमाणपत्रहरू"
-      registration_required: "कृपया स्थानीय खाता दर्ता गर्नुहोस्। डाटा: %{data}"
-      connection_error: "सदस्यता सेवासँग जडान गर्दा त्रुटि: %{error}"
+      invalid_credentials: 'कृपया पुन: प्रयास गर्नुहोस्। beebee.io बाट अवैध प्रमाणपत्रहरू'
+      registration_required: 'कृपया स्थानीय खाता दर्ता गर्नुहोस्। डाटा: %{data}'
+      connection_error: 'सदस्यता सेवासँग जडान गर्दा त्रुटि: %{error}'
   api:
     errors:
-      unauthorized: "तपाईंलाई यो कार्य गर्न अनुमति छैन"
-      forbidden: "प्रवेश अस्वीकृत!"
-      not_found: "स्रोत फेला परेन"
-      unprocessable_entity: "अनुरोध प्रक्रिया गर्न सकिएन"
-      internal_server_error: "आन्तरिक सर्भर त्रुटि भयो"
-      validation_failed: "मान्यता असफल!"
-      invalid_request: "अवैध अनुरोध!"
-      rate_limit_exceeded: "अनुरोध सीमा नाघिएको छ। कृपया पछि प्रयास गर्नुहोस्"
+      unauthorized: तपाईंलाई यो कार्य गर्न अनुमति छैन
+      forbidden: प्रवेश अस्वीकृत!
+      not_found: स्रोत फेला परेन
+      unprocessable_entity: अनुरोध प्रक्रिया गर्न सकिएन
+      internal_server_error: आन्तरिक सर्भर त्रुटि भयो
+      validation_failed: मान्यता असफल!
+      invalid_request: अवैध अनुरोध!
+      rate_limit_exceeded: अनुरोध सीमा नाघिएको छ। कृपया पछि प्रयास गर्नुहोस्
     messages:
-      success: "सञ्चालन सफलतापूर्वक सम्पन्न भयो"
-      created: "स्रोत सफलतापूर्वक सिर्जना गरियो"
-      updated: "स्रोत सफलतापूर्वक अद्यावधिक गरियो"
-      deleted: "स्रोत सफलतापूर्वक हटाइयो"
+      success: सञ्चालन सफलतापूर्वक सम्पन्न भयो
+      created: स्रोत सफलतापूर्वक सिर्जना गरियो
+      updated: स्रोत सफलतापूर्वक अद्यावधिक गरियो
+      deleted: स्रोत सफलतापूर्वक हटाइयो
     notification:
       messages:
-        token_already_exists: "सूचना टोकन पहिले नै छ"
-        token_saved: "सूचना टोकन सुरक्षित गरियो"
-        token_deleted: "सूचना टोकन सफलतापूर्वक हटाइयो"
-        token_not_found: "कुनै सूचना टोकन फेला परेन"
-        mute_updated: "म्यूट स्थिति सफलतापूर्वक अद्यावधिक गरियो"
+        token_already_exists: सूचना टोकन पहिले नै छ
+        token_saved: सूचना टोकन सुरक्षित गरियो
+        token_deleted: सूचना टोकन सफलतापूर्वक हटाइयो
+        token_not_found: कुनै सूचना टोकन फेला परेन
+        mute_updated: म्यूट स्थिति सफलतापूर्वक अद्यावधिक गरियो
     account:
       errors:
-        email_not_found: "इमेल फेला परेन!"
-        email_invalid: "अवैध इमेल ढाँचा"
-        email_taken: "इमेल पहिले नै लिइएको छ"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "इमेल अद्यावधिक असफल भयो"
-        password_unmatch: "पासवर्डहरू मेल खाएनन्"
-        password_update_fail: "पासवर्ड अद्यावधिक असफल भयो"
-        otp_invalid: "अवैध OTP!"
-        register_not_allow: "तपाईंलाई दर्ता गर्न अनुमति छैन!"
-        missing_field: "आवश्यक फिल्डहरू हराइरहेका छन्"
-        password_incorrect: "हालको पासवर्ड गलत छ"
-        username_taken: "प्रयोगकर्ता नाम पहिले नै लिइएको छ"
+        email_not_found: इमेल फेला परेन!
+        email_invalid: अवैध इमेल ढाँचा
+        email_taken: इमेल पहिले नै लिइएको छ
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: इमेल अद्यावधिक असफल भयो
+        password_unmatch: पासवर्डहरू मेल खाएनन्
+        password_update_fail: पासवर्ड अद्यावधिक असफल भयो
+        otp_invalid: अवैध OTP!
+        register_not_allow: तपाईंलाई दर्ता गर्न अनुमति छैन!
+        missing_field: आवश्यक फिल्डहरू हराइरहेका छन्
+        password_incorrect: हालको पासवर्ड गलत छ
+        username_taken: प्रयोगकर्ता नाम पहिले नै लिइएको छ
       messages:
-        password_updated: "पासवर्ड अद्यावधिक गरियो"
+        password_updated: पासवर्ड अद्यावधिक गरियो
     domain:
       messages:
-        dns_verified: "DNS सही रूपमा कन्फिगर गरिएको छ"
+        dns_verified: DNS सही रूपमा कन्फिगर गरिएको छ
     conversation:
       messages:
         marked_read: "%{updated_count} कुराकानी(हरू) पढिएको रूपमा चिन्ह लगाइयो"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: प्रतिक्रिया पहिचान गरिएको छैन
+      emoji_limit_exceeded: इमोजी सीमा अतिक्रम गरेको

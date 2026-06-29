@@ -1,75 +1,81 @@
+---
 sv:
   locale:
-    name: "Swedish"
-    native_name: "Svenska"
+    name: Swedish
+    native_name: Svenska
   notification:
     poll:
-      ended_you: "Din omröstning har avslutats"
-      ended_voted: "En omröstning du röstade i har avslutats"
+      ended_you: Din omröstning har avslutats
+      ended_voted: En omröstning du röstade i har avslutats
     mention:
       direct_message: "%{name} skickade ett meddelande till dig"
-      conversation_request: "Du har en ny konversationsförfrågan."
+      conversation_request: Du har en ny konversationsförfrågan.
   custom_passwords_mailer:
     reset_password_confirmation:
-      greeting: "Kära %{name},"
-      instruction: "Din OTP-kod för kontoverifiering är:"
-      note: "Om du inte begärde detta, ignorera detta e-postmeddelande"
+      greeting: Kära %{name},
+      instruction: 'Din OTP-kod för kontoverifiering är:'
+      note: Om du inte begärde detta, ignorera detta e-postmeddelande
   login_service:
     errors:
-      invalid_credentials: "Ogiltiga inloggningsuppgifter. Försök igen"
-      unauthorized_access: "Du har inte behörighet att logga in"
-      channel_not_created: "Ogiltiga inloggningsuppgifter. Kontrollera att du har skapat en kanal"
-      account_deleted: "Ditt konto har redan raderats"
+      invalid_credentials: Ogiltiga inloggningsuppgifter. Försök igen
+      unauthorized_access: Du har inte behörighet att logga in
+      channel_not_created: Ogiltiga inloggningsuppgifter. Kontrollera att du har skapat
+        en kanal
+      account_deleted: Ditt konto har redan raderats
       invalid_role_access: "%{role} har inte behörighet att logga in"
-      deactivated_channel: "Din kanal är inaktiverad. Kontakta support"
-      two_factor_enabled: "Tvåfaktorsautentisering är aktiverat. Logga in via webbgränssnittet"
-
+      deactivated_channel: Din kanal är inaktiverad. Kontakta support
+      two_factor_enabled: Tvåfaktorsautentisering är aktiverat. Logga in via webbgränssnittet
   bristolcable_login_service:
     errors:
-      invalid_credentials: "Försök igen. Ogiltiga inloggningsuppgifter från beebee.io"
-      registration_required: "Registrera ett lokalt konto. data: %{data}"
-      connection_error: "Fel vid anslutning till medlemskapstjänst: %{error}"
+      invalid_credentials: Försök igen. Ogiltiga inloggningsuppgifter från beebee.io
+      registration_required: 'Registrera ett lokalt konto. data: %{data}'
+      connection_error: 'Fel vid anslutning till medlemskapstjänst: %{error}'
   api:
     errors:
-      unauthorized: "Du har inte behörighet att utföra denna åtgärd"
-      forbidden: "Åtkomst nekad!"
-      not_found: "Resursen hittades inte"
-      unprocessable_entity: "Begäran kunde inte behandlas"
-      internal_server_error: "Ett internt serverfel inträffade"
-      validation_failed: "Valideringen misslyckades!"
-      invalid_request: "Ogiltig begäran!"
-      rate_limit_exceeded: "Begäransgränsen har överskridits. Försök igen senare"
+      unauthorized: Du har inte behörighet att utföra denna åtgärd
+      forbidden: Åtkomst nekad!
+      not_found: Resursen hittades inte
+      unprocessable_entity: Begäran kunde inte behandlas
+      internal_server_error: Ett internt serverfel inträffade
+      validation_failed: Valideringen misslyckades!
+      invalid_request: Ogiltig begäran!
+      rate_limit_exceeded: Begäransgränsen har överskridits. Försök igen senare
     messages:
-      success: "Åtgärden slutfördes framgångsrikt"
-      created: "Resursen skapades framgångsrikt"
-      updated: "Resursen uppdaterades framgångsrikt"
-      deleted: "Resursen raderades framgångsrikt"
+      success: Åtgärden slutfördes framgångsrikt
+      created: Resursen skapades framgångsrikt
+      updated: Resursen uppdaterades framgångsrikt
+      deleted: Resursen raderades framgångsrikt
     notification:
       messages:
-        token_already_exists: "Aviseringstoken finns redan"
-        token_saved: "Aviseringstoken sparad"
-        token_deleted: "Aviseringstoken raderades framgångsrikt"
-        token_not_found: "Inga aviseringstoken hittades"
-        mute_updated: "Tyst status uppdaterades framgångsrikt"
+        token_already_exists: Aviseringstoken finns redan
+        token_saved: Aviseringstoken sparad
+        token_deleted: Aviseringstoken raderades framgångsrikt
+        token_not_found: Inga aviseringstoken hittades
+        mute_updated: Tyst status uppdaterades framgångsrikt
     account:
       errors:
-        email_not_found: "E-post hittades inte!"
-        email_invalid: "Ogiltigt e-postformat"
-        email_taken: "E-post används redan"
-        membership_not_eligible: "Registration is only open to Core members, CSIDNet Team, and Supporter members"
-        email_update_fail: "Uppdatering av e-post misslyckades"
-        password_unmatch: "Lösenorden matchar inte"
-        password_update_fail: "Uppdatering av lösenord misslyckades"
-        otp_invalid: "Ogiltig OTP!"
-        register_not_allow: "Du har inte behörighet att registrera dig!"
-        missing_field: "Obligatoriska fält saknas"
-        password_incorrect: "Nuvarande lösenord är felaktigt"
-        username_taken: "Användarnamnet används redan"
+        email_not_found: E-post hittades inte!
+        email_invalid: Ogiltigt e-postformat
+        email_taken: E-post används redan
+        membership_not_eligible: Registration is only open to Core members, CSIDNet
+          Team, and Supporter members
+        email_update_fail: Uppdatering av e-post misslyckades
+        password_unmatch: Lösenorden matchar inte
+        password_update_fail: Uppdatering av lösenord misslyckades
+        otp_invalid: Ogiltig OTP!
+        register_not_allow: Du har inte behörighet att registrera dig!
+        missing_field: Obligatoriska fält saknas
+        password_incorrect: Nuvarande lösenord är felaktigt
+        username_taken: Användarnamnet används redan
       messages:
-        password_updated: "Lösenordet har uppdaterats"
+        password_updated: Lösenordet har uppdaterats
     domain:
       messages:
-        dns_verified: "DNS är korrekt konfigurerad"
+        dns_verified: DNS är korrekt konfigurerad
     conversation:
       messages:
         marked_read: "%{updated_count} konversation(er) markerad(e) som läst(a)"
+  patchwork_status_reactions:
+    errors:
+      unrecognized_reaction: Reaktion inte igenkänd
+      emoji_limit_exceeded: Emoji-gräns överskriden
