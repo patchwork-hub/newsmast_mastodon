@@ -39,16 +39,20 @@ module NewsmastMastodon::Api::V1::Timelines
     def instances_timeline_statuses
       limit = limit_param(DEFAULT_STATUSES_LIMIT)
 
-      home_statuses = HomeFeed.new(current_account).get(
-        expanded_limit(limit),
-        params[:max_id],
-        params[:since_id],
-        params[:min_id],
-        current_account,
-        truthy_param?(:exclude_direct_statuses),
-        false,
-        truthy_param?(:exclude_replies)
-      )
+      home_statuses = if include_home_statuses?
+                        HomeFeed.new(current_account).get(
+                          expanded_limit(limit),
+                          params[:max_id],
+                          params[:since_id],
+                          params[:min_id],
+                          current_account,
+                          truthy_param?(:exclude_direct_statuses),
+                          false,
+                          truthy_param?(:exclude_replies)
+                        )
+                      else
+                        []
+                      end
 
       relay_statuses = selected_domains.flat_map do |domain|
         NewsmastMastodon::RelayFeed.new(
@@ -102,6 +106,17 @@ module NewsmastMastodon::Api::V1::Timelines
       return [] if requested_domains.empty?
 
       requested_domains & enabled_domains
+    end
+
+    def include_home_statuses?
+      return true if requested_domains.empty?
+      return true if local_domain.blank?
+
+      requested_domains.include?(local_domain.downcase)
+    end
+
+    def local_domain
+      ENV.fetch("LOCAL_DOMAIN", nil)
     end
 
     def validate_requested_domains!
