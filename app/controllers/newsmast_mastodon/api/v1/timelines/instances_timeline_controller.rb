@@ -8,7 +8,7 @@ module NewsmastMastodon::Api::V1::Timelines
   # - relay timeline statuses for selected domains
   #
   # Domain parameter supports:
-  # - none: uses all configured and enabled relay domains
+  # - none: uses home feed only
   # - single: ?domain=mastodon.social
   # - multiple: ?domain=mastodon.social,mastodon.beer
   #             ?domain[]=mastodon.social&domain[]=mastodon.beer
@@ -17,7 +17,7 @@ module NewsmastMastodon::Api::V1::Timelines
     before_action :require_user!
     before_action :validate_requested_domains!
 
-    PERMITTED_PARAMS = %i[domain limit only_media max_id since_id min_id].freeze
+    PERMITTED_PARAMS = %i[domain limit only_media max_id since_id min_id exclude_direct_statuses exclude_replies].freeze
 
     def show
       with_read_replica do
@@ -43,7 +43,11 @@ module NewsmastMastodon::Api::V1::Timelines
         expanded_limit(limit),
         params[:max_id],
         params[:since_id],
-        params[:min_id]
+        params[:min_id],
+        current_account,
+        truthy_param?(:exclude_direct_statuses),
+        false,
+        truthy_param?(:exclude_replies)
       )
 
       relay_statuses = selected_domains.flat_map do |domain|
@@ -95,7 +99,7 @@ module NewsmastMastodon::Api::V1::Timelines
     end
 
     def selected_domains
-      return enabled_domains if requested_domains.empty?
+      return [] if requested_domains.empty?
 
       requested_domains & enabled_domains
     end

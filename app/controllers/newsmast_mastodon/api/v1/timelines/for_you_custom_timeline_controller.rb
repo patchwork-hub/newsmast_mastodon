@@ -89,7 +89,7 @@ module NewsmastMastodon::Api::V1::Timelines
     end
 
     def selected_domains
-      return enabled_domains if requested_domains.empty?
+      return [] if requested_domains.empty?
 
       requested_domains & enabled_domains
     end
