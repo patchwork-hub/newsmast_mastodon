@@ -120,7 +120,10 @@ module NewsmastMastodon::Api::V1::Timelines
     end
 
     def validate_requested_domains!
-      unknown = requested_domains - configured_domains
+      allowed_domains = configured_domains.dup
+      allowed_domains << local_domain.downcase if local_domain.present?
+
+      unknown = requested_domains - allowed_domains
       return if unknown.empty?
 
       render json: { error: "Unknown relay domains: #{unknown.join(', ')}" }, status: :bad_request
