@@ -41,6 +41,7 @@ sl:
       validation_failed: Preverjanje ni uspelo!
       invalid_request: Neveljavna zahteva!
       rate_limit_exceeded: Presežena je omejitev zahtev. Poskusite znova pozneje
+      unknown_relay_domains: "Neznane relay domene: %{domains}"
     messages:
       success: Operacija uspešno zaključena
       created: Vir uspešno ustvarjen

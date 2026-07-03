@@ -40,6 +40,7 @@ ie:
       validation_failed: Validation fallit!
       invalid_request: Invalid demande!
       rate_limit_exceeded: Limite de demandes excedet. Ples provar plu tard
+      unknown_relay_domains: "Ínconosset relay-dominias: %{domains}"
     messages:
       success: Operation completet successosimen
       created: Ressurce creat successosimen

@@ -43,6 +43,7 @@ sq:
       validation_failed: Verifikimi dështoi!
       invalid_request: Kërkesë e pavlefshme!
       rate_limit_exceeded: Limiti i kërkesave u tejkalua. Ju lutemi provoni më vonë
+      unknown_relay_domains: "Domene relay të panjohura: %{domains}"
     messages:
       success: Operacioni u përfundua me sukses
       created: Burimi u krijua me sukses

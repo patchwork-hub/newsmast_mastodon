@@ -41,6 +41,7 @@ pt-BR:
       invalid_request: Solicitação inválida!
       rate_limit_exceeded: Limite de solicitações excedido. Por favor, tente novamente
         mais tarde
+      unknown_relay_domains: "Domínios de relay desconhecidos: %{domains}"
     messages:
       success: Operação concluída com sucesso
       created: Recurso criado com sucesso

@@ -40,6 +40,7 @@ fa:
       validation_failed: اعتبارسنجی ناموفق بود!
       invalid_request: درخواست نامعتبر!
       rate_limit_exceeded: محدودیت درخواست‌ها فراتر رفت. لطفاً بعداً تلاش کنید
+      unknown_relay_domains: "دامنه‌های رله ناشناخته: %{domains}"
     messages:
       success: عملیات با موفقیت انجام شد
       created: منبع با موفقیت ایجاد شد

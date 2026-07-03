@@ -42,6 +42,7 @@ es-AR:
       invalid_request: "¡Solicitud no válida!"
       rate_limit_exceeded: Límite de solicitudes excedido. Por favor, intentá más
         tarde
+      unknown_relay_domains: "Dominios de relay desconocidos: %{domains}"
     messages:
       success: Operación completada con éxito
       created: Recurso creado con éxito

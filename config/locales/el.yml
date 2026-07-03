@@ -42,6 +42,7 @@ el:
       validation_failed: Η επικύρωση απέτυχε!
       invalid_request: Μη έγκυρο αίτημα!
       rate_limit_exceeded: Υπέρβαση ορίου αιτημάτων. Δοκιμάστε ξανά αργότερα
+      unknown_relay_domains: "Άγνωστοι τομείς relay: %{domains}"
     messages:
       success: Η λειτουργία ολοκληρώθηκε με επιτυχία
       created: Ο πόρος δημιουργήθηκε με επιτυχία

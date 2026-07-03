@@ -40,6 +40,7 @@ fr-CA:
       validation_failed: La validation a échoué!
       invalid_request: Demande invalide!
       rate_limit_exceeded: Limite de débit dépassée. Veuillez réessayer plus tard
+      unknown_relay_domains: "Domaines relais inconnus : %{domains}"
     messages:
       success: Opération terminée avec succès
       created: Ressource créée avec succès

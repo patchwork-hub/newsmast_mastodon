@@ -40,6 +40,7 @@ bs:
       validation_failed: Validacija nije uspjela!
       invalid_request: Neispravan zahtjev!
       rate_limit_exceeded: Prekoračen je limit zahtjeva. Pokušajte kasnije
+      unknown_relay_domains: "Nepoznate relay domene: %{domains}"
     messages:
       success: Operacija je uspješno završena
       created: Resurs je uspješno kreiran

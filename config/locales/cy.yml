@@ -42,6 +42,7 @@ cy:
       invalid_request: Cais annilys!
       rate_limit_exceeded: Wedi rhagori ar y terfyn ceisiadau. Ceisiwch eto yn nes
         ymlaen
+      unknown_relay_domains: "Parthau relay anhysbys: %{domains}"
     messages:
       success: Cwblhawyd y gweithrediad yn llwyddiannus
       created: Crëwyd yr adnodd yn llwyddiannus

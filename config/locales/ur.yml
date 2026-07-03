@@ -40,6 +40,7 @@ ur:
       validation_failed: تصدیق ناکام ہوئی!
       invalid_request: غلط درخواست!
       rate_limit_exceeded: درخواست کی حد تجاوز کر گئی ہے۔ براہ کرم بعد میں کوشش کریں
+      unknown_relay_domains: "نامعلوم ریلے ڈومینز: %{domains}"
     messages:
       success: عمل کامیابی سے مکمل ہوا
       created: وسیلہ کامیابی سے بنایا گیا

@@ -40,6 +40,7 @@ an:
       validation_failed: A validación ha fallau!
       invalid_request: Petición no valida!
       rate_limit_exceeded: Limite de peticions superau. Torna a prebar dimpués
+      unknown_relay_domains: "Dominios de relay desconoixius: %{domains}"
     messages:
       success: Operación completada con éxito
       created: Recurso creau con éxito

@@ -43,6 +43,7 @@ br:
       invalid_request: Goulenn direizh!
       rate_limit_exceeded: Tremenet eo ar vevenn goulenn. Klaskit en-dro diwezhatoc'h
         mar plij
+      unknown_relay_domains: "Domanioù relay dianav: %{domains}"
     messages:
       success: Echu eo an ober gant berzh
       created: Krouet eo bet an danvez gant berzh

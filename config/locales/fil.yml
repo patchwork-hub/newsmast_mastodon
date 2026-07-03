@@ -40,6 +40,7 @@ fil:
       validation_failed: Nabigo ang validation!
       invalid_request: Di-wastong request!
       rate_limit_exceeded: Lumagpas sa limit ng request. Pakisubukang muli mamaya
+      unknown_relay_domains: "Hindi kilalang relay domains: %{domains}"
     messages:
       success: Matagumpay na natapos ang operasyon
       created: Matagumpay na nalikha ang resource

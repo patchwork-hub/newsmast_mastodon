@@ -40,6 +40,7 @@ io:
       validation_failed: Validado ne sukcesis!
       invalid_request: Nevalida requesto!
       rate_limit_exceeded: Limito de requesti superita. Provez post tempo
+      unknown_relay_domains: "Nekonata relay-domaini: %{domains}"
     messages:
       success: Opero kompletigita sukcese
       created: Ressurso kreita sukcese
