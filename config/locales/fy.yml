@@ -41,6 +41,7 @@ fy:
       validation_failed: Falidaasje mislearre!
       invalid_request: Unjildich fersyk!
       rate_limit_exceeded: Fersyklimyt oerskreau. Besykje it letter nochris
+      unknown_relay_domains: "Unbekende relay-domeinen: %{domains}"
     messages:
       success: Operaasje suksesfol foltôge
       created: Boarne suksesfol oanmakke

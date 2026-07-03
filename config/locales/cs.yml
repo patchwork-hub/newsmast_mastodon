@@ -41,6 +41,7 @@ cs:
       validation_failed: Ověření selhalo!
       invalid_request: Neplatný požadavek!
       rate_limit_exceeded: Byl překročen limit požadavků. Zkuste to později
+      unknown_relay_domains: "Neznámé relay domény: %{domains}"
     messages:
       success: Operace byla úspěšně dokončena
       created: Zdroj byl úspěšně vytvořen

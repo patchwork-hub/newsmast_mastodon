@@ -40,6 +40,7 @@ ms:
       validation_failed: Pengesahan gagal!
       invalid_request: Permintaan tidak sah!
       rate_limit_exceeded: Had permintaan telah melebihi. Sila cuba lagi nanti
+      unknown_relay_domains: "Domain relay tidak diketahui: %{domains}"
     messages:
       success: Operasi berjaya diselesaikan
       created: Sumber berjaya dicipta

@@ -41,6 +41,7 @@ az:
       validation_failed: Doğrulama uğursuz oldu!
       invalid_request: Yanlış sorğu!
       rate_limit_exceeded: Sorğu limiti aşılıb. Sonra yenidən cəhd edin
+      unknown_relay_domains: "Naməlum relay domenləri: %{domains}"
     messages:
       success: Əməliyyat uğurla tamamlandı
       created: Resurs uğurla yaradıldı

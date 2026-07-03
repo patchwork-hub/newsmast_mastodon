@@ -40,6 +40,7 @@ eu:
       validation_failed: Balidazioa huts egin du!
       invalid_request: Baliogabeko eskaera!
       rate_limit_exceeded: Eskaera-muga gaindituta. Saiatu berriro geroago
+      unknown_relay_domains: "Relay domeinu ezezagunak: %{domains}"
     messages:
       success: Eragiketa arrakastaz burutu da
       created: Baliabidea arrakastaz sortu da

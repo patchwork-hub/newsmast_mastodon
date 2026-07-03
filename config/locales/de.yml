@@ -41,6 +41,7 @@ de:
       validation_failed: Validierung fehlgeschlagen!
       invalid_request: Ungültige Anfrage!
       rate_limit_exceeded: Anfragelimit überschritten. Bitte versuche es später erneut
+      unknown_relay_domains: "Unbekannte Relay-Domains: %{domains}"
     messages:
       success: Vorgang erfolgreich abgeschlossen
       created: Ressource erfolgreich erstellt

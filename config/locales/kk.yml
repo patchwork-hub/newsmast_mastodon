@@ -28,7 +28,7 @@ kk:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -40,6 +40,7 @@ kk:
       validation_failed: Тексеру сәтсіз аяқталды!
       invalid_request: Жарамсыз сұраныс!
       rate_limit_exceeded: Сұраныс шегі асып кетті. Кейінірек қайталап көріңіз
+      unknown_relay_domains: "Белгісіз relay домендері: %{domains}"
     messages:
       success: Операция сәтті аяқталды
       created: Ресурс сәтті жасалды

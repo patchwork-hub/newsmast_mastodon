@@ -41,6 +41,7 @@ kn:
       validation_failed: ಮಾನ್ಯತೆ ವಿಫಲವಾಗಿದೆ!
       invalid_request: ಅಮಾನ್ಯವಾದ ವಿನಂತಿ!
       rate_limit_exceeded: ವಿನಂತಿ ಮಿತಿ ಮೀರಿದೆ. ದಯವಿಟ್ಟು ನಂತರ ಪ್ರಯತ್ನಿಸಿ
+      unknown_relay_domains: "ಅಪರಿಚಿತ ರಿಲೇ ಡೊಮೇನ್‌ಗಳು: %{domains}"
     messages:
       success: ಕಾರ್ಯಾಚರಣೆ ಯಶಸ್ವಿಯಾಗಿ ಪೂರ್ಣಗೊಂಡಿದೆ
       created: ಸಂಪನ್ಮೂಲ ಯಶಸ್ವಿಯಾಗಿ ರಚಿಸಲಾಗಿದೆ

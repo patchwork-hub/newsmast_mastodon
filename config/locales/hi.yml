@@ -41,6 +41,7 @@ hi:
       validation_failed: सत्यापन विफल!
       invalid_request: अमान्य अनुरोध!
       rate_limit_exceeded: अनुरोध सीमा पार हो गई है। कृपया बाद में पुनः प्रयास करें
+      unknown_relay_domains: "अज्ञात रिले डोमेन: %{domains}"
     messages:
       success: संचालन सफलतापूर्वक पूरा हुआ
       created: संसाधन सफलतापूर्वक बनाया गया

@@ -71,6 +71,7 @@ module NewsmastMastodon::Api::V1::Timelines
       return [] if status_ids.empty?
 
       scope = Status.where(id: status_ids).joins(:account).merge(Account.without_suspended.without_silenced)
+      scope = scope.not_excluded_by_account(current_account)
       scope = scope.joins(:media_attachments).group(:id) if truthy_param?(:only_media)
 
       records = scope.index_by(&:id)
@@ -126,7 +127,7 @@ module NewsmastMastodon::Api::V1::Timelines
       unknown = requested_domains - allowed_domains
       return if unknown.empty?
 
-      render json: { error: "Unknown relay domains: #{unknown.join(', ')}" }, status: :bad_request
+      render json: { error: I18n.t('api.errors.unknown_relay_domains', domains: unknown.join(', ')) }, status: :bad_request
     end
 
     def expanded_limit(limit)

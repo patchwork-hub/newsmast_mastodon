@@ -40,6 +40,7 @@ it:
       validation_failed: Validazione fallita!
       invalid_request: Richiesta non valida!
       rate_limit_exceeded: Limite di richieste superato. Riprova più tardi
+      unknown_relay_domains: "Domini relay sconosciuti: %{domains}"
     messages:
       success: Operazione completata con successo
       created: Risorsa creata con successo

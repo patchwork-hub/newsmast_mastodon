@@ -41,6 +41,7 @@ sk:
       validation_failed: Validácia zlyhala!
       invalid_request: Neplatná požiadavka!
       rate_limit_exceeded: Limit požiadaviek bol prekročený. Skúste to znova neskôr
+      unknown_relay_domains: "Neznáme relay domény: %{domains}"
     messages:
       success: Operácia bola úspešne dokončená
       created: Zdroj bol úspešne vytvorený

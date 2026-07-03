@@ -28,7 +28,7 @@ tt:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -40,6 +40,7 @@ tt:
       validation_failed: Валидация уңышсыз!
       invalid_request: Яраксыз сорау!
       rate_limit_exceeded: Сорау лимиты артып китте. Соңрак кабатлап карагыз
+      unknown_relay_domains: "Билгесез relay доменнар: %{domains}"
     messages:
       success: Операция уңышлы тәмамланды
       created: Ресурс уңышлы булдырылды

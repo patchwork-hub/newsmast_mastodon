@@ -42,6 +42,7 @@ mr:
       invalid_request: अवैध विनंती!
       rate_limit_exceeded: विनंत्यांची मर्यादा ओलांडली आहे. कृपया नंतर पुन्हा प्रयत्न
         करा
+      unknown_relay_domains: "अपरिचित रिले डोमेन्स: %{domains}"
     messages:
       success: ऑपरेशन यशस्वीरित्या पूर्ण झाले
       created: संसाधन यशस्वीरित्या तयार केले

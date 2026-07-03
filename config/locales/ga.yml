@@ -42,6 +42,7 @@ ga:
       validation_failed: Theip ar an bhfíorú!
       invalid_request: Iarratas neamhbhailí!
       rate_limit_exceeded: Sáraíodh an teorainn ráta. Bain triail eile as níos déanaí
+      unknown_relay_domains: "Fearainn relay anaithnid: %{domains}"
     messages:
       success: Oibríocht críochnaithe go rathúil
       created: Cruthaíodh an acmhainn go rathúil
