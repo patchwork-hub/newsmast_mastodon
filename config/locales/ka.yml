@@ -41,6 +41,7 @@ ka:
       validation_failed: ვალიდაცია ვერ შესრულდა!
       invalid_request: არასწორი მოთხოვნა!
       rate_limit_exceeded: მოთხოვნების ლიმიტი გადაჭარბებულია. სცადეთ მოგვიანებით
+      unknown_relay_domains: "უცნობი relay დომენები: %{domains}"
     messages:
       success: ოპერაცია წარმატებით დასრულდა
       created: რესურსი წარმატებით შეიქმნა

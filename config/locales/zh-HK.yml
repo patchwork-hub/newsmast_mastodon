@@ -39,6 +39,7 @@ zh-HK:
       validation_failed: 驗證失敗!
       invalid_request: 無效請求!
       rate_limit_exceeded: 請求次數過多。請稍後再試
+      unknown_relay_domains: "未知的中繼網域：%{domains}"
     messages:
       success: 操作成功完成
       created: 資源創建成功

@@ -42,6 +42,7 @@ pa:
       validation_failed: ਪੁਸ਼ਟੀਕਰਨ ਅਸਫਲ!
       invalid_request: ਅਵੈਧ ਬੇਨਤੀ!
       rate_limit_exceeded: ਬੇਨਤੀਆਂ ਦੀ ਸੀਮਾ ਪਾਰ ਹੋ ਗਈ ਹੈ। ਬਾਅਦ ਵਿੱਚ ਕੋਸ਼ਿਸ਼ ਕਰੋ
+      unknown_relay_domains: "ਅਣਪਛਾਤੇ ਰੀਲੇ ਡੋਮੇਨ: %{domains}"
     messages:
       success: ਕਾਰਵਾਈ ਸਫਲਤਾਪੂਰਵਕ ਪੂਰੀ ਹੋਈ
       created: ਸਰੋਤ ਸਫਲਤਾਪੂਰਵਕ ਬਣਾਇਆ ਗਿਆ

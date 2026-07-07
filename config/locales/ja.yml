@@ -39,6 +39,7 @@ ja:
       validation_failed: バリデーションに失敗しました!
       invalid_request: 無効なリクエストです!
       rate_limit_exceeded: リクエストの上限を超えました。後でもう一度お試しください
+      unknown_relay_domains: "不明なリレードメイン: %{domains}"
     messages:
       success: 操作が正常に完了しました
       created: リソースが正常に作成されました

@@ -41,6 +41,7 @@ fi:
       validation_failed: Vahvistus epäonnistui!
       invalid_request: Virheellinen pyyntö!
       rate_limit_exceeded: Pyyntöjen raja ylitetty. Yritä myöhemmin uudelleen
+      unknown_relay_domains: "Tuntemattomat relay-verkkotunnukset: %{domains}"
     messages:
       success: Toiminto suoritettu onnistuneesti
       created: Resurssi luotu onnistuneesti

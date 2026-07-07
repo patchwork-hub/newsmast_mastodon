@@ -41,6 +41,7 @@ nl:
       validation_failed: Validatie mislukt!
       invalid_request: Ongeldig verzoek!
       rate_limit_exceeded: Limiet van verzoeken overschreden. Probeer het later opnieuw
+      unknown_relay_domains: "Onbekende relay-domeinen: %{domains}"
     messages:
       success: Actie succesvol voltooid
       created: Bron succesvol aangemaakt

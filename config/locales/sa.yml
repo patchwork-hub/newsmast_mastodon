@@ -29,7 +29,7 @@ sa:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -41,6 +41,7 @@ sa:
       validation_failed: मान्यता विफला!
       invalid_request: अमान्य अनुरोधः!
       rate_limit_exceeded: अनुरोधसीमा अतिक्रान्ता। कृपया पुनः प्रयासं कुरु
+      unknown_relay_domains: "अज्ञात relay-क्षेत्राणि: %{domains}"
     messages:
       success: कार्य सफलतया समाप्तम् अभवत्
       created: स्रोतः सफलतया निर्मितः

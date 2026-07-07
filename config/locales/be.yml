@@ -41,6 +41,7 @@ be:
       validation_failed: Праверка не прайшла!
       invalid_request: Няправільны запыт!
       rate_limit_exceeded: Ліміт запытаў перавышаны. Паспрабуйце пазней
+      unknown_relay_domains: "Невядомыя рэлейныя дамены: %{domains}"
     messages:
       success: Аперацыя паспяхова завершана
       created: Рэсурс паспяхова створаны

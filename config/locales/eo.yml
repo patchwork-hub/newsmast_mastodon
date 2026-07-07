@@ -40,6 +40,7 @@ eo:
       validation_failed: Validigo malsukcesis!
       invalid_request: Nevalida peto!
       rate_limit_exceeded: Petlimo superita. Bonvolu provi poste
+      unknown_relay_domains: "Nekonataj relay-domajnoj: %{domains}"
     messages:
       success: Operacio sukcese kompletigita
       created: Rimedo sukcese kreita

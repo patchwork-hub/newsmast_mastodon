@@ -41,6 +41,7 @@ ne:
       validation_failed: मान्यता असफल!
       invalid_request: अवैध अनुरोध!
       rate_limit_exceeded: अनुरोध सीमा नाघिएको छ। कृपया पछि प्रयास गर्नुहोस्
+      unknown_relay_domains: "अज्ञात रिले डोमेनहरू: %{domains}"
     messages:
       success: सञ्चालन सफलतापूर्वक सम्पन्न भयो
       created: स्रोत सफलतापूर्वक सिर्जना गरियो

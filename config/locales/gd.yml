@@ -43,6 +43,7 @@ gd:
       invalid_request: Iarrtas mì-dhligheach!
       rate_limit_exceeded: Chaidh an ìre iarrtas a shàradh. Feuch ris a-rithist nas
         fhaide air adhart
+      unknown_relay_domains: "Raointean relay neo-aithnichte: %{domains}"
     messages:
       success: Obrachadh air a chrìochnachadh gu soirbheachail
       created: Goireas air a chruthachadh gu soirbheachail

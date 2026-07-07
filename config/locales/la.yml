@@ -28,7 +28,7 @@ la:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -40,6 +40,7 @@ la:
       validation_failed: Validatio defecit!
       invalid_request: Petitio non valida!
       rate_limit_exceeded: Limites petitionum superati sunt. Iterum conare postea
+      unknown_relay_domains: "Dominia relay ignota: %{domains}"
     messages:
       success: Operatio feliciter peracta est
       created: Res feliciter creata est

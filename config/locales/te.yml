@@ -40,6 +40,7 @@ te:
       validation_failed: ధృవీకరణ విఫలమైంది!
       invalid_request: చెల్లని అభ్యర్థన!
       rate_limit_exceeded: అభ్యర్థన పరిమితి మించిపోయింది. దయచేసి తర్వాత ప్రయత్నించండి
+      unknown_relay_domains: "తెలియని రీలే డొమైన్లు: %{domains}"
     messages:
       success: ఆపరేషన్ విజయవంతంగా పూర్తయింది
       created: వనరు విజయవంతంగా సృష్టించబడింది

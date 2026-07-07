@@ -40,6 +40,7 @@ fo:
       validation_failed: Váttanin miseydnaðist!
       invalid_request: Ógyldig umbøn!
       rate_limit_exceeded: Umbønamál avbjóðast. Vinarliga royn aftur seinni
+      unknown_relay_domains: "Ókendar relay-lénur: %{domains}"
     messages:
       success: Gerðin eydnaðist
       created: Tilfeingi stovnað

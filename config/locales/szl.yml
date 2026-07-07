@@ -28,7 +28,7 @@ szl:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -40,6 +40,7 @@ szl:
       validation_failed: Weryfikacyjo niy powiodła sie!
       invalid_request: Niywłaściwe żōndanie!
       rate_limit_exceeded: Przekroczōno limit żōndań. Sprōbuj jeszcze raz pōźni
+      unknown_relay_domains: "Niyznōme dōmyny relay: %{domains}"
     messages:
       success: Operacyjo zakończōno z powodzeniem
       created: Zasōb stworzōny z powodzeniem

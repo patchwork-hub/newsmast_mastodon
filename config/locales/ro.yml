@@ -43,6 +43,7 @@ ro:
       invalid_request: Solicitare invalidă!
       rate_limit_exceeded: Limita de solicitări a fost depășită. Încearcă din nou
         mai târziu
+      unknown_relay_domains: "Domenii relay necunoscute: %{domains}"
     messages:
       success: Operațiune finalizată cu succes
       created: Resursă creată cu succes

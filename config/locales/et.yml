@@ -40,6 +40,7 @@ et:
       validation_failed: Valideerimine ebaõnnestus!
       invalid_request: Vigane päring!
       rate_limit_exceeded: Päringute limiit ületatud. Palun proovi hiljem uuesti
+      unknown_relay_domains: "Tundmatud relay-domeenid: %{domains}"
     messages:
       success: Toiming edukalt lõpetatud
       created: Ressurss edukalt loodud
