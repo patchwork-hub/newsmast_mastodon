@@ -8,7 +8,7 @@ module NewsmastMastodon::Api::V1::Timelines
   # - relay timeline statuses for selected domains
   #
   # Domain parameter supports:
-  # - none: uses all configured and enabled relay domains
+  # - none: uses home feed only
   # - single: ?domain=mastodon.social
   # - multiple: ?domain=mastodon.social,mastodon.beer
   #             ?domain[]=mastodon.social&domain[]=mastodon.beer
@@ -17,7 +17,7 @@ module NewsmastMastodon::Api::V1::Timelines
     before_action :require_user!
     before_action :validate_requested_domains!
 
-    PERMITTED_PARAMS = %i[domain limit only_media max_id since_id min_id].freeze
+    PERMITTED_PARAMS = %i[domain limit only_media max_id since_id min_id exclude_direct_statuses exclude_replies].freeze
 
     def show
       with_read_replica do
@@ -39,12 +39,20 @@ module NewsmastMastodon::Api::V1::Timelines
     def instances_timeline_statuses
       limit = limit_param(DEFAULT_STATUSES_LIMIT)
 
-      home_statuses = HomeFeed.new(current_account).get(
-        expanded_limit(limit),
-        params[:max_id],
-        params[:since_id],
-        params[:min_id]
-      )
+      home_statuses = if include_home_statuses?
+                        HomeFeed.new(current_account).get(
+                          expanded_limit(limit),
+                          params[:max_id],
+                          params[:since_id],
+                          params[:min_id],
+                          current_account,
+                          truthy_param?(:exclude_direct_statuses),
+                          false,
+                          truthy_param?(:exclude_replies)
+                        )
+                      else
+                        []
+                      end
 
       relay_statuses = selected_domains.flat_map do |domain|
         NewsmastMastodon::RelayFeed.new(
@@ -63,6 +71,7 @@ module NewsmastMastodon::Api::V1::Timelines
       return [] if status_ids.empty?
 
       scope = Status.where(id: status_ids).joins(:account).merge(Account.without_suspended.without_silenced)
+      scope = scope.not_excluded_by_account(current_account)
       scope = scope.joins(:media_attachments).group(:id) if truthy_param?(:only_media)
 
       records = scope.index_by(&:id)
@@ -95,16 +104,30 @@ module NewsmastMastodon::Api::V1::Timelines
     end
 
     def selected_domains
-      return enabled_domains if requested_domains.empty?
+      return [] if requested_domains.empty?
 
       requested_domains & enabled_domains
     end
 
+    def include_home_statuses?
+      return true if requested_domains.empty?
+      return true if local_domain.blank?
+
+      requested_domains.include?(local_domain.downcase)
+    end
+
+    def local_domain
+      ENV.fetch("LOCAL_DOMAIN", nil)
+    end
+
     def validate_requested_domains!
-      unknown = requested_domains - configured_domains
+      allowed_domains = configured_domains.dup
+      allowed_domains << local_domain.downcase if local_domain.present?
+
+      unknown = requested_domains - allowed_domains
       return if unknown.empty?
 
-      render json: { error: "Unknown relay domains: #{unknown.join(', ')}" }, status: :bad_request
+      render json: { error: I18n.t('api.errors.unknown_relay_domains', domains: unknown.join(', ')) }, status: :bad_request
     end
 
     def expanded_limit(limit)

@@ -42,6 +42,7 @@ pl:
       validation_failed: Walidacja nie powiodła się!
       invalid_request: Nieprawidłowe żądanie!
       rate_limit_exceeded: Przekroczono limit żądań. Spróbuj ponownie później
+      unknown_relay_domains: "Nieznane domeny relay: %{domains}"
     messages:
       success: Operacja zakończona pomyślnie
       created: Zasób został pomyślnie utworzony

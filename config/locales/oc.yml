@@ -29,7 +29,7 @@ oc:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -41,6 +41,7 @@ oc:
       validation_failed: La validacion a fracassat!
       invalid_request: Demanda invalida!
       rate_limit_exceeded: Limit de demanda depassat. Tornatz ensajar mai tard
+      unknown_relay_domains: "Domenis de relay desconeguts: %{domains}"
     messages:
       success: Operacion completada amb succès
       created: Ressorsa creada amb succès

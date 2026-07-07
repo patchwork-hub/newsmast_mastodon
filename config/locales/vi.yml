@@ -41,6 +41,7 @@ vi:
       validation_failed: Xác thực thất bại!
       invalid_request: Yêu cầu không hợp lệ!
       rate_limit_exceeded: Vượt quá giới hạn yêu cầu. Vui lòng thử lại sau
+      unknown_relay_domains: "Miền relay không xác định: %{domains}"
     messages:
       success: Thao tác hoàn tất thành công
       created: Tài nguyên được tạo thành công

@@ -40,6 +40,7 @@ ast:
       validation_failed: "¡Falló la validación!"
       invalid_request: "¡Solicitú non válida!"
       rate_limit_exceeded: Llímiti de solicitúes superáu. Inténtalo más tarde
+      unknown_relay_domains: "Dominios de relay desconocíos: %{domains}"
     messages:
       success: Operación completada con ésitu
       created: Recurso creáu con ésitu

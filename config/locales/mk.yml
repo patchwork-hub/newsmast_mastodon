@@ -40,6 +40,7 @@ mk:
       validation_failed: Валидацијата не успеа!
       invalid_request: Невалидно барање!
       rate_limit_exceeded: Лимитот на барања е надминат. Обидете се подоцна
+      unknown_relay_domains: "Непознати relay домени: %{domains}"
     messages:
       success: Операцијата е успешно завршена
       created: Ресурсот е успешно креиран

@@ -40,6 +40,7 @@ ckb:
       validation_failed: پشتڕاستکردن سەرکەوتوو نەبوو!
       invalid_request: داواکاری نادروست!
       rate_limit_exceeded: سنوری داواکاری تێپەڕدرا. تکایە دوای کاتێک هەوڵ بدەوە
+      unknown_relay_domains: "دۆمەینی ریلەی نەناسراو: %{domains}"
     messages:
       success: کردار بەسەرکەوتوویی تەواو بوو
       created: سەرچاوە بەسەرکەوتوویی دروستکرا

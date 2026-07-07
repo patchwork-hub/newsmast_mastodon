@@ -41,6 +41,7 @@ uk:
       validation_failed: Валідація не вдалася!
       invalid_request: Невірний запит!
       rate_limit_exceeded: Перевищено ліміт запитів. Спробуйте пізніше
+      unknown_relay_domains: "Невідомі relay-домени: %{domains}"
     messages:
       success: Операцію успішно завершено
       created: Ресурс успішно створено

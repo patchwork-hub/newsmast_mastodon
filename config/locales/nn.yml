@@ -40,6 +40,7 @@ nn:
       validation_failed: Validering feila!
       invalid_request: Ugyldig førespurnad!
       rate_limit_exceeded: Førespurnadsgrensa er overskriden. Prøv igjen seinare
+      unknown_relay_domains: "Ukjende relay-domene: %{domains}"
     messages:
       success: Handlinga vart fullført
       created: Ressurs oppretta

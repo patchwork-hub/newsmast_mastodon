@@ -39,6 +39,7 @@ ig:
       validation_failed: Nlele emeghị nke ọma!
       invalid_request: Arịrịọ ezighi ezi!
       rate_limit_exceeded: Agafeela oke arịrịọ. Biko gbalịa ọzọ emechaa
+      unknown_relay_domains: "Domein relay amaghi ama: %{domains}"
     messages:
       success: Ọrụ agwụla nke ọma
       created: E mepụtara ihe a nke ọma

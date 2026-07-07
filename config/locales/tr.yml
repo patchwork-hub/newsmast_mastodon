@@ -42,6 +42,7 @@ tr:
       validation_failed: Doğrulama başarısız oldu!
       invalid_request: Geçersiz istek!
       rate_limit_exceeded: İstek limiti aşıldı. Lütfen daha sonra tekrar deneyin
+      unknown_relay_domains: "Bilinmeyen relay alan adları: %{domains}"
     messages:
       success: İşlem başarıyla tamamlandı
       created: Kaynak başarıyla oluşturuldu

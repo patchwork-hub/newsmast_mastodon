@@ -39,6 +39,7 @@ ar:
       validation_failed: فشل التحقق!
       invalid_request: طلب غير صالح!
       rate_limit_exceeded: تم تجاوز الحد الأقصى للطلبات. يرجى المحاولة لاحقًا
+      unknown_relay_domains: "نطاقات الترحيل غير المعروفة: %{domains}"
     messages:
       success: تمت العملية بنجاح
       created: تم إنشاء المورد بنجاح

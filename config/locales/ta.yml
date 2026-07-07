@@ -41,6 +41,7 @@ ta:
       validation_failed: சரிபார்ப்பு தோல்வியடைந்தது!
       invalid_request: தவறான கோரிக்கை!
       rate_limit_exceeded: கோரிக்கையின் வரம்பு மீறப்பட்டது. பின்னர் முயற்சிக்கவும்
+      unknown_relay_domains: "அறியப்படாத ரிலே டொமைன்கள்: %{domains}"
     messages:
       success: செயல் வெற்றிகரமாக முடிந்தது
       created: வளம் வெற்றிகரமாக உருவாக்கப்பட்டது
