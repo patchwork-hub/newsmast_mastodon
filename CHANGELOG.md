@@ -28,6 +28,7 @@ tracks the target Mastodon version and `N` is the gem patch level).
 - Cross-linked governance, maintainer, and support documents for easier navigation.
 - Refactored CI workflows to use a shared runtime setup action, added per-job timeouts, and introduced `ci-ok` as a stable aggregate required check.
 - Added `no-changelog` PR label bypass support to `changelog-policy` for approved non-behavioral changes.
+- Dropped end-of-life Ruby 3.1 and 3.2 from CI; the pipeline now tests only stable Ruby versions (3.3 and 3.4), and `required_ruby_version` was raised to `>= 3.3.0`. Documented the Ruby requirement in `README.md`, `CONTRIBUTING.md`, and `docs/ci/jobs.md`.
 - Expanded security automation with `bundler-audit` and workflow linting (`actionlint` + `zizmor`) and tightened dependency-review severity gating.
 - Hardened release gating with a protected `rubygems` environment and verification that release tags are ancestors of `main`.
 - Updated branch/tag ruleset definitions to require the new checks, enforce linear history, protect `v*` tags, and skip Copilot review on draft PRs.

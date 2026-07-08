@@ -6,8 +6,9 @@ changes.
 
 ## Development setup
 
-1. Clone the repository and `cd` into it.
-2. Install dependencies and prepare the dummy app:
+1. Install Ruby `>= 3.3` (CI runs against Ruby 3.3 and 3.4).
+2. Clone the repository and `cd` into it.
+3. Install dependencies and prepare the dummy app:
 
    ```bash
    bin/setup
@@ -20,13 +21,13 @@ changes.
    bin/setup --skip-server
    ```
 
-3. Run the test suite to confirm your environment works:
+4. Run the test suite to confirm your environment works:
 
    ```bash
    bundle exec rspec
    ```
 
-4. Run the linter:
+5. Run the linter:
 
    ```bash
    bundle exec rubocop
