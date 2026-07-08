@@ -26,6 +26,12 @@ tracks the target Mastodon version and `N` is the gem patch level).
 - Linked non-security conduct reporting path from `SECURITY.md`.
 - Hardened release workflow with checksum generation and build provenance attestation.
 - Cross-linked governance, maintainer, and support documents for easier navigation.
+- Refactored CI workflows to use a shared runtime setup action, added per-job timeouts, and introduced `ci-ok` as a stable aggregate required check.
+- Added `no-changelog` PR label bypass support to `changelog-policy` for approved non-behavioral changes.
+- Expanded security automation with `bundler-audit` and workflow linting (`actionlint` + `zizmor`) and tightened dependency-review severity gating.
+- Hardened release gating with a protected `rubygems` environment and verification that release tags are ancestors of `main`.
+- Updated branch/tag ruleset definitions to require the new checks, enforce linear history, protect `v*` tags, and skip Copilot review on draft PRs.
+- Grouped Dependabot major updates for Bundler and GitHub Actions to reduce update noise.
 
 ## [4.5.11] - 2026-06-15
 

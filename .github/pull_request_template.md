@@ -1,6 +1,7 @@
 <!--
 Thanks for contributing to newsmast_mastodon!
 Please fill in the sections below before requesting review.
+This repository enforces squash-only merges and required status checks.
 -->
 
 ## Summary
@@ -32,6 +33,10 @@ Please fill in the sections below before requesting review.
 - [ ] This change does not introduce new security or privacy issues (see
       [`SECURITY.md`](../SECURITY.md)).
 - [ ] Security impact has been assessed and any required follow-up is documented.
+- [ ] Required checks are passing: `ci-ok`, `dependency-review`, `codeql`.
+- [ ] Copilot review feedback has been addressed (or explicitly acknowledged).
+- [ ] All review threads are resolved.
+- [ ] Merge method selected is `Squash and merge`.
 
 ## Screenshots / output (optional)
 
