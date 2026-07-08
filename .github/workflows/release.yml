@@ -12,19 +12,29 @@ concurrency:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: rubygems
     permissions:
       attestations: write
       contents: read
       id-token: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
-          ruby-version: "3.3"
-          bundler-cache: true
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup runtime
+        uses: ./.github/actions/setup
+        with:
+          ruby-version: "3.4"
+
+      - name: Ensure release tag is on main
+        run: |
+          git fetch origin main
+          git merge-base --is-ancestor HEAD origin/main
 
       - name: Ensure tag matches gem version
         run: |
@@ -50,11 +60,11 @@ jobs:
           sha256sum pkg/*.gem > pkg/SHA256SUMS
 
       - name: Attest build provenance
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@96b4a1ef7235a096b17240c259729fdd70c83d45 # v2
         with:
           subject-path: |
             pkg/*.gem
             pkg/SHA256SUMS
 
       - name: Release to RubyGems
-        uses: rubygems/release-gem@v1
+        uses: rubygems/release-gem@052cc82692552de3ef2b81fd670e41d13cba8092 # v1.4.0

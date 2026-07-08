@@ -9,6 +9,7 @@ This project uses compatibility-first versioning: `X.Y.Z.N`.
 
 Examples:
 
+- `4.5.11` is for Mastodon `4.5.11`.
 - `4.5.11.0` is the first gem release for Mastodon `4.5.11`.
 - `4.5.11.1` is a gem-only patch release, still for Mastodon `4.5.11`.
 - `4.5.12.0` starts support for Mastodon `4.5.12`.

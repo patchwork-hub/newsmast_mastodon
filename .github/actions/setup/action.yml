@@ -1,0 +1,25 @@
+name: Setup CI runtime
+description: Install native dependencies and set up Ruby with Bundler cache
+inputs:
+  ruby-version:
+    description: Ruby version to install
+    required: false
+    default: "3.4"
+  bundler-cache:
+    description: Enable bundler cache
+    required: false
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Install native dependencies
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@d45b1a4e94b71acab930e56e79c6aa188764e7f9 # v1.316.0
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: ${{ inputs.bundler-cache }}

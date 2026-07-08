@@ -36,20 +36,20 @@ concurrency:
 jobs:
   changelog-policy:
     runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'pull_request' }}
+    timeout-minutes: 10
+    if: ${{ github.event_name == 'pull_request' && !contains(github.event.pull_request.labels.*.name, 'no-changelog') }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Require changelog update for code changes
         run: |
           set -e
-          BASE_REF="${{ github.base_ref }}"
-          git fetch origin "$BASE_REF" --depth=1
-
-          CHANGED_FILES=$(git diff --name-only "origin/$BASE_REF"...HEAD)
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          CHANGED_FILES=$(git diff --name-only "$BASE_SHA"...HEAD)
           echo "Changed files:"
           echo "$CHANGED_FILES"
 
@@ -73,25 +73,22 @@ jobs:
       fail-fast: false
       matrix:
         ruby: ["3.1", "3.2", "3.3"]
+    timeout-minutes: 15
     env:
       RUBOCOP_CACHE_ROOT: tmp/rubocop
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
 
       - name: Prepare RuboCop cache
-        uses: actions/cache@v4
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
         env:
           DEPENDENCIES_HASH: ${{ hashFiles('**/.rubocop.yml', '**/.rubocop_todo.yml', 'Gemfile.lock') }}
         with:
@@ -105,20 +102,17 @@ jobs:
 
   api-contract:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: "3.3"
-          bundler-cache: true
 
       - name: Verify routes, controllers, and Postman docs are in sync
         run: bundle exec rake api:verify
@@ -129,6 +123,7 @@ jobs:
       fail-fast: false
       matrix:
         ruby: ["3.1", "3.2", "3.3"]
+    timeout-minutes: 30
 
     services:
       redis:
@@ -147,18 +142,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby ${{ matrix.ruby }}
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: ${{ matrix.ruby }}
-          bundler-cache: true
 
       - name: Run specs
         run: |
@@ -169,7 +160,7 @@ jobs:
           fi
 
       - name: Upload coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: coverage-ruby-${{ matrix.ruby }}
@@ -177,7 +168,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Keep screenshots from failed system tests
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: failure()
         with:
           name: screenshots-ruby-${{ matrix.ruby }}
@@ -188,6 +179,7 @@ jobs:
   # running a targeted spec subset against a real Postgres service.
   test-postgres-subset:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     services:
       postgres:
@@ -221,18 +213,14 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: "3.3"
-          bundler-cache: true
 
       - name: Bootstrap minimal Postgres schema for standalone specs
         run: |
@@ -252,20 +240,17 @@ jobs:
   # protect every Mastodon upgrade cycle — see docs/internal/mastodon-upgrade/RUNBOOK.md.
   compatibility:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: "3.3"
-          bundler-cache: true
 
       - name: Migration idempotency + version sync gates
         run: bundle exec rspec spec/compatibility --format documentation
@@ -276,28 +261,26 @@ jobs:
   # without provisioning full host runtime services.
   host-integration:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'lightweight' || inputs.host_integration_profile == 'both') }}
     steps:
       - name: Checkout gem
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           path: gem
+          persist-credentials: false
 
       - name: Checkout host Mastodon
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           repository: ${{ github.event.inputs.host_mastodon_repo || 'patchwork-hub/patchwork-mastodon' }}
           ref: ${{ github.event.inputs.host_mastodon_ref || 'mastodon-4.5.11' }}
           token: ${{ github.token }}
           path: host
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: "3.3"
 
@@ -323,6 +306,7 @@ jobs:
   # required during boot or spec execution.
   host-integration-full:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.host_mastodon_repo != '' && (inputs.host_integration_profile == 'full' || inputs.host_integration_profile == 'both') }}
 
     services:
@@ -374,25 +358,22 @@ jobs:
 
     steps:
       - name: Checkout gem
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           path: gem
+          persist-credentials: false
 
       - name: Checkout host Mastodon
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           repository: ${{ inputs.host_mastodon_repo }}
           ref: ${{ inputs.host_mastodon_ref || '' }}
           token: ${{ github.token }}
           path: host
+          persist-credentials: false
 
-      - name: Install native dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
-
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
+      - name: Setup runtime
+        uses: ./.github/actions/setup
         with:
           ruby-version: "3.3"
 
@@ -416,4 +397,28 @@ jobs:
           NEWSMAST_STRICT_HOST_BOOT: "1"
           RAILS_ENV: test
         run: bundle exec rspec --format documentation
+
+  ci-ok:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    needs:
+      - changelog-policy
+      - lint
+      - api-contract
+      - test
+      - test-postgres-subset
+      - compatibility
+    if: always()
+    steps:
+      - name: Verify required CI jobs passed
+        env:
+          NEEDS_JSON: ${{ toJson(needs) }}
+        run: |
+          echo "$NEEDS_JSON" > needs.json
+          ruby -rjson -e '
+            results = JSON.parse(File.read("needs.json")).values.map { |v| v.fetch("result") }
+            blocked = results.any? { |r| r == "failure" || r == "cancelled" }
+            abort("One or more required CI jobs failed or were cancelled") if blocked
+            puts "All required CI jobs passed (or were skipped when not applicable)."
+          '
 

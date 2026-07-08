@@ -40,9 +40,9 @@ module NewsmastMastodon::Api::V1::Timelines
                        params[:since_id],
                        params[:min_id]
                      )
-                   else
+      else
                      []
-                   end
+      end
 
       relay_statuses = selected_domains.flat_map do |domain|
         NewsmastMastodon::RelayFeed.new(
@@ -117,7 +117,7 @@ module NewsmastMastodon::Api::V1::Timelines
       unknown = requested_domains - allowed_domains
       return if unknown.empty?
 
-      render json: { error: I18n.t('api.errors.unknown_relay_domains', domains: unknown.join(', ')) }, status: :bad_request
+      render json: { error: I18n.t("api.errors.unknown_relay_domains", domains: unknown.join(", ")) }, status: :bad_request
     end
 
     def expanded_limit(limit)
