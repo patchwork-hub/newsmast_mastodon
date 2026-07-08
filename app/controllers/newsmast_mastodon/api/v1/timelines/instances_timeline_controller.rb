@@ -124,7 +124,6 @@ module NewsmastMastodon::Api::V1::Timelines
       allowed_domains = configured_domains.dup
       allowed_domains << local_domain.downcase if local_domain.present?
 
-      Rails.logger.debug("Allowed domains: #{allowed_domains.inspect}")
       unknown = requested_domains - allowed_domains
       return if unknown.empty?
 
