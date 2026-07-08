@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary     = "Newsmast extensions for Mastodon 4.5.11 runtime — accounts, content filters, conversations, custom feeds, local-only posts, posting enhancements, and timeline extensions."
   spec.description = "A consolidated Rails engine gem that extends Mastodon with Newsmast features: custom registration flows, push notifications, content filtering, custom feeds, draft management, ALT text generation, local-only posts, and extended timelines. Runtime compatibility target: Mastodon 4.5.11."
   spec.license     = "AGPL-3.0-only"
-  spec.required_ruby_version = ">= 3.1.0"
+  spec.required_ruby_version = ">= 3.3.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"]      = spec.homepage
