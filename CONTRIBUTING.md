@@ -6,7 +6,7 @@ changes.
 
 ## Development setup
 
-1. Install Ruby `>= 3.3` (CI runs against Ruby 3.3 and 3.4).
+1. Install Ruby `>= 3.2.0`, `< 3.5.0` (CI runs against Ruby 3.2, 3.3, and 3.4).
 2. Clone the repository and `cd` into it.
 3. Install dependencies and prepare the dummy app:
 
