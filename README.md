@@ -15,7 +15,7 @@ Examples:
 - `4.5.12.0` starts support for Mastodon `4.5.12`.
 
 ## Prerequisites
-The plugin requires Ruby `>= 3.3` (CI tests against Ruby 3.3 and 3.4) and a matching version Mastodon service, and - dependent on intended use - may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard)
+The plugin requires Ruby `>= 3.2.0, < 3.5.0`, a matching Mastodon service version, and (depending on intended use) may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard).
 
 ## Installation
 See [https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon](https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon)
