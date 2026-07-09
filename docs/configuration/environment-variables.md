@@ -85,10 +85,12 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 
 ## Alt text AI
 
+The automatic alt text feature currently supports [alttext.ai](https://alttext.ai/) only.
+
 | Variable | Required | Description |
 | --- | --- | --- |
-| ALT_TEXT_URL | No | Base URL for Alt Text AI service. |
-| ALT_TEXT_SECRET | No | API key/secret for Alt Text AI service. |
+| ALT_TEXT_URL | No | Base URL for the Alt Text AI service. Only [alttext.ai](https://alttext.ai/) is currently supported. |
+| ALT_TEXT_SECRET | No | API key/secret for the alttext.ai service. |
 
 ## Domain and channel configuration
 
