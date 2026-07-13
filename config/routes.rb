@@ -41,6 +41,11 @@ NewsmastMastodon::Engine.routes.draw do
         end
         member do
           get :starter_packs_detail
+          get :search_local_accounts, to: "channels/community_roles#search_local_accounts"
+          get :assigned_roles, to: "channels/community_roles#assigned_roles"
+          post :assign_role, to: "channels/community_roles#assign_role"
+          post :remove_assigned_role, to: "channels/community_roles#remove_assigned_role"
+          post :invite_user, to: "channels/community_roles#invite_user"
         end
       end
 

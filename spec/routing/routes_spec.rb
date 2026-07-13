@@ -27,6 +27,11 @@ RSpec.describe "Consolidated engine routes", type: :routing do
     expect(helpers.api_v1_user_locales_path).to eq("/api/v1/user_locales")
     expect(helpers.starter_packs_channels_api_v1_channels_path).to eq("/api/v1/channels/starter_packs_channels")
     expect(helpers.starter_packs_detail_api_v1_channel_path(1)).to eq("/api/v1/channels/1/starter_packs_detail")
+    expect(helpers.search_local_accounts_api_v1_channel_path(1)).to eq("/api/v1/channels/1/search_local_accounts")
+    expect(helpers.assigned_roles_api_v1_channel_path(1)).to eq("/api/v1/channels/1/assigned_roles")
+    expect(helpers.assign_role_api_v1_channel_path(1)).to eq("/api/v1/channels/1/assign_role")
+    expect(helpers.remove_assigned_role_api_v1_channel_path(1)).to eq("/api/v1/channels/1/remove_assigned_role")
+    expect(helpers.invite_user_api_v1_channel_path(1)).to eq("/api/v1/channels/1/invite_user")
 
     expect(helpers.alttext_api_v1_patchwork_alttext_settings_path).to eq("/api/v1/patchwork/alttext_settings/alttext")
     expect(helpers.notification_api_v1_patchwork_email_settings_path).to eq("/api/v1/patchwork/email_settings/notification")
