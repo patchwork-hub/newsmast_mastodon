@@ -61,7 +61,7 @@ TARGET_TAG:     https://github.com/mastodon/mastodon/releases/tag/v<TO_VERSION>
 BASE_BRANCH:    csidnet-<FROM_VERSION>
 UPGRADE_BRANCH: csidnet-<TO_VERSION>
 CORE_REMOTE:    https://github.com/mastodon/mastodon.git
-GEM_REPO:       https://github.com/patchwork-hub/newsmast_mastodon
+GEM_REPO:       https://github.com/TheNewsmastFoundation/newsmast-mastodon
 GEM_DEV_BRANCH: mastodon-<TO_VERSION>
 GEM_VERSION:    <TO_VERSION>.0 # released gem version pinned by the host
 ```
@@ -165,7 +165,7 @@ Then:
 
    ```ruby
    gem "newsmast_mastodon",
-       git: "https://github.com/patchwork-hub/newsmast_mastodon",
+      git: "https://github.com/TheNewsmastFoundation/newsmast-mastodon",
        branch: "mastodon-<TO_VERSION>"
    ```
 
