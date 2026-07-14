@@ -1124,6 +1124,27 @@
       "response": []
     },
     {
+      "name": "GET /api/v1/timelines/instances_timeline",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/timelines/instances_timeline",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "timelines",
+            "instances_timeline"
+          ]
+        },
+        "description": "Controller: timelines/instances_timeline#show"
+      },
+      "response": []
+    },
+    {
       "name": "POST /api/v1/custom_statuses/add_custom_boost_bot_status",
       "request": {
         "method": "POST",
@@ -1385,6 +1406,78 @@
           ]
         },
         "description": "Controller: drafted_statuses#publish"
+      },
+      "response": []
+    },
+    {
+      "name": "PATCH /api/v1/patchwork/statuses/:status_id/reactions/:id",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/patchwork/statuses/{{status_id}}/reactions/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patchwork",
+            "statuses",
+            "{{status_id}}",
+            "reactions",
+            "{{id}}"
+          ]
+        },
+        "description": "Controller: patchwork/status_reactions#update"
+      },
+      "response": []
+    },
+    {
+      "name": "PUT /api/v1/patchwork/statuses/:status_id/reactions/:id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/patchwork/statuses/{{status_id}}/reactions/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patchwork",
+            "statuses",
+            "{{status_id}}",
+            "reactions",
+            "{{id}}"
+          ]
+        },
+        "description": "Controller: patchwork/status_reactions#update"
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE /api/v1/patchwork/statuses/:status_id/reactions/:id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/api/v1/patchwork/statuses/{{status_id}}/reactions/{{id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "patchwork",
+            "statuses",
+            "{{status_id}}",
+            "reactions",
+            "{{id}}"
+          ]
+        },
+        "description": "Controller: patchwork/status_reactions#destroy"
       },
       "response": []
     },
