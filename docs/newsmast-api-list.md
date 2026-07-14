@@ -35,6 +35,7 @@ Generated from route definitions in script/api/verify_routes_and_docs.rb.
 | POST | /api/v1/accounts/article_notifications | accounts/patchwork_settings#update_article_notifications |
 | GET | /api/v1/timelines/@:username/feed | timelines/feeds#show |
 | GET | /api/v1/timelines/for_you_custom_timeline | timelines/for_you_custom_timeline#show |
+| GET | /api/v1/timelines/instances_timeline | timelines/instances_timeline#show |
 | POST | /api/v1/custom_statuses/add_custom_boost_bot_status | custom_statuses/custom_boost_bot_status#add_custom_boost_bot_status |
 | POST | /api/v1/custom_statuses/remove_custom_boost_bot_status | custom_statuses/custom_boost_bot_status#remove_custom_boost_bot_status |
 | GET | /api/v1/local_only_posts/getLocalOnlySetting | local_only_posts#getLocalOnlySetting |
@@ -45,6 +46,9 @@ Generated from route definitions in script/api/verify_routes_and_docs.rb.
 | PUT | /api/v1/drafted_statuses/:id | drafted_statuses#update |
 | DELETE | /api/v1/drafted_statuses/:id | drafted_statuses#destroy |
 | POST | /api/v1/drafted_statuses/:id/publish | drafted_statuses#publish |
+| PATCH | /api/v1/patchwork/statuses/:status_id/reactions/:id | patchwork/status_reactions#update |
+| PUT | /api/v1/patchwork/statuses/:status_id/reactions/:id | patchwork/status_reactions#update |
+| DELETE | /api/v1/patchwork/statuses/:status_id/reactions/:id | patchwork/status_reactions#destroy |
 | GET | /api/v1/utilities/link_preview | utilities#link_preview |
 | POST | /api/v1/patchwork/relays | relays#create |
 | DELETE | /api/v1/patchwork/relays/:id | relays#destroy |
