@@ -41,6 +41,7 @@ hu:
       validation_failed: A validáció sikertelen!
       invalid_request: Érvénytelen kérés!
       rate_limit_exceeded: A lekérdezési korlát túllépve. Próbáld újra később
+      unknown_relay_domains: "Ismeretlen relay tartományok: %{domains}"
     messages:
       success: A művelet sikeresen befejeződött
       created: Az erőforrás sikeresen létrehozva

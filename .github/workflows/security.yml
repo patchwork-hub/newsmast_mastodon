@@ -18,30 +18,93 @@ jobs:
   dependency-review:
     if: ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
       - name: Dependency review
-        uses: actions/dependency-review-action@v4
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+        with:
+          fail-on-severity: high
+
+  bundler-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
+
+      - name: Setup runtime
+        uses: ./.github/actions/setup
+        with:
+          ruby-version: "3.4"
+
+      - name: Run bundler-audit
+        run: |
+          gem install bundler-audit
+          # Temporary ignores for advisories inherited from upstream host stack.
+          # Keep this list minimal and remove entries once dependencies are upgraded.
+          bundle-audit check --update \
+            --ignore \
+              CVE-2025-68696 GHSA-hm5p-x4rq-38w4 \
+              CVE-2026-47736 GHSA-qpgp-93vx-g8v8 \
+              CVE-2026-47737 GHSA-2vqw-3mp8-cgmx
+
+  lint-workflows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ACTIONLINT_VERSION: "1.7.12"
+      ZIZMOR_VERSION: "1.16.3"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
+
+      - name: Run actionlint
+        run: |
+          set -euo pipefail
+          ASSET="actionlint_${ACTIONLINT_VERSION}_linux_amd64.tar.gz"
+          CHECKSUMS="actionlint_${ACTIONLINT_VERSION}_checksums.txt"
+          BASE_URL="https://github.com/rhysd/actionlint/releases/download/v${ACTIONLINT_VERSION}"
+
+          curl -fsSLO "${BASE_URL}/${ASSET}"
+          curl -fsSLO "${BASE_URL}/${CHECKSUMS}"
+          grep " ${ASSET}$" "${CHECKSUMS}" | sha256sum -c -
+          tar -xzf "${ASSET}" actionlint
+          ./actionlint -color
+
+      - name: Run zizmor
+        run: |
+          python3 -m pip install --user --disable-pip-version-check "zizmor==${ZIZMOR_VERSION}"
+          ~/.local/bin/zizmor .github/workflows
 
   codeql:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     permissions:
       actions: read
       contents: read
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        with:
+          persist-credentials: false
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3
+        uses: github/codeql-action/init@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3
         with:
           languages: ruby
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+        uses: github/codeql-action/autobuild@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3
 
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@v3
+        uses: github/codeql-action/analyze@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3

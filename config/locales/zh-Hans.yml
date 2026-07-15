@@ -27,7 +27,7 @@ zh-Hans:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -39,6 +39,7 @@ zh-Hans:
       validation_failed: 验证失败！
       invalid_request: 无效请求！
       rate_limit_exceeded: 请求频率超限，请稍后再试
+      unknown_relay_domains: "未知的中继域名：%{domains}"
     messages:
       success: 操作成功完成
       created: 资源创建成功

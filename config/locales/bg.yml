@@ -40,6 +40,7 @@ bg:
       validation_failed: Валидирането не бе успешно!
       invalid_request: Невалидна заявка!
       rate_limit_exceeded: Превишен лимит на заявки. Моля, опитайте по-късно
+      unknown_relay_domains: "Неизвестни relay домейни: %{domains}"
     messages:
       success: Операцията е успешна
       created: Ресурсът е създаден успешно

@@ -42,6 +42,7 @@ is:
       validation_failed: Staðfesting mistókst!
       invalid_request: Ógild beiðni!
       rate_limit_exceeded: Fjöldatakmörkun beiðna náð. Reyndu aftur síðar
+      unknown_relay_domains: "Óþekkt relay-lén: %{domains}"
     messages:
       success: Aðgerð lokið með góðum árangri
       created: Auðlind búin til með góðum árangri

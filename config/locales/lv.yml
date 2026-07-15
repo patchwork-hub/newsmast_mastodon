@@ -42,6 +42,7 @@ lv:
       validation_failed: Validācija neizdevās!
       invalid_request: Nederīgs pieprasījums!
       rate_limit_exceeded: Pieprasījumu limits pārsniegts. Lūdzu, mēģiniet vēlāk
+      unknown_relay_domains: "Nezināmi relay domēni: %{domains}"
     messages:
       success: Darbība veiksmīgi pabeigta
       created: Resurss veiksmīgi izveidots

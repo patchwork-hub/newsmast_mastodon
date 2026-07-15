@@ -41,6 +41,7 @@ ru:
       validation_failed: Ошибка валидации!
       invalid_request: Неверный запрос!
       rate_limit_exceeded: Превышен лимит запросов. Попробуйте позже
+      unknown_relay_domains: "Неизвестные relay-домены: %{domains}"
     messages:
       success: Операция успешно завершена
       created: Ресурс успешно создан

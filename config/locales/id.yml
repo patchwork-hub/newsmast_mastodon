@@ -40,6 +40,7 @@ id:
       validation_failed: Validasi gagal!
       invalid_request: Permintaan tidak valid!
       rate_limit_exceeded: Batas permintaan terlampaui. Silakan coba lagi nanti
+      unknown_relay_domains: "Domain relay tidak dikenal: %{domains}"
     messages:
       success: Operasi berhasil diselesaikan
       created: Sumber daya berhasil dibuat

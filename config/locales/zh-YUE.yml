@@ -8,7 +8,7 @@ zh-YUE:
       ended_you: 你嘅投票已經完咗
       ended_voted: 你投過票嘅投票已經完咗
     mention:
-      direct_message: "%{name} send you a message"
+      direct_message: "%{name} sends you a message"
       conversation_request: 你有一個新嘅對話請求。
   custom_passwords_mailer:
     reset_password_confirmation:
@@ -27,7 +27,7 @@ zh-YUE:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -39,6 +39,7 @@ zh-YUE:
       validation_failed: 驗證失敗!
       invalid_request: 無效請求!
       rate_limit_exceeded: 請求次數過多。請稍後再試
+      unknown_relay_domains: "未知嘅中繼網域：%{domains}"
     messages:
       success: 操作完成
       created: 資源創建成功

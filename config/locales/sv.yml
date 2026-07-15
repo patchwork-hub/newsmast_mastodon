@@ -40,6 +40,7 @@ sv:
       validation_failed: Valideringen misslyckades!
       invalid_request: Ogiltig begäran!
       rate_limit_exceeded: Begäransgränsen har överskridits. Försök igen senare
+      unknown_relay_domains: "Okända relay-domäner: %{domains}"
     messages:
       success: Åtgärden slutfördes framgångsrikt
       created: Resursen skapades framgångsrikt

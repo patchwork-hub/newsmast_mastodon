@@ -43,6 +43,7 @@ ml:
       validation_failed: വാലിഡേഷൻ പരാജയപ്പെട്ടു!
       invalid_request: അസാധുവായ അഭ്യർത്ഥന!
       rate_limit_exceeded: അഭ്യർത്ഥന പരിധി കവിഞ്ഞു. ദയവായി പിന്നീട് ശ്രമിക്കുക
+      unknown_relay_domains: "അപരിചിത റീലേ ഡൊമെയിനുകൾ: %{domains}"
     messages:
       success: പ്രവർത്തനം വിജയകരമായി പൂർത്തിയായി
       created: വിഭവം വിജയകരമായി സൃഷ്ടിച്ചു

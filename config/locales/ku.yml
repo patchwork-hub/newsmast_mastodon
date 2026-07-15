@@ -29,7 +29,7 @@ ku:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -41,6 +41,7 @@ ku:
       validation_failed: Pêwîstiyê têk çû!
       invalid_request: Daxwazê nederbasdar!
       rate_limit_exceeded: Sînorê daxwazê tê derbas kirin. Ji kerema xwe paşê biceribîne
+      unknown_relay_domains: "Domênên relay yên nenas: %{domains}"
     messages:
       success: Kar bi serketinî qediyayê
       created: Çavkaniyê bi serketinî hate çêkirin

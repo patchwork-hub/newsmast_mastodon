@@ -41,6 +41,7 @@ si:
       validation_failed: වලංගු කිරීම අසාර්ථකයි!
       invalid_request: අවලංගු ඉල්ලීමක්!
       rate_limit_exceeded: ඉල්ලීම් සීමාව ඉක්මවා ඇත. කරුණාකර පසුව උත්සාහ කරන්න
+      unknown_relay_domains: "නොදන්නා relay වසම්: %{domains}"
     messages:
       success: මෙහෙයුම සාර්ථකව නිමවිය
       created: සම්පත සාර්ථකව නිර්මාණය කරන ලදී

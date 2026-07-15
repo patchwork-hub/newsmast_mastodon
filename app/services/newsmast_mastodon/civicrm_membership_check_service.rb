@@ -11,35 +11,44 @@ module NewsmastMastodon
     ALLOWED_GROUP_IDS = [ 3, 12, 13 ].freeze
     CONTACT_GET_PATH = "/civicrm/ajax/api4/Contact/get"
 
-    Result = Struct.new(:valid?, :error_message, keyword_init: true)
+    Result = Struct.new(:valid?, :error_message, :user_groups, keyword_init: true)
 
-    def initialize(email)
+    def initialize(email, force_remote: false)
       @email = email
+      @force_remote = force_remote
     end
 
     def call
-      return valid_result unless feature_enabled?
+      return valid_result unless force_remote? || feature_enabled?
       return invalid_result if @email.blank?
-      return valid_result if allowlisted_email?
+      return valid_result if allowlisted_email? && !force_remote?
       return invalid_result unless config_present?
 
       response = self.class.get(endpoint_url, headers: request_headers, query: { params: request_params.to_json })
+      response_body = response.respond_to?(:body) ? normalize_utf8(response.body) : ""
+
       unless response.success?
-        Rails.logger.error("CiviCRM membership check unauthorized/failed: status=#{response.code} body=#{response.body}")
+        Rails.logger.error("CiviCRM membership check unauthorized/failed: status=#{response.code} body=#{response_body}")
         return invalid_result
       end
 
       body = response.parsed_response
-      return valid_result if body.is_a?(Hash) && body["count"].to_i.positive?
-      return valid_result if body.is_a?(Hash) && body["values"].is_a?(Array) && body["values"].any?
+      body = parse_response_body(response_body) unless body.is_a?(Hash)
+      user_groups = extract_user_groups(body)
+      return valid_result(user_groups) if body.is_a?(Hash) && body["count"].to_i.positive?
+      return valid_result(user_groups) if values_present?(body)
 
       invalid_result
     rescue StandardError => e
-      Rails.logger.error("CiviCRM membership check failed: #{e.class} #{e.message}")
+      Rails.logger.error("CiviCRM membership check failed: #{e.class} #{normalize_utf8(e.message)}")
       invalid_result
     end
 
     private
+
+    def force_remote?
+      @force_remote
+    end
 
     def feature_enabled?
       ActiveModel::Type::Boolean.new.cast(ENV.fetch("CSID_MEMBERSHIP_CHECK_ENABLED", "false"))
@@ -88,14 +97,42 @@ module NewsmastMastodon
 
     def request_params
       {
-        select: [ "id", "email.email" ],
-        join: [ [ "Email AS email", "LEFT", [ "email.is_primary", "=", true ] ] ],
+        select: [
+          "id",
+          "contact_type",
+          "display_name",
+          "first_name",
+          "last_name",
+          "nick_name",
+          "job_title",
+          "current_employer",
+          "image_URL",
+          "email.email",
+          "phone.phone",
+          "address.city",
+          "address.country_id:label",
+          "GROUP_CONCAT(DISTINCT group_contact.group_id:label) AS user_groups",
+          "GROUP_CONCAT(DISTINCT group_contact.group_id) AS user_group_ids",
+          "membership.status_id:label",
+          "membership.end_date",
+          "Individual_Information.Bio",
+          "Individual_Information.Areas_of_interest",
+          "Individual_Information.Working_Group",
+          "Individual_Information.Community_Role"
+        ],
+        join: [
+          [ "Email AS email", "LEFT", [ "email.is_primary", "=", true ] ],
+          [ "Phone AS phone", "LEFT", [ "phone.is_primary", "=", true ] ],
+          [ "Address AS address", "LEFT", [ "address.is_primary", "=", true ] ],
+          [ "GroupContact AS group_contact", "LEFT", [ "group_contact.status", "=", "'Added'" ] ],
+          [ "Membership AS membership", "LEFT", [ "id", "=", "membership.contact_id" ] ]
+        ],
+        groupBy: [ "id" ],
         where: [
           [ "is_deleted", "=", false ],
           [ "email.email", "=", @email ],
           [ "groups", "IN", ALLOWED_GROUP_IDS ]
-        ],
-        limit: 1
+        ]
       }
     end
 
@@ -122,12 +159,79 @@ module NewsmastMastodon
       raw_value.split(/\s*,\s*/)
     end
 
-    def valid_result
-      Result.new(valid?: true, error_message: nil)
+    def parse_response_body(response_body)
+      JSON.parse(response_body)
+    rescue JSON::ParserError
+      {}
+    end
+
+    def normalize_utf8(value)
+      value
+        .to_s
+        .dup
+        .force_encoding(Encoding::UTF_8)
+        .scrub
+    end
+
+    def extract_user_groups(body)
+      return [] unless body.is_a?(Hash)
+
+      values = body["values"] || body[:values]
+      return [] unless values.present?
+
+      results = results_from_values(values)
+      return [] if results.empty?
+
+      results
+        .flat_map { |result| groups_from_result(result) }
+        .map { |group| group.to_s.strip }
+        .reject(&:blank?)
+        .uniq
+    end
+
+    def results_from_values(values)
+      case values
+      when Array
+        values.select { |value| value.is_a?(Hash) }
+      when Hash
+        values.values.select { |value| value.is_a?(Hash) }
+      else
+        []
+      end
+    end
+
+    def groups_from_result(result)
+      groups = result["user_groups"] || result[:user_groups]
+
+      case groups
+      when String
+        groups.split(/[;,]/)
+      when Array
+        groups
+      else
+        []
+      end
+    end
+
+    def values_present?(body)
+      values = body["values"] || body[:values]
+
+      case values
+      when Array
+        values.any?
+      when Hash
+        values.any?
+      else
+        false
+      end
+    end
+
+    def valid_result(user_groups = [])
+      Result.new(valid?: true, error_message: nil, user_groups: user_groups)
     end
 
     def invalid_result
-      Result.new(valid?: false, error_message: I18n.t("api.account.errors.membership_not_eligible"))
+      Result.new(valid?: false, error_message: I18n.t("api.account.errors.membership_not_eligible"), user_groups: [])
     end
   end
 end
