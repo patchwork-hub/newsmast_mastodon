@@ -41,6 +41,7 @@ my:
       validation_failed: အတည်ပြုမှု မအောင်မြင်ပါ!
       invalid_request: မမှန်ကန်သော တောင်းဆိုမှု!
       rate_limit_exceeded: တောင်းဆိုမှု အရေအတွက်ကျော်လွန်သည်။ နောက်မှ ထပ်မံကြိုးစားပါ
+      unknown_relay_domains: "မသိသော relay ဒိုမိန်းများ: %{domains}"
     messages:
       success: လုပ်ဆောင်မှု အောင်မြင်စွာ ပြီးဆုံးပါသည်
       created: အရင်းအမြစ်ကို အောင်မြင်စွာ ဖန်တီးပြီးပါပြီ

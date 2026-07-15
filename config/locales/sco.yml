@@ -28,7 +28,7 @@ sco:
   bristolcable_login_service:
     errors:
       invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account in local. data: %{data}'
+      registration_required: 'Please register account locally. data: %{data}'
       connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
@@ -40,6 +40,7 @@ sco:
       validation_failed: Validation failed!
       invalid_request: Invalid request!
       rate_limit_exceeded: Rate limit exceeded. Please try again later
+      unknown_relay_domains: "Unkent relay domains: %{domains}"
     messages:
       success: Operation completed successfully
       created: Resource created successfully
@@ -62,7 +63,7 @@ sco:
         email_update_fail: The email update was unsuccessful
         password_unmatch: Password unmatch
         password_update_fail: The password update was unsuccessful
-        otp_invalid: Invalid otp!
+        otp_invalid: Invalid OTP!
         register_not_allow: Ye're no alloued tae register!
         missing_field: Missing required fields
         password_incorrect: Current password is incorrect

@@ -87,6 +87,10 @@ module NewsmastMastodon
 
         NewsmastMastodon::WaitList.find_by(invitation_code: invitation_code_params[:invitation_code], used: false)
       end
+
+      def account_params
+        super.merge(@params.slice(:fields_attributes))
+      end
     end
   end
 end

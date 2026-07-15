@@ -40,6 +40,7 @@ gl:
       validation_failed: A validación fallou!
       invalid_request: Solicitude non válida!
       rate_limit_exceeded: Límite de solicitudes superado. Inténtao de novo máis tarde
+      unknown_relay_domains: "Dominios de relay descoñecidos: %{domains}"
     messages:
       success: Operación completada con éxito
       created: Recurso creado con éxito

@@ -11,6 +11,8 @@ module NewsmastMastodon::Concerns::AccountsCreation
     return render_membership_error(membership_result.error_message) unless membership_result.valid?
 
     params_with_reason = account_params.merge(reason: "Signing up via #{ ENV.fetch('LOCAL_DOMAIN', nil) } App")
+    fields_attributes = membership_fields_attributes(membership_result.user_groups)
+    params_with_reason[:fields_attributes] = fields_attributes if fields_attributes.present?
     token    = AppSignUpService.new.call(doorkeeper_token.application, request.remote_ip, params_with_reason)
     response = Doorkeeper::OAuth::TokenResponse.new(token)
 
@@ -43,6 +45,18 @@ module NewsmastMastodon::Concerns::AccountsCreation
     user.otp_secret = SecureRandom.random_number(10_000).to_s.rjust(4, "0")
     user.save!
     CustomPasswordsMailer.with(user: user).reset_password_confirmation.deliver_later
+  end
+
+  def membership_fields_attributes(user_groups)
+    filtered_groups = Array(user_groups)
+      .map { |group| group.to_s.strip }
+      .reject(&:blank?)
+      .reject { |group| group.casecmp?("Newsletter sign-up") }
+      .first(4)
+
+    filtered_groups.each_with_index.to_h do |group, index|
+      [ index.to_s, { name: "CSID Badge", value: group } ]
+    end
   end
 
   def create_community_admin

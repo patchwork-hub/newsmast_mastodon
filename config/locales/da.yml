@@ -41,6 +41,7 @@ da:
       validation_failed: Validering mislykkedes!
       invalid_request: Ugyldig anmodning!
       rate_limit_exceeded: Grænsen for anmodninger er overskredet. Prøv igen senere
+      unknown_relay_domains: "Ukendte relay-domæner: %{domains}"
     messages:
       success: Handlingen blev gennemført med succes
       created: Ressourcen blev oprettet med succes

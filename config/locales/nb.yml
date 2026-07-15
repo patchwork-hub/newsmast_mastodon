@@ -41,6 +41,7 @@ nb:
       validation_failed: Validering mislyktes!
       invalid_request: Ugyldig forespørsel!
       rate_limit_exceeded: Forespørselsgrense overskredet. Vennligst prøv igjen senere
+      unknown_relay_domains: "Ukjente relay-domener: %{domains}"
     messages:
       success: Operasjonen ble fullført
       created: Ressurs opprettet

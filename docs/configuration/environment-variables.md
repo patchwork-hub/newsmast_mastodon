@@ -50,11 +50,13 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 | REBLOG_PASSWORD | No | Password for reblog authentication. |
 | REBLOG_CLIENT_ID | Yes (if reblog enabled) | OAuth client ID for reblog instance. |
 | REBLOG_CLIENT_SECRET | Yes (if reblog enabled) | OAuth client secret for reblog instance. |
+| BOOST_POST_ENABLED | No | Enable/disable automatic post boosting (`true`/`false`). |
 | BOOST_POST_INSTANCE_URL | No | Boost instance URL for post boosting. |
 | BOOST_POST_API_KEY | No | API key for Boost post service. |
 | BOOST_POST_API_SECRET | No | API secret for Boost post service. |
 | BOOST_POST_USERNAME | No | Username for Boost account. |
 | BOOST_POST_USER_DOMAIN | No | Domain for Boost account user. |
+| BOOST_BOT_ENABLED | No | Enable/disable automated community boost bot behavior. |
 | BOOST_COMMUNITY_BOT_URL | No | Boost community bot instance URL. |
 | BOOST_COMMUNITY_BOT_API_KEY | No | API key for Boost community bot. |
 
@@ -82,13 +84,19 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 | NOTIFICATION_SENDER_NAME | No | Sender name for push notifications (default: Development Patchwork). |
 | SKIP_SIGNUP_PUSH_NOTI | No | Skip sending push notifications on signup (set to true to skip). |
 | ARTICLE_NOTIFICATION_SENDER_NAME | No | Sender name for article-related notifications (default: Development Patchwork). |
+| DEFAULT_EMAIL_NOTIFICATIONS_ENABLED | No | Default email notification state for newly created users (`true`/`false`). |
 
 ## Alt text AI
 
+The automatic alt text feature currently supports [alttext.ai](https://alttext.ai/) only.
+
 | Variable | Required | Description |
 | --- | --- | --- |
-| ALT_TEXT_URL | No | Base URL for Alt Text AI service. |
-| ALT_TEXT_SECRET | No | API key/secret for Alt Text AI service. |
+| ALT_TEXT_URL | No | Base URL for the Alt Text AI service. Only [alttext.ai](https://alttext.ai/) is currently supported. |
+| ALT_TEXT_SECRET | No | API key/secret for the alttext.ai service. |
+| ALT_TEXT_ENABLED | No | Enable/disable automatic alt text generation (`true`/`false`). |
+| ALT_TEXT_USER_TOGGLE | No | Require user opt-in for automatic alt text generation when `true`, unless `SKIP_ALT_TEXT_USER_SETTING` is enabled. |
+| SKIP_ALT_TEXT_USER_SETTING | No | Bypass the per-user alt text setting when `true`; this takes precedence over `ALT_TEXT_USER_TOGGLE`. |
 
 ## Domain and channel configuration
 
@@ -96,7 +104,9 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 | --- | --- | --- |
 | LOCAL_DOMAIN | No | Local domain for the Mastodon instance (for example: example.social). Used for deep links and channel detection. |
 | MAIN_CHANNEL | No | Enable main channel mode (affects login behavior). |
+| AUTO_FOLLOW_ENABLED | No | Enable/disable auto-follow behavior for newly registered users (`true`/`false`). |
 | AUTO_FOLLOW_ACCOUNTS | No | Comma-separated list of accounts to auto-follow on user registration. |
+| WELCOME_EMAIL_DISABLED | No | Disable welcome email for newly registered users (`true` disables sending). |
 
 ## Custom relay and instances timeline
 
@@ -138,13 +148,6 @@ GET /api/v1/timelines/instances_timeline
 GET /api/v1/timelines/instances_timeline?domain=mastodon.social
 GET /api/v1/timelines/instances_timeline?domain=mastodon.social,mastodon.beer
 GET /api/v1/timelines/instances_timeline?domain[]=mastodon.social&domain[]=mastodon.beer
-```
-
-Legacy relay routes are also routed to the same behavior:
-
-```text
-GET /api/v1/timelines/relay
-GET /api/v1/timelines/relay/:domain
 ```
 
 To verify stored statuses from Rails console:

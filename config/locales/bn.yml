@@ -42,6 +42,7 @@ bn:
       validation_failed: যাচাইকরণ ব্যর্থ হয়েছে!
       invalid_request: অবৈধ অনুরোধ!
       rate_limit_exceeded: অনুরোধের সীমা অতিক্রম করেছে। পরে আবার চেষ্টা করুন
+      unknown_relay_domains: "অজানা রিলে ডোমেইন: %{domains}"
     messages:
       success: অপারেশন সফলভাবে সম্পন্ন হয়েছে
       created: রিসোর্স সফলভাবে তৈরি হয়েছে

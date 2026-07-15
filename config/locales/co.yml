@@ -40,6 +40,7 @@ co:
       validation_failed: Validazione fallita!
       invalid_request: Richiesta invalida!
       rate_limit_exceeded: Limite di richieste superatu. Per piacè pruvate più tardi
+      unknown_relay_domains: "Duminii relay scunnisciuti: %{domains}"
     messages:
       success: Operazione compia cun successu
       created: Risorsa creata cun successu

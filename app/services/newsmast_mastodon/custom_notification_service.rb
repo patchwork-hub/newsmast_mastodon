@@ -40,9 +40,17 @@ module NewsmastMastodon
         mention = Mention.find(notification.activity_id)
         status = Status.find(mention.status_id)
         notification_request = NotificationRequest.find_by(account_id: notification.account_id)
-        body = if notification_request.present?
-                 I18n.t("notification.mention.conversation_request")
-        elsif status.visibility == Status.visibilities[:direct]
+        visibility_key = if status.visibility.is_a?(Integer)
+                           Status.visibilities.key(status.visibility)&.to_s
+        else
+                           status.visibility.to_s
+        end
+
+        body = if notification_request.present? && visibility_key == "direct"
+                 I18n.t("notification.mention.conversation_request", name: from_account_username)
+        elsif notification_request.present? && visibility_key == "public"
+                 I18n.t("notification_mailer.mention.subject", name: from_account_username)
+        elsif notification_request.blank? && visibility_key == "direct"
                  I18n.t("notification.mention.direct_message", name: from_account_username)
         else
                  I18n.t("notification_mailer.mention.subject", name: from_account_username)

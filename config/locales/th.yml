@@ -39,6 +39,7 @@ th:
       validation_failed: การตรวจสอบล้มเหลว!
       invalid_request: คำขอไม่ถูกต้อง!
       rate_limit_exceeded: เกินขีดจำกัด กรุณาลองใหม่ภายหลัง
+      unknown_relay_domains: "โดเมนรีเลย์ที่ไม่รู้จัก: %{domains}"
     messages:
       success: ดำเนินการสำเร็จ
       created: สร้างทรัพยากรสำเร็จ

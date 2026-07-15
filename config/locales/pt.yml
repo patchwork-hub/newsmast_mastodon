@@ -41,6 +41,7 @@ pt:
       validation_failed: A validação falhou!
       invalid_request: Pedido inválido!
       rate_limit_exceeded: Limite de taxa excedido. Tente novamente mais tarde
+      unknown_relay_domains: "Domínios de relay desconhecidos: %{domains}"
     messages:
       success: Operação concluída com sucesso
       created: Recurso criado com sucesso

@@ -41,6 +41,7 @@ ca:
       invalid_request: Sol·licitud no vàlida!
       rate_limit_exceeded: S'ha superat el límit de sol·licituds. Torna-ho a provar
         més tard
+      unknown_relay_domains: "Dominis de relay desconeguts: %{domains}"
     messages:
       success: Operació completada amb èxit
       created: Recurs creat amb èxit

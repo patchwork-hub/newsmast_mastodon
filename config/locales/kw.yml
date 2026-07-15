@@ -40,6 +40,7 @@ kw:
       validation_failed: Nyns eus gwirheans!
       invalid_request: Gorthyp didhys!
       rate_limit_exceeded: Termyn gorthyp a veu treus. Piwgh an gath
+      unknown_relay_domains: "Domanow relay anaswonnys: %{domains}"
     messages:
       success: Ober a veu gwrys yn sewen
       created: Ressours a veu gwrys yn sewen

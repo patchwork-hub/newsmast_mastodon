@@ -41,6 +41,7 @@ hy:
       invalid_request: Անվավեր հարցում!
       rate_limit_exceeded: Հարցումների սահմանաչափը գերազանցված է։ Խնդրում ենք փորձել
         ավելի ուշ
+      unknown_relay_domains: "Անհայտ relay դոմեններ: %{domains}"
     messages:
       success: Գործողությունը հաջողությամբ ավարտվեց
       created: Ռեսուրսը հաջողությամբ ստեղծվեց

@@ -39,6 +39,7 @@ he:
       validation_failed: האימות נכשל!
       invalid_request: בקשה לא תקינה!
       rate_limit_exceeded: חרגת ממגבלת הבקשות. נסה שוב מאוחר יותר
+      unknown_relay_domains: "דומייני relay לא מוכרים: %{domains}"
     messages:
       success: הפעולה הושלמה בהצלחה
       created: המשאב נוצר בהצלחה

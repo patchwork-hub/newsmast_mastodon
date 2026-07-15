@@ -42,6 +42,7 @@ af:
       validation_failed: Validering het misluk!
       invalid_request: Ongeldige versoek!
       rate_limit_exceeded: Versoeklimiet oorskry. Probeer asseblief later weer
+      unknown_relay_domains: "Onbekende relay-domeine: %{domains}"
     messages:
       success: Operasie suksesvol voltooi
       created: Hulpbron suksesvol geskep

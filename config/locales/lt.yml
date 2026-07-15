@@ -42,6 +42,7 @@ lt:
       validation_failed: Validacija nepavyko!
       invalid_request: Neteisinga užklausa!
       rate_limit_exceeded: Užklausų limitas viršytas. Bandykite vėliau
+      unknown_relay_domains: "Nežinomi relay domenai: %{domains}"
     messages:
       success: Operacija sėkmingai baigta
       created: Išteklius sėkmingai sukurtas

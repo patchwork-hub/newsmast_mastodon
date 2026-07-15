@@ -41,6 +41,7 @@ ia:
       validation_failed: Validation fallite!
       invalid_request: Requesta invalide!
       rate_limit_exceeded: Limite de requestas excedite. Per favor prova plus tarde
+      unknown_relay_domains: "Dominios relay incognite: %{domains}"
     messages:
       success: Operation completate con successo
       created: Ressource create con successo
