@@ -18,6 +18,7 @@ tracks the target Mastodon version and `N` is the gem patch level).
 - Added `config/data/README.md` with starter-pack data provenance guidance.
 - Added per-directory provenance records under `config/data/*/PROVENANCE.md`.
 - Added `NOTICE` with license and dependency attribution guidance.
+- Added `newsmast_mastodon:backfill_csid_badge_fields` rake task to populate blank account profile fields from CSID CiviCRM membership groups, with `DRY_RUN`, `BATCH_SIZE`, and `EMAIL` targeting support.
 
 ### Changed
 
@@ -36,6 +37,9 @@ tracks the target Mastodon version and `N` is the gem patch level).
 - Hardened release gating with a protected `rubygems` environment and verification that release tags are ancestors of `main`.
 - Updated branch/tag ruleset definitions to require the new checks, enforce linear history, protect `v*` tags, and skip Copilot review on draft PRs.
 - Grouped Dependabot major updates for Bundler and GitHub Actions to reduce update noise.
+- Updated CSID signup flow to persist up to four `CSID Badge` account fields from CiviCRM `user_groups` (excluding `Newsletter sign-up`) during account creation.
+- Expanded `NewsmastMastodon::CivicrmMembershipCheckService` to return extracted `user_groups`, support `force_remote:` checks, and handle multiple CiviCRM response shapes more robustly.
+- Adjusted mention notification copy selection in `CustomNotificationService` to account for notification request presence together with direct/public visibility.
 
 ### Fixed
 

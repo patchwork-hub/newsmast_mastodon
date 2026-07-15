@@ -23,6 +23,16 @@ RSpec.describe NewsmastMastodon::CivicrmMembershipCheckService, type: :service d
 
       expect(result.valid?).to be(true)
     end
+
+    it 'calls CiviCRM when forced' do
+      response = instance_double('HTTParty::Response', success?: true, parsed_response: { 'count' => 1, 'values' => [ { 'id' => 7 } ] })
+      allow(described_class).to receive(:get).and_return(response)
+
+      result = described_class.new('member@example.org', force_remote: true).call
+
+      expect(described_class).to have_received(:get)
+      expect(result.valid?).to be(true)
+    end
   end
 
   context 'when membership check feature is enabled' do
@@ -44,13 +54,48 @@ RSpec.describe NewsmastMastodon::CivicrmMembershipCheckService, type: :service d
     end
 
     it 'returns valid when CiviCRM finds at least one contact' do
-      response = instance_double('HTTParty::Response', success?: true, parsed_response: { 'count' => 1, 'values' => [ { 'id' => 7 } ] })
+      response = instance_double('HTTParty::Response', success?: true, parsed_response: {
+        'count' => 1,
+        'values' => [ { 'id' => 7, 'user_groups' => [ 'CSIDNet Team', 'Newsletter sign-up' ] } ]
+      })
       allow(described_class).to receive(:get).and_return(response)
 
       result = service.call
 
       expect(result.valid?).to be(true)
       expect(result.error_message).to be_nil
+      expect(result.user_groups).to eq([ 'CSIDNet Team', 'Newsletter sign-up' ])
+    end
+
+    it 'extracts user_groups when values is a hash keyed by contact id' do
+      response = instance_double('HTTParty::Response', success?: true, parsed_response: {
+        'count' => 1,
+        'values' => {
+          '123' => { 'id' => 123, 'user_groups' => 'CSIDNet Team, Newsletter sign-up' }
+        }
+      })
+      allow(described_class).to receive(:get).and_return(response)
+
+      result = service.call
+
+      expect(result.valid?).to be(true)
+      expect(result.user_groups).to eq([ 'CSIDNet Team', 'Newsletter sign-up' ])
+    end
+
+    it 'extracts user_groups across multiple records when first record has none' do
+      response = instance_double('HTTParty::Response', success?: true, parsed_response: {
+        'count' => 2,
+        'values' => {
+          '123' => { 'id' => 123, 'display_name' => 'No Groups' },
+          '456' => { 'id' => 456, 'user_groups' => 'CSIDNet Team; Research WG' }
+        }
+      })
+      allow(described_class).to receive(:get).and_return(response)
+
+      result = service.call
+
+      expect(result.valid?).to be(true)
+      expect(result.user_groups).to eq([ 'CSIDNet Team', 'Research WG' ])
     end
 
     it 'returns invalid when CiviCRM returns empty values' do
