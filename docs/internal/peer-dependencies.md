@@ -27,6 +27,25 @@ used by Mastodon 4.6.3:
 | `faraday` | `~> 2.14.0` | `2.14.3` | `Faraday::ConnectionFailed` rescue in tag search |
 | `parslet` | `~> 2.0.0` | `2.0.0` | `Parslet::ParseFailed` rescue in tag search |
 
+## Chewy index overrides
+
+The engine ships its own Chewy index definitions under
+`app/chewy/newsmast_mastodon/` for the three core Mastodon indexes:
+
+- `AccountsIndex` → `NewsmastMastodon::AccountsIndex`
+- `StatusesIndex` → `NewsmastMastodon::StatusesIndex`
+- `PublicStatusesIndex` → `NewsmastMastodon::PublicStatusesIndex`
+
+At boot time, `config/initializers/prepend_concerns.rb` replaces the host's
+constant with the engine's class. The engine classes declare an explicit
+`index_name` so the Elasticsearch/OpenSearch index name stays identical to
+vanilla Mastodon (e.g. `public_statuses_index`). This lets downstream hosts keep
+Mastodon's upstream Chewy files untouched while the gem applies fork-specific
+scope changes such as excluding banned accounts and statuses.
+
+When upgrading, verify that the engine's Chewy files are still aligned with the
+upstream host files and that the `index_name` values have not drifted.
+
 ## Version alignment policy
 
 When updating this engine for a new Mastodon release, compare
