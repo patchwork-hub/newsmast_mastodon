@@ -23,7 +23,7 @@ This document explains how to get help and where to report different issue types
 
 ## Project scope
 
-`newsmast_mastodon` is maintained for Mastodon 4.5.11 compatibility.
+`newsmast_mastodon` is maintained for Mastodon 4.6.3 compatibility.
 If your use case targets a different Mastodon runtime, open an issue first to
 confirm support plans.
 

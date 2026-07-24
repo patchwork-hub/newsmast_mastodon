@@ -12,10 +12,12 @@ Examples:
 - `4.5.11` is for Mastodon `4.5.11`.
 - `4.5.11.0` is the first gem release for Mastodon `4.5.11`.
 - `4.5.11.1` is a gem-only patch release, still for Mastodon `4.5.11`.
-- `4.5.12.0` starts support for Mastodon `4.5.12`.
+- `4.6.3` is for Mastodon `4.6.3`.
+- `4.6.3.0` is the first gem release for Mastodon `4.6.3`.
+- `4.6.4.0` starts support for the next Mastodon compatibility line.
 
 ## Prerequisites
-The plugin requires Ruby `>= 3.2.0, < 3.5.0`, a matching Mastodon service version, and (depending on intended use) may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard).
+The plugin requires Ruby `>= 3.3.0, < 4.1.0`, a matching Mastodon service version, and (depending on intended use) may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard).
 
 ## Installation
 See [https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon](https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon)
