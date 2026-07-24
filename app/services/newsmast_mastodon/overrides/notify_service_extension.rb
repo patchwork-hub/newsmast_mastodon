@@ -4,9 +4,10 @@
 module NewsmastMastodon
   module Overrides
     module NotifyServiceExtension
-      def call(recipient, type, activity)
+      def call(recipient, type, activity, **options)
         return if recipient.user.nil?
 
+        @options      = options
         @recipient    = recipient
         @activity     = activity
         @notification = Notification.new(account: @recipient, type: type, activity: @activity)

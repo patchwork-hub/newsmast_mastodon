@@ -8,9 +8,12 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.6.3.0] - 2026-07-24
+
 ### Added
 
-- Added runtime dependencies `jwt`, `faraday`, and `parslet` to `newsmast_mastodon.gemspec`, pinned to the patch-level constraints used by Mastodon 4.5.11.
+- Documented and prepared the upgrade path for Mastodon 4.6.3 in the internal upgrade runbooks and reports.
+- Added runtime dependencies `jwt`, `faraday`, and `parslet` to `newsmast_mastodon.gemspec`, pinned to the compatible version lines used by Mastodon 4.6.3.
 - Added `docs/internal/peer-dependencies.md` documenting gems supplied by the host Mastodon application and the engine's own runtime dependencies.
 - Added `SUPPORT.md` with support routing and response expectations.
 - Added `MAINTAINERS.md` to document ownership and review responsibilities.
@@ -22,7 +25,7 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ### Changed
 
-- Aligned `newsmast_mastodon.gemspec` dependencies with host Mastodon 4.5.11: `rails` tightened to `~> 8.0.0`, `required_ruby_version` set to `>= 3.2.0, < 3.5.0`, dev/test dependencies aligned to host versions, and `annotaterb` replaced with `debug`.
+- Aligned `newsmast_mastodon.gemspec` with host Mastodon 4.6.3: Rails `~> 8.1.0`, Ruby `>= 3.3.0, < 4.1.0`, Sidekiq `~> 8.1.0` for development, and host-compatible runtime dependency lines.
 - Updated `CODE_OF_CONDUCT.md` enforcement contact details.
 - Expanded `CONTRIBUTING.md` with versioning, breaking-change, and release guidance.
 - Aligned `CONTRIBUTING.md` release checklist with checksum and provenance attestation workflow steps.
