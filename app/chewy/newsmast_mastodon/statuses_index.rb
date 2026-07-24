@@ -4,6 +4,8 @@ if defined?(Chewy::Index) && defined?(DatetimeClampingConcern)
   class NewsmastMastodon::StatusesIndex < Chewy::Index
     include DatetimeClampingConcern
 
+    index_name "statuses_index"
+
   settings index: index_preset(refresh_interval: "30s", number_of_shards: 5), analysis: {
     filter: {
       english_stop: {
