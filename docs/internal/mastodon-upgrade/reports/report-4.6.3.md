@@ -141,10 +141,10 @@ gem "newsmast_mastodon",
 
 Evidence notes:
 
-- Gem branch: Created locally from `main` at `4d4caa5ef807c0bc4f0c20efa0cef9acc4e0a615`. Latest local commit `586e3e9`. The branch has not been pushed.
+- Gem branch: Created locally from `main` at `4d4caa5ef807c0bc4f0c20efa0cef9acc4e0a615`. Latest local commit `6acaf45`. The branch has not been pushed.
 - Gem contract updates completed: Release version `4.6.3.0`; `mastodon_version_requirement` `4.6.3`; Rails `~> 8.1.0`; Ruby `>= 3.3.0, < 4.1.0`; development Sidekiq `~> 8.1.0`; CI matrix Ruby 3.3, 3.4, and 4.0.
 - Upstream API compatibility: `NotifyServiceExtension#call` now accepts and forwards keyword options used by Mastodon 4.6.3. The focused `silenced:` regression spec passed.
-- Chewy index overrides: The engine's `NewsmastMastodon::AccountsIndex`, `NewsmastMastodon::StatusesIndex`, and `NewsmastMastodon::PublicStatusesIndex` now declare explicit upstream `index_name` values and replace the host constants at boot time. The host fork's inline `without_banned` customizations in `app/chewy/{accounts,statuses,public_statuses}_index.rb` were removed so downstream hosts can use vanilla Mastodon Chewy files.
+- Chewy index overrides: The engine's `NewsmastMastodon::AccountsIndex`, `NewsmastMastodon::StatusesIndex`, and `NewsmastMastodon::PublicStatusesIndex` now declare explicit upstream `index_name` values and replace the host constants at boot time. The host fork's inline `without_banned` customizations in `app/chewy/{accounts,statuses,public_statuses}_index.rb` were removed so downstream hosts can use vanilla Mastodon Chewy files. Documentation added to `README.md`, `docs/internal/peer-dependencies.md`, and `docs/internal/mastodon-upgrade/RUNBOOK.md`.
 - Vendored frontend overrides: Four changed sources were rebased to the reviewed Mastodon 4.6.3 host versions. `bin/check-override-drift` passed all five tracked overrides after baseline refresh.
 - Dependency result: `RBENV_VERSION=4.0.5 bundle install` completed with Rails 8.1.3 and Sidekiq 8.1.6. The only warning was a non-fatal rbenv rehash failure after bundle completion.
 - Consolidated safety specs (including Chewy override host-integration tests): `RBENV_VERSION=4.0.5 bundle exec rspec spec/compatibility/version_sync_spec.rb spec/compatibility/migration_guard_spec.rb spec/services/newsmast_mastodon/notify_service_extension_spec.rb spec/integration/prepend_concerns_spec.rb` passed: 85 examples, 0 failures, 7 pending host-integration examples.
