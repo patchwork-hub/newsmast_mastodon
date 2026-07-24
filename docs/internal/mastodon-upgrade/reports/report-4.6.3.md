@@ -141,16 +141,16 @@ gem "newsmast_mastodon",
 
 Evidence notes:
 
-- Gem branch: Created locally from `main` at `4d4caa5ef807c0bc4f0c20efa0cef9acc4e0a615`. The branch has not been pushed.
+- Gem branch: Created locally from `main` at `4d4caa5ef807c0bc4f0c20efa0cef9acc4e0a615`. Latest local commit `586e3e9`. The branch has not been pushed.
 - Gem contract updates completed: Release version `4.6.3.0`; `mastodon_version_requirement` `4.6.3`; Rails `~> 8.1.0`; Ruby `>= 3.3.0, < 4.1.0`; development Sidekiq `~> 8.1.0`; CI matrix Ruby 3.3, 3.4, and 4.0.
 - Upstream API compatibility: `NotifyServiceExtension#call` now accepts and forwards keyword options used by Mastodon 4.6.3. The focused `silenced:` regression spec passed.
 - Chewy index overrides: The engine's `NewsmastMastodon::AccountsIndex`, `NewsmastMastodon::StatusesIndex`, and `NewsmastMastodon::PublicStatusesIndex` now declare explicit upstream `index_name` values and replace the host constants at boot time. The host fork's inline `without_banned` customizations in `app/chewy/{accounts,statuses,public_statuses}_index.rb` were removed so downstream hosts can use vanilla Mastodon Chewy files.
 - Vendored frontend overrides: Four changed sources were rebased to the reviewed Mastodon 4.6.3 host versions. `bin/check-override-drift` passed all five tracked overrides after baseline refresh.
 - Dependency result: `RBENV_VERSION=4.0.5 bundle install` completed with Rails 8.1.3 and Sidekiq 8.1.6. The only warning was a non-fatal rbenv rehash failure after bundle completion.
-- Consolidated safety specs: `RBENV_VERSION=4.0.5 bundle exec rspec spec/compatibility/version_sync_spec.rb spec/compatibility/migration_guard_spec.rb spec/services/newsmast_mastodon/notify_service_extension_spec.rb` passed: 78 examples, 0 failures.
-- Full standalone suite: `RBENV_VERSION=4.0.5 bundle exec rspec` passed: 340 examples, 0 failures, 94 expected pending host-integration examples.
+- Consolidated safety specs (including Chewy override host-integration tests): `RBENV_VERSION=4.0.5 bundle exec rspec spec/compatibility/version_sync_spec.rb spec/compatibility/migration_guard_spec.rb spec/services/newsmast_mastodon/notify_service_extension_spec.rb spec/integration/prepend_concerns_spec.rb` passed: 85 examples, 0 failures, 7 pending host-integration examples.
+- Full standalone suite: `RBENV_VERSION=4.0.5 bundle exec rspec` passed: 342 examples, 0 failures, 96 expected pending host-integration examples.
 - Focused lint and diagnostics: RuboCop passed all five changed Ruby files; VS Code reported no diagnostics in the changed workflow, Ruby, JavaScript, JSX, or TypeScript files; `git diff --check` passed.
-- Host Gemfile temporary wiring commit SHA: `f7f7ffbfb55921fd0e4348699126fa5d0b61202e` (local only). The git branch dependency cannot be installed in the host until `mastodon-4.6.3` is available to the host dependency resolver; no push was performed.
+- Host Gemfile temporary wiring commit SHA: `f7f7ffbfb55921fd0e4348699126fa5d0b61202e` (local only). Host Chewy cleanup commit SHA: `47baadb20c` (local only). The git branch dependency cannot be installed in the host until `mastodon-4.6.3` is available to the host dependency resolver; no push was performed.
 - Phase D blocker: No staging-clone database backup reference is available. Do not run migrations until an operator records and verifies the backup.
 
 ## Phase D - Database and boot validation
