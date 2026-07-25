@@ -99,6 +99,16 @@ module NewsmastMastodon
       end
     end
 
+    # # --- Chewy autoload exclusion ---
+    # initializer "newsmast_mastodon.exclude_chewy_autoload", before: :set_autoload_paths do |app|
+    #   gem_root = root.to_s
+    #   chewy_path = File.join(gem_root, "app", "chewy", "newsmast_mastodon")
+    #   config.autoload_paths.delete(chewy_path)
+    #   config.eager_load_paths.delete(chewy_path)
+    #   config.paths.add "app/chewy", with: []
+    #   config.paths.add "app/chewy/newsmast_mastodon", with: []
+    # end
+
     # # --- Register custom relay sync in Sidekiq scheduler (without touching sidekiq.yml) ---
     # config.after_initialize do
     #   next unless defined?(Sidekiq)
