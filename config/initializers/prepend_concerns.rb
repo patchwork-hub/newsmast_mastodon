@@ -2,6 +2,11 @@
 
 # Wire engine concerns and overrides into host Mastodon classes during reload.
 Rails.application.config.to_prepare do
+  # Only enforce the host installation guard when booting a real Mastodon host app.
+  if Object.const_defined?("Mastodon::Version")
+    NewsmastMastodon::InstallationGuard.ensure_installed!(rails_root: Rails.root)
+  end
+
   # Skip when running in the dummy app (Mastodon host classes not present)
   next unless defined?(Account)
 
