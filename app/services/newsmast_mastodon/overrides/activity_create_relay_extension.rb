@@ -17,7 +17,7 @@ module NewsmastMastodon
       def create_status
         @status = super
 
-        author_domain = @status.account&.domain
+        author_domain = @status&.account&.domain
         log_relay_debug("Before: status_id=#{@status.id} domain=#{author_domain}")
         if @status.present?
           # Normalize domains to avoid mismatches caused by case/whitespace
