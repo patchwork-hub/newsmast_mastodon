@@ -9,10 +9,10 @@ class CreatePatchworkStatusReactions < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
-    add_index :patchwork_status_reactions, [ :account_id, :status_id ], unique: true
-    add_index :patchwork_status_reactions, :status_id
+    add_index :patchwork_status_reactions, [ :account_id, :status_id ], unique: true, if_not_exists: true, name: 'index_patchwork_status_reactions_on_account_id_and_status_id'
+    add_index :patchwork_status_reactions, :status_id, if_not_exists: true, name: 'index_patchwork_status_reactions_on_status_id'
 
-    add_foreign_key :patchwork_status_reactions, :accounts, on_delete: :cascade, validate: false
-    add_foreign_key :patchwork_status_reactions, :statuses, on_delete: :cascade, validate: false
+    add_foreign_key :patchwork_status_reactions, :accounts, on_delete: :cascade, validate: false, if_not_exists: true
+    add_foreign_key :patchwork_status_reactions, :statuses, on_delete: :cascade, validate: false, if_not_exists: true
   end
 end
