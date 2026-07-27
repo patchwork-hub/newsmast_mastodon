@@ -79,19 +79,19 @@ Rails.application.config.to_prepare do
   # namespaced definitions. This lets downstream Mastodon hosts use the
   # upstream index files verbatim while the gem supplies fork-specific scope
   # changes (e.g. excluding banned accounts/statuses) at runtime.
-  if defined?(Chewy::Index)
-    [
-      [ "AccountsIndex", NewsmastMastodon::AccountsIndex ],
-      [ "StatusesIndex", NewsmastMastodon::StatusesIndex ],
-      [ "PublicStatusesIndex", NewsmastMastodon::PublicStatusesIndex ]
-    ].each do |host_name, gem_class|
-      next unless Object.const_defined?(host_name)
-      next if Object.const_get(host_name) == gem_class
+  # if defined?(Chewy::Index)
+  #   [
+  #     [ "AccountsIndex", NewsmastMastodon::AccountsIndex ],
+  #     [ "StatusesIndex", NewsmastMastodon::StatusesIndex ],
+  #     [ "PublicStatusesIndex", NewsmastMastodon::PublicStatusesIndex ]
+  #   ].each do |host_name, gem_class|
+  #     next unless Object.const_defined?(host_name)
+  #     next if Object.const_get(host_name) == gem_class
 
-      Object.send(:remove_const, host_name)
-      Object.const_set(host_name, gem_class)
-    end
-  end
+  #     Object.send(:remove_const, host_name)
+  #     Object.const_set(host_name, gem_class)
+  #   end
+  # end
 
   # --- Admin controllers: require authentication ---
   [ Admin::DashboardController, Admin::ReportsController ].each do |controller|
