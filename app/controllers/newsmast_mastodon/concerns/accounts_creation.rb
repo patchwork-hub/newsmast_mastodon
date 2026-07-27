@@ -18,7 +18,7 @@ module NewsmastMastodon::Concerns::AccountsCreation
 
     headers.merge!(response.headers)
 
-    self.response_body = Oj.dump(response.body)
+    self.response_body = response.body.to_json
     self.status        = response.status
     create_community_admin unless is_non_channel?
     generate_opt_token
