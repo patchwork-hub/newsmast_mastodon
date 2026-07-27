@@ -26,6 +26,8 @@ module NewsmastMastodon
         end
 
         filter_domains
+      rescue ActiveRecord::NoDatabaseError, ActiveRecord::ConnectionNotEstablished, PG::ConnectionBad
+        []
       end
 
       private
@@ -82,6 +84,8 @@ module NewsmastMastodon
           indexable: !opt_out
         )
         update!(settings_attributes: { noindex: opt_out })
+      rescue ActiveRecord::NoDatabaseError, ActiveRecord::ConnectionNotEstablished, PG::ConnectionBad
+        nil
       end
 
       def set_bluesky_bridge_enable
@@ -89,6 +93,8 @@ module NewsmastMastodon
         return unless NewsmastMastodon::ServerSetting.find_by(name: "Automatic Bluesky bridging for new users")&.value
 
         update!(bluesky_bridge_enabled: true)
+      rescue ActiveRecord::NoDatabaseError, ActiveRecord::ConnectionNotEstablished, PG::ConnectionBad
+        nil
       end
     end
   end
