@@ -8,8 +8,18 @@ module NewsmastMastodon
 
       def self.prepended(base)
         base.singleton_class.class_eval do
+          def normalize_tag_name(name)
+            if respond_to?(:normalize_value_for, true)
+              normalize_value_for(:name, name)
+            elsif defined?(HashtagNormalizer)
+              HashtagNormalizer.new.normalize(name)
+            else
+              name
+            end
+          end
+
           def matching_name(name_or_names, consider_ban_case = true)
-            names = Array(name_or_names).map { |name| arel_table.lower(normalize(name)) }
+            names = Array(name_or_names).map { |name| arel_table.lower(normalize_tag_name(name)) }
 
             scope =
               if names.size == 1
@@ -23,7 +33,7 @@ module NewsmastMastodon
           end
 
           def find_or_create_by_names(name_or_names)
-            names = Array(name_or_names).map { |str| [ normalize(str), str ] }.uniq(&:first)
+            names = Array(name_or_names).map { |str| [normalize_tag_name(str), str] }.uniq(&:first)
 
             names.map do |(normalized_name, display_name)|
               tag = matching_name(normalized_name, false).first || create(
