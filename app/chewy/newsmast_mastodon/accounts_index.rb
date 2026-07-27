@@ -4,8 +4,6 @@ if defined?(Chewy::Index) && defined?(DatetimeClampingConcern)
   class NewsmastMastodon::AccountsIndex < Chewy::Index
     include DatetimeClampingConcern
 
-    index_name "accounts_index"
-
   settings index: index_preset(refresh_interval: "30s"), analysis: {
     filter: {
       english_stop: {
