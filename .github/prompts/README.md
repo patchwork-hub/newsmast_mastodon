@@ -25,7 +25,7 @@ Attach the files you want the model to use (with `#file` or the `+` button) **be
 Each prompt sets a default model that fits its phase. The default handles the normal case; move up only when the situation is genuinely harder. Picks are on price and fit, not brand.
 
 | Prompt | Default | Move up to | When to move up |
-|--------|---------|-----------|-----------------|
+| -------- | --------- | ----------- | ----------------- |
 | `/brainstorm` | Sonnet 5 | Opus 4.8 | The problem is architectural or has no obvious shape. |
 | `/plan` | Sonnet 5 | Opus 4.8 (or Sol, approved teams) | Spans >1 repo/service, changes architecture or a data model, or you can't describe the approach in one sentence. |
 | `/execute` | Sonnet 5 | GPT 5.3-Codex | Long, code-heavy run across many files (switch once, not back and forth). |
@@ -35,6 +35,7 @@ Each prompt sets a default model that fits its phase. The default handles the no
 | `/review-tests` | GPT 5.3-Codex | Sonnet 5 | Complex behavior where test-vs-intent is subtle. |
 
 Two rules that sit on top of the table:
+
 - **Cheaper-first within a phase.** A trivial plan, a one-file review, or a boilerplate slice can drop a tier below the default.
 - **Switch models as few times as possible.** The build session (brainstorm, plan, execute) stays on one model for a warm cache; reviews run in a separate session where switching is cheap. Only move up at a natural boundary, not mid-phase. See WORKFLOW.md.
 
@@ -53,6 +54,7 @@ Never run docs generation as a repo-wide agent loop. One unit at a time.
 ## Why these prompts look strict
 
 Prompt words cost almost nothing. What costs money is what the model **reads** and what it **writes**. So every prompt:
+
 - uses attached files first, and searches narrowly (a named folder or symbol) only when it needs more,
 - limits the length of the answer (output costs about 5x input per token),
 - tells the model to summarise long command output instead of pasting it back.

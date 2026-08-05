@@ -1,3 +1,3 @@
 module NewsmastMastodon
-  VERSION = "4.5.11"
+  VERSION = "4.6.3.0"
 end

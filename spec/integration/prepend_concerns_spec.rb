@@ -33,4 +33,18 @@ RSpec.describe "Concern prepends", type: :integration do
     expect(Api::V1::Timelines::PublicController.ancestors).to include(NewsmastMastodon::Overrides::PublicExtendedTimeline)
     expect(FanOutOnWriteService.ancestors).to include(NewsmastMastodon::Concerns::FanOutOnWriteConcern)
   end
+
+  it "replaces host Chewy index classes with the engine's definitions" do
+    require_host!
+    expect(AccountsIndex).to be(NewsmastMastodon::AccountsIndex)
+    expect(StatusesIndex).to be(NewsmastMastodon::StatusesIndex)
+    expect(PublicStatusesIndex).to be(NewsmastMastodon::PublicStatusesIndex)
+  end
+
+  it "preserves upstream Chewy index names when the engine overrides the class" do
+    require_host!
+    expect(NewsmastMastodon::AccountsIndex.index_name).to eq("accounts_index")
+    expect(NewsmastMastodon::StatusesIndex.index_name).to eq("statuses_index")
+    expect(NewsmastMastodon::PublicStatusesIndex.index_name).to eq("public_statuses_index")
+  end
 end

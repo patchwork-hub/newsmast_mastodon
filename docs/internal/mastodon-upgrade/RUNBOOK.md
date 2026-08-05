@@ -56,14 +56,14 @@ belongs on short-lived branches that merge into `mastodon-X.Y.Z` before release.
 
 ```
 FROM_VERSION:   4.5.11
-TO_VERSION:     <e.g. 4.5.12>
-TARGET_TAG:     https://github.com/mastodon/mastodon/releases/tag/v<TO_VERSION>
-BASE_BRANCH:    csidnet-<FROM_VERSION>
-UPGRADE_BRANCH: csidnet-<TO_VERSION>
+TO_VERSION:     4.6.3
+TARGET_TAG:     https://github.com/mastodon/mastodon/releases/tag/v4.6.3
+BASE_BRANCH:    patchwork-mastodon-demo-4.5.11-staging
+UPGRADE_BRANCH: patchwork-mastodon-demo-4.6.3
 CORE_REMOTE:    https://github.com/mastodon/mastodon.git
-GEM_REPO:       https://github.com/TheNewsmastFoundation/newsmast-mastodon
-GEM_DEV_BRANCH: mastodon-<TO_VERSION>
-GEM_VERSION:    <TO_VERSION>.0 # released gem version pinned by the host
+GEM_REPO:       https://github.com/patchwork-hub/newsmast_mastodon
+GEM_DEV_BRANCH: mastodon-4.6.3
+GEM_VERSION:    4.6.3.0 # released gem version pinned by the host
 ```
 
 ## What to collect for each release
@@ -155,7 +155,11 @@ Then:
    ```
 
 3. Update patched concerns/services for any upstream API/signature changes.
-4. Guard every gem migration (see Phase D). Run:
+4. Move fork-specific Chewy index scope changes (e.g. `without_banned`) into the
+   engine's `app/chewy/newsmast_mastodon/` definitions so the host can keep
+   Mastodon's upstream Chewy files verbatim. The engine replaces the host
+   constants at boot time via `config/initializers/prepend_concerns.rb`.
+5. Guard every gem migration (see Phase D). Run:
 
    ```bash
    bundle exec rspec spec/compatibility/migration_guard_spec.rb

@@ -2,6 +2,11 @@
 
 # Wire engine concerns and overrides into host Mastodon classes during reload.
 Rails.application.config.to_prepare do
+  # Only enforce the host installation guard when booting a real Mastodon host app.
+  if Object.const_defined?("Mastodon::Version")
+    NewsmastMastodon::InstallationGuard.ensure_installed!(rails_root: Rails.root)
+  end
+
   # Skip when running in the dummy app (Mastodon host classes not present)
   next unless defined?(Account)
 
@@ -68,6 +73,25 @@ Rails.application.config.to_prepare do
   Auth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("Auth::TokensController")
   OAuth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("OAuth::TokensController")
   Auth::SessionsController.prepend(NewsmastMastodon::Concerns::CustomSessionBehavior) if Object.const_defined?("Auth::SessionsController")
+
+  # --- Chewy index overrides ---
+  # Replace Mastodon's core Chewy index classes with the engine's own
+  # namespaced definitions. This lets downstream Mastodon hosts use the
+  # upstream index files verbatim while the gem supplies fork-specific scope
+  # changes (e.g. excluding banned accounts/statuses) at runtime.
+  # if defined?(Chewy::Index)
+  #   [
+  #     [ "AccountsIndex", NewsmastMastodon::AccountsIndex ],
+  #     [ "StatusesIndex", NewsmastMastodon::StatusesIndex ],
+  #     [ "PublicStatusesIndex", NewsmastMastodon::PublicStatusesIndex ]
+  #   ].each do |host_name, gem_class|
+  #     next unless Object.const_defined?(host_name)
+  #     next if Object.const_get(host_name) == gem_class
+
+  #     Object.send(:remove_const, host_name)
+  #     Object.const_set(host_name, gem_class)
+  #   end
+  # end
 
   # --- Admin controllers: require authentication ---
   [ Admin::DashboardController, Admin::ReportsController ].each do |controller|
