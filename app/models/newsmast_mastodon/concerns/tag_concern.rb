@@ -33,7 +33,7 @@ module NewsmastMastodon
           end
 
           def find_or_create_by_names(name_or_names)
-            names = Array(name_or_names).map { |str| [normalize_tag_name(str), str] }.uniq(&:first)
+            names = Array(name_or_names).map { |str| [ normalize_tag_name(str), str ] }.uniq(&:first)
 
             names.map do |(normalized_name, display_name)|
               tag = matching_name(normalized_name, false).first || create(

@@ -21,7 +21,7 @@ RSpec.describe NewsmastMastodon::InstallationGuard do
     original_program_name = $PROGRAM_NAME
     original_argv = ARGV.dup
     $PROGRAM_NAME = "rake"
-    ARGV.replace(["newsmast_mastodon:install"])
+    ARGV.replace([ "newsmast_mastodon:install" ])
 
     expect do
       described_class.ensure_installed!(rails_root: @rails_root)
