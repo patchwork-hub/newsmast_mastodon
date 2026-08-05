@@ -6,23 +6,25 @@ require_relative "../../lib/newsmast_mastodon/version"
 # Keeps the gem's four version surfaces in lock-step. Version skew between these
 # is a silent upgrade hazard: the gemspec metadata is what the host runtime
 # compatibility assertion checks against, the README is what humans pin from,
-# and the CHANGELOG is the audit trail. They must all agree with VERSION.
+# and the CHANGELOG is the audit trail. The release uses X.Y.Z.N while the host
+# compatibility requirement uses X.Y.Z.
 RSpec.describe "Version surfaces stay in sync" do
   ROOT = File.expand_path("../..", __dir__)
 
   let(:version) { NewsmastMastodon::VERSION }
+  let(:mastodon_version) { version.split(".").first(3).join(".") }
 
-  it "uses a valid SemVer string" do
-    expect(version).to match(/\A\d+\.\d+\.\d+\z/)
+  it "uses a valid compatibility-first release version" do
+    expect(version).to match(/\A\d+\.\d+\.\d+\.\d+\z/)
   end
 
   it "matches mastodon_version_requirement in the gemspec" do
     gemspec = File.read(File.join(ROOT, "newsmast_mastodon.gemspec"))
     declared = gemspec[/mastodon_version_requirement"\]\s*=\s*"([^"]+)"/, 1]
 
-    expect(declared).to eq(version),
+    expect(declared).to eq(mastodon_version),
       "gemspec mastodon_version_requirement (#{declared.inspect}) must equal " \
-      "NewsmastMastodon::VERSION (#{version.inspect})."
+      "the Mastodon portion of NewsmastMastodon::VERSION (#{mastodon_version.inspect})."
   end
 
   it "documents the current version in the README" do
@@ -31,7 +33,7 @@ RSpec.describe "Version surfaces stay in sync" do
     # README may either contain a direct gem pin snippet or a version mapping
     # statement when installation details live in external docs.
     has_install_pin = readme.include?(%(gem "newsmast_mastodon", "#{version}"))
-    has_version_mapping = readme.include?("`#{version}` is for Mastodon `#{version}`")
+    has_version_mapping = readme.include?("`#{version}` is the first gem release for Mastodon `#{mastodon_version}`")
 
     expect(has_install_pin || has_version_mapping).to be(true),
       "README must document current version #{version.inspect} via either a " \
@@ -40,7 +42,7 @@ RSpec.describe "Version surfaces stay in sync" do
 
   it "has a matching CHANGELOG entry as the latest release" do
     changelog = File.read(File.join(ROOT, "CHANGELOG.md"))
-    latest = changelog[/^##\s*\[(\d+\.\d+\.\d+)\]/, 1]
+    latest = changelog[/^##\s*\[(\d+\.\d+\.\d+\.\d+)\]/, 1]
 
     expect(latest).to eq(version),
       "Latest released CHANGELOG entry (#{latest.inspect}) must match " \

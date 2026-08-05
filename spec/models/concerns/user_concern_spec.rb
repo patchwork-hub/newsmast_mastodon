@@ -86,4 +86,14 @@ RSpec.describe NewsmastMastodon::Concerns::UserConcern, type: :model do
 
     obj.send(:validate_email_domain)
   end
+
+  it "does not raise when server-setting lookups fail due to a database connection error" do
+    obj = Object.new
+    obj.extend(PatchworkHelper)
+    obj.extend(described_class)
+
+    allow(obj).to receive(:patchwork_server_settings_exist?).and_raise(PG::ConnectionBad, "connection refused")
+
+    expect { obj.send(:apply_server_setting_to_account) }.not_to raise_error
+  end
 end

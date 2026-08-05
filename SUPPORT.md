@@ -7,7 +7,7 @@ This document explains how to get help and where to report different issue types
 - Bugs: open a GitHub issue using `.github/ISSUE_TEMPLATE/bug_report.md`.
 - Feature requests: open a GitHub issue using `.github/ISSUE_TEMPLATE/feature_request.md`.
 - Security vulnerabilities: follow `SECURITY.md` and report privately to
-  akp@binarylab.io.
+  <akp@binarylab.io>.
 - Conduct issues: follow `CODE_OF_CONDUCT.md` reporting guidance.
 
 ## Response expectations
@@ -23,7 +23,7 @@ This document explains how to get help and where to report different issue types
 
 ## Project scope
 
-`newsmast_mastodon` is maintained for Mastodon 4.5.11 compatibility.
+`newsmast_mastodon` is maintained for Mastodon 4.6.3 compatibility.
 If your use case targets a different Mastodon runtime, open an issue first to
 confirm support plans.
 

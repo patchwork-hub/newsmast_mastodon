@@ -11,14 +11,14 @@ Gem::Specification.new do |spec|
   spec.summary     = "A Ruby gem to extend Mastodon for Newsmast mobile apps and dashboard."
   spec.description = "The Newsmast Mastodon gem extends a Mastodon server to provide functionality for content filters, posts management, account management, content channels and more. The gem interacts with the Newsmast Apps for Change mobile apps - customised mobile apps for Newsmast Communities, and the Newsmast Dashboard, which allows extended customisation of Mastodon server features and settings."
   spec.license     = "AGPL-3.0-only"
-  spec.required_ruby_version = ">= 3.2.0", "< 3.5.0"
+  spec.required_ruby_version = ">= 3.3.0", "< 4.1.0"
 
   spec.metadata["allowed_push_host"] = "https://rubygems.org"
   spec.metadata["homepage_uri"]      = spec.homepage
   spec.metadata["source_code_uri"]   = "https://github.com/TheNewsmastFoundation/newsmast-mastodon"
   spec.metadata["changelog_uri"]     = "https://github.com/TheNewsmastFoundation/newsmast-mastodon/blob/main/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"]   = "https://github.com/TheNewsmastFoundation/newsmast-mastodon/issues"
-  spec.metadata["mastodon_version_requirement"] = "4.5.11"
+  spec.metadata["mastodon_version_requirement"] = "4.6.3"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = [ "lib" ]
 
   # Runtime dependencies
-  spec.add_dependency "rails",            "~> 8.0.0"
+  spec.add_dependency "rails",            "~> 8.1.0"
   spec.add_dependency "googleauth",       "~> 1.13", ">= 1.13.1"
   spec.add_dependency "httparty",         "~> 0.23.1"
   spec.add_dependency "jwt",              "~> 2.10.0"
@@ -51,7 +51,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pg",                        "~> 1.6.0"
   spec.add_development_dependency "debug",                     "~> 1.11.0"
   spec.add_development_dependency "puma",                      "~> 7.1.0"
-  spec.add_development_dependency "sidekiq",                   "~> 8.0.0"
+  spec.add_development_dependency "sidekiq",                   "~> 8.1.0"
   spec.add_development_dependency "sqlite3",                   "~> 2.1"
   spec.add_development_dependency "rubocop-rails-omakase"
 end
