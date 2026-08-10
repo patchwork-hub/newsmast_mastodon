@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"]   = "https://github.com/TheNewsmastFoundation/newsmast-mastodon"
   spec.metadata["changelog_uri"]     = "https://github.com/TheNewsmastFoundation/newsmast-mastodon/blob/main/CHANGELOG.md"
   spec.metadata["bug_tracker_uri"]   = "https://github.com/TheNewsmastFoundation/newsmast-mastodon/issues"
-  spec.metadata["mastodon_version_requirement"] = "4.6.3"
+  spec.metadata["mastodon_version_requirement"] = "4.6.5"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do

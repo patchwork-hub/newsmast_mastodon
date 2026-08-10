@@ -4,7 +4,7 @@
 > and releases the `newsmast_mastodon` engine gem. It is **not** a guide for
 > downstream consumers upgrading the gem dependency in their own app.
 
-This is the single source of truth for upgrading the host Mastodon fork
+This is the single source of truth for upgrading the host Mastodon snapshot
 (`patchwork-mastodon`) together with the `newsmast_mastodon` engine gem.
 
 > **Why this lives in the gem repo:** the gem defines the compatibility
@@ -12,6 +12,21 @@ This is the single source of truth for upgrading the host Mastodon fork
 > prepended concerns, vendored frontend overrides). The host app only *consumes*
 > a released, version-pinned gem. Keeping the runbook next to the contract it
 > describes prevents the two from drifting apart.
+
+> **Host modification policy:** `patchwork-mastodon` is treated as an
+> unmodified upstream snapshot. All Patchwork/Newsmast customization lives in
+> the engine gem. The host upgrade branch is created directly from the upstream
+> release tag; no Patchwork-specific commits are made in the host repo.
+> Deployment configuration is managed by DevOps outside this repository.
+>
+> **How the gem modifies the host without host commits:** A Rails engine gem
+> injects its behavior into the host app at runtime. Migrations ship from
+> `newsmast_mastodon/db/migrate/` and are applied by `bin/rails db:migrate`.
+> Chewy index overrides, prepended concerns, and services are loaded at boot
+> via `config/initializers/prepend_concerns.rb` and `lib/newsmast_mastodon/engine.rb`.
+> Frontend and view overrides are copied into the host tree by
+> `bin/rails newsmast_mastodon:install`. Downstream consumers who add the gem
+> to their own Mastodon host receive the same modifications automatically.
 
 ## How to use this document
 
@@ -38,6 +53,10 @@ A git `branch:` source is permitted **only** during active upgrade development
 (Phase F). This matches the gem `README.md` policy and avoids unplanned
 compatibility drift.
 
+Because the host repo is an unmodified upstream snapshot, the gem is the
+**only** source of Patchwork/Newsmast code that reaches the host. No
+customization is committed to `patchwork-mastodon`.
+
 ## Branch & tag naming (canonical)
 
 | Repo                 | Purpose            | Pattern                      | Example                      |
@@ -47,6 +66,9 @@ compatibility drift.
 | `patchwork-mastodon` | upgrade branch     | `csidnet-X.Y.Z`              | `csidnet-4.5.12`             |
 | `patchwork-mastodon` | deploy branch      | `csidnet-X.Y.Z-<stage>`      | `csidnet-4.5.12-production`  |
 
+The `patchwork-mastodon` upgrade branch is a **clean upstream snapshot**
+created from `v<TO_VERSION>`. It contains no Patchwork-specific commits.
+
 Do not introduce ad-hoc suffixes (e.g. `mastodon-4512-signup`); feature work
 belongs on short-lived branches that merge into `mastodon-X.Y.Z` before release.
 
@@ -55,15 +77,17 @@ belongs on short-lived branches that merge into `mastodon-X.Y.Z` before release.
 ## Release intake (fill before starting — copy into your report)
 
 ```
-FROM_VERSION:   4.5.11
-TO_VERSION:     4.6.3
-TARGET_TAG:     https://github.com/mastodon/mastodon/releases/tag/v4.6.3
-BASE_BRANCH:    patchwork-mastodon-demo-4.5.11-staging
-UPGRADE_BRANCH: patchwork-mastodon-demo-4.6.3
+FROM_VERSION:   4.6.3
+TO_VERSION:     4.6.5
+TARGET_TAG:     https://github.com/mastodon/mastodon/releases/tag/v4.6.5
+BASE_BRANCH:    patchwork-mastodon-demo-4.6.3
+UPGRADE_BRANCH: patchwork-mastodon-4.6.5
 CORE_REMOTE:    https://github.com/mastodon/mastodon.git
 GEM_REPO:       https://github.com/patchwork-hub/newsmast_mastodon
-GEM_DEV_BRANCH: mastodon-4.6.3
-GEM_VERSION:    4.6.3.0 # released gem version pinned by the host
+GEM_DEV_BRANCH: mastodon-4.6.5
+GEM_VERSION:    4.6.5.0 # released gem version pinned by the host
+HOST_MODIFICATION_POLICY: no Patchwork-specific commits in patchwork-mastodon;
+                          all customization ships via newsmast_mastodon
 ```
 
 ## What to collect for each release
@@ -83,7 +107,7 @@ The upgrade spans two repos and must happen in this order:
 
 ```mermaid
 flowchart TD
-    A[Phase A-B: host merges upstream tag] --> B[Phase C: gem dev branch + host points at branch]
+    A[Phase A-B: host creates clean branch from upstream tag] --> B[Phase C: gem dev branch + host points at branch]
     B --> C[Phase D-E: migrate, boot, verify, drift check]
    C --> D[Phase RELEASE: tag & publish gem vX.Y.Z.N to RubyGems]
     D --> E[Phase F: host swaps branch -> exact version pin, ship to staging]
@@ -102,34 +126,28 @@ ship a host deploy that points at a git branch.
 - [ ] Backup the staging database before any migration.
 - [ ] Credentials/env available for boot, migration, and test runs in both repos.
 - [ ] Gem CI is green on `main` before starting.
+- [ ] Confirm with DevOps that deployment configuration for the target stage
+      is ready and will be injected outside this repository.
 
-## Phase A — Branch and fetch (host)
+## Phase A-B — Create host snapshot branch (host)
+
+The host upgrade branch is created directly from the upstream release tag.
+No merge is performed and no Patchwork-specific commits are added to the host.
 
 ```bash
 cd patchwork-mastodon
-git checkout <BASE_BRANCH>
-git checkout -b <UPGRADE_BRANCH>
 git fetch upstream --tags
+git checkout -b <UPGRADE_BRANCH> v<TO_VERSION>
 ```
-
-## Phase B — Merge target tag (host)
-
-```bash
-git merge v<TO_VERSION> --no-commit --no-ff
-```
-
-Resolve conflicts, prioritizing:
-
-- `Gemfile` / `Gemfile.lock`
-- `config/initializers/devise.rb`
-- `lib/mastodon/version.rb`
-- any file listed in `patchwork-mastodon/CONFLICT_CHECKLIST.md`
 
 Then:
 
 - [ ] Confirm `lib/mastodon/version.rb` reports `TO_VERSION`.
-- [ ] Regenerate `CONFLICT_CHECKLIST.md` for this release range.
-- [ ] Commit the merge.
+- [ ] Confirm `git log --oneline -1` shows the upstream release commit.
+- [ ] Confirm the working tree is clean except for env/config files excluded
+      by `.gitignore`.
+- [ ] Delete or archive `CONFLICT_CHECKLIST.md` if it still exists from the
+      previous merge-based workflow; it is no longer used.
 
 ## Phase C — Gem changes & temporary wiring
 
@@ -165,17 +183,24 @@ Then:
    bundle exec rspec spec/compatibility/migration_guard_spec.rb
    ```
 
-5. **Temporarily** point the host Gemfile at the dev branch for integration:
+6. **Temporarily** point the host Gemfile at the dev branch for integration,
+   using the same repository defined in `GEM_REPO` from the Release intake block:
 
    ```ruby
    gem "newsmast_mastodon",
-      git: "https://github.com/TheNewsmastFoundation/newsmast-mastodon",
+      git: "<GEM_REPO>",
        branch: "mastodon-<TO_VERSION>"
    ```
 
    ```bash
    cd ../patchwork-mastodon && bundle install
    ```
+
+> Because the host repo is an unmodified upstream snapshot, **every**
+> Patchwork/Newsmast customization must be present in the gem. If a feature
+> currently relies on a file that was previously committed to the host fork,
+> that file must be moved into the gem (concern, override, rake task, or
+> initializer) before release.
 
 ## Phase D — Database and boot (host)
 
@@ -184,6 +209,9 @@ Then:
    ```bash
    bin/rails db:migrate
    ```
+
+   > No migration files may be added to the host repo. All schema changes
+   > ship from the gem engine and must be idempotent.
 
 2. Confirm no collision with columns that upstream may now ship natively:
    - `status_edits.quote_id`
@@ -200,6 +228,10 @@ Then:
    bin/rails newsmast_mastodon:install
    yarn build:development   # or build:production
    ```
+
+   After running install, `git status` in the host repo should show only the
+   files that the rake task is designed to overwrite plus any env/config files
+   excluded by `.gitignore`.
 
 4. Verify boot and version:
 
@@ -225,26 +257,48 @@ Then:
    MASTODON_ROOT=/absolute/path/to/patchwork-mastodon bundle exec rspec
    ```
 
-3. **Frontend-override drift check** — the gem vendors copies of upstream files
-   (e.g. `compose_form.jsx`, `detailed_status.tsx`, `reducers/compose.js`,
-   `admin/shared/_status.html.haml`). If upstream changed any of them in this
-   range, the vendored copy must be re-based or the override will silently
-   regress:
+3. **Frontend-override drift check** — the gem vendors copies of upstream
+   files. The drift manifest in [`config/override_baselines.yml`](../../../config/override_baselines.yml)
+   must include every upstream file copied by
+   [`lib/tasks/newsmast_mastodon/install.rake`](../../../lib/tasks/newsmast_mastodon/install.rake).
+   Because the host branch is a clean upstream snapshot, drift is detected by
+   comparing the gem's vendored copy against the upstream file in the host. If
+   upstream changed any tracked file in this range, re-base the vendored copy,
+   then re-record the baseline.
+
+   Tracked upstream override paths for this cycle:
+   - `app/javascript/mastodon/actions/compose.js`
+   - `app/javascript/mastodon/reducers/compose.js`
+   - `app/javascript/mastodon/features/compose/components/compose_form.jsx`
+   - `app/javascript/mastodon/features/compose/containers/compose_form_container.js`
+   - `app/javascript/mastodon/features/status/components/detailed_status.tsx`
+   - `app/views/admin/shared/_status.html.haml`
 
    ```bash
    bin/check-override-drift /absolute/path/to/patchwork-mastodon
    ```
 
-4. Concern/prepend ordering boot check — confirm no `already defined` /
+4. **Override-manifest completeness check** — confirm every upstream file
+   copied by `install.rake` has a matching `upstream: true` entry in
+   `config/override_baselines.yml`. New overrides added to the rake task must
+   also be added to the manifest before the drift check can protect them.
+
+5. **Chewy compatibility gate** — compare upstream Chewy index DSL/signature
+   changes in this release range against the engine classes under
+   `app/chewy/newsmast_mastodon` and confirm custom scopes (e.g.
+   `without_banned`) are still valid and loaded by
+   `config/initializers/prepend_concerns.rb`.
+
+6. Concern/prepend ordering boot check — confirm no `already defined` /
    `NoMethodError` from `config/initializers/prepend_concerns.rb`.
 
-5. Host core suite:
+7. Host core suite:
 
    ```bash
    cd patchwork-mastodon && bundle exec rspec
    ```
 
-6. Manual smoke checklist:
+8. Manual smoke checklist:
    - [ ] Login / session
    - [ ] OAuth token issuance (Doorkeeper password grant)
    - [ ] Password change / reset flow
@@ -255,9 +309,9 @@ Then:
    - [ ] Admin authentication / dashboard
    - [ ] Deep links (`apple-app-site-association`, `assetlinks.json`)
 
-7. Classify any failure as:
+9. Classify any failure as:
    - [ ] Environment/infrastructure (missing services, credentials, tooling)
-   - [ ] Upgrade regression in the core merge
+   - [ ] Regression in the upstream snapshot for this version
    - [ ] Regression in patched gem behavior
    - [ ] Vendored-override drift
 
@@ -309,10 +363,18 @@ Only after all Phase E gates pass on the gem dev branch:
 - [ ] Serializer/autoload constant changes that break gem namespace loading.
 - [ ] Migration collisions where gem columns may already exist in core schema.
 - [ ] Upstream changes to any **vendored** frontend/view file (drift check).
+- [ ] Override-manifest mismatch: any upstream-overridden file copied by
+      `install.rake` but missing from `config/override_baselines.yml` reduces
+      drift-check coverage.
+- [ ] Chewy index DSL drift in upstream core versus engine overrides under
+      `app/chewy/newsmast_mastodon`.
 - [ ] Upstream security hardening that changes request validation, federation,
       or URL checks.
 
 ## Rollback
+
+Because the host branch is a clean upstream snapshot, rollback does not require
+reverting merged code.
 
 - [ ] Abandon `<UPGRADE_BRANCH>` if the release is blocked.
 - [ ] Restore the database from the pre-migration backup snapshot.
