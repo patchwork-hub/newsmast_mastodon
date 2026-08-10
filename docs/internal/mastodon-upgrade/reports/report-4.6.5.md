@@ -1,7 +1,7 @@
 # Mastodon Upgrade Report: v4.6.3 → v4.6.5
 
 **Execution Date:** 2026-08-10  
-**Status:** PHASE D/E IN PROGRESS — gem branch pushed, host snapshot branch created and pushed, overrides installed, frontend build passes, local boot/migration verified
+**Status:** PHASE E IN PROGRESS — gem branch pushed and up to date, host snapshot branch pushed, overrides installed, frontend build passes, local boot/migration verified, patched-concern API review complete
 
 ## Release Summary
 
@@ -104,7 +104,9 @@ Evidence notes:
   - `CHANGELOG.md` new `[4.6.5.0]` section added
 - [x] Run `spec/compatibility/version_sync_spec.rb` — passed.
 - [x] Run `spec/compatibility/migration_guard_spec.rb` — passed.
-- [ ] Review and update patched concerns/services for upstream API changes (deferred to full host spec run; see Phase E).
+- [x] Review and update patched concerns/services for upstream API changes.
+  - Verified the gem does not prepend/include `ActivityPub::Activity::Create`, `Account::Merging`, or `ProcessStatusUpdateService`.
+  - Updated `PostStatusService#postprocess_status!` override to preserve the new upstream `SubscriptionMailer` call added in v4.6.5 (commit `214dc574`).
 - [x] Chewy index overrides verified compatible with v4.6.5 (no upstream changes in `app/chewy/` between v4.6.3 and v4.6.5).
 - [x] Frontend/view overrides rebased to v4.6.5 and baselines refreshed.
 - [x] Temporarily point host Gemfile at gem dev branch and `bundle install`.
@@ -123,6 +125,7 @@ Evidence notes:
 
 - Version/sync and migration-guard specs: 77 examples, 0 failures.
 - Full gem standalone suite: 364 examples, 0 failures, 96 pending.
+- Patched-concern API review: only `PostStatusService#postprocess_status!` required a change for v4.6.5.
 - Drift check: `No override drift: all 6 upstream override(s) match recorded baselines.`
 - Rebased files:
   - `app/javascript/mastodon/actions/compose.js`
