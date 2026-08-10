@@ -88,10 +88,8 @@ if defined?(Chewy::Index) && defined?(DatetimeClampingConcern)
     end
   end
 else
-  # rubocop:disable Lint/EmptyClass
-  class NewsmastMastodon::AccountsIndex
+    class NewsmastMastodon::AccountsIndex
   end
-  # rubocop:enable Lint/EmptyClass
-end
+  end
 
 # rubocop:enable all
