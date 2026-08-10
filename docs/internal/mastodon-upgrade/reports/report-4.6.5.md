@@ -105,8 +105,11 @@ Evidence notes:
 - [x] Run `spec/compatibility/version_sync_spec.rb` — passed.
 - [x] Run `spec/compatibility/migration_guard_spec.rb` — passed.
 - [x] Review and update patched concerns/services for upstream API changes.
-  - Verified the gem does not prepend/include `ActivityPub::Activity::Create`, `Account::Merging`, or `ProcessStatusUpdateService`.
-  - Updated `PostStatusService#postprocess_status!` override to preserve the new upstream `SubscriptionMailer` call added in v4.6.5 (commit `214dc574`).
+  - `PostStatusService#postprocess_status!`: upstream v4.6.5 added `process_email_subscriptions!`; incorporated into the gem override while keeping the local-only ActivityPub guard and `BanStatusWorker` hook.
+  - `PostStatusService#status_attributes` / `local_only_option`: gem continues to add `local_only`; `local_only_option` helper is defined by the gem override since upstream no longer provides it.
+  - `NotifyService#call`, `ReblogService#call`, `AccountSearchService#call`, `AppSignUpService#call`, `SearchService#perform_accounts_search!`: signatures unchanged between v4.6.3 and v4.6.5.
+  - `RemoveStatusService#remove_from_followers` / `BatchedRemoveStatusService#unpush_from_home_timelines`: upstream bodies unchanged; gem continues to add custom-feed unpushes.
+  - The gem does not prepend/include `ActivityPub::Activity::Create` internals, `Account::Merging`, or `ProcessStatusUpdateService`, so their upstream refactors do not require gem changes.
 - [x] Chewy index overrides verified compatible with v4.6.5 (no upstream changes in `app/chewy/` between v4.6.3 and v4.6.5).
 - [x] Frontend/view overrides rebased to v4.6.5 and baselines refreshed.
 - [x] Temporarily point host Gemfile at gem dev branch and `bundle install`.
@@ -188,7 +191,7 @@ Evidence notes:
 ### Phase F — Pin & ship to staging
 
 - [ ] Replace temporary branch source with exact pin `gem "newsmast_mastodon", "4.6.5.0"`.
-- [x] Commit and push `patchwork-mastodon-4.6.5` with temporary wiring (commit `44b6d0e224`).
+- [x] Commit and push `patchwork-mastodon-4.6.5` with temporary wiring (latest host commit `bf8713fd42`).
 - [ ] Deploy staging after gem is released and host is re-pinned.
 - [ ] Re-run smoke checklist in staging.
 - [ ] Record go/no-go decision.
