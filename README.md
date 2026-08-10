@@ -16,7 +16,8 @@ Examples:
 - `4.5.11.1` is a gem-only patch release, still for Mastodon `4.5.11`.
 - `4.6.3` is for Mastodon `4.6.3`.
 - `4.6.3.0` is the first gem release for Mastodon `4.6.3`.
-- `4.6.4.0` starts support for the next Mastodon compatibility line.
+- `4.6.5` is for Mastodon `4.6.5`.
+- `4.6.5.0` is the first gem release for Mastodon `4.6.5`.
 
 ## Prerequisites
 
