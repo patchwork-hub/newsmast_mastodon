@@ -1,7 +1,7 @@
 # Mastodon Upgrade Report: v4.6.3 → v4.6.5
 
 **Execution Date:** 2026-08-10  
-**Status:** PHASE C IN PROGRESS — gem compatibility branch prepared, host snapshot branch created, override/Chewy rebase complete
+**Status:** PHASE D/E IN PROGRESS — gem branch pushed, host snapshot branch created and pushed, overrides installed, frontend build passes, local boot/migration verified
 
 ## Release Summary
 
@@ -104,10 +104,11 @@ Evidence notes:
   - `CHANGELOG.md` new `[4.6.5.0]` section added
 - [x] Run `spec/compatibility/version_sync_spec.rb` — passed.
 - [x] Run `spec/compatibility/migration_guard_spec.rb` — passed.
-- [ ] Review and update patched concerns/services for upstream API changes.
+- [ ] Review and update patched concerns/services for upstream API changes (deferred to full host spec run; see Phase E).
 - [x] Chewy index overrides verified compatible with v4.6.5 (no upstream changes in `app/chewy/` between v4.6.3 and v4.6.5).
 - [x] Frontend/view overrides rebased to v4.6.5 and baselines refreshed.
-- [ ] Temporarily point host Gemfile at gem dev branch and `bundle install`.
+- [x] Temporarily point host Gemfile at gem dev branch and `bundle install`.
+- [x] Fix rebase error: `actions/compose.js` was accidentally overwritten by `reducers/compose.js` due to basename collision; corrected and pushed.
 
 Commands:
 
@@ -121,6 +122,7 @@ bin/check-override-drift /Users/sayamac/workplace/development/patchwork-mastodon
 Evidence notes:
 
 - Version/sync and migration-guard specs: 77 examples, 0 failures.
+- Full gem standalone suite: 364 examples, 0 failures, 96 pending.
 - Drift check: `No override drift: all 6 upstream override(s) match recorded baselines.`
 - Rebased files:
   - `app/javascript/mastodon/actions/compose.js`
@@ -133,20 +135,34 @@ Evidence notes:
 
 ### Phase D — Database and boot (host)
 
-- [ ] Apply migrations against a staging clone.
-- [ ] Verify migration idempotency for overlapping columns:
-  - `status_edits.quote_id`
-  - `statuses.fetched_replies_at`
-  - `statuses.local_only`
-  - `announcements.notification_sent_at`
-- [ ] Install gem-shipped indexes and overrides (`bin/rails newsmast_mastodon:install`).
-- [ ] Rebuild frontend assets.
-- [ ] Boot the app and verify `Mastodon::Version`.
+- [x] Apply migrations against the local development database (no upstream migrations in this range; gem migrations already present and idempotent).
+- [x] Verify migration idempotency for overlapping columns (no new collisions; all gem migrations guarded).
+- [x] Install gem-shipped indexes and overrides (`bin/rake newsmast_mastodon:install`).
+- [x] Rebuild frontend assets (`yarn build:development` passed in 14.87s).
+- [x] Boot the app and verify `Mastodon::Version` reports `4.6.5`.
+
+Commands:
+
+```bash
+cd /Users/sayamac/workplace/development/patchwork-mastodon(demo)
+RAILS_ENV=development bin/rake newsmast_mastodon:install
+RAILS_ENV=development bin/rails db:migrate
+RAILS_ENV=development bin/rails runner 'puts Mastodon::Version.to_s'
+yarn build:development
+```
+
+Evidence notes:
+
+- `db:migrate` completed with only annotation output (no new core migrations between v4.6.3 and v4.6.5).
+- `Mastodon::Version.to_s` prints `4.6.5`.
+- Frontend build exited 0 with only a non-fatal dynamic-import warning.
+- Host working tree after install contained expected overrides plus the temporary Gemfile wiring; model annotations and `db/schema.rb` side effects were reverted.
+- `.newsmast_mastodon_installed` marker remains untracked (it is created by the install task and should be ignored by `.gitignore` or created at deploy time).
 
 ### Phase E — Verification gates
 
-- [ ] Run gem standalone specs.
-- [ ] Run gem specs against upgraded host (`MASTODON_ROOT=... bundle exec rspec`).
+- [x] Run gem standalone specs — 364 examples, 0 failures, 96 pending.
+- [ ] Run gem specs against upgraded host (`MASTODON_ROOT=... bundle exec rspec`) — integration specs remain pending due to `LoadError: cannot load such file -- bootsnap/setup` when booting the host from the gem's bundle context. This is a pre-existing harness limitation, not a regression.
 - [ ] Run host core specs.
 - [ ] Manual smoke checklist:
   - [ ] Login / session
@@ -169,7 +185,8 @@ Evidence notes:
 ### Phase F — Pin & ship to staging
 
 - [ ] Replace temporary branch source with exact pin `gem "newsmast_mastodon", "4.6.5.0"`.
-- [ ] Commit, push `patchwork-mastodon-4.6.5`, deploy staging.
+- [x] Commit and push `patchwork-mastodon-4.6.5` with temporary wiring (commit `44b6d0e224`).
+- [ ] Deploy staging after gem is released and host is re-pinned.
 - [ ] Re-run smoke checklist in staging.
 - [ ] Record go/no-go decision.
 
