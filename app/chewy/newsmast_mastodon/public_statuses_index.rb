@@ -72,10 +72,8 @@ if defined?(Chewy::Index) && defined?(DatetimeClampingConcern)
     end
   end
 else
-  # rubocop:disable Lint/EmptyClass
-  class NewsmastMastodon::PublicStatusesIndex
+    class NewsmastMastodon::PublicStatusesIndex
   end
-  # rubocop:enable Lint/EmptyClass
-end
+  end
 
 # rubocop:enable all
