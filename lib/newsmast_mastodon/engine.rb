@@ -4,6 +4,15 @@ module NewsmastMastodon
   class Engine < ::Rails::Engine
     isolate_namespace NewsmastMastodon
 
+    initializer "newsmast_mastodon.migration_compatibility" do
+      next unless defined?(ActiveRecord::Migration::Current)
+
+      migration = ActiveRecord::Migration::Current
+      unless migration < NewsmastMastodon::MigrationCompatibility
+        migration.prepend(NewsmastMastodon::MigrationCompatibility)
+      end
+    end
+
     # --- Host Mastodon compatibility assertion ---
     # The gem is built and tested against an exact Mastodon runtime (declared in
     # newsmast_mastodon.gemspec as `mastodon_version_requirement`). Running it
