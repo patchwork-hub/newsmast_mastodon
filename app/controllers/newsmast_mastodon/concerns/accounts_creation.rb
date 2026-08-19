@@ -22,12 +22,23 @@ module NewsmastMastodon::Concerns::AccountsCreation
     self.status        = response.status
     create_community_admin unless is_non_channel?
     generate_opt_token
+    enqueue_role_assignment(token)
   rescue ActiveRecord::RecordInvalid => e
     render json: ValidationErrorFormatter.new(e, 'account.username': :username, 'invite_request.text': :reason).as_json,
            status: 422
   end
 
   private
+
+  def enqueue_role_assignment(token)
+    enabled = ActiveModel::Type::Boolean.new.cast(ENV.fetch("CSID_ROLE_ASSIGNMENT_ENABLED", "false"))
+    return unless enabled
+    return if token.resource_owner_id.blank?
+
+    NewsmastMastodon::CivicrmRoleAssignmentWorker.perform_async(token.resource_owner_id)
+  rescue StandardError => e
+    Rails.logger.error("CiviCRM role assignment enqueue failed: #{e.class}")
+  end
 
   def render_membership_error(message)
     invalid_user = User.new

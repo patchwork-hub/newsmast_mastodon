@@ -8,6 +8,17 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.6.5.0] - 2026-08-10
+
+### Added
+
+- Added upgrade report and runbook tracking for Mastodon 4.6.5.
+- Added `app/javascript/mastodon/features/compose/containers/compose_form_container.js` to the frontend override drift manifest.
+
+### Changed
+
+- Bumped compatibility contract to Mastodon 4.6.5 (`VERSION = "4.6.5.0"`, `mastodon_version_requirement = "4.6.5"`).
+
 ## [4.6.3.0] - 2026-07-24
 
 ### Added

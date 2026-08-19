@@ -27,6 +27,10 @@ RSpec.describe NewsmastMastodon::Overrides::PostStatusServiceExtension, type: :s
       def process_hashtags_service
         @process
       end
+
+      def process_email_subscriptions!
+        true
+      end
     end
   end
 
