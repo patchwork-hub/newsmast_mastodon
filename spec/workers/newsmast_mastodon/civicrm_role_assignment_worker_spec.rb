@@ -65,6 +65,12 @@ RSpec.describe NewsmastMastodon::CivicrmRoleAssignmentWorker, type: :worker do
     expect(eligible_users).not_to have_received(:update_all)
   end
 
+  it "propagates CiviCRM failures so Sidekiq retries the job" do
+    allow(service).to receive(:call).and_raise(StandardError, "timeout")
+
+    expect { described_class.new.perform(42) }.to raise_error(StandardError, "timeout")
+  end
+
   it "logs and skips assignment when the configured role is missing" do
     allow(role_scope).to receive(:first).and_return(nil)
     allow(Rails.logger).to receive(:error)

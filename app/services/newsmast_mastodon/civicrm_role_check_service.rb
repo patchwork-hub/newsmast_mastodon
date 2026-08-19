@@ -30,10 +30,7 @@ module NewsmastMastodon
         )
         response_body = response.respond_to?(:body) ? normalize_utf8(response.body) : ""
 
-        unless response.success?
-          Rails.logger.error("CiviCRM role check failed: status=#{response.code}")
-          return empty_result
-        end
+        raise StandardError, "CiviCRM role check failed: status=#{response.code}" unless response.success?
 
         body = response.parsed_response
         body = parse_response_body(response_body) unless body.is_a?(Hash)
@@ -45,8 +42,8 @@ module NewsmastMastodon
 
       empty_result
     rescue StandardError => e
-      Rails.logger.error("CiviCRM role check failed: #{e.class}")
-      empty_result
+      Rails.logger.error("CiviCRM role check failed: #{e.class} #{normalize_utf8(e.message)}")
+      raise
     end
 
     private

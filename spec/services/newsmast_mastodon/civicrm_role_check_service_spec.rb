@@ -66,11 +66,11 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
     expect(service.call.values).to be_empty
   end
 
-  it "does not fall through to the lower-priority role after an API failure" do
+  it "raises on API failures so the worker can retry" do
     failed_response = instance_double("HTTParty::Response", success?: false, code: 503, body: "unavailable")
     allow(described_class).to receive(:get).and_return(failed_response)
 
-    expect(service.call.values).to be_empty
+    expect { service.call }.to raise_error(StandardError, "CiviCRM role check failed: status=503")
     expect(described_class).to have_received(:get).once
   end
 
