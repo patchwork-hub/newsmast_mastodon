@@ -30,10 +30,10 @@ namespace :newsmast_mastodon do
         if result.values.present?
           role_name = NewsmastMastodon::CivicrmRoleAssignmentWorker.role_name_for(result.group_id)
           assigned += 1
-          puts "[DRY_RUN] user_id=#{user.id} email=#{user.email} role=#{role_name} group_id=#{result.group_id}"
+          puts "[DRY_RUN] user_id=#{user.id} role=#{role_name} group_id=#{result.group_id}"
         else
           unmatched += 1
-          puts "[SKIP] user_id=#{user.id} email=#{user.email} reason=no_matching_group"
+          puts "[SKIP] user_id=#{user.id} reason=no_matching_group"
         end
       elsif async
         NewsmastMastodon::CivicrmRoleAssignmentWorker.perform_async(user.id, true)
