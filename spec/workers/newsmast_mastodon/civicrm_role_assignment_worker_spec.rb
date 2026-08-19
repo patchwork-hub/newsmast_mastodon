@@ -58,10 +58,24 @@ RSpec.describe NewsmastMastodon::CivicrmRoleAssignmentWorker, type: :worker do
 
   it "does nothing when CiviCRM returns no matching group" do
     allow(result).to receive(:values).and_return([])
+    allow(result).to receive(:transient_error).and_return(false)
 
     described_class.new.perform(42)
 
     expect(UserRole).not_to have_received(:where)
+    expect(eligible_users).not_to have_received(:update_all)
+  end
+
+  it "raises for transient CiviCRM failures so Sidekiq can retry" do
+    transient_result = NewsmastMastodon::CivicrmRoleCheckService::Result.new(values: [], group_id: nil, transient_error: true)
+    allow(NewsmastMastodon::CivicrmRoleCheckService).to receive(:new)
+      .with("member@example.org", force_remote: false)
+      .and_return(service)
+    allow(service).to receive(:call).and_return(transient_result)
+
+    expect { described_class.new.perform(42) }
+      .to raise_error(NewsmastMastodon::CivicrmRoleCheckService::TransientFailure, /CiviCRM role check failed/)
+
     expect(eligible_users).not_to have_received(:update_all)
   end
 

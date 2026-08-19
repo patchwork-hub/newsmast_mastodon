@@ -22,6 +22,10 @@ module NewsmastMastodon
       return if user.role_id.present? || user.email.blank?
 
       result = NewsmastMastodon::CivicrmRoleCheckService.new(user.email, force_remote: force_remote).call
+      if result.transient_error
+        raise NewsmastMastodon::CivicrmRoleCheckService::TransientFailure,
+              "CiviCRM role check failed for #{user.email}"
+      end
       return if result.values.blank?
 
       role_name = self.class.role_name_for(result.group_id)
