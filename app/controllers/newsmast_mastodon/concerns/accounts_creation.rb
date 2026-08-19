@@ -36,6 +36,8 @@ module NewsmastMastodon::Concerns::AccountsCreation
     return if token.resource_owner_id.blank?
 
     NewsmastMastodon::CivicrmRoleAssignmentWorker.perform_async(token.resource_owner_id)
+  rescue StandardError => e
+    Rails.logger.error("CiviCRM role assignment enqueue failed: #{e.class}")
   end
 
   def render_membership_error(message)
