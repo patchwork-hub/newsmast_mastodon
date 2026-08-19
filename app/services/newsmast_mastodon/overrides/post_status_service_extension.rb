@@ -11,6 +11,7 @@ module NewsmastMastodon
         Trends.tags.register(@status)
         LinkCrawlWorker.perform_async(@status.id)
         DistributionWorker.perform_async(@status.id)
+        process_email_subscriptions!
 
         ActivityPub::DistributionWorker.perform_async(@status.id) unless @status.local_only?
         PollExpirationNotifyWorker.perform_at(@status.poll.expires_at, @status.poll.id) if @status.poll
