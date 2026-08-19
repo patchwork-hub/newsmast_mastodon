@@ -61,6 +61,7 @@ RSpec.describe NewsmastMastodon::Overrides::PostStatusServiceExtension, type: :s
     stub_const("NewsmastMastodon::BanStatusWorker", ban_worker)
 
     service = service_class.new(status, process_service)
+    expect(service).to receive(:process_email_subscriptions!).once.and_call_original
     service.call_postprocess!
 
     expect(DistributionWorker).to have_received(:perform_async).with(42)
