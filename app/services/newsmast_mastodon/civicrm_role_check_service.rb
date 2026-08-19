@@ -8,10 +8,12 @@ module NewsmastMastodon
   class CivicrmRoleCheckService
     include HTTParty
 
+    class TransientFailure < StandardError; end
+
     CONTACT_GET_PATH = "/civicrm/ajax/api4/Contact/get"
     GROUP_IDS_IN_PRIORITY_ORDER = [ 15, 16, 3 ].freeze
 
-    Result = Struct.new(:values, :group_id, keyword_init: true)
+    Result = Struct.new(:values, :group_id, :transient_error, keyword_init: true)
 
     def initialize(email, force_remote: false)
       @email = email
@@ -32,7 +34,7 @@ module NewsmastMastodon
 
         unless response.success?
           Rails.logger.error("CiviCRM role check failed: status=#{response.code}")
-          return empty_result
+          return transient_failure_result
         end
 
         body = response.parsed_response
@@ -40,13 +42,13 @@ module NewsmastMastodon
         values = response_values(body)
         next if values.empty?
 
-        return Result.new(values: values, group_id: group_id)
+        return Result.new(values: values, group_id: group_id, transient_error: false)
       end
 
       empty_result
     rescue StandardError => e
       Rails.logger.error("CiviCRM role check failed: #{e.class}")
-      empty_result
+      transient_failure_result
     end
 
     private
@@ -137,7 +139,11 @@ module NewsmastMastodon
     end
 
     def empty_result
-      Result.new(values: [], group_id: nil)
+      Result.new(values: [], group_id: nil, transient_error: false)
+    end
+
+    def transient_failure_result
+      Result.new(values: [], group_id: nil, transient_error: true)
     end
   end
 end

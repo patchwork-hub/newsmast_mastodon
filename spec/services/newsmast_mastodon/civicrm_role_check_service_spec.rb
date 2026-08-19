@@ -34,7 +34,7 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
 
     result = service.call
 
-    expect(result.to_h).to eq(values: contact_values, group_id: 15)
+    expect(result.to_h).to eq(values: contact_values, group_id: 15, transient_error: false)
     expect(described_class).to have_received(:get).once
     expect(@requested_group_ids).to eq([ 15 ])
   end
@@ -44,7 +44,7 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
 
     result = service.call
 
-    expect(result.to_h).to eq(values: contact_values, group_id: 16)
+    expect(result.to_h).to eq(values: contact_values, group_id: 16, transient_error: false)
     expect(@requested_group_ids).to eq([ 15, 16 ])
   end
 
@@ -66,11 +66,14 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
     expect(service.call.values).to be_empty
   end
 
-  it "does not fall through to the lower-priority role after an API failure" do
+  it "marks API failures as transient so the worker can retry" do
     failed_response = instance_double("HTTParty::Response", success?: false, code: 503, body: "unavailable")
     allow(described_class).to receive(:get).and_return(failed_response)
 
-    expect(service.call.values).to be_empty
+    result = service.call
+
+    expect(result.values).to be_empty
+    expect(result.transient_error).to be(true)
     expect(described_class).to have_received(:get).once
   end
 
