@@ -17,7 +17,7 @@ RSpec.describe NewsmastMastodon::CivicrmRoleAssignmentWorker, type: :worker do
     allow(NewsmastMastodon::CivicrmRoleCheckService).to receive(:new)
       .with("member@example.org", force_remote: false)
       .and_return(service)
-    allow(UserRole).to receive(:where).with("LOWER(name) LIKE ?", "%committee member%").and_return(role_scope)
+    allow(UserRole).to receive(:where).with("LOWER(name) = ?", "committee member").and_return(role_scope)
     allow(User).to receive(:where).with(id: 42, role_id: nil).and_return(eligible_users)
   end
 
@@ -29,21 +29,21 @@ RSpec.describe NewsmastMastodon::CivicrmRoleAssignmentWorker, type: :worker do
 
   it "maps group 16 to the working group role" do
     allow(result).to receive(:group_id).and_return(16)
-    allow(UserRole).to receive(:where).with("LOWER(name) LIKE ?", "%wg member%").and_return(role_scope)
+    allow(UserRole).to receive(:where).with("LOWER(name) = ?", "wg member").and_return(role_scope)
 
     described_class.new.perform(42)
 
-    expect(UserRole).to have_received(:where).with("LOWER(name) LIKE ?", "%wg member%")
+    expect(UserRole).to have_received(:where).with("LOWER(name) = ?", "wg member")
     expect(eligible_users).to have_received(:update_all).with(role_id: 9, updated_at: kind_of(ActiveSupport::TimeWithZone))
   end
 
   it "maps group 3 to the staff role" do
     allow(result).to receive(:group_id).and_return(3)
-    allow(UserRole).to receive(:where).with("LOWER(name) LIKE ?", "%staff%").and_return(role_scope)
+    allow(UserRole).to receive(:where).with("LOWER(name) = ?", "staff").and_return(role_scope)
 
     described_class.new.perform(42)
 
-    expect(UserRole).to have_received(:where).with("LOWER(name) LIKE ?", "%staff%")
+    expect(UserRole).to have_received(:where).with("LOWER(name) = ?", "staff")
     expect(eligible_users).to have_received(:update_all).with(role_id: 9, updated_at: kind_of(ActiveSupport::TimeWithZone))
   end
 

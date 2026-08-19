@@ -39,4 +39,14 @@ RSpec.describe NewsmastMastodon::Concerns::AccountsCreation do
 
     expect(NewsmastMastodon::CivicrmRoleAssignmentWorker).not_to have_received(:perform_async)
   end
+
+  it "logs and continues when enqueue fails" do
+    token = instance_double("Doorkeeper::AccessToken", resource_owner_id: 42)
+    enqueue_error = Class.new(StandardError)
+    allow(NewsmastMastodon::CivicrmRoleAssignmentWorker).to receive(:perform_async).and_raise(enqueue_error)
+    allow(Rails.logger).to receive(:error)
+
+    expect { controller.send(:enqueue_role_assignment, token) }.not_to raise_error
+    expect(Rails.logger).to have_received(:error).with("CiviCRM role assignment enqueue failed: #{enqueue_error}")
+  end
 end

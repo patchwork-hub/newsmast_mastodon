@@ -27,8 +27,7 @@ module NewsmastMastodon
       role_name = self.class.role_name_for(result.group_id)
       return if role_name.blank?
 
-      escaped_role_name = ActiveRecord::Base.sanitize_sql_like(role_name.downcase)
-      role = UserRole.where("LOWER(name) LIKE ?", "%#{escaped_role_name}%").first
+      role = UserRole.where("LOWER(name) = ?", role_name.downcase).first
       unless role
         Rails.logger.error("CiviCRM role assignment skipped: UserRole '#{role_name}' not found")
         return
