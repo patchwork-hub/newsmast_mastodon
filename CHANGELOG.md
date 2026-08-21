@@ -8,6 +8,16 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.6.5.1] - 2026-08-21
+
+### Changed
+
+- Renamed `NewsmastMastodon::Concerns::MediaAttachmentConcern#local_or_reblogged_status?` to `#locally_authored?` to match its actual behaviour.
+
+### Fixed
+
+- Simplified the alt-text eligibility check in `NewsmastMastodon::Concerns::MediaAttachmentConcern`: removed the redundant `status.reply?` and `status.reblog? && status.account.domain.nil?` branches (both unreachable or already covered by `status.local?`) and made the status lookup nil-safe so alt-text generation no longer raises when the parent status has been deleted.
+
 ## [4.6.5.0] - 2026-08-10
 
 ### Added

@@ -33,7 +33,8 @@ RSpec.describe "Version surfaces stay in sync" do
     # README may either contain a direct gem pin snippet or a version mapping
     # statement when installation details live in external docs.
     has_install_pin = readme.include?(%(gem "newsmast_mastodon", "#{version}"))
-    has_version_mapping = readme.include?("`#{version}` is the first gem release for Mastodon `#{mastodon_version}`")
+    has_version_mapping = readme.include?("`#{version}` is the first gem release for Mastodon `#{mastodon_version}`") ||
+                          readme.include?("`#{version}` is a gem-only patch release, still for Mastodon `#{mastodon_version}`")
 
     expect(has_install_pin || has_version_mapping).to be(true),
       "README must document current version #{version.inspect} via either a " \
