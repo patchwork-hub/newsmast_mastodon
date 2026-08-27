@@ -9,6 +9,7 @@ ie:
       ended_voted: Un poll u tu votat ha finit
     mention:
       direct_message: "%{name} inviat te un message"
+      direct_message_attachment: "%{name} inviat te un annexe"
       conversation_request: Vu have un nov demanda de conversation.
   custom_passwords_mailer:
     reset_password_confirmation:

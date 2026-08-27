@@ -9,6 +9,7 @@ lad:
       ended_voted: Una encuesta en la ke votates a terminado
     mention:
       direct_message: "%{name} te mando un mensaji"
+      direct_message_attachment: "%{name} te mando un adjunto"
       conversation_request: Tenésh una mueva demanda de konversasión.
   custom_passwords_mailer:
     reset_password_confirmation:

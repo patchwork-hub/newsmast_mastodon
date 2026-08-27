@@ -9,6 +9,7 @@ bn:
       ended_voted: আপনি যে ভোটে ভোট দিয়েছেন তা শেষ হয়েছে
     mention:
       direct_message: "%{name} আপনাকে একটি বার্তা পাঠিয়েছে"
+      direct_message_attachment: "%{name} আপনাকে একটি সংযুক্তি পাঠিয়েছে"
       conversation_request: আপনার একটি নতুন কথোপকথনের অনুরোধ আছে।
   custom_passwords_mailer:
     reset_password_confirmation:

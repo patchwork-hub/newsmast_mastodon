@@ -9,6 +9,7 @@ cy:
       ended_voted: Mae pôl y gwnaethoch bleidleisio ynddo wedi dod i ben
     mention:
       direct_message: "%{name} anfonodd neges atoch chi"
+      direct_message_attachment: "%{name} anfonodd atodiad atoch chi"
       conversation_request: Mae gennych gais sgwrs newydd.
   custom_passwords_mailer:
     reset_password_confirmation:

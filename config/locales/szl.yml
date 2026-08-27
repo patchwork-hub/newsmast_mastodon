@@ -9,6 +9,7 @@ szl:
       ended_voted: Ankieta, w kerej głosowołś, sie skończyła
     mention:
       direct_message: "%{name} posłał ci wiadōmość"
+      direct_message_attachment: "%{name} posłoł ci przidowek"
       conversation_request: Mosz nowe żōndanie kōnwersacyje.
   custom_passwords_mailer:
     reset_password_confirmation:

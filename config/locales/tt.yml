@@ -9,6 +9,7 @@ tt:
       ended_voted: Сез тавыш биргән сораштыру тәмамланды
     mention:
       direct_message: "%{name} сезгә хәбәр җибәрде"
+      direct_message_attachment: "%{name} сезгә кушымта җибәрде"
       conversation_request: Сездә яңа сөйләшү соравы бар.
   custom_passwords_mailer:
     reset_password_confirmation:

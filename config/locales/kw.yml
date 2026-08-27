@@ -9,6 +9,7 @@ kw:
       ended_voted: Hol an termyn y'n termyn a veu wor
     mention:
       direct_message: "%{name} a dhedh dhis messaj"
+      direct_message_attachment: "%{name} a dhedh dhis stagell"
       conversation_request: Yma govynnadow keskowsans nowyth dhywgh.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ sco:
       ended_voted: A poll ye votit in haes endit
     mention:
       direct_message: "%{name} sent ye a message"
+      direct_message_attachment: "%{name} sent ye an attachment"
       conversation_request: Ye hae a new conversation request.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ an:
       ended_voted: Una encuesta en a que has votau ha rematau
     mention:
       direct_message: "%{name} t'ha ninviato un mensache"
+      direct_message_attachment: "%{name} t'ha ninviato un adchunto"
       conversation_request: Tiens una nueva solicitud de conversación.
   custom_passwords_mailer:
     reset_password_confirmation:

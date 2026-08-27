@@ -9,6 +9,7 @@ cs:
       ended_voted: Anketa, ve které jste hlasovali, skončila
     mention:
       direct_message: "%{name} vám poslal zprávu"
+      direct_message_attachment: "%{name} vám poslal přílohu"
       conversation_request: Máte nový požadavek na konverzaci.
   custom_passwords_mailer:
     reset_password_confirmation:

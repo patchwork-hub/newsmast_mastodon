@@ -9,6 +9,7 @@ fi:
       ended_voted: Kysely, johon äänestit, on päättynyt
     mention:
       direct_message: "%{name} lähetti sinulle viestin"
+      direct_message_attachment: "%{name} lähetti sinulle liitteen"
       conversation_request: Sinulle on uusi keskustelupyyntö.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ is:
       ended_voted: Könnun sem þú tókst þátt í er lokið
     mention:
       direct_message: "%{name} sendi þér skilaboð"
+      direct_message_attachment: "%{name} sendi þér viðhengi"
       conversation_request: Þú hefur nýja samtalsbeiðni.
   custom_passwords_mailer:
     reset_password_confirmation:

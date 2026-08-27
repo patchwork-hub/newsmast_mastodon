@@ -9,6 +9,7 @@ nl:
       ended_voted: Een poll waarin je hebt gestemd is beëindigd
     mention:
       direct_message: "%{name} heeft je een bericht gestuurd"
+      direct_message_attachment: "%{name} heeft je een bijlage gestuurd"
       conversation_request: Je hebt een nieuw gespreksverzoek.
   custom_passwords_mailer:
     reset_password_confirmation:

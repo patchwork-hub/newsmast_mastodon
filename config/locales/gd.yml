@@ -9,6 +9,7 @@ gd:
       ended_voted: Tha poll anns an do bhòt thu air tighinn gu crìch
     mention:
       direct_message: "%{name} chuir teachdaireachd thugad"
+      direct_message_attachment: "%{name} chuir ceanglachan thugad"
       conversation_request: Tha iarrtas còmhraidh ùr agad.
   custom_passwords_mailer:
     reset_password_confirmation:

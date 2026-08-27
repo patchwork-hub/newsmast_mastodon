@@ -9,6 +9,7 @@ ku:
       ended_voted: Dengdanek ku tu de destnîşan kirî, qediyayê
     mention:
       direct_message: "%{name} ji te re peyamê şand"
+      direct_message_attachment: "%{name} ji te re pêvekek şand"
       conversation_request: Daxwaziya axaftineke nû heye.
   custom_passwords_mailer:
     reset_password_confirmation:

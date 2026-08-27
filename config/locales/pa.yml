@@ -9,6 +9,7 @@ pa:
       ended_voted: ਜਿਸ ਪੋਲ ਵਿੱਚ ਤੁਸੀਂ ਵੋਟ ਦਿੱਤੀ ਸੀ ਉਹ ਖਤਮ ਹੋ ਗਿਆ ਹੈ
     mention:
       direct_message: "%{name} ਨੇ ਤੁਹਾਨੂੰ ਸੁਨੇਹਾ ਭੇਜਿਆ ਹੈ"
+      direct_message_attachment: "%{name} ਨੇ ਤੁਹਾਨੂੰ ਅਟੈਚਮੈਂਟ ਭੇਜੀ ਹੈ"
       conversation_request: ਤੁਹਾਡੇ ਕੋਲ ਇੱਕ ਨਵੀਂ ਗੱਲਬਾਤ ਦੀ ਬੇਨਤੀ ਹੈ।
   custom_passwords_mailer:
     reset_password_confirmation:

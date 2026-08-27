@@ -9,6 +9,7 @@ ta:
       ended_voted: நீங்கள் வாக்களித்த வாக்கெடுப்பு முடிந்துவிட்டது
     mention:
       direct_message: "%{name} உங்களுக்கு ஒரு செய்தியை அனுப்பினார்"
+      direct_message_attachment: "%{name} உங்களுக்கு ஓர் இணைப்பை அனுப்பினார்"
       conversation_request: உங்களுக்கு ஒரு புதிய உரையாடல் கோரிக்கை உள்ளது.
   custom_passwords_mailer:
     reset_password_confirmation:

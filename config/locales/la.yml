@@ -9,6 +9,7 @@ la:
       ended_voted: Votatio in qua suffragatus es finita est
     mention:
       direct_message: "%{name} tibi nuntium misit"
+      direct_message_attachment: "%{name} tibi adiunctum misit"
       conversation_request: Rogatio colloquii nova tibi est.
   custom_passwords_mailer:
     reset_password_confirmation:

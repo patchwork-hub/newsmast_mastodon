@@ -9,6 +9,7 @@ tr:
       ended_voted: Oy verdiğiniz anket sona erdi
     mention:
       direct_message: "%{name} size bir mesaj gönderdi"
+      direct_message_attachment: "%{name} size bir ek gönderdi"
       conversation_request: Yeni bir konuşma isteğiniz var.
   custom_passwords_mailer:
     reset_password_confirmation:

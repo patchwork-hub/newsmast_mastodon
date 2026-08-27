@@ -9,6 +9,7 @@ he:
       ended_voted: סקר שהצבעת בו הסתיים
     mention:
       direct_message: "%{name} שלח לך הודעה"
+      direct_message_attachment: "%{name} שלח לך קובץ מצורף"
       conversation_request: יש לך בקשת שיחה חדשה.
   custom_passwords_mailer:
     reset_password_confirmation:

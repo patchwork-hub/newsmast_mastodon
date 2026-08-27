@@ -9,6 +9,7 @@ mr:
       ended_voted: तुम्ही ज्या मतदानात मत दिले ते संपले आहे
     mention:
       direct_message: "%{name} ने तुम्हाला संदेश पाठवला आहे"
+      direct_message_attachment: "%{name} ने तुम्हाला संलग्नक पाठवले आहे"
       conversation_request: तुमच्याकडे एक नवीन संभाषण विनंती आहे.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ sr:
       ended_voted: Анкета у којој сте гласали је завршена
     mention:
       direct_message: "%{name} вам је послао поруку"
+      direct_message_attachment: "%{name} вам је послао прилог"
       conversation_request: Имате нови захтев за разговор.
   custom_passwords_mailer:
     reset_password_confirmation:

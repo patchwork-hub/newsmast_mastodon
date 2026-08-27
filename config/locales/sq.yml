@@ -9,6 +9,7 @@ sq:
       ended_voted: Një sondazh ku keni votuar ka përfunduar
     mention:
       direct_message: "%{name} ju ka dërguar një mesazh"
+      direct_message_attachment: "%{name} ju ka dërguar një bashkëngjitje"
       conversation_request: Keni një kërkesë të re bisede.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ id:
       ended_voted: Jajak pendapat yang Anda ikuti telah berakhir
     mention:
       direct_message: "%{name} mengirimkan pesan kepada Anda"
+      direct_message_attachment: "%{name} mengirimkan lampiran kepada Anda"
       conversation_request: Anda memiliki permintaan percakapan baru.
   custom_passwords_mailer:
     reset_password_confirmation:

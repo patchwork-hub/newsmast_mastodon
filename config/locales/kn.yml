@@ -9,6 +9,7 @@ kn:
       ended_voted: ನೀವು ಮತ ಹಾಕಿದ ಮತದಾನ ಮುಗಿದಿದೆ
     mention:
       direct_message: "%{name} ನಿಮಗೆ ಸಂದೇಶ ಕಳುಹಿಸಿದ್ದಾರೆ"
+      direct_message_attachment: "%{name} ನಿಮಗೆ ಲಗತ್ತನ್ನು ಕಳುಹಿಸಿದ್ದಾರೆ"
       conversation_request: ನಿಮಗೆ ಹೊಸ ಸಂಭಾಷಣೆ ವಿನಂತಿ ಇದೆ.
   custom_passwords_mailer:
     reset_password_confirmation:
