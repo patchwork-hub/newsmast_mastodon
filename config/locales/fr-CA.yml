@@ -9,6 +9,7 @@ fr-CA:
       ended_voted: Un sondage auquel vous avez participé est terminé
     mention:
       direct_message: "%{name} vous a envoyé un message"
+      direct_message_attachment: "%{name} vous a envoyé une pièce jointe"
       conversation_request: Vous avez une nouvelle demande de conversation.
   custom_passwords_mailer:
     reset_password_confirmation:

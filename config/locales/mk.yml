@@ -9,6 +9,7 @@ mk:
       ended_voted: Анкета во која гласавте заврши
     mention:
       direct_message: "%{name} ви испрати порака"
+      direct_message_attachment: "%{name} ви испрати прилог"
       conversation_request: Имате ново барање за разговор.
   custom_passwords_mailer:
     reset_password_confirmation:

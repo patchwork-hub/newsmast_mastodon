@@ -9,6 +9,7 @@ pl:
       ended_voted: Ankieta, w której głosowałeś, została zakończona
     mention:
       direct_message: "%{name} wysłał(a) Ci wiadomość"
+      direct_message_attachment: "%{name} wysłał(a) Ci załącznik"
       conversation_request: Masz nowe żądanie konwersacji.
   custom_passwords_mailer:
     reset_password_confirmation:

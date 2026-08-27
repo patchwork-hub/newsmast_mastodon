@@ -33,9 +33,7 @@ module NewsmastMastodon
         destination_id = status.id
         reblogged_id = status.reblog_of_id
       when :favourite
-        body = I18n.t("notification_mailer.favourite.subject", name: from_account_username)
-        favourite = Favourite.find(notification.activity_id)
-        destination_id = Status.find(favourite.status_id).id
+        return nil
       when :mention
         mention = Mention.find(notification.activity_id)
         status = Status.find(mention.status_id)
@@ -51,7 +49,7 @@ module NewsmastMastodon
         elsif notification_request.present? && visibility_key == "public"
                  I18n.t("notification_mailer.mention.subject", name: from_account_username)
         elsif notification_request.blank? && visibility_key == "direct"
-                 I18n.t("notification.mention.direct_message", name: from_account_username)
+                 direct_message_body(status, from_account_username)
         else
                  I18n.t("notification_mailer.mention.subject", name: from_account_username)
         end
@@ -106,6 +104,26 @@ module NewsmastMastodon
     end
 
     private
+
+    DIRECT_MESSAGE_BODY_LIMIT = 200
+
+    def direct_message_body(status, from_account_username)
+      text = message_text(status)
+
+      return text if text.present?
+      return I18n.t("notification.mention.direct_message_attachment", name: from_account_username) if status.media_attachments.any?
+
+      I18n.t("notification.mention.direct_message", name: from_account_username)
+    end
+
+    # Mentions are stripped so the body reads as the message the sender typed.
+    def message_text(status)
+      raw = status.spoiler_text.presence || status.text.to_s
+      plain = ActionController::Base.helpers.strip_tags(raw).to_s
+      plain = CGI.unescapeHTML(plain).gsub(/@[\w.-]+(@[\w.-]+)?/, "").squish
+
+      plain.truncate(DIRECT_MESSAGE_BODY_LIMIT)
+    end
 
     def skip_local_only_notify?(notification)
       return false unless Status.column_names.include?("local_only")

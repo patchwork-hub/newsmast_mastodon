@@ -9,6 +9,7 @@ fil:
       ended_voted: Natapos na ang botohan na iyong binoto
     mention:
       direct_message: "%{name} ay nagpadala sa iyo ng mensahe"
+      direct_message_attachment: "%{name} ay nagpadala sa iyo ng kalakip"
       conversation_request: Mayroon kang bagong kahilingan sa pag-uusap.
   custom_passwords_mailer:
     reset_password_confirmation:

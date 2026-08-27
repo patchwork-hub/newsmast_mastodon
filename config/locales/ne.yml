@@ -9,6 +9,7 @@ ne:
       ended_voted: तपाईंले मतदान गर्नुभएको मतदान समाप्त भयो
     mention:
       direct_message: "%{name} ले तपाईंलाई सन्देश पठाउनुभयो"
+      direct_message_attachment: "%{name} ले तपाईंलाई संलग्न फाइल पठाउनुभयो"
       conversation_request: तपाईंसँग नयाँ कुराकानी अनुरोध छ।
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ it:
       ended_voted: Un sondaggio a cui hai votato è terminato
     mention:
       direct_message: "%{name} ti ha inviato un messaggio"
+      direct_message_attachment: "%{name} ti ha inviato un allegato"
       conversation_request: Hai una nuova richiesta di conversazione.
   custom_passwords_mailer:
     reset_password_confirmation:

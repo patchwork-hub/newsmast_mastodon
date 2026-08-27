@@ -9,6 +9,7 @@ et:
       ended_voted: Küsitlus, milles hääletasid, on lõppenud
     mention:
       direct_message: "%{name} saatis sulle sõnumi"
+      direct_message_attachment: "%{name} saatis sulle manuse"
       conversation_request: Teil on uus vestlustaotlus.
   custom_passwords_mailer:
     reset_password_confirmation:

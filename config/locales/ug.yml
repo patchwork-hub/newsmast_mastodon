@@ -9,6 +9,7 @@ ug:
       ended_voted: سىز ئاۋاز بەرگەن سايلام تامام بولدى
     mention:
       direct_message: "%{name} سىزگە ئۇچۇر يوللىدى"
+      direct_message_attachment: "%{name} سىزگە قوشۇمچە ھۆججەت يوللىدى"
       conversation_request: يېڭى سۆھبەت تەلىپىڭىز بار.
   custom_passwords_mailer:
     reset_password_confirmation:

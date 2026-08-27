@@ -9,6 +9,7 @@ hu:
       ended_voted: Egy szavazás, amelyben szavaztál, véget ért
     mention:
       direct_message: "%{name} üzenetet küldött neked"
+      direct_message_attachment: "%{name} mellékletet küldött neked"
       conversation_request: Új beszélgetés kérésed van.
   custom_passwords_mailer:
     reset_password_confirmation:

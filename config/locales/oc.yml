@@ -9,6 +9,7 @@ oc:
       ended_voted: Una enquèsta ont avètz votat es acabada
     mention:
       direct_message: "%{name} vos a mandat un messatge"
+      direct_message_attachment: "%{name} vos a mandat un fichièr junt"
       conversation_request: Avètz una nòva demanda de conversacion.
   custom_passwords_mailer:
     reset_password_confirmation:

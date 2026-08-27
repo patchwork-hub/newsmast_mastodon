@@ -9,6 +9,7 @@ eu:
       ended_voted: Bozkatu duzun inkesta amaitu da
     mention:
       direct_message: "%{name}k mezu bat bidali dizu"
+      direct_message_attachment: "%{name}k eranskin bat bidali dizu"
       conversation_request: Elkarrizketa eskaera berri bat duzu.
   custom_passwords_mailer:
     reset_password_confirmation:

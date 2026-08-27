@@ -9,6 +9,7 @@ pt-BR:
       ended_voted: Uma enquete em que você votou terminou
     mention:
       direct_message: "%{name} lhe enviou uma mensagem"
+      direct_message_attachment: "%{name} lhe enviou um anexo"
       conversation_request: Você tem uma nova solicitação de conversa.
   custom_passwords_mailer:
     reset_password_confirmation:

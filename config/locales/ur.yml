@@ -9,6 +9,7 @@ ur:
       ended_voted: جس پول میں آپ نے ووٹ دیا وہ ختم ہو گیا ہے
     mention:
       direct_message: "%{name} نے آپ کو پیغام بھیجا"
+      direct_message_attachment: "%{name} نے آپ کو ایک منسلکہ بھیجا ہے"
       conversation_request: آپ کے پاس ایک نئی بات چیت کی درخواست ہے۔
   custom_passwords_mailer:
     reset_password_confirmation:

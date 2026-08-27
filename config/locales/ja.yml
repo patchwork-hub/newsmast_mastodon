@@ -9,6 +9,7 @@ ja:
       ended_voted: あなたが投票した投票が終了しました
     mention:
       direct_message: "%{name} さんがあなたにメッセージを送りました"
+      direct_message_attachment: "%{name} さんがあなたに添付ファイルを送りました"
       conversation_request: 新しい会話リクエストがあります。
   custom_passwords_mailer:
     reset_password_confirmation:

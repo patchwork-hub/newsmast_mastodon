@@ -9,6 +9,7 @@ ckb:
       ended_voted: ڕاپرسییەکەی کە تۆ تێیدا دەنگت دا کۆتایی هات
     mention:
       direct_message: "%{name} نامەیەکت بۆ نارد"
+      direct_message_attachment: "%{name} پەڕگەیەکی هاوپێچی بۆ ناردیت"
       conversation_request: داواکاریی گفتوگۆیەکی نوێت هەیە.
   custom_passwords_mailer:
     reset_password_confirmation:

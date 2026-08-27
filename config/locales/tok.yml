@@ -9,6 +9,7 @@ tok:
       ended_voted: A poll you voted in has ended
     mention:
       direct_message: "%{name} sends you a message"
+      direct_message_attachment: "%{name} sends you an attachment"
       conversation_request: sina jo e toki sin.
   custom_passwords_mailer:
     reset_password_confirmation:

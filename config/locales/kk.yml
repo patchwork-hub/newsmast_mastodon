@@ -9,6 +9,7 @@ kk:
       ended_voted: Сіз дауыс берген сауалнама аяқталды
     mention:
       direct_message: "%{name} сізге хабарлама жіберді"
+      direct_message_attachment: "%{name} сізге тіркеме жіберді"
       conversation_request: Сізде жаңа сұхбат сұрауы бар.
   custom_passwords_mailer:
     reset_password_confirmation:

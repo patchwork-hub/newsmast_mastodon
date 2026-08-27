@@ -9,6 +9,7 @@ eo:
       ended_voted: Enketo, en kiu vi voĉdonis, finiĝis
     mention:
       direct_message: "%{name} sendis al vi mesaĝon"
+      direct_message_attachment: "%{name} sendis al vi kunsendaĵon"
       conversation_request: Vi havas novan konversacian peton.
   custom_passwords_mailer:
     reset_password_confirmation:

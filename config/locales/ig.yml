@@ -9,6 +9,7 @@ ig:
       ended_voted: Ajụjụ ọnụ ị voturu agwụla
     mention:
       direct_message: "%{name} zitere gị ozi"
+      direct_message_attachment: "%{name} zitere gị ihe nnyeaka"
       conversation_request: Ị nwere arịrịọ mkparịta ọhụrụ.
   custom_passwords_mailer:
     reset_password_confirmation:

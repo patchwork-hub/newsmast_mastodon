@@ -9,6 +9,7 @@ hr:
       ended_voted: Anketa u kojoj ste glasali je završila
     mention:
       direct_message: "%{name} vam je poslao poruku"
+      direct_message_attachment: "%{name} vam je poslao privitak"
       conversation_request: Imate novi zahtjev za razgovor.
   custom_passwords_mailer:
     reset_password_confirmation:

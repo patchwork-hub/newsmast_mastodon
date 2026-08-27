@@ -9,6 +9,7 @@ sc:
       ended_voted: Unu sondàgiu in su cale as votadu est terminadu
     mention:
       direct_message: "%{name} t'at mandadu unu messàgiu"
+      direct_message_attachment: "%{name} t'at mandadu un alligadu"
       conversation_request: Tenes una rechesta de cunversatzione noa.
   custom_passwords_mailer:
     reset_password_confirmation:

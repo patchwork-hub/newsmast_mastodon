@@ -9,6 +9,7 @@ kab:
       ended_voted: Tiririt i tzemreḍ deg-s tzemreḍ
     mention:
       direct_message: "%{name} yebɣa ad ak-yini-d izen"
+      direct_message_attachment: "%{name} yuzen-ak-d amsedday"
       conversation_request: Tesɛiḍ asuter n umeslay amaynut.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ th:
       ended_voted: แบบสำรวจที่คุณโหวตสิ้นสุดแล้ว
     mention:
       direct_message: "%{name} ส่งข้อความถึงคุณ"
+      direct_message_attachment: "%{name} ส่งไฟล์แนบถึงคุณ"
       conversation_request: คุณมีคำขอสนทนาใหม่
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ br:
       ended_voted: Echu eo ur pol ma oc'h bet o votiñ
     mention:
       direct_message: "%{name} en deus kaset ur gemennadenn deoc'h"
+      direct_message_attachment: "%{name} en deus kaset ur restr stag deoc'h"
       conversation_request: Ur goulenn kendiviz nevez ho peus.
   custom_passwords_mailer:
     reset_password_confirmation:

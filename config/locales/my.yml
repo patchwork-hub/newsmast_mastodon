@@ -9,6 +9,7 @@ my:
       ended_voted: သင့်မဲပေးခဲ့သော မဲပေးမှု ပြီးဆုံးပါပြီ
     mention:
       direct_message: "%{name} သည် သင့်အား မက်ဆေ့ခ်ျ ပို့လိုက်သည်"
+      direct_message_attachment: "%{name} သည် သင့်အား ပူးတွဲဖိုင် ပို့လိုက်သည်"
       conversation_request: သင့်တွင် စကားပြောဆိုမှု တောင်းဆိုချက်အသစ် ရှိသည်။
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ bg:
       ended_voted: Анкета, в която сте гласували, приключи
     mention:
       direct_message: "%{name} ви изпрати съобщение"
+      direct_message_attachment: "%{name} ви изпрати прикачен файл"
       conversation_request: Имате нова заявка за разговор.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ sv:
       ended_voted: En omröstning du röstade i har avslutats
     mention:
       direct_message: "%{name} skickade ett meddelande till dig"
+      direct_message_attachment: "%{name} skickade en bilaga till dig"
       conversation_request: Du har en ny konversationsförfrågan.
   custom_passwords_mailer:
     reset_password_confirmation:

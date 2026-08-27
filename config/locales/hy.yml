@@ -9,6 +9,7 @@ hy:
       ended_voted: Հարցումը, որում դուք քվեարկել եք, ավարտվեց
     mention:
       direct_message: "%{name} ձեզ ուղարկեց հաղորդագրություն"
+      direct_message_attachment: "%{name} ձեզ ուղարկեց կցորդ"
       conversation_request: Դուք նոր զրույցի հարցում ունեք.
   custom_passwords_mailer:
     reset_password_confirmation:

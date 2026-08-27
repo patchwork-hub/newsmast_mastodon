@@ -9,6 +9,7 @@ ko:
       ended_voted: 투표한 설문조사가 종료되었습니다
     mention:
       direct_message: "%{name}님이 메시지를 보냈습니다"
+      direct_message_attachment: "%{name}님이 첨부 파일을 보냈습니다"
       conversation_request: 새 대화 요청이 있습니다.
   custom_passwords_mailer:
     reset_password_confirmation:

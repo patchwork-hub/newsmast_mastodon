@@ -9,6 +9,7 @@ io:
       ended_voted: Un poll ube votez esis finita
     mention:
       direct_message: "%{name} sendis a vu un mesajo"
+      direct_message_attachment: "%{name} sendis a vu un aldonajo"
       conversation_request: Vi havas nova konverso-requesto.
   custom_passwords_mailer:
     reset_password_confirmation:

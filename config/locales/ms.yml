@@ -9,6 +9,7 @@ ms:
       ended_voted: Tinjauan yang anda undi telah berakhir
     mention:
       direct_message: "%{name} telah menghantar mesej kepada anda"
+      direct_message_attachment: "%{name} telah menghantar lampiran kepada anda"
       conversation_request: Anda mempunyai permintaan perbualan baharu.
   custom_passwords_mailer:
     reset_password_confirmation:

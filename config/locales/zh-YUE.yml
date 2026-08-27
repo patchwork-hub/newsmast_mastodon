@@ -9,6 +9,7 @@ zh-YUE:
       ended_voted: 你投過票嘅投票已經完咗
     mention:
       direct_message: "%{name} sends you a message"
+      direct_message_attachment: "%{name} 傳咗個附件畀你"
       conversation_request: 你有一個新嘅對話請求。
   custom_passwords_mailer:
     reset_password_confirmation:

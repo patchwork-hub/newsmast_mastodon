@@ -9,6 +9,7 @@ vi:
       ended_voted: Cuộc thăm dò bạn đã tham gia đã kết thúc
     mention:
       direct_message: "%{name} đã gửi cho bạn một tin nhắn"
+      direct_message_attachment: "%{name} đã gửi cho bạn một tệp đính kèm"
       conversation_request: Bạn có một yêu cầu hội thoại mới.
   custom_passwords_mailer:
     reset_password_confirmation:

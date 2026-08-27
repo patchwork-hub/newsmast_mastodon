@@ -9,6 +9,7 @@ lv:
       ended_voted: Aptauja, kurā jūs balsojāt, ir beigusies
     mention:
       direct_message: "%{name} jums nosūtīja ziņu"
+      direct_message_attachment: "%{name} jums nosūtīja pielikumu"
       conversation_request: Jums ir jauns sarunas pieprasījums.
   custom_passwords_mailer:
     reset_password_confirmation:

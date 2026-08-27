@@ -9,6 +9,7 @@ ml:
       ended_voted: നിങ്ങൾ വോട്ടുചെയ്ത പോൾ അവസാനിച്ചു
     mention:
       direct_message: "%{name} നിങ്ങൾക്ക് സന്ദേശം അയച്ചു"
+      direct_message_attachment: "%{name} നിങ്ങൾക്ക് ഒരു അറ്റാച്ച്മെന്റ് അയച്ചു"
       conversation_request: നിങ്ങൾക്ക് ഒരു പുതിയ സംഭാഷണ അഭ്യർത്ഥന ഉണ്ട്.
   custom_passwords_mailer:
     reset_password_confirmation:

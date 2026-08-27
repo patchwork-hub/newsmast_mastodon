@@ -9,6 +9,7 @@ da:
       ended_voted: En afstemning, du har stemt i, er afsluttet
     mention:
       direct_message: "%{name} har sendt dig en besked"
+      direct_message_attachment: "%{name} har sendt dig en vedhæftning"
       conversation_request: Du har en ny samtaleanmodning.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ az:
       ended_voted: Səs verdiyiniz sorğu başa çatdı
     mention:
       direct_message: "%{name} sizə mesaj göndərdi"
+      direct_message_attachment: "%{name} sizə qoşma göndərdi"
       conversation_request: Yeni bir söhbət sorğunuz var.
   custom_passwords_mailer:
     reset_password_confirmation:

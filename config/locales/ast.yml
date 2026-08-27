@@ -9,6 +9,7 @@ ast:
       ended_voted: Remató una encuesta na que votasti
     mention:
       direct_message: "%{name} unvióte un mensaxe"
+      direct_message_attachment: "%{name} unvióte un axuntu"
       conversation_request: Tienes una nueva solicitud de conversación.
   custom_passwords_mailer:
     reset_password_confirmation:

@@ -9,6 +9,7 @@ ka:
       ended_voted: გამოკითხვა, რომელშიც ხმა მიეცით, დასრულდა
     mention:
       direct_message: "%{name} გამოგიგზავნათ შეტყობინება"
+      direct_message_attachment: "%{name} გამოგიგზავნათ დანართი"
       conversation_request: თქვენ გაქვთ ახალი საუბრის მოთხოვნა.
   custom_passwords_mailer:
     reset_password_confirmation:
