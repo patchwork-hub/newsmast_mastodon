@@ -33,16 +33,17 @@ module NewsmastMastodon
         destination_id = status.id
         reblogged_id = status.reblog_of_id
       when :favourite
-        return nil
+        favourite = Favourite.find(notification.activity_id)
+        status = Status.find(favourite.status_id)
+        return nil if visibility_key_for(status) == "direct"
+
+        body = I18n.t("notification_mailer.favourite.subject", name: from_account_username)
+        destination_id = status.id
       when :mention
         mention = Mention.find(notification.activity_id)
         status = Status.find(mention.status_id)
         notification_request = NotificationRequest.find_by(account_id: notification.account_id)
-        visibility_key = if status.visibility.is_a?(Integer)
-                           Status.visibilities.key(status.visibility)&.to_s
-        else
-                           status.visibility.to_s
-        end
+        visibility_key = visibility_key_for(status)
 
         body = if notification_request.present? && visibility_key == "direct"
                  I18n.t("notification.mention.conversation_request", name: from_account_username)
@@ -106,6 +107,12 @@ module NewsmastMastodon
     private
 
     DIRECT_MESSAGE_BODY_LIMIT = 200
+
+    def visibility_key_for(status)
+      return Status.visibilities.key(status.visibility)&.to_s if status.visibility.is_a?(Integer)
+
+      status.visibility.to_s
+    end
 
     def direct_message_body(status, from_account_username)
       text = message_text(status)
