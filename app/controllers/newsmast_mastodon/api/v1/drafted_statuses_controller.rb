@@ -78,7 +78,9 @@ module NewsmastMastodon::Api::V1
     end
 
     def set_statuses
-      @statuses = current_account.patchwork_drafted_statuses.to_a_paginated_by_id(limit_param(DEFAULT_STATUSES_LIMIT), params_slice(:max_id, :since_id, :min_id))
+      @statuses = current_account.patchwork_drafted_statuses
+        .includes(:media_attachments)
+        .to_a_paginated_by_id(limit_param(DEFAULT_STATUSES_LIMIT), params_slice(:max_id, :since_id, :min_id))
     end
 
     def set_thread
@@ -89,7 +91,7 @@ module NewsmastMastodon::Api::V1
     end
 
     def set_status
-      @status = current_account.patchwork_drafted_statuses.find(params[:id])
+      @status = current_account.patchwork_drafted_statuses.includes(:media_attachments).find(params[:id])
     end
 
     def drafted_status_params

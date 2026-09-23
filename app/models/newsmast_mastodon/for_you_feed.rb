@@ -80,8 +80,14 @@ module NewsmastMastodon
     end
 
     def grouped_admin_reblogged_statuses_scope
-      grouped_admin_account_ids   = fetch_grouped_admin_account_ids
-      grouped_admin_reblogged_ids = Status.where(account_id: grouped_admin_account_ids).pluck(:reblog_of_id).compact
+      grouped_admin_account_ids = fetch_grouped_admin_account_ids
+      return if grouped_admin_account_ids.empty?
+
+      grouped_admin_reblogged_ids = Status
+        .where(account_id: grouped_admin_account_ids)
+        .where.not(reblog_of_id: nil)
+        .select(:reblog_of_id)
+
       @status = @status.where.not(id: grouped_admin_reblogged_ids)
     end
 
