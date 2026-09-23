@@ -55,8 +55,11 @@ module NewsmastMastodon
           if grouped_admin_account_ids.any?
             @statuses = @statuses.where.not(account_id: grouped_admin_account_ids, local_only: true, local: true)
 
-            # Also exclude reblogs of grouped admin accounts' local_only statuses.
-            grouped_admin_reblogged_ids = Status.where(account_id: grouped_admin_account_ids, local_only: true, local: true).pluck(:reblog_of_id).compact
+            grouped_admin_reblogged_ids = Status
+              .where(account_id: grouped_admin_account_ids, local_only: true, local: true)
+              .where.not(reblog_of_id: nil)
+              .select(:reblog_of_id)
+
             @statuses = @statuses.where.not(id: grouped_admin_reblogged_ids) if grouped_admin_reblogged_ids.any?
           end
         end

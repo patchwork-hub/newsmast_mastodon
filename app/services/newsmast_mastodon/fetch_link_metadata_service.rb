@@ -67,9 +67,9 @@ module NewsmastMastodon
     # Check if PreviewCard exists in the database and is still fresh.
     def fetch_cached_preview_card
       card = PreviewCard.find_by(url: @url)
+      card ||= PreviewCard.find_by(url: @original_url.to_s)
       return unless card
 
-      # Return cached card if updated within TTL
       return card if card.updated_at > PREVIEW_CARD_CACHE_TTL.ago
 
       nil
@@ -92,22 +92,24 @@ module NewsmastMastodon
 
     # Save extracted metadata to PreviewCard table.
     def save_preview_card(attributes)
-      card = PreviewCard.find_or_initialize_by(url: @url)
-      card.title = attributes[:title].to_s
-      card.description = attributes[:description].to_s
-      card.type = attributes[:type] || :link
+      [@url, @original_url.to_s].uniq.each do |candidate_url|
+        next if candidate_url.blank?
 
-      # Handle images: if present, set image_remote_url for Paperclip attachment
-      if attributes[:images].present? && attributes[:images].first&.dig(:src)
-        card.image_remote_url = attributes[:images].first[:src]
-        card.width = attributes[:images].first[:width].to_i
-        card.height = attributes[:images].first[:height].to_i
+        card = PreviewCard.find_or_initialize_by(url: candidate_url)
+        card.title = attributes[:title].to_s
+        card.description = attributes[:description].to_s
+        card.type = attributes[:type] || :link
+
+        if attributes[:images].present? && attributes[:images].first&.dig(:src)
+          card.image_remote_url = attributes[:images].first[:src]
+          card.width = attributes[:images].first[:width].to_i
+          card.height = attributes[:images].first[:height].to_i
+        end
+
+        card.save_with_optional_image!
       end
-
-      card.save_with_optional_image!
     rescue StandardError => e
       Rails.logger.debug { "Error saving preview card for #{@url}: #{e.message}" }
-      # Don't raise; allow the already-computed response to be returned
     end
 
     # Mirrors FetchLinkCardService#html: only accept successful HTML responses,
