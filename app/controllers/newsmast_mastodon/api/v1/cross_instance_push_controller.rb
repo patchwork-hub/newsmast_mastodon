@@ -15,13 +15,13 @@ module NewsmastMastodon::Api::V1
     before_action :authenticate_cross_instance_request!
 
     def create
-      puts "Received cross-instance push request with params=#{params.to_unsafe_h}"
+      Rails.logger.info "Received cross-instance push request with params=#{params.to_unsafe_h}"
       unless valid_params?
         render json: { error: "Invalid request" }, status: :unprocessable_entity
         return
       end
 
-      puts "Calling CrossInstancePushWorker with sanitized data=#{sanitized_data}"
+      Rails.logger.info "Calling CrossInstancePushWorker with sanitized data=#{sanitized_data}"
 
       NewsmastMastodon::CrossInstancePushWorker.perform_async(
         params[:username].to_s,
