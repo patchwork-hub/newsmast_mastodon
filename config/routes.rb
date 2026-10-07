@@ -128,6 +128,9 @@ NewsmastMastodon::Engine.routes.draw do
 
       post "ghost_webhooks",     to: "webhooks#handle_ghost"
       post "wordpress_webhooks", to: "webhooks#handle_wordpress"
+
+      # Inbound cross-instance push notifications from a trusted partner instance
+      post "cross_instance_push", to: "cross_instance_push#create"
     end
   end
 end
