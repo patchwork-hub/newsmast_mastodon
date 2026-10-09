@@ -13,6 +13,18 @@ RSpec.describe NewsmastMastodon::Concerns::AccountsCreation do
     allow(NewsmastMastodon::CivicrmRoleAssignmentWorker).to receive(:perform_async)
     allow(ENV).to receive(:fetch).and_call_original
     allow(ENV).to receive(:fetch).with("CSID_ROLE_ASSIGNMENT_ENABLED", "false").and_return("true")
+    allow(ENV).to receive(:fetch).with("LOCAL_DOMAIN", nil).and_return("example.test")
+  end
+
+  describe "#signup_reason" do
+    it "keeps a supplied nonblank reason" do
+      expect(controller.send(:signup_reason, "Because I want to join")).to eq("Because I want to join")
+    end
+
+    it "uses the signup fallback for blank or missing reasons" do
+      expect(controller.send(:signup_reason, "   ")).to eq("Signing up via example.test App")
+      expect(controller.send(:signup_reason, nil)).to eq("Signing up via example.test App")
+    end
   end
 
   it "enqueues role assignment for the newly created user" do
