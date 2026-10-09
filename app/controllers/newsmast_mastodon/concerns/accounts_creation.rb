@@ -10,7 +10,8 @@ module NewsmastMastodon::Concerns::AccountsCreation
     membership_result = NewsmastMastodon::CivicrmMembershipCheckService.new(account_params[:email]).call
     return render_membership_error(membership_result.error_message) unless membership_result.valid?
 
-    params_with_reason = account_params.merge(reason: "Signing up via #{ ENV.fetch('LOCAL_DOMAIN', nil) } App")
+    params_with_reason = account_params
+    params_with_reason[:reason] = signup_reason(params_with_reason[:reason])
     fields_attributes = membership_fields_attributes(membership_result.user_groups)
     params_with_reason[:fields_attributes] = fields_attributes if fields_attributes.present?
     token    = AppSignUpService.new.call(doorkeeper_token.application, request.remote_ip, params_with_reason)
@@ -29,6 +30,10 @@ module NewsmastMastodon::Concerns::AccountsCreation
   end
 
   private
+
+  def signup_reason(reason)
+    reason.presence || "Signing up via #{ ENV.fetch('LOCAL_DOMAIN', nil) } App"
+  end
 
   def enqueue_role_assignment(token)
     enabled = ActiveModel::Type::Boolean.new.cast(ENV.fetch("CSID_ROLE_ASSIGNMENT_ENABLED", "false"))
