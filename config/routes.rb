@@ -35,6 +35,8 @@ NewsmastMastodon::Engine.routes.draw do
 
       resources :user_locales, only: [ :create ]
 
+      post "civicrm_role_assign", to: "civicrm_role_assignments#create"
+
       resources :channels, only: [] do
         collection do
           get :starter_packs_channels
