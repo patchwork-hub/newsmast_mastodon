@@ -13,6 +13,7 @@ import {
 } from 'mastodon/actions/compose';
 import { pasteLinkCompose } from 'mastodon/actions/compose_typed';
 import { openModal } from 'mastodon/actions/modal';
+import { fetchServer } from 'mastodon/actions/server';
 import { PRIVATE_QUOTE_MODAL_ID } from 'mastodon/features/ui/components/confirmation_modals/private_quote_notify';
 import { me } from 'mastodon/initial_state';
 
@@ -55,6 +56,10 @@ const mapDispatchToProps = (dispatch, props) => ({
 
   fetchLocalOnlySetting: () => {
     dispatch(fetchLocalOnlySetting());
+  },
+
+  refreshInstanceConfiguration: () => {
+    dispatch(fetchServer());
   },
 
   onSubmit ({ missingAltText, quoteToPrivate }) {
