@@ -90,6 +90,7 @@ def bootstrap_standalone_test_database!
   ActiveRecord::Schema.verbose = false
   ActiveRecord::Schema.define do
     create_table :server_settings, force: true do |t|
+      t.string :key
       t.string :name
       t.string :optional_value
       t.boolean :value

@@ -14,6 +14,11 @@ module NewsmastMastodon
     has_many :users, through: :user_server_settings
 
     def self.get_long_post(name)
+      if column_names.include?("key")
+        setting = find_by(key: "long_posts")
+        return setting if setting
+      end
+
       find_by(name: name)
     end
   end
