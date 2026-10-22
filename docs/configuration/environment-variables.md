@@ -104,8 +104,8 @@ The automatic alt text feature currently supports [alttext.ai](https://alttext.a
 | --- | --- | --- |
 | LOCAL_DOMAIN | No | Local domain for the Mastodon instance (for example: example.social). Used for deep links and channel detection. |
 | MAIN_CHANNEL | No | Enable main channel mode (affects login behavior). |
-| AUTO_FOLLOW_ENABLED | No | Enable/disable auto-follow behavior for newly registered users (`true`/`false`). |
-| AUTO_FOLLOW_ACCOUNTS | No | Comma-separated list of accounts to auto-follow on user registration. |
+| AUTO_FOLLOW_ENABLED | No | Enable/disable env-configured auto-follow for newly registered users (`true`/`false`). Used when no dashboard auto-follow list is configured for this instance. |
+| AUTO_FOLLOW_ACCOUNTS | No | Comma-separated list of accounts to auto-follow on registration when no dashboard list is configured. An enabled dashboard list takes precedence; a disabled list turns auto-follow off. |
 | WELCOME_EMAIL_DISABLED | No | Disable welcome email for newly registered users (`true` disables sending). |
 
 ## Custom relay and instances timeline
