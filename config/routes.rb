@@ -55,6 +55,16 @@ NewsmastMastodon::Engine.routes.draw do
       #     get :starter_packs_detail
       #   end
       # end
+      post "civicrm_role_assign", to: "civicrm_role_assignments#create"
+
+      resources :channels, only: [] do
+        collection do
+          get :starter_packs_channels
+        end
+        member do
+          get :starter_packs_detail
+        end
+      end
 
       namespace :patchwork do
         resources :alttext_settings, only: [ :index ] do
@@ -165,6 +175,9 @@ NewsmastMastodon::Engine.routes.draw do
 
       post "ghost_webhooks",     to: "webhooks#handle_ghost"
       post "wordpress_webhooks", to: "webhooks#handle_wordpress"
+
+      # Inbound cross-instance push notifications from a trusted partner instance
+      post "cross_instance_push", to: "cross_instance_push#create"
     end
   end
 end

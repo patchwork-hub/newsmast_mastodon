@@ -1,6 +1,41 @@
 # frozen_string_literal: true
 
 namespace :newsmast_mastodon do
+  desc "Remove CSID Badge account fields (DRY_RUN=true by default)"
+  task remove_csid_badge_fields: :environment do
+    dry_run = ActiveModel::Type::Boolean.new.cast(ENV.fetch("DRY_RUN", "true"))
+    batch_size = [ ENV.fetch("BATCH_SIZE", "200").to_i, 1 ].max
+    scope = Account.where("fields @> ?", [{ name: "CSID Badge" }].to_json)
+    total = scope.count
+    removed_accounts = 0
+    removed_fields = 0
+
+    puts "Accounts with CSID Badge fields: #{total}"
+    puts "Dry run: #{dry_run}"
+
+    scope.find_in_batches(batch_size: batch_size) do |batch|
+      batch.each do |account|
+        fields = account[:fields]
+        next unless fields.is_a?(Array)
+
+        remaining_fields = fields.reject do |field|
+          field.is_a?(Hash) && (field["name"] || field[:name]) == "CSID Badge"
+        end
+        removed_count = fields.size - remaining_fields.size
+        next if removed_count.zero?
+
+        unless dry_run
+          account.update_columns(fields: remaining_fields, updated_at: Time.current)
+          removed_accounts += 1
+        end
+        removed_fields += removed_count
+      end
+    end
+
+    puts "Accounts updated: #{removed_accounts}"
+    puts "CSID Badge fields #{dry_run ? "to remove" : "removed"}: #{removed_fields}"
+  end
+
   desc "Backfill blank account fields from CiviCRM user_groups"
   task backfill_csid_badge_fields: :environment do
     start_time = Time.current
