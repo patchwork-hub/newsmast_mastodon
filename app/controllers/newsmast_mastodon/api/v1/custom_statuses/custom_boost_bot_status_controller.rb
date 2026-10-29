@@ -1,3 +1,7 @@
+# GEM_SPLIT[BOOST-01]: Migrated to patchwork_extensions (Gem B) as
+# PatchworkExtensions::Api::V1::CustomStatuses::CustomBoostBotStatusController.
+# Gem A routes for this controller are disabled in config/routes.rb; remove
+# this controller and the commented routes block after the verification window.
 module NewsmastMastodon::Api::V1::CustomStatuses
   class CustomBoostBotStatusController < ::Api::BaseController
     include Redisable if defined?(Redisable)

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# GEM_SPLIT[AUTH-06]: DISABLED at cutover (2026-10-13) — `POST /api/v1/delete_account`
+# is now served by PatchworkExtensions::Api::V1::AccountsController (Gem B).
+# Remove this controller after host verification passes.
 module NewsmastMastodon::Api::V1
   class AccountsController < ::Api::BaseController
     include Redisable if defined?(Redisable)

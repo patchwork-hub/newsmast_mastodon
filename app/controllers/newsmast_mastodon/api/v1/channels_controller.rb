@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# GEM_SPLIT[COMMUNITY-03]: Migrated to patchwork_extensions (Gem B) as
+# PatchworkExtensions::Api::V1::ChannelsController. Keep active until the host
+# enables Gem B and its routes are disabled in config/routes.rb at cutover.
 module NewsmastMastodon::Api::V1
   class ChannelsController < ::Api::BaseController
     include Redisable if defined?(Redisable)
