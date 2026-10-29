@@ -1,3 +1,7 @@
+# GEM_SPLIT[MEDIA-02]: Migrated to patchwork_extensions (Gem B) as
+# PatchworkExtensions::Api::V1::UtilitiesController. Gem A routes for this
+# controller are disabled in config/routes.rb; remove this controller and the
+# commented routes block after the verification window.
 module NewsmastMastodon::Api::V1
   class UtilitiesController < ::Api::BaseController
     def link_preview

@@ -51,7 +51,6 @@ module NewsmastMastodon
       def populate_custom(account)
         limit        = FeedManager::MAX_ITEMS / 2
         aggregate    = account.user&.aggregates_reblogs?
-        timeline_key = key(:custom, account.id)
 
         statuses = Status
                    .where(account: custom_timeline_accounts_for(account))

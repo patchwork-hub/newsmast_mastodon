@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# GEM_SPLIT[AUTH-06]: DISABLED at cutover (2026-10-13) — `POST /api/v1/user_locales`
+# is now served by PatchworkExtensions::Api::V1::UserLocalesController (Gem B).
+# Remove this controller after host verification passes.
 module NewsmastMastodon::Api::V1
   class UserLocalesController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper

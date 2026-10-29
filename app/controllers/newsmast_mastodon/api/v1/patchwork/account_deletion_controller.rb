@@ -1,3 +1,9 @@
+# frozen_string_literal: true
+
+# GEM_SPLIT[AUTH-06]: DISABLED at cutover (2026-10-13) —
+# `DELETE /api/v1/patchwork/account_deletion/:id` is now served by
+# PatchworkExtensions::Api::V1::Patchwork::AccountDeletionController (Gem B).
+# Remove this controller after host verification passes.
 module NewsmastMastodon::Api::V1::Patchwork
   class AccountDeletionController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper

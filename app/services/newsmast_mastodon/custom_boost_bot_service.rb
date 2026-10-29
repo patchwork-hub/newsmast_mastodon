@@ -1,6 +1,11 @@
 # frozen_string_literal: true
 
-
+# GEM_SPLIT[BOOST-01]: Also extracted to patchwork_extensions (Gem B) as
+# PatchworkExtensions::CustomBoostBotService. This Gem A copy REMAINS ACTIVE
+# because NewsmastMastodon::ReblogChannelsWorker (COMMUNITY-02, not yet
+# assigned) still calls it; pointing the worker at Gem B would be a Gem A ->
+# Gem B reverse dependency. Remove this copy when COMMUNITY-02/BOOST-02
+# migrate.
 module NewsmastMastodon
   class CustomBoostBotService < BaseService
     require "httparty"

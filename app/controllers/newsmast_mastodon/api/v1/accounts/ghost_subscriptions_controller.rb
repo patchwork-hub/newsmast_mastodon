@@ -2,6 +2,8 @@ require "httparty"
 require "jwt"
 
 module NewsmastMastodon::Api::V1::Accounts
+  # GEM_SPLIT[CMS-02]: legacy controller retained for reference until host
+  # verification passes. The production route is now served by Gem B.
   class GhostSubscriptionsController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper
     before_action -> { doorkeeper_authorize! :read, :write }
