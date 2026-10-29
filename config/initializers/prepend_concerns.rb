@@ -10,6 +10,12 @@ Rails.application.config.to_prepare do
   # Skip when running in the dummy app (Mastodon host classes not present)
   next unless defined?(Account)
 
+  if defined?(SiteUpload) && !%i[mail_header_logo mail_footer_logo].all? { |var| SiteUpload::STYLES.key?(var) }
+    site_upload_styles = SiteUpload::STYLES.merge(mail_header_logo: {}, mail_footer_logo: {}).freeze
+    SiteUpload.send(:remove_const, :STYLES)
+    SiteUpload.const_set(:STYLES, site_upload_styles)
+  end
+
   # --- Accounts / User ---
   Account.include(NewsmastMastodon::Concerns::AccountConcern)
   Account.include(NewsmastMastodon::Concerns::AccountSearchConcern)

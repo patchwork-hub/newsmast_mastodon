@@ -7,7 +7,9 @@ module NewsmastMastodon
 
     def call(recipient, notification)
       notification_tokens = NewsmastMastodon::NotificationToken.where(account_id: recipient.id)
-      return nil if notification_tokens.empty? || notification_tokens.any? { |token| token.mute }
+      local_push_enabled = notification_tokens.present? && !notification_tokens.any? { |token| token.mute }
+      cross_instance_push_enabled = ENV["CROSS_INSTANCE_PUSH_TARGET_URL"].present? && ENV["CROSS_INSTANCE_PUSH_SECRET"].present?
+      return nil unless local_push_enabled || cross_instance_push_enabled
 
       body = ""
       destination_id = 0
@@ -99,8 +101,20 @@ module NewsmastMastodon
 
       app_title = ENV["NOTIFICATION_SENDER_NAME"] || "Development Patchwork"
 
-      ios_android_devices.each do |device|
-        NewsmastMastodon::FirebaseNotificationService.send_notification(device, app_title, body, data)
+      if cross_instance_push_enabled
+        Rails.logger.info "<<<< Cross-instance push enabled >>>>"
+        NewsmastMastodon::CrossInstancePushDeliveryWorker.perform_async(
+          recipient.username,
+          app_title,
+          body,
+          data.stringify_keys.transform_values(&:to_s)
+        )
+      end
+
+      if local_push_enabled
+        ios_android_devices.each do |device|
+          NewsmastMastodon::FirebaseNotificationService.send_notification(device, app_title, body, data)
+        end
       end
     end
 
