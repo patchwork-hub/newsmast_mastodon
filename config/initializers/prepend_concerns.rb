@@ -59,7 +59,7 @@ Rails.application.config.to_prepare do
   StatusLengthValidator.prepend(LongPost::StatusLengthValidatorPatch)
 
   # --- Filter / Controller overrides ---
-  # AccountStatusesFilter.prepend(NewsmastMastodon::Overrides::ExtendedAccountStatusesFilter)
+  AccountStatusesFilter.prepend(NewsmastMastodon::Overrides::ExtendedAccountStatusesFilter)
 
   Api::V1::AccountsController.prepend(NewsmastMastodon::Concerns::AccountsCreation)
   Api::V1::Accounts::CredentialsController.prepend(NewsmastMastodon::Concerns::AccountsUpdate)
