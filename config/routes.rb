@@ -67,11 +67,15 @@ NewsmastMastodon::Engine.routes.draw do
       end
 
       namespace :patchwork do
-        resources :alttext_settings, only: [ :index ] do
-          collection do
-            post "/alttext", to: "alttext_settings#change_alttext_setting"
-          end
-        end
+        # GEM_SPLIT[MEDIA-01]: DISABLED at cutover (2026-10-29) — these routes are
+        # now served by patchwork_extensions (Gem B), which the host mounts via
+        # `gem "patchwork_extensions", path: "../patchwork_extensions"`. Remove this
+        # block and the Gem A controller after host verification passes.
+        # resources :alttext_settings, only: [ :index ] do
+        #   collection do
+        #     post "/alttext", to: "alttext_settings#change_alttext_setting"
+        #   end
+        # end
         resources :email_settings, only: [ :index ] do
           collection do
             post "/notification", to: "email_settings#email_notification"
