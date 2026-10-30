@@ -12,11 +12,11 @@ RSpec.describe "Consolidated engine routes", type: :routing do
   # CONV-01 conversations, MEDIA-02 utilities/link_preview, AUTH-06
   # user_locales / account_deletion / delete_account, UI-03 .well-known,
   # FEED-02 for_you_custom_timeline, CMS-02 subscribe_leicester,
-  # BOOST-01 custom_statuses/*.
+  # BOOST-01 custom_statuses/*, MEDIA-01 alttext_settings.
   it "routes accounts: custom_passwords, notification_tokens, patchwork/*" do
     expect(named).to include("api_v1_custom_passwords_path", "verify_otp_api_v1_custom_passwords_path", "request_otp_api_v1_custom_passwords_path")
     expect(named).to include("api_v1_notification_tokens_path", "revoke_token_api_v1_notification_tokens_path", "update_mute_api_v1_notification_tokens_path")
-    expect(named).to include("alttext_api_v1_patchwork_alttext_settings_path", "notification_api_v1_patchwork_email_settings_path")
+    expect(named).to include("notification_api_v1_patchwork_email_settings_path")
     expect(named).to include("api_v1_accounts_leicester_notification_path")
 
     expect(helpers.api_v1_custom_passwords_path).to eq("/api/v1/custom_passwords")
@@ -27,7 +27,6 @@ RSpec.describe "Consolidated engine routes", type: :routing do
     expect(helpers.revoke_token_api_v1_notification_tokens_path).to eq("/api/v1/notification_tokens/revoke_token")
     expect(helpers.update_mute_api_v1_notification_tokens_path).to eq("/api/v1/notification_tokens/update_mute")
 
-    expect(helpers.alttext_api_v1_patchwork_alttext_settings_path).to eq("/api/v1/patchwork/alttext_settings/alttext")
     expect(helpers.notification_api_v1_patchwork_email_settings_path).to eq("/api/v1/patchwork/email_settings/notification")
     expect(helpers.api_v1_accounts_leicester_notification_path).to eq("/api/v1/accounts/leicester_notification")
   end
