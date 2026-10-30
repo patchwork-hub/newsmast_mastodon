@@ -21,13 +21,17 @@ module NewsmastMastodon
       def results
         scope = no_boost_channel? ? custom_scope : initial_scope
 
+        Rails.logger.debug("no_boost_channel? #{no_boost_channel?} Custom scope: #{custom_scope.to_sql} or Initial scope: #{initial_scope.to_sql}")
+
+        Rails.logger.debug("pinned? #{pinned?}, only_media? #{only_media?}, exclude_replies? #{exclude_replies?}, exclude_reblogs? #{exclude_reblogs?}, exclude_original_statuses? #{exclude_original_statuses?}, only_reblogs? #{only_reblogs?}, exclude_direct_statuses? #{exclude_direct_statuses?}")
+
         scope.merge!(pinned_scope)     if pinned?
         scope.merge!(only_media_scope) if only_media?
         scope.merge!(no_replies_scope) if exclude_replies?
         scope.merge!(no_reblogs_scope) if exclude_reblogs?
         scope.merge!(no_original_statuses_scope) if exclude_original_statuses?
         scope.merge!(hashtag_scope) if tagged?
-        scope.merge!(only_rebogs_scope) if only_reblogs?
+        scope.merge!(only_reblogs_scope) if only_reblogs?
         scope.merge!(no_direct_statuses_scope) if exclude_direct_statuses?
 
         scope
@@ -35,7 +39,7 @@ module NewsmastMastodon
 
       private
 
-      def only_rebogs_scope
+      def only_reblogs_scope
         Status.fetch_reblogs
       end
 
