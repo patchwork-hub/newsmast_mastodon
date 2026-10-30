@@ -65,7 +65,12 @@ Rails.application.config.to_prepare do
   # --- Filter / Controller overrides ---
   AccountStatusesFilter.prepend(NewsmastMastodon::Overrides::ExtendedAccountStatusesFilter)
 
-  Api::V1::AccountsController.prepend(NewsmastMastodon::Concerns::AccountsCreation)
+  # GEM_SPLIT[AUTH-04]: DISABLED at cutover (2026-10-30) — the create override
+  # (CiviCRM membership gate, community-admin creation, role-assignment
+  # enqueue, plus the carried AUTH-01 OTP and AUTH-05 params behavior) is now
+  # prepended by patchwork_extensions (Gem B). Remove this line and the Gem A
+  # concern after host verification passes.
+  # Api::V1::AccountsController.prepend(NewsmastMastodon::Concerns::AccountsCreation)
   Api::V1::Accounts::CredentialsController.prepend(NewsmastMastodon::Concerns::AccountsUpdate)
   Api::V1::StatusesController.prepend(NewsmastMastodon::Api::V1::StatusesControllerExtension)
   Api::V1::Accounts::StatusesController.prepend(NewsmastMastodon::Overrides::AccountStatusesControllerExtension)

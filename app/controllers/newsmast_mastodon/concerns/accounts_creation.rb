@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 
+# GEM_SPLIT[AUTH-04]: DISABLED at cutover (2026-10-30) — no longer prepended
+# into Api::V1::AccountsController (see config/initializers/prepend_concerns.rb);
+# PatchworkExtensions::Concerns::AccountsCreation serves the create flow while
+# both gems are loaded. Retained until the verification window closes; then
+# remove this file and spec/controllers/newsmast_mastodon/concerns/accounts_creation_spec.rb.
 module NewsmastMastodon::Concerns::AccountsCreation
   extend ActiveSupport::Concern
   include NonChannelHelper

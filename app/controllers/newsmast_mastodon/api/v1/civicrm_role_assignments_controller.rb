@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+# GEM_SPLIT[AUTH-04]: DISABLED at cutover (2026-10-30) — unrouted; Gem B's
+# PatchworkExtensions::Api::V1::CivicrmRoleAssignmentsController serves
+# POST /api/v1/civicrm_role_assign. Retained until the verification window
+# closes; then remove this file.
 module NewsmastMastodon::Api::V1
   class CivicrmRoleAssignmentsController < ::Api::BaseController
     include ::NewsmastMastodon::Concerns::ApiResponseHelper

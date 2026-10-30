@@ -55,7 +55,11 @@ NewsmastMastodon::Engine.routes.draw do
       #     get :starter_packs_detail
       #   end
       # end
-      post "civicrm_role_assign", to: "civicrm_role_assignments#create"
+      # GEM_SPLIT[AUTH-04]: DISABLED at cutover (2026-10-30) — this route is
+      # now served by patchwork_extensions (Gem B), which the host mounts via
+      # `gem "patchwork_extensions", path: "../patchwork_extensions"`. Remove this
+      # line and the Gem A controller after host verification passes.
+      # post "civicrm_role_assign", to: "civicrm_role_assignments#create"
 
       resources :channels, only: [] do
         collection do
