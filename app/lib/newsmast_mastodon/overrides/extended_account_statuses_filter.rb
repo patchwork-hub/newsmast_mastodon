@@ -21,9 +21,9 @@ module NewsmastMastodon
       def results
         scope = no_boost_channel? ? custom_scope : initial_scope
 
-        Rails.logger.debug("no_boost_channel? #{no_boost_channel?} Custom scope: #{custom_scope.to_sql} or Initial scope: #{initial_scope.to_sql}")
+        Rails.logger.info("[ExtendedAccountStatusesFilter] no_boost_channel? #{no_boost_channel?} Custom scope: #{custom_scope.to_sql} or Initial scope: #{initial_scope.to_sql}")
 
-        Rails.logger.debug("pinned? #{pinned?}, only_media? #{only_media?}, exclude_replies? #{exclude_replies?}, exclude_reblogs? #{exclude_reblogs?}, exclude_original_statuses? #{exclude_original_statuses?}, only_reblogs? #{only_reblogs?}, exclude_direct_statuses? #{exclude_direct_statuses?}")
+        Rails.logger.info("[ExtendedAccountStatusesFilter] pinned? #{pinned?}, only_media? #{only_media?}, exclude_replies? #{exclude_replies?}, exclude_reblogs? #{exclude_reblogs?}, exclude_original_statuses? #{exclude_original_statuses?}, only_reblogs? #{only_reblogs?}, exclude_direct_statuses? #{exclude_direct_statuses?}")
 
         scope.merge!(pinned_scope)     if pinned?
         scope.merge!(only_media_scope) if only_media?
