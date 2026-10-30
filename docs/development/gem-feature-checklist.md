@@ -86,22 +86,90 @@ exercise rejection, service failure and registration-required responses.
 Membership checks for registration, membership-derived profile fields, role lookup
 and asynchronous role assignment; maintenance tasks backfill fields and roles.
 
-Target gem: Undecided. State: configuration-dependent.
+Target gem: Gem B (`patchwork_extensions`). State: extracted; Gem A route and
+the AccountsCreation prepend disabled at cutover (2026-10-30); host-mode
+request specs plus standalone-capable service/worker/concern specs pass (61
+examples, 0 failures targeted host-mode; full Gem B host suite 124 examples,
+6 pre-existing COMMUNITY-03 failures; standalone 124 examples, 0 failures,
+73 pending; Gem A sanity specs 42 examples, 0 failures, 7 pending).
 
-Sources: [civicrm_membership_check_service.rb](../../app/services/newsmast_mastodon/civicrm_membership_check_service.rb),
+Gem A sources (disabled, marked `GEM_SPLIT[AUTH-04]`; remove after the
+verification window):
+[config/routes.rb](../../config/routes.rb) (`post "civicrm_role_assign"`,
+commented out),
+[config/initializers/prepend_concerns.rb](../../config/initializers/prepend_concerns.rb)
+(`Api::V1::AccountsController.prepend(...AccountsCreation)`, commented out),
+[civicrm_role_assignments_controller.rb](../../app/controllers/newsmast_mastodon/api/v1/civicrm_role_assignments_controller.rb)
+(unrouted; this endpoint was missing from the original source list and was
+discovered during extraction) and
+[accounts_creation.rb](../../app/controllers/newsmast_mastodon/concerns/accounts_creation.rb)
+(unwired). The Gem A request specs were deleted at cutover (moved to Gem B).
+
+Gem A sources retained (still active; remove after the verification window):
+[civicrm_membership_check_service.rb](../../app/services/newsmast_mastodon/civicrm_membership_check_service.rb),
 [civicrm_role_check_service.rb](../../app/services/newsmast_mastodon/civicrm_role_check_service.rb),
-[civicrm_role_assignment_worker.rb](../../app/workers/newsmast_mastodon/civicrm_role_assignment_worker.rb),
-[accounts_creation.rb](../../app/controllers/newsmast_mastodon/concerns/accounts_creation.rb),
+[civicrm_role_assignment_worker.rb](../../app/workers/newsmast_mastodon/civicrm_role_assignment_worker.rb)
+stay for in-flight jobs (INFRA-05), and
 [csid_membership_fields.rake](../../lib/tasks/newsmast_mastodon/csid_membership_fields.rake),
-[csid_role_assignment.rake](../../lib/tasks/newsmast_mastodon/csid_role_assignment.rake).
-Dependencies: external CRM, feature configuration, host roles/profile fields and Sidekiq.
-Verification: [accounts_registration_membership_spec.rb](../../spec/requests/newsmast_mastodon/api/v1/accounts_registration_membership_spec.rb),
-[civicrm_role_check_service_spec.rb](../../spec/services/newsmast_mastodon/civicrm_role_check_service_spec.rb);
-check disabled mode, non-members, transient failures and retry behavior.
+[csid_role_assignment.rake](../../lib/tasks/newsmast_mastodon/csid_role_assignment.rake)
+stay runnable under the `newsmast_mastodon:` namespace during the window
+(same treatment as BOOST-01's retained service).
 
-- [ ] Assigned
-- [ ] Migrated
-- [ ] Verified
+Gem B sources (sibling repo `patchwork_extensions`):
+[civicrm_membership_check_service.rb](../../../patchwork_extensions/app/services/patchwork_extensions/civicrm_membership_check_service.rb),
+[civicrm_role_check_service.rb](../../../patchwork_extensions/app/services/patchwork_extensions/civicrm_role_check_service.rb),
+[civicrm_role_assignment_worker.rb](../../../patchwork_extensions/app/workers/patchwork_extensions/civicrm_role_assignment_worker.rb),
+[civicrm_role_assignments_controller.rb](../../../patchwork_extensions/app/controllers/patchwork_extensions/api/v1/civicrm_role_assignments_controller.rb),
+[accounts_creation.rb](../../../patchwork_extensions/app/controllers/patchwork_extensions/concerns/accounts_creation.rb),
+[patchwork_mastodon_helper.rb](../../../patchwork_extensions/app/helpers/patchwork_mastodon_helper.rb),
+[prepend_concerns.rb](../../../patchwork_extensions/config/initializers/prepend_concerns.rb),
+[routes.rb](../../../patchwork_extensions/config/routes.rb),
+[config/locales/en.yml](../../../patchwork_extensions/config/locales/en.yml),
+[csid_membership_fields.rake](../../../patchwork_extensions/lib/tasks/patchwork_extensions/csid_membership_fields.rake),
+[csid_role_assignment.rake](../../../patchwork_extensions/lib/tasks/patchwork_extensions/csid_role_assignment.rake).
+
+Dependencies: external CiviCRM API, the `CIVICRM_BASE_URL`,
+`CIVICRM_AUTH_TOKEN`, `CSID_MEMBERSHIP_CHECK_ENABLED`,
+`CSID_MEMBERSHIP_ALLOWLIST_EMAILS` and `CSID_ROLE_ASSIGNMENT_ENABLED` ENV vars,
+host `User`/`UserRole`/`AppSignUpService`/`ValidationErrorFormatter`, Sidekiq,
+and Gem A's `CustomPasswordsMailer` (AUTH-01, undecided — the carried
+`generate_opt_token` call is guarded by `defined?(CustomPasswordsMailer)`).
+The patchwork tables stay Gem A-owned per the split decision: Gem B's
+`create_community_admin` reaches `NewsmastMastodon::CommunityAdmin` through
+the guarded `patchwork_community_admin_exist?` check in the unified
+`PatchworkMastodonHelper` (which replaces Gem A's NonChannelHelper,
+PatchworkHelper and MoMeHelper for this concern); no Gem B migrations are
+introduced. The Gem B `create` override is monolithic like Gem A's, so the
+AUTH-01 OTP generation and AUTH-05 account params/signup-reason defaults ride
+along unchanged until those features are assigned. Gem B's rake tasks are
+re-namespaced to `patchwork_extensions:remove_csid_badge_fields`,
+`patchwork_extensions:backfill_csid_badge_fields` and
+`patchwork_extensions:backfill_csid_roles` (behavior unchanged). Gem B's
+dummy app now requires `active_model/railtie` so the extracted ENV-flag casts
+load standalone. The `api.account.errors.membership_not_eligible` locale key
+was duplicated into Gem B's en.yml (English only; Gem A still ships the other
+locales until the window closes).
+Verification: [accounts_registration_membership_spec.rb](../../../patchwork_extensions/spec/requests/patchwork_extensions/api/v1/accounts_registration_membership_spec.rb)
+(host-mode: membership-gate 422, signup service not called),
+[civicrm_role_assignments_spec.rb](../../../patchwork_extensions/spec/requests/patchwork_extensions/api/v1/civicrm_role_assignments_spec.rb)
+(host-mode: enqueue, 401 without token, 403 when disabled, 403 without write
+scope),
+[civicrm_membership_check_service_spec.rb](../../../patchwork_extensions/spec/services/patchwork_extensions/civicrm_membership_check_service_spec.rb)
+(standalone-capable: disabled/forced modes, allowlist, user-group extraction),
+[civicrm_role_check_service_spec.rb](../../../patchwork_extensions/spec/services/patchwork_extensions/civicrm_role_check_service_spec.rb)
+(standalone-capable: group priority, transient failures),
+[civicrm_role_assignment_worker_spec.rb](../../../patchwork_extensions/spec/workers/patchwork_extensions/civicrm_role_assignment_worker_spec.rb)
+(standalone-capable: role mapping, no-overwrite, transient retry) and
+[accounts_creation_spec.rb](../../../patchwork_extensions/spec/controllers/patchwork_extensions/concerns/accounts_creation_spec.rb)
+(standalone-capable: enqueue gating, signup-reason default). Evidence recorded
+in
+[gem-split-implementation-log.md](../../../patchwork_extensions/docs/development/gem-split-implementation-log.md).
+Cutover: DONE (2026-10-30) — Gem A route and AccountsCreation prepend
+commented out.
+
+- [x] Assigned
+- [x] Migrated
+- [x] Verified
 
 ### AUTH-05: Signup Defaults, Profile Updates and Auto-Follow
 
@@ -294,21 +362,66 @@ verify callbacks execute once and cleanup survives the split.
 External image-description API integration, upload processing, background
 generation and the user opt-in settings API.
 
-Target gem: Undecided. State: configuration-dependent.
+Target gem: Gem B (`patchwork_extensions`). State: extracted; Gem A routes and
+the concern's alt-text callback disabled at cutover (2026-10-29); host-mode
+request, service and concern specs pass (17 examples, 0 failures; Gem A sanity
+specs 7 examples, 0 failures).
 
-Sources: [alt_text_ai_api_service.rb](../../app/services/newsmast_mastodon/alt_text_ai_api_service.rb),
+Gem A sources (disabled, marked `GEM_SPLIT[MEDIA-01]`; remove after the
+verification window):
+[config/routes.rb](../../config/routes.rb) (`resources :alttext_settings`
+block, commented out) and the alt-text callback/predicate methods in
+[media_attachment_concern.rb](../../app/models/newsmast_mastodon/concerns/media_attachment_concern.rb)
+(commented out; the draft-post association and attached/unattached scopes stay
+with POST-01). The Gem A request specs were deleted at cutover; the concern
+spec moved to Gem B.
+
+Gem A sources retained (still active; remove after the verification window):
+[alt_text_ai_api_service.rb](../../app/services/newsmast_mastodon/alt_text_ai_api_service.rb),
 [after_upload_image_service.rb](../../app/services/newsmast_mastodon/after_upload_image_service.rb),
-[media_attachment_concern.rb](../../app/models/newsmast_mastodon/concerns/media_attachment_concern.rb),
 [generate_alt_text_worker.rb](../../app/workers/newsmast_mastodon/generate_alt_text_worker.rb),
-[alttext_settings_controller.rb](../../app/controllers/newsmast_mastodon/api/v1/patchwork/alttext_settings_controller.rb).
-Dependencies: provider configuration, user preference column, attachments and Sidekiq.
-Verification: [alt_text_ai_api_service_spec.rb](../../spec/services/newsmast_mastodon/alt_text_ai_api_service_spec.rb),
-[media_attachment_concern_spec.rb](../../spec/models/concerns/media_attachment_concern_spec.rb);
-check opt-out, existing descriptions, provider failure and worker retries.
+[alttext_get_account.rb](../../app/models/newsmast_mastodon/alttext_get_account.rb),
+[alttext_create_image.rb](../../app/models/newsmast_mastodon/alttext_create_image.rb)
+stay for in-flight jobs (INFRA-05) and resolve `can_generate_alt?` through Gem
+B's concern while both gems are loaded (same treatment as BOOST-01's retained
+service). The unrouted Gem A controller
+[alttext_settings_controller.rb](../../app/controllers/newsmast_mastodon/api/v1/patchwork/alttext_settings_controller.rb)
+is also kept until the window closes.
 
-- [ ] Assigned
-- [ ] Migrated
-- [ ] Verified
+Gem B sources (sibling repo `patchwork_extensions`):
+[alttext_settings_controller.rb](../../../patchwork_extensions/app/controllers/patchwork_extensions/api/v1/patchwork/alttext_settings_controller.rb),
+[media_attachment_concern.rb](../../../patchwork_extensions/app/models/patchwork_extensions/concerns/media_attachment_concern.rb),
+[after_upload_image_service.rb](../../../patchwork_extensions/app/services/patchwork_extensions/after_upload_image_service.rb),
+[alt_text_ai_api_service.rb](../../../patchwork_extensions/app/services/patchwork_extensions/alt_text_ai_api_service.rb),
+[alttext_get_account.rb](../../../patchwork_extensions/app/models/patchwork_extensions/alttext_get_account.rb),
+[alttext_create_image.rb](../../../patchwork_extensions/app/models/patchwork_extensions/alttext_create_image.rb),
+[generate_alt_text_worker.rb](../../../patchwork_extensions/app/workers/patchwork_extensions/generate_alt_text_worker.rb),
+[prepend_concerns.rb](../../../patchwork_extensions/config/initializers/prepend_concerns.rb),
+[routes.rb](../../../patchwork_extensions/config/routes.rb).
+
+Dependencies: host `MediaAttachment`/`User` (the `alttext_enabled` column stays
+Gem A-owned schema, INFRA-03), Sidekiq, and the `ALT_TEXT_URL`,
+`ALT_TEXT_SECRET`, `ALT_TEXT_ENABLED`, `ALT_TEXT_USER_TOGGLE` and
+`SKIP_ALT_TEXT_USER_SETTING` ENV vars; alttext.ai is the only supported
+provider. Contract quirk preserved unchanged and flagged for follow-up review:
+a missing/non-boolean `enabled` param casts to nil and violates the
+`users.alttext_enabled` NOT NULL constraint (raises instead of toggling).
+Before-action order: doorkeeper first, so unauthenticated requests get 401
+(matches AUTH-06's `/patchwork/account_deletion` contract).
+Verification: [alttext_settings_spec.rb](../../../patchwork_extensions/spec/requests/patchwork_extensions/api/v1/patchwork/alttext_settings_spec.rb)
+(host-mode: index value, enable/disable, missing-param quirk, auth),
+[alt_text_ai_api_service_spec.rb](../../../patchwork_extensions/spec/services/patchwork_extensions/alt_text_ai_api_service_spec.rb)
+(standalone-capable: request contract) and
+[media_attachment_concern_spec.rb](../../../patchwork_extensions/spec/models/patchwork_extensions/concerns/media_attachment_concern_spec.rb)
+(standalone-capable: content-type, existing-description, local-authorship
+checks). Evidence recorded in
+[gem-split-implementation-log.md](../../../patchwork_extensions/docs/development/gem-split-implementation-log.md).
+Cutover: DONE (2026-10-29) — Gem A routes block and concern alt-text callback
+commented out.
+
+- [x] Assigned
+- [x] Migrated
+- [x] Verified
 
 ### MEDIA-02: Link Previews
 
@@ -443,7 +556,7 @@ Cutover: DONE (2026-10-16) — Gem A route commented out.
 - [x] Migrated
 - [x] Verified
 
-### FEED-03: Instances and Relay-Domain Timelines
+### FEED-03: Instances and Relay-Domain Timelines (moved)
 
 Read relay-domain feeds and combine selected domains with home-timeline content.
 Relay connection management is tracked under RELAY-01.
@@ -536,7 +649,7 @@ Cutover: DONE (2026-10-08) — Gem A routes block commented out; Gem B engine mo
 - [x] Migrated
 - [x] Verified
 
-### COMMUNITY-04: Waitlist and Invitation State
+### COMMUNITY-04: Waitlist and Invitation State (removed)
 
 Waitlist records, invitation codes, channel/hub type and confirmation-time usage
 handling. Do not infer a complete invitation-management API from the model alone.
