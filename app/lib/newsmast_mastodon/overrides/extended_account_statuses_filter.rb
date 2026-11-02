@@ -27,7 +27,7 @@ module NewsmastMastodon
         scope.merge!(no_reblogs_scope) if exclude_reblogs?
         scope.merge!(no_original_statuses_scope) if exclude_original_statuses?
         scope.merge!(hashtag_scope) if tagged?
-        scope.merge!(only_rebogs_scope) if only_reblogs?
+        scope.merge!(only_reblogs_scope) if only_reblogs?
         scope.merge!(no_direct_statuses_scope) if exclude_direct_statuses?
 
         scope
@@ -35,7 +35,7 @@ module NewsmastMastodon
 
       private
 
-      def only_rebogs_scope
+      def only_reblogs_scope
         Status.fetch_reblogs
       end
 
