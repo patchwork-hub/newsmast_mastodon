@@ -16,21 +16,6 @@ sr-Latn:
       greeting: Poštovani %{name},
       instruction: 'Vaš OTP kod za verifikaciju naloga je:'
       note: Ako niste tražili ovo, ignorišite ovaj email
-  login_service:
-    errors:
-      invalid_credentials: Neispravni podaci. Pokušajte ponovo
-      unauthorized_access: Nemate pristup za prijavu
-      channel_not_created: Neispravni podaci. Proverite da li ste kreirali kanal
-      account_deleted: Vaš nalog je već obrisan
-      invalid_role_access: "%{role} nema dozvolu za prijavu"
-      deactivated_channel: Vaš kanal je deaktiviran. Kontaktirajte podršku
-      two_factor_enabled: Dvofaktorska autentifikacija je omogućena. Molimo prijavite
-        se putem veb interfejsa
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Pokušajte ponovo. Neispravni podaci sa beebee.io
-      registration_required: 'Molimo registrujte lokalni nalog. podaci: %{data}'
-      connection_error: 'Greška povezivanja sa servisom članstva: %{error}'
   api:
     errors:
       unauthorized: Nemate ovlašćenja za ovu radnju
@@ -59,16 +44,12 @@ sr-Latn:
         email_not_found: E-mail nije pronađen!
         email_invalid: Neispravan format e-maila
         email_taken: E-mail je već zauzet
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Ažuriranje e-maila nije uspelo
         password_unmatch: Lozinke se ne poklapaju
         password_update_fail: Ažuriranje lozinke nije uspelo
         otp_invalid: Neispravan OTP!
-        register_not_allow: Nemate dozvolu za registraciju!
         missing_field: Nedostaju obavezna polja
         password_incorrect: Trenutna lozinka je netačna
-        username_taken: Korisničko ime je već zauzeto
       messages:
         password_updated: Lozinka je ažurirana
     domain:

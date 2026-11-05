@@ -16,20 +16,6 @@ zh-CN:
       greeting: 亲爱的 %{name},
       instruction: 您的账户验证 OTP 码如下：
       note: 如果您没有请求此操作，请忽略此邮件
-  login_service:
-    errors:
-      invalid_credentials: 凭证无效。请重试
-      unauthorized_access: 您没有登录权限
-      channel_not_created: 凭证无效。请确保您已创建频道
-      account_deleted: 您的账户已被删除
-      invalid_role_access: "%{role} 无权登录"
-      deactivated_channel: 您的频道已停用。请联系支持
-      two_factor_enabled: 已启用双因素身份验证。请通过网页界面登录
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: 请重试。来自 beebee.io 的凭证无效
-      registration_required: 请在本地注册账户。数据：%{data}
-      connection_error: 连接会员服务时出错：%{error}
   api:
     errors:
       unauthorized: 您无权执行此操作
@@ -58,16 +44,12 @@ zh-CN:
         email_not_found: 未找到邮箱!
         email_invalid: 邮箱格式无效
         email_taken: 邮箱已被占用
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: 邮箱更新失败
         password_unmatch: 密码不匹配
         password_update_fail: 密码更新失败
         otp_invalid: OTP 无效!
-        register_not_allow: 您无权注册!
         missing_field: 缺少必填字段
         password_incorrect: 当前密码不正确
-        username_taken: 用户名已被占用
       messages:
         password_updated: 密码已更新
     domain:

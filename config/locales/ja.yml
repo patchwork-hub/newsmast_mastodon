@@ -16,20 +16,6 @@ ja:
       greeting: "%{name} 様、"
       instruction: 'あなたのアカウント認証OTPコードは以下の通りです:'
       note: このメールに心当たりがない場合は、無視してください
-  login_service:
-    errors:
-      invalid_credentials: 無効な認証情報です。もう一度お試しください
-      unauthorized_access: ログインする権限がありません
-      channel_not_created: 無効な認証情報です。チャンネルを作成したかご確認ください
-      account_deleted: あなたのアカウントはすでに削除されています
-      invalid_role_access: "%{role} はログインできません"
-      deactivated_channel: あなたのチャンネルは無効化されています。サポートに連絡してください
-      two_factor_enabled: 二段階認証が有効です。ウェブインターフェースからログインしてください
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: もう一度お試しください。beebee.ioからの認証情報が無効です
-      registration_required: 'ローカルアカウントを登録してください。データ: %{data}'
-      connection_error: 'メンバーシップサービスへの接続エラー: %{error}'
   api:
     errors:
       unauthorized: この操作を行う権限がありません
@@ -58,16 +44,12 @@ ja:
         email_not_found: メールが見つかりません!
         email_invalid: 無効なメール形式です
         email_taken: メールは既に使用されています
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: メールの更新に失敗しました
         password_unmatch: パスワードが一致しません
         password_update_fail: パスワードの更新に失敗しました
         otp_invalid: 無効なOTPです!
-        register_not_allow: 登録する権限がありません!
         missing_field: 必須フィールドが不足しています
         password_incorrect: 現在のパスワードが正しくありません
-        username_taken: ユーザー名は既に使用されています
       messages:
         password_updated: パスワードが更新されました
     domain:

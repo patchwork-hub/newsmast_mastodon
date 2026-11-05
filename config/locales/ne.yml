@@ -16,22 +16,6 @@ ne:
       greeting: प्रिय %{name},
       instruction: 'तपाईंको खाता प्रमाणीकरण OTP कोड:'
       note: यदि तपाईंले यो अनुरोध गर्नुभएको छैन भने, कृपया यो इमेललाई बेवास्ता गर्नुहोस्
-  login_service:
-    errors:
-      invalid_credentials: 'अवैध प्रमाणपत्रहरू। कृपया पुन: प्रयास गर्नुहोस्'
-      unauthorized_access: तपाईंलाई लगइन गर्न अनुमति छैन
-      channel_not_created: अवैध प्रमाणपत्रहरू। कृपया सुनिश्चित गर्नुहोस् कि तपाईंले
-        च्यानल सिर्जना गर्नुभएको छ
-      account_deleted: तपाईंको खाता पहिले नै हटाइएको छ
-      invalid_role_access: "%{role} लाई लगइन गर्न अनुमति छैन"
-      deactivated_channel: तपाईंको च्यानल निष्क्रिय छ। कृपया समर्थनमा सम्पर्क गर्नुहोस्
-      two_factor_enabled: दुई-कारक प्रमाणीकरण सक्षम छ। कृपया वेब इन्टरफेस मार्फत लगइन
-        गर्नुहोस्
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: 'कृपया पुन: प्रयास गर्नुहोस्। beebee.io बाट अवैध प्रमाणपत्रहरू'
-      registration_required: 'कृपया स्थानीय खाता दर्ता गर्नुहोस्। डाटा: %{data}'
-      connection_error: 'सदस्यता सेवासँग जडान गर्दा त्रुटि: %{error}'
   api:
     errors:
       unauthorized: तपाईंलाई यो कार्य गर्न अनुमति छैन
@@ -60,16 +44,12 @@ ne:
         email_not_found: इमेल फेला परेन!
         email_invalid: अवैध इमेल ढाँचा
         email_taken: इमेल पहिले नै लिइएको छ
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: इमेल अद्यावधिक असफल भयो
         password_unmatch: पासवर्डहरू मेल खाएनन्
         password_update_fail: पासवर्ड अद्यावधिक असफल भयो
         otp_invalid: अवैध OTP!
-        register_not_allow: तपाईंलाई दर्ता गर्न अनुमति छैन!
         missing_field: आवश्यक फिल्डहरू हराइरहेका छन्
         password_incorrect: हालको पासवर्ड गलत छ
-        username_taken: प्रयोगकर्ता नाम पहिले नै लिइएको छ
       messages:
         password_updated: पासवर्ड अद्यावधिक गरियो
     domain:

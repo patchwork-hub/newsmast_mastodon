@@ -29,23 +29,11 @@
       "value": ""
     },
     {
-      "key": "channel_id",
-      "value": ""
-    },
-    {
       "key": "platform_type",
       "value": "ios"
     },
     {
       "key": "account_id",
-      "value": ""
-    },
-    {
-      "key": "starter_pack_source",
-      "value": "twt"
-    },
-    {
-      "key": "app_name",
       "value": ""
     },
     {
@@ -95,14 +83,6 @@
     {
       "key": "relay_inbox_url",
       "value": "https://relay.example.com/inbox"
-    },
-    {
-      "key": "ghost_signature",
-      "value": "sha256=example,t=1710000000"
-    },
-    {
-      "key": "wordpress_auth_token",
-      "value": ""
     }
   ],
   "item": [
@@ -319,27 +299,6 @@
       "response": []
     },
     {
-      "name": "POST /api/v1/custom_passwords/bristol_cable_sign_in",
-      "request": {
-        "method": "POST",
-        "header": [],
-        "url": {
-          "raw": "{{base_url}}/api/v1/custom_passwords/bristol_cable_sign_in",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "custom_passwords",
-            "bristol_cable_sign_in"
-          ]
-        },
-        "description": "Controller: custom_passwords#bristol_cable_sign_in"
-      },
-      "response": []
-    },
-    {
       "name": "POST /api/v1/notification_tokens",
       "request": {
         "method": "POST",
@@ -517,61 +476,6 @@
             }
           }
         }
-      },
-      "response": []
-    },
-    {
-      "name": "GET /api/v1/channels/starter_packs_channels",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base_url}}/api/v1/channels/starter_packs_channels?starter_pack_source={{starter_pack_source}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "channels",
-            "starter_packs_channels"
-          ],
-          "query": [
-            {
-              "key": "starter_pack_source",
-              "value": "{{starter_pack_source}}"
-            }
-          ]
-        },
-        "description": "Controller: channels#starter_packs_channels"
-      },
-      "response": []
-    },
-    {
-      "name": "GET /api/v1/channels/:id/starter_packs_detail",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{base_url}}/api/v1/channels/{{id}}/starter_packs_detail?starter_pack_source={{starter_pack_source}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "channels",
-            "{{id}}",
-            "starter_packs_detail"
-          ],
-          "query": [
-            {
-              "key": "starter_pack_source",
-              "value": "{{starter_pack_source}}"
-            }
-          ]
-        },
-        "description": "Controller: channels#starter_packs_detail"
       },
       "response": []
     },
@@ -812,205 +716,6 @@
         "body": {
           "mode": "raw",
           "raw": "{\n  \"password\": \"password\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "GET /api/v1/accounts/leicester_notification",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/accounts/leicester_notification?app_name={{app_name}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "accounts",
-            "leicester_notification"
-          ],
-          "query": [
-            {
-              "key": "app_name",
-              "value": "{{app_name}}"
-            }
-          ]
-        },
-        "description": "Controller: accounts/patchwork_settings#leicester_news_notification",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"allowed\": true,\n  \"app_name\": \"{{app_name}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "POST /api/v1/accounts/leicester_notification",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/accounts/leicester_notification?app_name={{app_name}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "accounts",
-            "leicester_notification"
-          ],
-          "query": [
-            {
-              "key": "app_name",
-              "value": "{{app_name}}"
-            }
-          ]
-        },
-        "description": "Controller: accounts/patchwork_settings#update_leicester_news_notification",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"allowed\": true,\n  \"app_name\": \"{{app_name}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "POST /api/v1/accounts/subscribe_leicester",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/accounts/subscribe_leicester",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "accounts",
-            "subscribe_leicester"
-          ]
-        },
-        "description": "Controller: accounts/ghost_subscriptions#manage_subscription",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"email\": \"user@example.com\",\n  \"subscribe\": true\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "GET /api/v1/accounts/article_notifications",
-      "request": {
-        "method": "GET",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/accounts/article_notifications?app_name={{app_name}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "accounts",
-            "article_notifications"
-          ],
-          "query": [
-            {
-              "key": "app_name",
-              "value": "{{app_name}}"
-            }
-          ]
-        },
-        "description": "Controller: accounts/patchwork_settings#article_notifications",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"allowed\": true,\n  \"app_name\": \"{{app_name}}\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "POST /api/v1/accounts/article_notifications",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/accounts/article_notifications?app_name={{app_name}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "accounts",
-            "article_notifications"
-          ],
-          "query": [
-            {
-              "key": "app_name",
-              "value": "{{app_name}}"
-            }
-          ]
-        },
-        "description": "Controller: accounts/patchwork_settings#update_article_notifications",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"allowed\": true,\n  \"app_name\": \"{{app_name}}\"\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -1562,80 +1267,6 @@
           ]
         },
         "description": "Controller: relays#destroy"
-      },
-      "response": []
-    },
-    {
-      "name": "POST /api/v1/ghost_webhooks",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/ghost_webhooks",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "ghost_webhooks"
-          ]
-        },
-        "description": "Controller: webhooks#handle_ghost",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"post\": {\n    \"id\": \"1\",\n    \"title\": \"Example\"\n  }\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "POST /api/v1/wordpress_webhooks",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{base_url}}/api/v1/wordpress_webhooks?auth_token={{wordpress_auth_token}}",
-          "host": [
-            "{{base_url}}"
-          ],
-          "path": [
-            "api",
-            "v1",
-            "wordpress_webhooks"
-          ],
-          "query": [
-            {
-              "key": "auth_token",
-              "value": "{{wordpress_auth_token}}"
-            }
-          ]
-        },
-        "description": "Controller: webhooks#handle_wordpress",
-        "body": {
-          "mode": "raw",
-          "raw": "{\n  \"id\": \"1\",\n  \"title\": \"Example\"\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
       },
       "response": []
     }

@@ -16,23 +16,6 @@ pl:
       greeting: Drogi/a %{name},
       instruction: 'Twój kod OTP do weryfikacji konta to:'
       note: Jeśli nie prosiłeś o to, zignoruj tę wiadomość e-mail
-  login_service:
-    errors:
-      invalid_credentials: Nieprawidłowe dane logowania. Spróbuj ponownie
-      unauthorized_access: Nie masz dostępu do logowania
-      channel_not_created: Nieprawidłowe dane logowania. Upewnij się, że utworzyłeś
-        kanał
-      account_deleted: Twoje konto zostało już usunięte
-      invalid_role_access: "%{role} nie ma dostępu do logowania"
-      deactivated_channel: Twój kanał jest dezaktywowany. Skontaktuj się z pomocą
-        techniczną
-      two_factor_enabled: Uwierzytelnianie dwuetapowe jest włączone. Proszę zalogować
-        się przez interfejs webowy
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Spróbuj ponownie. Nieprawidłowe dane logowania z beebee.io
-      registration_required: 'Zarejestruj konto lokalne. dane: %{data}'
-      connection_error: 'Błąd połączenia z usługą członkowską: %{error}'
   api:
     errors:
       unauthorized: Nie masz uprawnień do wykonania tej akcji
@@ -61,16 +44,12 @@ pl:
         email_not_found: Nie znaleziono e-maila!
         email_invalid: Nieprawidłowy format e-maila
         email_taken: E-mail jest już zajęty
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Aktualizacja e-maila nie powiodła się
         password_unmatch: Hasła nie pasują do siebie
         password_update_fail: Aktualizacja hasła nie powiodła się
         otp_invalid: Nieprawidłowy OTP!
-        register_not_allow: Nie masz uprawnień do rejestracji!
         missing_field: Brak wymaganych pól
         password_incorrect: Aktualne hasło jest nieprawidłowe
-        username_taken: Nazwa użytkownika jest już zajęta
       messages:
         password_updated: Hasło zostało zaktualizowane
     domain:

@@ -11,11 +11,6 @@ module NewsmastMastodon
                  dependent: :delete_all,
                  inverse_of: :account
 
-        has_many :patchwork_settings,
-                 class_name: "NewsmastMastodon::PatchworkSetting",
-                 foreign_key: :account_id,
-                 dependent: :destroy
-
         has_many :patchwork_drafted_statuses,
                  inverse_of: :account,
                  dependent: :destroy,

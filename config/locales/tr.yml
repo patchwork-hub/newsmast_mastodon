@@ -16,23 +16,6 @@ tr:
       greeting: Sayın %{name},
       instruction: 'Hesap doğrulama OTP kodunuz aşağıdadır:'
       note: Bunu talep etmediyseniz, lütfen bu e-postayı dikkate almayın
-  login_service:
-    errors:
-      invalid_credentials: Geçersiz kimlik bilgileri. Lütfen tekrar deneyin
-      unauthorized_access: Giriş yapma izniniz yok
-      channel_not_created: Geçersiz kimlik bilgileri. Lütfen bir kanal oluşturduğunuzdan
-        emin olun
-      account_deleted: Hesabınız zaten silinmiş
-      invalid_role_access: "%{role} giriş yapmaya yetkili değil"
-      deactivated_channel: Kanalınız devre dışı bırakıldı. Lütfen destek ile iletişime
-        geçin
-      two_factor_enabled: İki faktörlü kimlik doğrulama etkinleştirildi. Lütfen web
-        arayüzü ile giriş yapın
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Lütfen tekrar deneyin. beebee.io'dan geçersiz kimlik bilgileri
-      registration_required: 'Lütfen yerel hesap oluşturun. veri: %{data}'
-      connection_error: 'Üyelik hizmetine bağlanırken hata oluştu: %{error}'
   api:
     errors:
       unauthorized: Bu işlemi yapmaya yetkiniz yok
@@ -61,16 +44,12 @@ tr:
         email_not_found: E-posta bulunamadı!
         email_invalid: Geçersiz e-posta formatı
         email_taken: E-posta zaten alınmış
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: E-posta güncellemesi başarısız oldu
         password_unmatch: Şifreler eşleşmiyor
         password_update_fail: Şifre güncellemesi başarısız oldu
         otp_invalid: Geçersiz OTP!
-        register_not_allow: Kayıt olmanıza izin verilmiyor!
         missing_field: Gerekli alanlar eksik
         password_incorrect: Mevcut şifre yanlış
-        username_taken: Kullanıcı adı zaten alınmış
       messages:
         password_updated: Şifre güncellendi
     domain:

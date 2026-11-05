@@ -16,24 +16,6 @@ sq:
       greeting: I dashur %{name},
       instruction: 'Kodi juaj OTP për verifikimin e llogarisë është:'
       note: Nëse nuk e keni kërkuar këtë, ju lutemi injoroni këtë email
-  login_service:
-    errors:
-      invalid_credentials: Kredenciale të pavlefshme. Ju lutemi provoni përsëri
-      unauthorized_access: Nuk keni akses për të hyrë
-      channel_not_created: Kredenciale të pavlefshme. Sigurohuni që keni krijuar një
-        kanal
-      account_deleted: Llogaria juaj është fshirë tashmë
-      invalid_role_access: "%{role} nuk lejohet të hyjë"
-      deactivated_channel: Kanali juaj është çaktivizuar. Kontaktoni mbështetjen
-      two_factor_enabled: Autentifikimi me dy faktorë është aktivizuar. Ju lutemi
-        identifikohuni nëpërmjet ndërfaqes në internet
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Ju lutemi provoni përsëri. Kredenciale të pavlefshme nga
-        beebee.io
-      registration_required: 'Ju lutemi regjistroni një llogari lokale. të dhëna:
-        %{data}'
-      connection_error: 'Gabim në lidhjen me shërbimin e anëtarimit: %{error}'
   api:
     errors:
       unauthorized: Nuk jeni të autorizuar të kryeni këtë veprim
@@ -62,16 +44,12 @@ sq:
         email_not_found: Emaili nuk u gjet!
         email_invalid: Format emaili i pavlefshëm
         email_taken: Emaili është marrë tashmë
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Përditësimi i emailit dështoi
         password_unmatch: Fjalëkalimet nuk përputhen
         password_update_fail: Përditësimi i fjalëkalimit dështoi
         otp_invalid: OTP i pavlefshëm!
-        register_not_allow: Nuk jeni të lejuar të regjistroheni!
         missing_field: Fusha të kërkuara mungojnë
         password_incorrect: Fjalëkalimi aktual është i pasaktë
-        username_taken: Emri i përdoruesit është marrë tashmë
       messages:
         password_updated: Fjalëkalimi është përditësuar
     domain:

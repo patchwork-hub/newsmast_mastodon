@@ -41,7 +41,6 @@ Rails.application.config.to_prepare do
   SearchService.prepend(NewsmastMastodon::Overrides::SearchServiceExtension)
   AccountSearchService.prepend(NewsmastMastodon::Overrides::AccountSearchServiceExtension)
   NotifyService.prepend(NewsmastMastodon::Overrides::NotifyServiceExtension)
-  AppSignUpService.prepend(NewsmastMastodon::Overrides::AppSignUpServiceExtension)
   RemoveStatusService.prepend(NewsmastMastodon::Overrides::RemoveStatusServiceExtension)
   BatchedRemoveStatusService.prepend(NewsmastMastodon::Overrides::BatchedRemoveStatusServiceExtension)
   PostStatusService.prepend(NewsmastMastodon::Overrides::PostStatusServiceExtension)
@@ -75,29 +74,6 @@ Rails.application.config.to_prepare do
   Api::V1::BookmarksController.prepend(NewsmastMastodon::Overrides::BookmarksControllerExtension)
   Api::V1::Trends::StatusesController.prepend(NewsmastMastodon::Overrides::TrendsStatusesControllerExtension)
   Api::V2::SearchController.prepend(NewsmastMastodon::Concerns::SearchControllerExtension)
-
-  Auth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("Auth::TokensController")
-  OAuth::TokensController.prepend(NewsmastMastodon::Concerns::CustomAuthenticationBehavior) if Object.const_defined?("OAuth::TokensController")
-  Auth::SessionsController.prepend(NewsmastMastodon::Concerns::CustomSessionBehavior) if Object.const_defined?("Auth::SessionsController")
-
-  # --- Chewy index overrides ---
-  # Replace Mastodon's core Chewy index classes with the engine's own
-  # namespaced definitions. This lets downstream Mastodon hosts use the
-  # upstream index files verbatim while the gem supplies fork-specific scope
-  # changes (e.g. excluding banned accounts/statuses) at runtime.
-  # if defined?(Chewy::Index)
-  #   [
-  #     [ "AccountsIndex", NewsmastMastodon::AccountsIndex ],
-  #     [ "StatusesIndex", NewsmastMastodon::StatusesIndex ],
-  #     [ "PublicStatusesIndex", NewsmastMastodon::PublicStatusesIndex ]
-  #   ].each do |host_name, gem_class|
-  #     next unless Object.const_defined?(host_name)
-  #     next if Object.const_get(host_name) == gem_class
-
-  #     Object.send(:remove_const, host_name)
-  #     Object.const_set(host_name, gem_class)
-  #   end
-  # end
 
   # --- Admin controllers: require authentication ---
   [ Admin::DashboardController, Admin::ReportsController ].each do |controller|

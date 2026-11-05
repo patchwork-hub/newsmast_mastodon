@@ -46,12 +46,6 @@ def request_body_for(path)
     { allowed: true }
   when "/api/v1/delete_account"
     { password: "password" }
-  when "/api/v1/accounts/leicester_notification"
-    { allowed: true, app_name: "{{app_name}}" }
-  when "/api/v1/accounts/subscribe_leicester"
-    { email: "user@example.com", subscribe: true }
-  when "/api/v1/accounts/article_notifications"
-    { allowed: true, app_name: "{{app_name}}" }
   when "/api/v1/patchwork/conversations/read_all"
     { target_account_id: "{{target_account_id}}" }
   when "/api/v1/custom_statuses/add_custom_boost_bot_status"
@@ -62,10 +56,6 @@ def request_body_for(path)
     { status: "Draft via Newman", drafted: true, visibility: "public" }
   when "/api/v1/patchwork/relays"
     { inbox_url: "{{relay_inbox_url}}" }
-  when "/api/v1/ghost_webhooks"
-    { post: { id: "1", title: "Example" } }
-  when "/api/v1/wordpress_webhooks"
-    { id: "1", title: "Example" }
   end
 end
 
@@ -73,10 +63,6 @@ def query_for(path)
   case path
   when "/api/v1/custom_passwords/request_otp"
     [ { "key" => "id", "value" => "token-or-reset-token" }, { "key" => "email", "value" => "user@example.com" } ]
-  when "/api/v1/channels/starter_packs_channels", "/api/v1/channels/{{id}}/starter_packs_detail"
-    [ { "key" => "starter_pack_source", "value" => "{{starter_pack_source}}" } ]
-  when "/api/v1/accounts/leicester_notification", "/api/v1/accounts/article_notifications"
-    [ { "key" => "app_name", "value" => "{{app_name}}" } ]
   when "/api/v1/patchwork/conversations/check_conversation"
     [
       { "key" => "target_account_id", "value" => "{{target_account_id}}" },
@@ -106,8 +92,6 @@ def query_for(path)
     ]
   when "/api/v1/utilities/link_preview"
     [ { "key" => "url", "value" => "{{link_preview_url}}" } ]
-  when "/api/v1/wordpress_webhooks"
-    [ { "key" => "auth_token", "value" => "{{wordpress_auth_token}}" } ]
   else
     []
   end
@@ -118,11 +102,8 @@ def vars_for_collection
     "base_url" => "http://localhost:3000",
     "access_token" => "",
     "custom_password_id" => "",
-    "channel_id" => "",
     "platform_type" => "ios",
     "account_id" => "",
-    "starter_pack_source" => "twt",
-    "app_name" => "",
     "target_account_id" => "",
     "max_id" => "",
     "since_id" => "",
@@ -134,9 +115,7 @@ def vars_for_collection
     "drafted_status_id" => "",
     "link_preview_url" => "https://example.com",
     "relay_id" => "",
-    "relay_inbox_url" => "https://relay.example.com/inbox",
-    "ghost_signature" => "sha256=example,t=1710000000",
-    "wordpress_auth_token" => ""
+    "relay_inbox_url" => "https://relay.example.com/inbox"
   }.map { |key, value| { "key" => key, "value" => value } }
 end
 

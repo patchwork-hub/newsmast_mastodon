@@ -16,21 +16,6 @@ kab:
       greeting: A %{name},
       instruction: 'Tangalt n OTP n usenqed n umiḍan-ik d:'
       note: Ma ulac ayen tzemreḍ, tzemreḍ ad tessekcam amaynut-a
-  login_service:
-    errors:
-      invalid_credentials: Iɣewwaṛen ur nelli d imezgi. Ma ulac, ɛreḍ tikelt-nniḍen
-      unauthorized_access: Ur tesɛiḍ ara ad tkecmeḍ
-      channel_not_created: Iɣewwaṛen ur nelli d imezgi. Ssuref-d ad tesnulfaḍ akal
-      account_deleted: Amiḍan-ik yufa-d yella
-      invalid_role_access: "%{role} ur yesɛi ara ad ikcem"
-      deactivated_channel: Akal-ik yufa-d yella. Mudd-d tazmert
-      two_factor_enabled: Tasestant s sin n yilugan ttwaktay. Ttxil-k kcem s usebter
-        web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Ur tesɛiḍ ara ad tgeḍ amek yella
@@ -59,16 +44,12 @@ kab:
         email_not_found: Imayl ur nufi ara!
         email_invalid: Amasal n imayl ur nelli d imezgi
         email_taken: Imayl yufa-d yella
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Imayl ur ttwali ara
         password_unmatch: Awalen n uɛeddi ur nelli d imezgi
         password_update_fail: Awalen n uɛeddi ur ttwali ara
         otp_invalid: OTP ur nelli d imezgi!
-        register_not_allow: Ur tesɛiḍ ara ad tregister
         missing_field: Iḥricen ur nelli d imezgi
         password_incorrect: Awal n uɛeddi amiran ur nelli d imezgi
-        username_taken: Isem n useqdac yufa-d yella
       messages:
         password_updated: Awal n uɛeddi ttwali-d
     domain:

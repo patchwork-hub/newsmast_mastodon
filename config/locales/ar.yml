@@ -16,20 +16,6 @@ ar:
       greeting: عزيزي %{name}،
       instruction: 'رمز التحقق OTP الخاص بحسابك هو:'
       note: إذا لم تطلب هذا، يرجى تجاهل هذا البريد الإلكتروني
-  login_service:
-    errors:
-      invalid_credentials: بيانات الاعتماد غير صحيحة. يرجى المحاولة مرة أخرى
-      unauthorized_access: ليس لديك إذن لتسجيل الدخول
-      channel_not_created: بيانات الاعتماد غير صحيحة. يرجى التأكد من إنشاء قناة
-      account_deleted: تم حذف حسابك بالفعل
-      invalid_role_access: "%{role} غير مسموح له بتسجيل الدخول"
-      deactivated_channel: قناتك معطلة. يرجى التواصل مع الدعم
-      two_factor_enabled: المصادقة الثنائية مفعّلة. يرجى تسجيل الدخول عبر واجهة الويب
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: يرجى المحاولة مرة أخرى. بيانات اعتماد غير صحيحة من beebee.io
-      registration_required: 'يرجى تسجيل حساب محلي. البيانات: %{data}'
-      connection_error: 'خطأ في الاتصال بخدمة العضوية: %{error}'
   api:
     errors:
       unauthorized: غير مصرح لك بتنفيذ هذا الإجراء
@@ -58,16 +44,12 @@ ar:
         email_not_found: البريد الإلكتروني غير موجود!
         email_invalid: تنسيق البريد الإلكتروني غير صالح
         email_taken: البريد الإلكتروني مستخدم بالفعل
-        membership_not_eligible: التسجيل مفتوح فقط للأعضاء الأساسيين وفريق CSIDNet
-          والأعضاء الداعمين
         email_update_fail: فشل تحديث البريد الإلكتروني
         password_unmatch: كلمة المرور غير متطابقة
         password_update_fail: فشل تحديث كلمة المرور
         otp_invalid: OTP غير صالح!
-        register_not_allow: غير مسموح لك بالتسجيل!
         missing_field: الحقول المطلوبة مفقودة
         password_incorrect: كلمة المرور الحالية غير صحيحة
-        username_taken: اسم المستخدم مستخدم بالفعل
       messages:
         password_updated: تم تحديث كلمة المرور
     domain:

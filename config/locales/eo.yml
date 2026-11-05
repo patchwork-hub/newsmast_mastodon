@@ -16,21 +16,6 @@ eo:
       greeting: Kara %{name},
       instruction: 'Via OTP-kodo por konto-verifiko estas jen:'
       note: Se vi ne petis tion, bonvolu ignori ĉi tiun retpoŝton
-  login_service:
-    errors:
-      invalid_credentials: Nevalidaj akreditaĵoj. Bonvolu provi denove
-      unauthorized_access: Vi ne havas aliron por ensaluti
-      channel_not_created: Nevalidaj akreditaĵoj. Bonvolu certigi, ke vi kreis kanalon
-      account_deleted: Via konto jam estas forigita
-      invalid_role_access: "%{role} ne rajtas ensaluti"
-      deactivated_channel: Via kanalo estas malaktivigita. Bonvolu kontakti subtenon
-      two_factor_enabled: Dupaŝa aŭtentigo estas ŝaltita. Bonvolu ensaluti per la
-        retinterfaco
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Bonvolu provi denove. Nevalidaj akreditaĵoj de beebee.io
-      registration_required: 'Bonvolu registri lokan konton. datumoj: %{data}'
-      connection_error: 'Eraro konektante al membraro-servo: %{error}'
   api:
     errors:
       unauthorized: Vi ne estas rajtigita plenumi ĉi tiun agon
@@ -59,16 +44,12 @@ eo:
         email_not_found: Retpoŝto ne trovita!
         email_invalid: Nevalida retpoŝta formato
         email_taken: Retpoŝto jam estas uzata
-        membership_not_eligible: Registrado estas malfermita nur al Kernaj membroj,
-          CSIDNet Teamo kaj Subtenantaj membroj
         email_update_fail: La retpoŝta ĝisdatigo malsukcesis
         password_unmatch: Pasvortoj ne kongruas
         password_update_fail: La pasvorta ĝisdatigo malsukcesis
         otp_invalid: Nevalida OTP!
-        register_not_allow: Vi ne rajtas registriĝi!
         missing_field: Mankas postulataj kampoj
         password_incorrect: Nuna pasvorto estas malĝusta
-        username_taken: Uzantnomo jam estas uzata
       messages:
         password_updated: La pasvorto estas ĝisdatigita
     domain:

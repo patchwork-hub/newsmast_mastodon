@@ -16,21 +16,6 @@ fo:
       greeting: Góði %{name},
       instruction: 'Títt OTP-koða til at vátta kontuna er:'
       note: Um tú ikki hevur biðið um hetta, so hygg ikki at hesum teldubrævinum
-  login_service:
-    errors:
-      invalid_credentials: Ógyldig loyniorð. Vinarliga royn aftur
-      unauthorized_access: Tú hevur ikki atgongd at logga inn
-      channel_not_created: Ógyldig loyniorð. Tryggja at tú hevur stovnað eina rás
-      account_deleted: Kontan tín er longu strikað
-      invalid_role_access: "%{role} hevur ikki loyvi at logga inn"
-      deactivated_channel: Rásin tín er óvirkin. Vinarliga set teg í samband við stuðul
-      two_factor_enabled: Tveggja-faktara auðkenning er virkjað. Vinarliga skrá inn
-        við vevsiðuna
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Vinarliga royn aftur. Ógyldig loyniorð frá beebee.io
-      registration_required: 'Vinarliga skrásett eina lokala kontu. dáta: %{data}'
-      connection_error: 'Villa við at sambinda við limalimstænastu: %{error}'
   api:
     errors:
       unauthorized: Tú hevur ikki loyvi at gera hetta
@@ -59,16 +44,12 @@ fo:
         email_not_found: Teldupostur ikki funnin!
         email_invalid: Ógyldig telduposturform
         email_taken: Telduposturin er longu tikin
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Dagføring av teldupostinum miseydnaðist
         password_unmatch: Loyniorðini samsvara ikki
         password_update_fail: Dagføring av loyniorðinum miseydnaðist
         otp_invalid: Ógyldig OTP!
-        register_not_allow: Tú hevur ikki loyvi at skráset!
         missing_field: Kravd reiti mangla
         password_incorrect: Verandi loyniorð er skeivt
-        username_taken: Brúkaranavnið er longu tikið
       messages:
         password_updated: Loyniorðið er dagført
     domain:

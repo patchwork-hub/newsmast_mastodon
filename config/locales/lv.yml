@@ -16,23 +16,6 @@ lv:
       greeting: Cienījamais %{name},
       instruction: 'Jūsu konta verifikācijas OTP kods ir:'
       note: Ja jūs to nepieprasījāt, lūdzu, ignorējiet šo e-pastu
-  login_service:
-    errors:
-      invalid_credentials: Nederīgi akreditācijas dati. Lūdzu, mēģiniet vēlreiz
-      unauthorized_access: Jums nav atļaujas pieteikties
-      channel_not_created: Nederīgi akreditācijas dati. Pārliecinieties, ka esat izveidojis
-        kanālu
-      account_deleted: Jūsu konts jau ir dzēsts
-      invalid_role_access: "%{role} nav atļauts pieteikties"
-      deactivated_channel: Jūsu kanāls ir deaktivizēts. Sazinieties ar atbalstu
-      two_factor_enabled: Divfaktoru autentifikācija ir iespējota. Lūdzu, piesakieties
-        caur tīmekļa saskarni
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Lūdzu, mēģiniet vēlreiz. Nederīgi akreditācijas dati no
-        beebee.io
-      registration_required: 'Lūdzu, reģistrējiet vietējo kontu. dati: %{data}'
-      connection_error: 'Kļūda, savienojoties ar biedru pakalpojumu: %{error}'
   api:
     errors:
       unauthorized: Jums nav atļaujas veikt šo darbību
@@ -61,16 +44,12 @@ lv:
         email_not_found: E-pasts nav atrasts!
         email_invalid: Nederīgs e-pasta formāts
         email_taken: E-pasts jau ir izmantots
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: E-pasta atjaunināšana neizdevās
         password_unmatch: Paroles nesakrīt
         password_update_fail: Paroles atjaunināšana neizdevās
         otp_invalid: Nederīgs OTP!
-        register_not_allow: Jums nav atļaujas reģistrēties!
         missing_field: Trūkst obligāto lauku
         password_incorrect: Pašreizējā parole ir nepareiza
-        username_taken: Lietotājvārds jau ir izmantots
       messages:
         password_updated: Parole ir atjaunināta
     domain:

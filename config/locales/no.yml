@@ -16,21 +16,6 @@
       greeting: Kjære %{name},
       instruction: 'Din konto verifiserings-OTP-kode er:'
       note: Hvis du ikke ba om dette, vennligst ignorer denne e-posten
-  login_service:
-    errors:
-      invalid_credentials: Ugyldige påloggingsdetaljer. Prøv igjen
-      unauthorized_access: Du har ikke tilgang til å logge inn
-      channel_not_created: Ugyldige påloggingsdetaljer. Sørg for at du har opprettet
-        en kanal
-      account_deleted: Kontoen din er allerede slettet
-      invalid_role_access: "%{role} har ikke tilgang til å logge inn"
-      deactivated_channel: Kanalen din er deaktivert. Kontakt brukerstøtte
-      two_factor_enabled: Tofaktorautentisering er aktivert. Logg inn via webgrensesnittet
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Prøv igjen. Ugyldige påloggingsdetaljer fra beebee.io
-      registration_required: 'Vennligst registrer en lokal konto. data: %{data}'
-      connection_error: 'Feil ved tilkobling til medlemstjeneste: %{error}'
   api:
     errors:
       unauthorized: Du har ikke tillatelse til å utføre denne handlingen
@@ -59,16 +44,12 @@
         email_not_found: E-post ikke funnet!
         email_invalid: Ugyldig e-postformat
         email_taken: E-post er allerede i bruk
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Oppdatering av e-post mislyktes
         password_unmatch: Passordene stemmer ikke overens
         password_update_fail: Oppdatering av passord mislyktes
         otp_invalid: Ugyldig OTP!
-        register_not_allow: Du har ikke tillatelse til å registrere deg!
         missing_field: Mangler påkrevde felt
         password_incorrect: Nåværende passord er feil
-        username_taken: Brukernavn er allerede i bruk
       messages:
         password_updated: Passordet er oppdatert
     domain:

@@ -16,22 +16,6 @@ az:
       greeting: Hörmətli %{name},
       instruction: 'Hesabınızı təsdiqləmək üçün OTP kodunuz budur:'
       note: Əgər bunu siz istəməmisinizsə, bu e-poçtu nəzərə almayın
-  login_service:
-    errors:
-      invalid_credentials: Yanlış məlumat. Yenidən cəhd edin
-      unauthorized_access: Daxil olmaq üçün icazəniz yoxdur
-      channel_not_created: Yanlış məlumat. Zəhmət olmasa kanal yaratdığınızdan əmin
-        olun
-      account_deleted: Hesabınız artıq silinib
-      invalid_role_access: "%{role} daxil olmaq üçün icazəsi yoxdur"
-      deactivated_channel: Kanalınız deaktiv edilib. Dəstəyə müraciət edin
-      two_factor_enabled: İki faktorlu autentifikasiya aktivdir. Zəhmət olmasa veb
-        interfeysi ilə daxil olun
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Yenidən cəhd edin. beebee.io-dan yanlış məlumat
-      registration_required: 'Zəhmət olmasa yerli hesab yaradın. məlumat: %{data}'
-      connection_error: 'Üzvlük xidmətinə qoşulma xətası: %{error}'
   api:
     errors:
       unauthorized: Bu əməliyyatı yerinə yetirməyə icazəniz yoxdur
@@ -60,16 +44,12 @@ az:
         email_not_found: E-poçt tapılmadı!
         email_invalid: Yanlış e-poçt formatı
         email_taken: E-poçt artıq istifadə olunur
-        membership_not_eligible: Qeydiyyat yalnız Əsas üzvlər, CSIDNet Komandası və
-          Dəstəkçi üzvləri üçün açıqdır
         email_update_fail: E-poçtun yenilənməsi uğursuz oldu
         password_unmatch: Şifrələr uyğun gəlmir
         password_update_fail: Şifrənin yenilənməsi uğursuz oldu
         otp_invalid: Yanlış OTP!
-        register_not_allow: Qeydiyyatdan keçməyə icazəniz yoxdur!
         missing_field: Tələb olunan sahələr çatışmır
         password_incorrect: Cari şifrə yanlışdır
-        username_taken: İstifadəçi adı artıq istifadə olunur
       messages:
         password_updated: Şifrə yeniləndi
     domain:

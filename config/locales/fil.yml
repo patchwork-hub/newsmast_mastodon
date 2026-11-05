@@ -16,21 +16,6 @@ fil:
       greeting: Mahal na %{name},
       instruction: 'Ang iyong OTP code para sa beripikasyon ng account ay:'
       note: Kung hindi mo ito hiniling, pakisawalang-bahala ang email na ito
-  login_service:
-    errors:
-      invalid_credentials: Di-wastong kredensyal. Pakisubukang muli
-      unauthorized_access: Wala kang access para mag-login
-      channel_not_created: Di-wastong kredensyal. Pakitiyak na nakagawa ka ng channel
-      account_deleted: Ang iyong account ay nabura na
-      invalid_role_access: Hindi pinapayagan si %{role} na mag-login
-      deactivated_channel: Na-deactivate ang iyong channel. Makipag-ugnayan sa suporta
-      two_factor_enabled: Ang two-factor authentication ay pinagana. Mangyaring mag-login
-        gamit ang web interface
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Pakisubukang muli. Di-wastong kredensyal mula sa beebee.io
-      registration_required: 'Pakipagrehistro ng lokal na account. datos: %{data}'
-      connection_error: 'Error sa pagkonekta sa membership service: %{error}'
   api:
     errors:
       unauthorized: Wala kang pahintulot na gawin ito
@@ -59,16 +44,12 @@ fil:
         email_not_found: Hindi natagpuan ang email!
         email_invalid: Di-wastong format ng email
         email_taken: Nagamit na ang email
-        membership_not_eligible: Ang pagpaparehistro ay bukas lamang sa mga miyembro
-          ng Core, CSIDNet Team, at mga miyembro ng Supporter
         email_update_fail: Hindi nagtagumpay ang pag-update ng email
         password_unmatch: Hindi tugma ang mga password
         password_update_fail: Hindi nagtagumpay ang pag-update ng password
         otp_invalid: Di-wastong OTP!
-        register_not_allow: Wala kang pahintulot na magrehistro!
         missing_field: May kulang na kinakailangang field
         password_incorrect: Mali ang kasalukuyang password
-        username_taken: Nagamit na ang username
       messages:
         password_updated: Na-update ang password
     domain:

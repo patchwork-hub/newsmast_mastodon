@@ -16,23 +16,6 @@ pa:
       greeting: ਪਿਆਰੇ %{name},
       instruction: 'ਤੁਹਾਡਾ ਖਾਤਾ ਪ੍ਰਮਾਣੀਕਰਨ OTP ਕੋਡ ਹੈ:'
       note: ਜੇ ਤੁਸੀਂ ਇਹ ਬੇਨਤੀ ਨਹੀਂ ਕੀਤੀ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਇਸ ਈਮੇਲ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ
-  login_service:
-    errors:
-      invalid_credentials: ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ
-      unauthorized_access: ਤੁਹਾਨੂੰ ਲੌਗਇਨ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ
-      channel_not_created: ਅਵੈਧ ਪ੍ਰਮਾਣ ਪੱਤਰ। ਕਿਰਪਾ ਕਰਕੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਚੈਨਲ ਬਣਾਇਆ
-        ਹੈ
-      account_deleted: ਤੁਹਾਡਾ ਖਾਤਾ ਪਹਿਲਾਂ ਹੀ ਹਟਾਇਆ ਜਾ ਚੁੱਕਾ ਹੈ
-      invalid_role_access: "%{role} ਨੂੰ ਲੌਗਇਨ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ"
-      deactivated_channel: ਤੁਹਾਡਾ ਚੈਨਲ ਨਿਸ਼ਕ੍ਰਿਆ ਹੈ। ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ
-      two_factor_enabled: ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਸਮਰੱਥ ਕੀਤਾ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵੈੱਬ ਇੰਟਰਫੇਸ
-        ਨਾਲ ਲੌਗਿਨ ਕਰੋ
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ। beebee.io ਤੋਂ ਅਵੈਧ ਪ੍ਰਮਾਣ
-        ਪੱਤਰ
-      registration_required: 'ਕਿਰਪਾ ਕਰਕੇ ਸਥਾਨਕ ਖਾਤਾ ਰਜਿਸਟਰ ਕਰੋ। ਡਾਟਾ: %{data}'
-      connection_error: 'ਸਦੱਸਤਾ ਸੇਵਾ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਵਿੱਚ ਗਲਤੀ: %{error}'
   api:
     errors:
       unauthorized: ਤੁਹਾਨੂੰ ਇਹ ਕਾਰਵਾਈ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ
@@ -61,16 +44,12 @@ pa:
         email_not_found: ਈਮੇਲ ਨਹੀਂ ਮਿਲੀ!
         email_invalid: ਅਵੈਧ ਈਮੇਲ ਫਾਰਮੈਟ
         email_taken: ਈਮੇਲ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਈ ਗਈ ਹੈ
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: ਈਮੇਲ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ
         password_unmatch: ਪਾਸਵਰਡ ਮੇਲ ਨਹੀਂ ਖਾਂਦੇ
         password_update_fail: ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਅਸਫਲ ਰਹੀ
         otp_invalid: ਅਵੈਧ OTP!
-        register_not_allow: ਤੁਹਾਨੂੰ ਰਜਿਸਟਰ ਕਰਨ ਦੀ ਆਗਿਆ ਨਹੀਂ ਹੈ!
         missing_field: ਲੋੜੀਂਦੇ ਫੀਲਡ ਗੁੰਮ ਹਨ
         password_incorrect: ਮੌਜੂਦਾ ਪਾਸਵਰਡ ਗਲਤ ਹੈ
-        username_taken: ਉਪਭੋਗਤਾ ਨਾਮ ਪਹਿਲਾਂ ਹੀ ਲੈ ਲਿਆ ਗਿਆ ਹੈ
       messages:
         password_updated: ਪਾਸਵਰਡ ਅੱਪਡੇਟ ਕੀਤਾ ਗਿਆ ਹੈ
     domain:

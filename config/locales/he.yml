@@ -16,20 +16,6 @@ he:
       greeting: "%{name} היקר/ה,"
       instruction: 'קוד ה-OTP לאימות החשבון שלך הוא:'
       note: אם לא ביקשת זאת, התעלם מהמייל הזה
-  login_service:
-    errors:
-      invalid_credentials: פרטי התחברות לא תקינים. נסה שוב
-      unauthorized_access: אין לך הרשאה להתחבר
-      channel_not_created: פרטי התחברות לא תקינים. ודא שיצרת ערוץ
-      account_deleted: החשבון שלך כבר נמחק
-      invalid_role_access: "%{role} אינו מורשה להתחבר"
-      deactivated_channel: הערוץ שלך מושבת. פנה לתמיכה
-      two_factor_enabled: אימות דו-שלבי מופעל. אנא התחבר דרך ממשק האינטרנט
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: נסה שוב. פרטי התחברות לא תקינים מ-beebee.io
-      registration_required: 'אנא צור חשבון מקומי. נתונים: %{data}'
-      connection_error: 'שגיאה בחיבור לשירות החברות: %{error}'
   api:
     errors:
       unauthorized: אין לך הרשאה לבצע פעולה זו
@@ -58,16 +44,12 @@ he:
         email_not_found: האימייל לא נמצא!
         email_invalid: פורמט אימייל לא תקין
         email_taken: האימייל כבר בשימוש
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: עדכון האימייל נכשל
         password_unmatch: הסיסמאות אינן תואמות
         password_update_fail: עדכון הסיסמה נכשל
         otp_invalid: OTP לא תקין!
-        register_not_allow: אין לך הרשאה להירשם!
         missing_field: שדות חובה חסרים
         password_incorrect: הסיסמה הנוכחית שגויה
-        username_taken: שם המשתמש כבר בשימוש
       messages:
         password_updated: הסיסמה עודכנה
     domain:

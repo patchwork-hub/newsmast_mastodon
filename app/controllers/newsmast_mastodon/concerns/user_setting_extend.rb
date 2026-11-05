@@ -2,7 +2,6 @@
 
 module NewsmastMastodon::Concerns::UserSettingExtend
   extend ActiveSupport::Concern
-  include NonChannelHelper
 
   def setting_default_privacy
     return false unless defined?(NewsmastMastodon::Community) && NewsmastMastodon::Community.respond_to?(:find_by)

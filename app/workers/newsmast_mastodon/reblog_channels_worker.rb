@@ -54,7 +54,7 @@ module NewsmastMastodon
 
     def fetch_post_url
       username = @status.account.pretty_acct
-      "https://channel.org/@#{username}/#{@status.id}"
+      "https://#{ENV.fetch("LOCAL_DOMAIN", nil)}/@#{username}/#{@status.id}"
     end
   end
 end

@@ -16,21 +16,6 @@ sco:
       greeting: Dear %{name},
       instruction: 'Yer accoont verification OTP code is as below:'
       note: If ye didnae request this, please ignore this email
-  login_service:
-    errors:
-      invalid_credentials: Invalid credentials. Please try again
-      unauthorized_access: Ye dinnae hae access tae login
-      channel_not_created: Invalid credentials. Please mak sure ye've created a channel
-      account_deleted: Yer accoont is already deletit
-      invalid_role_access: "%{role} isnae alloued tae access login"
-      deactivated_channel: Yer channel is deactivated. Please contact support
-      two_factor_enabled: Twa-factor authentication is enabled. Please log in wi the
-        wab interface
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Ye are no authorized tae perform this action
@@ -59,16 +44,12 @@ sco:
         email_not_found: Email no found!
         email_invalid: Invalid email format
         email_taken: Email haes already been taen
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: The email update was unsuccessful
         password_unmatch: Password unmatch
         password_update_fail: The password update was unsuccessful
         otp_invalid: Invalid OTP!
-        register_not_allow: Ye're no alloued tae register!
         missing_field: Missing required fields
         password_incorrect: Current password is incorrect
-        username_taken: Username haes already been taen
       messages:
         password_updated: The password haes been updated
     domain:

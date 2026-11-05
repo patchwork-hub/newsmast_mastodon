@@ -16,22 +16,6 @@ sl:
       greeting: Spoštovani %{name},
       instruction: 'Vaša OTP koda za preverjanje računa je:'
       note: Če tega niste zahtevali, ignorirajte to e-pošto
-  login_service:
-    errors:
-      invalid_credentials: Neveljavni podatki za prijavo. Poskusite znova
-      unauthorized_access: Nimate dovoljenja za prijavo
-      channel_not_created: Neveljavni podatki za prijavo. Prepričajte se, da ste ustvarili
-        kanal
-      account_deleted: Vaš račun je že izbrisan
-      invalid_role_access: "%{role} nima dovoljenja za prijavo"
-      deactivated_channel: Vaš kanal je deaktiviran. Obrnite se na podporo
-      two_factor_enabled: Dvofaktorska overitev je omogočena. Prijavite se prek spletnega
-        vmesnika
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Poskusite znova. Neveljavni podatki za prijavo iz beebee.io
-      registration_required: 'Prosimo, registrirajte lokalni račun. podatki: %{data}'
-      connection_error: 'Napaka pri povezovanju s člansko storitev: %{error}'
   api:
     errors:
       unauthorized: Nimate dovoljenja za to dejanje
@@ -60,16 +44,12 @@ sl:
         email_not_found: E-pošta ni bila najdena!
         email_invalid: Neveljaven format e-pošte
         email_taken: E-pošta je že uporabljena
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Posodobitev e-pošte ni uspela
         password_unmatch: Gesli se ne ujemata
         password_update_fail: Posodobitev gesla ni uspela
         otp_invalid: Neveljaven OTP!
-        register_not_allow: Nimate dovoljenja za registracijo!
         missing_field: Manjkajo zahtevana polja
         password_incorrect: Trenutno geslo je napačno
-        username_taken: Uporabniško ime je že uporabljeno
       messages:
         password_updated: Geslo je bilo posodobljeno
     domain:

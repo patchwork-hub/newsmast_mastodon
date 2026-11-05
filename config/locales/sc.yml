@@ -16,22 +16,6 @@ sc:
       greeting: Caru/a %{name},
       instruction: 'Su codice OTP de verìfica de su contu est:'
       note: Si non as fatu custa richiesta, ignora custa email
-  login_service:
-    errors:
-      invalid_credentials: Credentziales non vàlidas. Torra a proare
-      unauthorized_access: Non as permissu de intrare
-      channel_not_created: Credentziales non vàlidas. Assegura·ti chi as creatu unu
-        canale
-      account_deleted: Su contu tuo est già istèrridu
-      invalid_role_access: "%{role} non est permissu de intrare"
-      deactivated_channel: Su canale tuo est disativadu. Cuntata su supportu
-      two_factor_enabled: S'autenticatzione a duos fatores est ativada. Pigeai accesu
-        dae s'interfache web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Non as permissu de fàghere custa azione
@@ -60,16 +44,12 @@ sc:
         email_not_found: E-mail non agatau!
         email_invalid: Formadu de e-mail non vàlidu
         email_taken: E-mail esistit già
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: S'aggiornamentu de s'e-mail est falidu
         password_unmatch: Sas passwords non currispondint
         password_update_fail: S'aggiornamentu de sa password est falidu
         otp_invalid: OTP non vàlidu!
-        register_not_allow: Non as permissu de registrare·ti!
         missing_field: Campos richièstos mancantes
         password_incorrect: Sa password atuale est incorretta
-        username_taken: Su nomene de utente esistit già
       messages:
         password_updated: Sa password est atualizada
     domain:

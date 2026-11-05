@@ -16,22 +16,6 @@ nl:
       greeting: Beste %{name},
       instruction: 'Je accountverificatie OTP-code is:'
       note: Als je dit niet hebt aangevraagd, negeer deze e-mail dan
-  login_service:
-    errors:
-      invalid_credentials: Ongeldige inloggegevens. Probeer het opnieuw
-      unauthorized_access: Je hebt geen toegang om in te loggen
-      channel_not_created: Ongeldige inloggegevens. Zorg ervoor dat je een kanaal
-        hebt aangemaakt
-      account_deleted: Je account is al verwijderd
-      invalid_role_access: "%{role} mag niet inloggen"
-      deactivated_channel: Je kanaal is gedeactiveerd. Neem contact op met support
-      two_factor_enabled: Tweefactorauthenticatie is ingeschakeld. Log alstublieft
-        in via de webinterface
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Probeer het opnieuw. Ongeldige inloggegevens van beebee.io
-      registration_required: 'Registreer een lokaal account. gegevens: %{data}'
-      connection_error: 'Fout bij verbinden met lidmaatschapsservice: %{error}'
   api:
     errors:
       unauthorized: Je bent niet gemachtigd om deze actie uit te voeren
@@ -60,16 +44,12 @@ nl:
         email_not_found: E-mail niet gevonden!
         email_invalid: Ongeldig e-mailformaat
         email_taken: E-mail is al in gebruik
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: E-mail bijwerken mislukt
         password_unmatch: Wachtwoorden komen niet overeen
         password_update_fail: Wachtwoord bijwerken mislukt
         otp_invalid: Ongeldige OTP!
-        register_not_allow: Je mag je niet registreren!
         missing_field: Vereiste velden ontbreken
         password_incorrect: Huidig wachtwoord is onjuist
-        username_taken: Gebruikersnaam is al in gebruik
       messages:
         password_updated: Wachtwoord is bijgewerkt
     domain:

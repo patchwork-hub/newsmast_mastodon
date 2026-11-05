@@ -16,22 +16,6 @@ es-AR:
       greeting: Estimado/a %{name},
       instruction: 'Tu código OTP de verificación de cuenta es:'
       note: Si no solicitaste esto, por favor ignorá este correo electrónico
-  login_service:
-    errors:
-      invalid_credentials: Credenciales no válidas. Por favor, intentá de nuevo
-      unauthorized_access: No tenés acceso para iniciar sesión
-      channel_not_created: Credenciales no válidas. Asegurate de haber creado un canal
-      account_deleted: Tu cuenta ya fue eliminada
-      invalid_role_access: "%{role} no tiene permiso para acceder"
-      deactivated_channel: Tu canal está desactivado. Por favor contactá con soporte
-      two_factor_enabled: La autenticación de dos factores está habilitada. Por favor,
-        iniciá sesión con la interfaz web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Por favor, intentá de nuevo. Credenciales no válidas de
-        beebee.io
-      registration_required: 'Por favor registrá una cuenta local. datos: %{data}'
-      connection_error: 'Error al conectar con el servicio de membresía: %{error}'
   api:
     errors:
       unauthorized: No estás autorizado para realizar esta acción
@@ -61,16 +45,12 @@ es-AR:
         email_not_found: "¡Correo electrónico no encontrado!"
         email_invalid: Formato de correo electrónico no válido
         email_taken: El correo electrónico ya está en uso
-        membership_not_eligible: La inscripción solo está abierta a miembros principales,
-          equipos de CSIDNet y miembros de apoyo.
         email_update_fail: La actualización del correo electrónico no tuvo éxito
         password_unmatch: Las contraseñas no coinciden
         password_update_fail: La actualización de la contraseña no tuvo éxito
         otp_invalid: "¡OTP no válido!"
-        register_not_allow: "¡No tenés permiso para registrarte!"
         missing_field: Faltan campos obligatorios
         password_incorrect: La contraseña actual es incorrecta
-        username_taken: El nombre de usuario ya está en uso
       messages:
         password_updated: La contraseña ha sido actualizada
     domain:

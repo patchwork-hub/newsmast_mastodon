@@ -16,21 +16,6 @@ la:
       greeting: Care %{name},
       instruction: 'Codex OTP ad confirmationem rationis tuae est:'
       note: Si hoc non petivisti, hanc epistulam ignora
-  login_service:
-    errors:
-      invalid_credentials: Documenta non valida. Iterum conare
-      unauthorized_access: Non habes accessum ad rationem ingrediendam
-      channel_not_created: Documenta non valida. Fac ut canalem creaveris
-      account_deleted: Ratio tua iam deleta est
-      invalid_role_access: "%{role} non habet potestatem ingrediendi"
-      deactivated_channel: Canalis tua deactivata est. Contactum auxilium quaeso
-      two_factor_enabled: Authenticatio duorum factorum activata est. Per interfaciem
-        interretialem intrare quaeso
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Non es auctoritate ad hanc actionem faciendam
@@ -59,16 +44,12 @@ la:
         email_not_found: Email non inventa!
         email_invalid: Forma email non valida
         email_taken: Email iam adhibita est
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Renovatio email defecit
         password_unmatch: Passwords non concordant
         password_update_fail: Renovatio password defecit
         otp_invalid: OTP non validum!
-        register_not_allow: Non licet tibi te registrare!
         missing_field: Campi requisiti desunt
         password_incorrect: Password praesens non recta est
-        username_taken: Nomen usoris iam adhibitum est
       messages:
         password_updated: Password renovata est
     domain:

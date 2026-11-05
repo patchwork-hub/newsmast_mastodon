@@ -16,21 +16,6 @@ id:
       greeting: Yth. %{name},
       instruction: 'Kode OTP verifikasi akun Anda adalah:'
       note: Jika Anda tidak meminta ini, abaikan email ini
-  login_service:
-    errors:
-      invalid_credentials: Kredensial tidak valid. Silakan coba lagi
-      unauthorized_access: Anda tidak memiliki akses untuk login
-      channel_not_created: Kredensial tidak valid. Pastikan Anda telah membuat saluran
-      account_deleted: Akun Anda sudah dihapus
-      invalid_role_access: "%{role} tidak diizinkan untuk login"
-      deactivated_channel: Saluran Anda dinonaktifkan. Silakan hubungi dukungan
-      two_factor_enabled: Autentikasi dua faktor diaktifkan. Silakan masuk melalui
-        antarmuka web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Silakan coba lagi. Kredensial tidak valid dari beebee.io
-      registration_required: 'Silakan daftarkan akun lokal. data: %{data}'
-      connection_error: 'Kesalahan menghubungkan ke layanan keanggotaan: %{error}'
   api:
     errors:
       unauthorized: Anda tidak diizinkan untuk melakukan tindakan ini
@@ -59,16 +44,12 @@ id:
         email_not_found: Email tidak ditemukan!
         email_invalid: Format email tidak valid
         email_taken: Email sudah digunakan
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Pembaruan email gagal
         password_unmatch: Kata sandi tidak cocok
         password_update_fail: Pembaruan kata sandi gagal
         otp_invalid: OTP tidak valid!
-        register_not_allow: Anda tidak diizinkan untuk mendaftar!
         missing_field: Bidang yang diperlukan hilang
         password_incorrect: Kata sandi saat ini salah
-        username_taken: Nama pengguna sudah digunakan
       messages:
         password_updated: Kata sandi telah diperbarui
     domain:

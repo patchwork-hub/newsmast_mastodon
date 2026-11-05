@@ -16,21 +16,6 @@ hy:
       greeting: Հարգելի %{name},
       instruction: Ձեր հաշվի հաստատման OTP կոդն է՝
       note: Եթե դուք չեք խնդրել սա, խնդրում ենք անտեսել այս էլ.փոստը
-  login_service:
-    errors:
-      invalid_credentials: Անվավեր տվյալներ։ Խնդրում ենք փորձել կրկին
-      unauthorized_access: Դուք մուտք գործելու իրավունք չունեք
-      channel_not_created: Անվավեր տվյալներ։ Խնդրում ենք համոզվել, որ ստեղծել եք ալիք
-      account_deleted: Ձեր հաշիվն արդեն ջնջված է
-      invalid_role_access: "%{role}-ը մուտք գործելու իրավունք չունի"
-      deactivated_channel: Ձեր ալիքը ապաակտիվացված է։ Խնդրում ենք կապվել աջակցությանը
-      two_factor_enabled: 'Երկգործոն նույնականացումն ակտիվ է: Խնդրում ենք մուտք գործել
-        վեբ ինտերֆեյսի միջոցով'
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Խնդրում ենք փորձել կրկին։ Անվավեր տվյալներ beebee.io-ից
-      registration_required: 'Խնդրում ենք գրանցել տեղական հաշիվ։ տվյալներ: %{data}'
-      connection_error: 'Սփալ անդամակցական խմբակի ծառայությանն միանալու իս: %{error}'
   api:
     errors:
       unauthorized: Դուք իրավունք չունեք կատարել այս գործողությունը
@@ -60,16 +45,12 @@ hy:
         email_not_found: Էլ.փոստը չի գտնվել!
         email_invalid: Էլ.փոստի անվավեր ձևաչափ
         email_taken: Էլ.փոստը արդեն օգտագործվում է
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Էլ.փոստի թարմացումը ձախողվեց
         password_unmatch: Գաղտնաբառերը չեն համընկնում
         password_update_fail: Գաղտնաբառի թարմացումը ձախողվեց
         otp_invalid: Անվավեր OTP!
-        register_not_allow: Դուք իրավունք չունեք գրանցվելու!
         missing_field: Պահանջվող դաշտերը բացակայում են
         password_incorrect: Ընթացիկ գաղտնաբառը սխալ է
-        username_taken: Օգտագործողի անունը արդեն օգտագործվում է
       messages:
         password_updated: Գաղտնաբառը թարմացվել է
     domain:

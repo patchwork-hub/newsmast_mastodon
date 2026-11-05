@@ -16,21 +16,6 @@ kk:
       greeting: Құрметті %{name},
       instruction: 'Сіздің тіркелгіні растау OTP коды төменде:'
       note: Егер сіз мұны сұрамаған болсаңыз, бұл хатты елемеңіз
-  login_service:
-    errors:
-      invalid_credentials: Жарамсыз тіркелгі деректері. Қайталап көріңіз
-      unauthorized_access: Сізге кіруге рұқсат жоқ
-      channel_not_created: Жарамсыз тіркелгі деректері. Арна жасағаныңызға көз жеткізіңіз
-      account_deleted: Сіздің тіркелгіңіз жойылған
-      invalid_role_access: "%{role} кіруге рұқсат етілмеген"
-      deactivated_channel: Сіздің арнаңыз өшірілген. Қолдау қызметіне хабарласыңыз
-      two_factor_enabled: Екі факторлы аутентификация қосылған. Өтінеміз, веб-интерфейс
-        арқылы кіріңіз
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Сізге бұл әрекетті орындауға рұқсат жоқ
@@ -59,16 +44,12 @@ kk:
         email_not_found: Электрондық пошта табылмады!
         email_invalid: Жарамсыз электрондық пошта пішімі
         email_taken: Электрондық пошта бұрыннан алынған
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Электрондық поштаны жаңарту сәтсіз аяқталды
         password_unmatch: Құпия сөздер сәйкес келмейді
         password_update_fail: Құпия сөзді жаңарту сәтсіз аяқталды
         otp_invalid: Жарамсыз OTP!
-        register_not_allow: Сізге тіркелуге рұқсат жоқ!
         missing_field: Міндетті өрістер толтырылмаған
         password_incorrect: Ағымдағы құпия сөз дұрыс емес
-        username_taken: Пайдаланушы аты бұрыннан алынған
       messages:
         password_updated: Құпия сөз жаңартылды
     domain:

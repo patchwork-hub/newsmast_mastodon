@@ -5,11 +5,11 @@
 # All configuration is done via environment variables (no hardcoded defaults):
 #
 # iOS (required for apple-app-site-association):
-#   IOS_APP_ID                        - Full app identifier, e.g. "VA45Q6RWV3.com.csidnetwork.social"
+#   IOS_APP_ID                        - Full app identifier, e.g. "ABCDE12345.com.example.app"
 #   IOS_DEEPLINK_PATHS                - Comma-separated path patterns (optional, defaults to "/@*,/@*/*")
 #
 # Android (required for assetlinks.json):
-#   ANDROID_PACKAGE_NAME              - Package name, e.g. "com.csidnetwork.social"
+#   ANDROID_PACKAGE_NAME              - Package name, e.g. "com.example.app"
 #   ANDROID_SHA256_CERT_FINGERPRINTS  - Comma-separated SHA-256 fingerprints
 #
 # If the required env vars are not set, the corresponding endpoint returns 404.

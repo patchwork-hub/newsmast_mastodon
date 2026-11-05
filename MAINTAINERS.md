@@ -22,7 +22,7 @@ This file documents repository ownership and review responsibilities.
 
 ## Succession
 
-If the lead maintainer becomes unavailable, patchwork-hub organization admins
+If the lead maintainer becomes unavailable, TheNewsmastFoundation organization admins
 may appoint replacement maintainers and update this file.
 
 ## Related documents

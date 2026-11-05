@@ -16,21 +16,6 @@ io:
       greeting: Kara %{name},
       instruction: 'Vua konto-verifikala OTP-kodo esas:'
       note: Se vu ne petis to, ignorar ca emailo
-  login_service:
-    errors:
-      invalid_credentials: Nevalida kredentiali. Provez denove
-      unauthorized_access: Vu ne havas accesso por enirar
-      channel_not_created: Nevalida kredentiali. Asigurizar ke vu kreis un canalo
-      account_deleted: Vua konto jam esas deletita
-      invalid_role_access: "%{role} ne esas permisita enirar"
-      deactivated_channel: Vua canalo esas deaktivesita. Kontaktar supporto
-      two_factor_enabled: Du-faktora autentikado esas aktivigita. Bonvole enirez per
-        la reta interfaco
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Provez denove. Nevalida kredentiali de beebee.io
-      registration_required: 'Registragez lokala konto. datumi: %{data}'
-      connection_error: 'Eroro kontaktante la servilo di membri: %{error}'
   api:
     errors:
       unauthorized: Vu ne esas autorizita por facar ca ago
@@ -59,16 +44,12 @@ io:
         email_not_found: E-mail ne trovita!
         email_invalid: Nevalida e-mail-formato
         email_taken: E-mail jam uzata
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: E-mail-aktualigo ne sukcesis
         password_unmatch: La pasvorti ne konformas
         password_update_fail: Pasvorto-aktualigo ne sukcesis
         otp_invalid: Nevalida OTP!
-        register_not_allow: Vu ne esas permisita registracar!
         missing_field: Mankas bezonata kampo
         password_incorrect: La aktuala pasvorto esas incorekta
-        username_taken: La uzantonomo jam uzata
       messages:
         password_updated: Pasvorto aktualigita
     domain:

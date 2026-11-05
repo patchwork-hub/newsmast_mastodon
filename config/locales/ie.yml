@@ -16,21 +16,6 @@ ie:
       greeting: Car %{name},
       instruction: 'Tu code OTP de verification de cont es:'
       note: Si tu ne ha petet to, ples ignorar ti e-mail
-  login_service:
-    errors:
-      invalid_credentials: Invalid credentiales. Ples provar denov
-      unauthorized_access: Tu ne have accesse por logar in
-      channel_not_created: Invalid credentiales. Assegura que tu ha creat un canal
-      account_deleted: Tu cont ja es deletet
-      invalid_role_access: "%{role} ne es permisset logar in"
-      deactivated_channel: Tu canal es deactivat. Ples contactar support
-      two_factor_enabled: Authenticación bi-factorial es activat. Il vos plaise, intra
-        per li web-interfacie
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Ples provar denov. Invalid credentiales de beebee.io
-      registration_required: 'Ples registrar un local cont. data: %{data}'
-      connection_error: 'Errore connexent al servicie de membres: %{error}'
   api:
     errors:
       unauthorized: Tu ne es autorisat far ti action
@@ -59,16 +44,12 @@ ie:
         email_not_found: E-mail ne trovat!
         email_invalid: Invalid e-mail format
         email_taken: E-mail ja es in usu
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Li e-mail update ne successat
         password_unmatch: Li passwords ne concorda
         password_update_fail: Li password update ne successat
         otp_invalid: Invalid OTP!
-        register_not_allow: Tu ne es permisset registrar!
         missing_field: Missing necessi camp
         password_incorrect: Li actual password es incorrect
-        username_taken: Li usator-nom ja es in usu
       messages:
         password_updated: Li password ha esset actualisat
     domain:

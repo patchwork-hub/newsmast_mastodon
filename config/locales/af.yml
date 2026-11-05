@@ -17,22 +17,6 @@ af:
       instruction: 'Jou OTP-kode vir rekeningverifikasie is soos volg:'
       note: As jy nie hiervoor aansoek gedoen het nie, ignoreer asseblief hierdie
         e-pos
-  login_service:
-    errors:
-      invalid_credentials: Ongeldige besonderhede. Probeer asseblief weer
-      unauthorized_access: Jy het nie toegang om aan te meld nie
-      channel_not_created: Ongeldige besonderhede. Maak asseblief seker jy het 'n
-        kanaal geskep
-      account_deleted: Jou rekening is reeds uitgevee
-      invalid_role_access: "%{role} mag nie aanmeld nie"
-      deactivated_channel: Jou kanaal is gedeaktiveer. Kontak asseblief ondersteuning
-      two_factor_enabled: Twee-faktor-verifikasie is geaktiveer. Meld asseblief aan
-        via die webkoppelvlak
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Probeer asseblief weer. Ongeldige besonderhede van beebee.io
-      registration_required: 'Registreer asseblief ''n plaaslike rekening. data: %{data}'
-      connection_error: 'Fout met verbinding aan lidmaatskapdiens: %{error}'
   api:
     errors:
       unauthorized: Jy is nie gemagtig om hierdie aksie uit te voer nie
@@ -61,16 +45,12 @@ af:
         email_not_found: E-pos nie gevind nie!
         email_invalid: Ongeldige e-posformaat
         email_taken: E-pos is reeds geneem
-        membership_not_eligible: Registrasie is slegs oop vir kernlede, CSIDNet-span
-          en ondersteunerlede
         email_update_fail: Die e-posopdatering was onsuksesvol
         password_unmatch: Wagwoorde stem nie ooreen nie
         password_update_fail: Die wagwoordopdatering was onsuksesvol
         otp_invalid: Ongeldige OTP!
-        register_not_allow: Jy mag nie registreer nie!
         missing_field: Vereiste velde ontbreek
         password_incorrect: Huidige wagwoord is verkeerd
-        username_taken: Gebruikersnaam is reeds geneem
       messages:
         password_updated: Die wagwoord is opgedateer
     domain:

@@ -16,20 +16,6 @@ zh-YUE:
       greeting: 親愛嘅 %{name},
       instruction: 你嘅帳戶驗證 OTP 碼如下：
       note: 如果你冇要求呢個，請忽略呢封電郵
-  login_service:
-    errors:
-      invalid_credentials: 無效憑證。請再試一次
-      unauthorized_access: 你冇權限登入
-      channel_not_created: 無效憑證。請確保你已經創建咗頻道
-      account_deleted: 你嘅帳戶已經被刪除
-      invalid_role_access: "%{role} 冇權限登入"
-      deactivated_channel: 你嘅頻道已經停用。請聯絡支援
-      two_factor_enabled: 已啟用雙重驗證。請透過粵語網頁介面登入
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: 你冇權限執行呢個操作
@@ -58,16 +44,12 @@ zh-YUE:
         email_not_found: 搵唔到電郵!
         email_invalid: 電郵格式無效
         email_taken: 電郵已經被用咗
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: 電郵更新失敗
         password_unmatch: 密碼唔一致
         password_update_fail: 密碼更新失敗
         otp_invalid: 無效 OTP!
-        register_not_allow: 你冇權限註冊!
         missing_field: 缺少必填欄位
         password_incorrect: 目前密碼唔正確
-        username_taken: 用戶名已經被用咗
       messages:
         password_updated: 密碼已更新
     domain:

@@ -16,23 +16,6 @@ is:
       greeting: Kæri %{name},
       instruction: 'OTP kóðinn þinn fyrir staðfestingu reiknings er:'
       note: Ef þú baðst ekki um þetta, hunsaðu þennan tölvupóst
-  login_service:
-    errors:
-      invalid_credentials: Ógild auðkenni. Reyndu aftur
-      unauthorized_access: Þú hefur ekki aðgang til að skrá þig inn
-      channel_not_created: Ógild auðkenni. Gakktu úr skugga um að þú hafir búið til
-        rás
-      account_deleted: Reikningurinn þinn hefur þegar verið eytt
-      invalid_role_access: "%{role} hefur ekki leyfi til að skrá sig inn"
-      deactivated_channel: Rásin þín er óvirk. Hafðu samband við þjónustuver
-      two_factor_enabled: Tveggja þátta auðkenning er virkjuð. Vinsamlegast skráðu
-        þig inn í gegnum vefviðmótið
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Reyndu aftur. Ógild auðkenni frá beebee.io
-      registration_required: 'Vinsamlegast skráðu þér í staðbundinn reikning. gögn:
-        %{data}'
-      connection_error: 'Villa við að tengjast félagsskaþþjónustu: %{error}'
   api:
     errors:
       unauthorized: Þú hefur ekki heimild til að framkvæma þessa aðgerð
@@ -61,16 +44,12 @@ is:
         email_not_found: Netfang fannst ekki!
         email_invalid: Ógilt netfangsform
         email_taken: Netfang er þegar í notkun
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Uppfærsla netfangs mistókst
         password_unmatch: Lykilorð stemma ekki
         password_update_fail: Uppfærsla lykilorðs mistókst
         otp_invalid: Ógilt OTP!
-        register_not_allow: Þú hefur ekki leyfi til að skrá þig!
         missing_field: Vantar nauðsynlegar upplýsingar
         password_incorrect: Núverandi lykilorð er rangt
-        username_taken: Notandanafn er þegar í notkun
       messages:
         password_updated: Lykilorð hefur verið uppfært
     domain:
