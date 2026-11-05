@@ -16,23 +16,6 @@ br:
       greeting: Ker %{name},
       instruction: 'Ho kod OTP evit gwiriekaat ar gont zo :'
       note: Ma n'ho peus ket goulennet se, lezit a-gostez ar postel-mañ mar plij
-  login_service:
-    errors:
-      invalid_credentials: Titouroù direizh. Klaskit en-dro mar plij
-      unauthorized_access: N'oc'h ket aotreet da kevreañ
-      channel_not_created: Titouroù direizh. Gwiriait ho peus krouet ur chadenn mar
-        plij
-      account_deleted: Dilamet eo bet ho kont dija
-      invalid_role_access: N'eo ket aotreet %{role} da kevreañ
-      deactivated_channel: Diweredekaet eo ho chadenn. Kit e darempred gant ar sikour
-        mar plij
-      two_factor_enabled: Dilesadur div-factor zo gweredekaet. Kevrit enni dre ar
-        etrefas web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Klaskit en-dro mar plij. Titouroù direizh eus beebee.io
-      registration_required: 'Krouit ur gont lec''hel mar plij. roadennoù: %{data}'
-      connection_error: 'Fazi o kennaskañ d''ar servij ezel: %{error}'
   api:
     errors:
       unauthorized: N'oc'h ket aotreet da seveniñ an ober-mañ
@@ -62,16 +45,12 @@ br:
         email_not_found: N'eo ket bet kavet ar postel!
         email_invalid: Furmskrid postel direizh
         email_taken: Implijet eo bet ar postel dija
-        membership_not_eligible: Digor eo an enskrivadurioù d'an izili diazez, d'ar
-          skipailh CSIDNet ha d'an izili skoazeller hepken
         email_update_fail: N'eo ket bet berzhus hizivadur ar postel
         password_unmatch: N'eo ket heñvel ar gerioù-tremenn
         password_update_fail: N'eo ket bet berzhus hizivadur ar ger-tremenn
         otp_invalid: OTP direizh!
-        register_not_allow: N'oc'h ket aotreet da enskrivañ!
         missing_field: Maeziennoù ret a vank
         password_incorrect: Fazi eo ar ger-tremenn bremanel
-        username_taken: Implijet eo bet an anv-implijer dija
       messages:
         password_updated: Hizivaet eo bet ar ger-tremenn
     domain:

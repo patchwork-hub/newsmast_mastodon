@@ -35,7 +35,7 @@ RSpec.describe NewsmastMastodon::AutoFollowDefaultAccountsService, type: :servic
     source_account = instance_double("Account", local?: true, acct: "source")
     first_account = instance_double("Account", acct: "first")
     second_account = instance_double("Account", acct: "second")
-    memberships = [double(account: first_account), double(account: second_account)]
+    memberships = [ double(account: first_account), double(account: second_account) ]
     auto_follow = double(instance_name: "tootwales", enabled?: true, auto_follow_accounts: memberships)
     allow_any_instance_of(described_class).to receive(:dashboard_auto_follow).and_return(auto_follow)
     allow(ENV).to receive(:[]).and_call_original
@@ -104,8 +104,8 @@ RSpec.describe NewsmastMastodon::AutoFollowDefaultAccountsService, type: :servic
     service = described_class.new
     allow(ENV).to receive(:fetch).with("LOCAL_DOMAIN", "").and_return("toot.wales")
 
-    expect(service.send(:select_dashboard_auto_follow, [other_instance, exact_match])).to eq(exact_match)
-    expect(service.send(:select_dashboard_auto_follow, [other_instance])).to be_nil
-    expect(service.send(:select_dashboard_auto_follow, [other_instance, double(instance_name: "third")])).to be_nil
+    expect(service.send(:select_dashboard_auto_follow, [ other_instance, exact_match ])).to eq(exact_match)
+    expect(service.send(:select_dashboard_auto_follow, [ other_instance ])).to be_nil
+    expect(service.send(:select_dashboard_auto_follow, [ other_instance, double(instance_name: "third") ])).to be_nil
   end
 end

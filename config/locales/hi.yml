@@ -16,22 +16,6 @@ hi:
       greeting: प्रिय %{name},
       instruction: 'आपका खाता सत्यापन OTP कोड है:'
       note: यदि आपने यह अनुरोध नहीं किया है, तो कृपया इस ईमेल को अनदेखा करें
-  login_service:
-    errors:
-      invalid_credentials: अमान्य क्रेडेंशियल्स। कृपया पुनः प्रयास करें
-      unauthorized_access: आपको लॉगिन करने की अनुमति नहीं है
-      channel_not_created: अमान्य क्रेडेंशियल्स। कृपया सुनिश्चित करें कि आपने एक चैनल
-        बनाया है
-      account_deleted: आपका खाता पहले ही हटा दिया गया है
-      invalid_role_access: "%{role} को लॉगिन करने की अनुमति नहीं है"
-      deactivated_channel: आपका चैनल निष्क्रिय है। कृपया सहायता से संपर्क करें
-      two_factor_enabled: दो-कारक प्रमाणीकरण सक्षम है। कृपया वेब इंटरफ़ेस से लॉगिन
-        करें
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: कृपया पुनः प्रयास करें। beebee.io से अमान्य क्रेडेंशियल्स
-      registration_required: 'कृपया स्थानीय खाता पंजीकृत करें। डेटा: %{data}'
-      connection_error: 'सदस्यता सेवा से कनेक्ट करते समय त्रुटि: %{error}'
   api:
     errors:
       unauthorized: आपको यह क्रिया करने की अनुमति नहीं है
@@ -60,16 +44,12 @@ hi:
         email_not_found: ईमेल नहीं मिला!
         email_invalid: अमान्य ईमेल प्रारूप
         email_taken: ईमेल पहले से लिया जा चुका है
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: ईमेल अपडेट असफल रहा
         password_unmatch: पासवर्ड मेल नहीं खाते
         password_update_fail: पासवर्ड अपडेट असफल रहा
         otp_invalid: अमान्य OTP!
-        register_not_allow: आपको पंजीकरण की अनुमति नहीं है!
         missing_field: आवश्यक फ़ील्ड गायब हैं
         password_incorrect: वर्तमान पासवर्ड गलत है
-        username_taken: यूज़रनेम पहले से लिया जा चुका है
       messages:
         password_updated: पासवर्ड अपडेट किया गया
     domain:

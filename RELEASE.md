@@ -26,19 +26,14 @@ No security vulnerabilities addressed in this release. For reporting security is
   - Added [GOVERNANCE.md](GOVERNANCE.md) documenting decision, merge, and release policy
   - Added [MAINTAINERS.md](MAINTAINERS.md) to document ownership and review responsibilities
   - Added [SUPPORT.md](SUPPORT.md) with support routing and response expectations
-  - Added `docs/internal/peer-dependencies.md` documenting gems supplied by the host Mastodon application and the engine's own runtime dependencies
-  - Added per-directory provenance records under `config/data/*/PROVENANCE.md`
   - Added [NOTICE](NOTICE) with license and dependency attribution guidance
-
-- **Operational Tools**
-  - Added `newsmast_mastodon:backfill_csid_badge_fields` rake task to populate blank account profile fields from CSID CiviCRM membership groups, with `DRY_RUN`, `BATCH_SIZE`, and `EMAIL` targeting support ([db63915](https://github.com/patchwork-hub/newsmast_mastodon/commit/db63915))
 
 - **Dependencies**
   - Added runtime dependencies `jwt`, `faraday`, and `parslet` to `newsmast_mastodon.gemspec`, pinned to compatible versions matching Mastodon 4.6.3
 
 ### Changed
 
-- **Dependency Alignment** ([db63915](https://github.com/patchwork-hub/newsmast_mastodon/commit/db63915))
+- **Dependency Alignment**
   - Aligned `newsmast_mastodon.gemspec` with Mastodon 4.6.3:
     - Rails `~> 8.1.0`
     - Ruby `>= 3.3.0, < 4.1.0`
@@ -54,18 +49,11 @@ No security vulnerabilities addressed in this release. For reporting security is
   - Hardened release gating with protected `rubygems` environment and ancestry verification
   - Expanded security automation with `bundler-audit`, `actionlint`, and `zizmor`
 
-- **Ruby Version Support** ([9a73b5a](https://github.com/patchwork-hub/newsmast_mastodon/commit/9a73b5a))
+- **Ruby Version Support**
   - **Dropped end-of-life Ruby 3.1** from CI and support; CI now covers Ruby 3.2, 3.3, and 3.4
   - Updated documentation with new CI coverage guidelines
 
-- **CiviCRM Integration** ([db63915](https://github.com/patchwork-hub/newsmast_mastodon/commit/db63915))
-  - Updated CSID signup flow to persist up to four `CSID Badge` account fields from CiviCRM `user_groups` (excluding `Newsletter sign-up`) during account creation
-  - Expanded `NewsmastMastodon::CivicrmMembershipCheckService`:
-    - Now returns extracted `user_groups`
-    - Supports `force_remote:` checks
-    - Handles multiple CiviCRM response shapes more robustly
-
-- **Notification Handling** ([db63915](https://github.com/patchwork-hub/newsmast_mastodon/commit/db63915))
+- **Notification Handling**
   - Adjusted mention notification copy selection in `CustomNotificationService` to account for notification request presence with direct/public visibility
 
 - **Documentation Updates**
@@ -77,29 +65,29 @@ No security vulnerabilities addressed in this release. For reporting security is
 
 ### Fixed
 
-- **Database Schema** ([db63915](https://github.com/patchwork-hub/newsmast_mastodon/commit/db63915))
+- **Database Schema**
   - Fixed `spec/dummy/db/schema.rb` declaring `ActiveRecord::Schema[8.1]`, which broke Postgres-backed specs under Rails 8.0 by causing `maintain_test_schema\!` to abort and leave bootstrap tables unreachable
 
-- **Status Creation & Domain Handling** ([fa3171b](https://github.com/patchwork-hub/newsmast_mastodon/commit/fa3171b), [4db7351](https://github.com/patchwork-hub/newsmast_mastodon/commit/4db7351))
+- **Status Creation & Domain Handling**
   - Improved logging in `create_status` method to include author domain information
   - Fixed author domain retrieval in `create_status` method to handle nil status cases
 
-- **Account Creation** ([afec7fa](https://github.com/patchwork-hub/newsmast_mastodon/commit/afec7fa))
+- **Account Creation**
   - Fixed response body serialization in accounts creation endpoint
 
-- **Database Resilience** ([e7f0b46](https://github.com/patchwork-hub/newsmast_mastodon/commit/e7f0b46))
+- **Database Resilience**
   - Handle database connection errors gracefully in `UserConcern` methods with updated test coverage
 
-- **Migrations** ([5da0ad2](https://github.com/patchwork-hub/newsmast_mastodon/commit/5da0ad2))
+- **Migrations**
   - Added conditional checks to index and foreign key definitions in `patchwork_status_reactions` migration to prevent errors on re-runs
 
-- **Installation Guard** ([a9c2e0b](https://github.com/patchwork-hub/newsmast_mastodon/commit/a9c2e0b))
+- **Installation Guard**
   - Implemented installation guard for Newsmast Mastodon gem to prevent issues in non-Newsmast installations
 
-- **Chewy Integration** ([9bfd72e](https://github.com/patchwork-hub/newsmast_mastodon/commit/9bfd72e))
+- **Chewy Integration**
   - Added Chewy autoload exclusion initializer to prevent unwanted autoloading
 
-- **Tag Normalization** ([23172e0](https://github.com/patchwork-hub/newsmast_mastodon/commit/23172e0))
+- **Tag Normalization**
   - Refactored tag normalization methods in `TagConcern` for consistency
 
 ---
@@ -184,11 +172,6 @@ tail -f /var/log/mastodon/production.log
 
 - Review [CHANGELOG.md](CHANGELOG.md) for the full list of changes
 - Update your deployment documentation with Ruby 3.3+ as the minimum requirement
-- If using CiviCRM integration, test the new CSID badge field population using the provided rake task (with `DRY_RUN=true` first):
-
-  ```bash
-  RAILS_ENV=production DRY_RUN=true bundle exec rails newsmast_mastodon:backfill_csid_badge_fields
-  ```
 
 ### Rollback Plan
 

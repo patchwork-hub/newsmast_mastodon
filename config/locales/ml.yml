@@ -16,24 +16,6 @@ ml:
       greeting: പ്രിയ %{name},
       instruction: 'നിങ്ങളുടെ അക്കൗണ്ട് സ്ഥിരീകരണ OTP കോഡ് ഇതാണ്:'
       note: നിങ്ങൾ ഇത് അഭ്യർത്ഥിച്ചിട്ടില്ലെങ്കിൽ, ഈ ഇമെയിൽ അവഗണിക്കുക
-  login_service:
-    errors:
-      invalid_credentials: അസാധുവായ ക്രെഡൻഷ്യലുകൾ. ദയവായി വീണ്ടും ശ്രമിക്കുക
-      unauthorized_access: ലോഗിൻ ചെയ്യാൻ നിങ്ങൾക്ക് അനുമതിയില്ല
-      channel_not_created: അസാധുവായ ക്രെഡൻഷ്യലുകൾ. നിങ്ങൾ ഒരു ചാനൽ സൃഷ്ടിച്ചിട്ടുണ്ടെന്ന്
-        ഉറപ്പാക്കുക
-      account_deleted: നിങ്ങളുടെ അക്കൗണ്ട് ഇതിനകം ഇല്ലാതാക്കി
-      invalid_role_access: "%{role} ലോഗിൻ ചെയ്യാൻ അനുവദനീയമല്ല"
-      deactivated_channel: നിങ്ങളുടെ ചാനൽ പ്രവർത്തനരഹിതമാണ്. സഹായത്തിനായി ബന്ധപ്പെടുക
-      two_factor_enabled: ടു-ഫാക്ടർ ഓതന്റിക്കേഷൻ പ്രവർത്തനക്ഷമമാക്കി. ദയവായി വെബ്
-        ഇന്റർഫേസ് ഉപയോഗിച്ച് ലോഗിൻ ചെയ്യുക
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: ദയവായി വീണ്ടും ശ്രമിക്കുക. beebee.io യിൽനിന്ന് അസാധുവായ
-        ക്രെഡൻഷ്യലുകൾ
-      registration_required: 'ദയവായി സ്ഥലത്തെ അക്കൗണ്ട് രജിസ്റ്റർ ചെയ്യുക. ഡാറ്റ:
-        %{data}'
-      connection_error: 'അംഗത്വ സേവനവുമായി കനക്ട് ചെയ്യുന്നതിൽ പ്രശ്നം: %{error}'
   api:
     errors:
       unauthorized: ഈ പ്രവർത്തനം നടത്താൻ നിങ്ങൾക്ക് അനുമതിയില്ല
@@ -62,16 +44,12 @@ ml:
         email_not_found: ഇമെയിൽ കണ്ടെത്തിയില്ല!
         email_invalid: അസാധുവായ ഇമെയിൽ ഫോർമാറ്റ്
         email_taken: ഇമെയിൽ ഇതിനകം ഉപയോഗത്തിലാണ്
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: ഇമെയിൽ അപ്ഡേറ്റ് പരാജയപ്പെട്ടു
         password_unmatch: പാസ്‌വേഡുകൾ പൊരുത്തപ്പെടുന്നില്ല
         password_update_fail: പാസ്‌വേഡ് അപ്ഡേറ്റ് പരാജയപ്പെട്ടു
         otp_invalid: അസാധുവായ OTP!
-        register_not_allow: നിങ്ങൾക്ക് രജിസ്റ്റർ ചെയ്യാൻ അനുമതിയില്ല!
         missing_field: ആവശ്യമായ ഫീൽഡുകൾ കാണുന്നില്ല
         password_incorrect: നിലവിലെ പാസ്‌വേഡ് തെറ്റാണ്
-        username_taken: ഉപയോക്തൃനാമം ഇതിനകം ഉപയോഗത്തിലാണ്
       messages:
         password_updated: പാസ്‌വേഡ് അപ്ഡേറ്റ് ചെയ്തു
     domain:

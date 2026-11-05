@@ -16,22 +16,6 @@ ku:
       greeting: Eziz %{name},
       instruction: 'Koda OTP ya piştrastkirina hesabê te ye:'
       note: Ger tu vê daxwaz nekirî, ji kerema xwe vê e-nameyê bêbextî bibîre
-  login_service:
-    errors:
-      invalid_credentials: Nasnameyên nederbasdar. Ji kerema xwe dîsa biceribîne
-      unauthorized_access: Te destûr nîne ku têkeve
-      channel_not_created: Nasnameyên nederbasdar. Pêwîste ku tu kanalek çêkiribî
-      account_deleted: Hesabê te jixwe hate jêbirin
-      invalid_role_access: "%{role} destûr nîne ku têkeve"
-      deactivated_channel: Kanala te neçalak e. Ji kerema xwe bi piştgirê re têkilî
-        bide
-      two_factor_enabled: Rastkirina du-faktorî çalak e. Ji kerema xwe bi navgina
-        têkiliya webê têkeve
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Te destûr nîne ku vê kiryarê bike
@@ -60,16 +44,12 @@ ku:
         email_not_found: E-name nehat dîtin!
         email_invalid: Şêwaza e-nameyê nederbasdar e
         email_taken: E-name jixwe tê bikaranîn
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Nûkirina e-nameyê serketin nedaye
         password_unmatch: Şîfre nehevgirtin
         password_update_fail: Nûkirina şîfreyê serketin nedaye
         otp_invalid: OTP nederbasdar e!
-        register_not_allow: Te destûr nîne ku qeyd bibî!
         missing_field: Zeviyên pêwîst tune ne
         password_incorrect: Şîfreya heyî şaş e
-        username_taken: Navê bikarhênerê jixwe tê bikaranîn
       messages:
         password_updated: Şîfre hate nûkirin
     domain:

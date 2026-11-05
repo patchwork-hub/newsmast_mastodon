@@ -16,21 +16,6 @@ ast:
       greeting: Queríu/a %{name},
       instruction: 'El to códigu OTP de verificación de cuenta ye:'
       note: Si nun solicitasti esto, por favor, iguora esti corréu
-  login_service:
-    errors:
-      invalid_credentials: Credenciales non válides. Inténtalo de nuevu
-      unauthorized_access: Nun tienes permisu pa aniciar sesión
-      channel_not_created: Credenciales non válides. Asegúrate de crear un canal
-      account_deleted: La to cuenta yá ta desaniciada
-      invalid_role_access: "%{role} nun tien permisu pa aniciar sesión"
-      deactivated_channel: El to canal ta desactiváu. Contauta col soporte
-      two_factor_enabled: L'autenticación en dos pasos ta activada. Por favor, inicia
-        sesión cola interfaz web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Inténtalo de nuevu. Credenciales non válides de beebee.io
-      registration_required: 'Rexistra una cuenta llocal. datos: %{data}'
-      connection_error: 'Fallu al coneutase col serviciu de miembros: %{error}'
   api:
     errors:
       unauthorized: Nun tienes permisu pa realizar esta aición
@@ -59,16 +44,12 @@ ast:
         email_not_found: "¡Corréu electrónicu non atopáu!"
         email_invalid: Formatu de corréu electrónicu non válidu
         email_taken: El corréu electrónicu yá ta usáu
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: La actualización del corréu electrónicu falló
         password_unmatch: Les contraseñes nun coinciden
         password_update_fail: La actualización de la contraseña falló
         otp_invalid: "¡OTP non válidu!"
-        register_not_allow: "¡Nun tienes permisu pa rexistrate!"
         missing_field: Falten campos requeríos
         password_incorrect: La contraseña actual ye incorreuta
-        username_taken: El nome d'usuariu yá ta usáu
       messages:
         password_updated: La contraseña foi actualizada
     domain:

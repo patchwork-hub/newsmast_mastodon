@@ -6,21 +6,12 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| IOS_APP_ID | Yes (for iOS) | Full iOS app identifier in TeamID.BundleID format (for example: VA45Q6RWV3.com.csidnetwork.social). AASA returns 404 if not set. |
+| IOS_APP_ID | Yes (for iOS) | Full iOS app identifier in TeamID.BundleID format (for example: ABCDE12345.com.example.app). AASA returns 404 if not set. |
 | IOS_DEEPLINK_PATHS | No | Comma-separated URL path patterns (defaults to /@*,/@*/*). |
-| ANDROID_PACKAGE_NAME | Yes (for Android) | Android app package name (for example: com.csidnetwork.social). Asset links returns 404 if not set. |
+| ANDROID_PACKAGE_NAME | Yes (for Android) | Android app package name (for example: com.example.app). Asset links returns 404 if not set. |
 | ANDROID_SHA256_CERT_FINGERPRINTS | Yes (for Android) | Comma-separated SHA-256 certificate fingerprints for Android app verification. Asset links returns 404 if not set. |
 | IOS_APP_STORE_URL | No | iOS App Store link for email footers. |
 | ANDROID_APP_STORE_URL | No | Google Play Store link for email footers. |
-
-## CiviCRM membership check
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| CSID_MEMBERSHIP_CHECK_ENABLED | No | Enable/disable CiviCRM membership verification (default: false). |
-| CIVICRM_BASE_URL | Yes (if enabled) | Base URL for CiviCRM instance (for example: https://civicrm.example.com). |
-| CIVICRM_AUTH_TOKEN | Yes (if enabled) | CiviCRM API authentication token. Include Bearer prefix or it will be added automatically. |
-| CSID_MEMBERSHIP_ALLOWLIST_EMAILS | No | Comma-separated email addresses that bypass the CiviCRM membership check. |
 
 ## Firebase notifications
 
@@ -28,17 +19,6 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 | --- | --- | --- |
 | FIREBASE_PROJECT_ID | No | Firebase project ID for push notifications. |
 | FIREBASE_KEY_FILE_NAME | No | Path to Firebase service account key JSON file. |
-
-## Ghost integration
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| GHOST_URL | No | Ghost CMS instance URL (auto-added to config.hosts if set). |
-| GHOST_ADMIN_API_KEY | No | Ghost Admin API key for content access. |
-| GHOST_WEBHOOK_ID | No | Ghost webhook ID for updates. |
-| GHOST_WEBHOOK_TARGET_URL | No | Target URL for Ghost webhook callbacks. |
-| GHOST_WEBHOOK_SECRET | No | Secret token for Ghost webhook verification. |
-| GHOST_NOTIFICATION_SENDER_NAME | No | Sender name for Ghost-related notifications (default: Development Patchwork). |
 
 ## Reblog and boost services
 
@@ -83,7 +63,6 @@ This page lists runtime environment variables supported by newsmast_mastodon.
 | --- | --- | --- |
 | NOTIFICATION_SENDER_NAME | No | Sender name for push notifications (default: Development Patchwork). |
 | SKIP_SIGNUP_PUSH_NOTI | No | Skip sending push notifications on signup (set to true to skip). |
-| ARTICLE_NOTIFICATION_SENDER_NAME | No | Sender name for article-related notifications (default: Development Patchwork). |
 | DEFAULT_EMAIL_NOTIFICATIONS_ENABLED | No | Default email notification state for newly created users (`true`/`false`). |
 
 ## Alt text AI
@@ -103,10 +82,37 @@ The automatic alt text feature currently supports [alttext.ai](https://alttext.a
 | Variable | Required | Description |
 | --- | --- | --- |
 | LOCAL_DOMAIN | No | Local domain for the Mastodon instance (for example: example.social). Used for deep links and channel detection. |
-| MAIN_CHANNEL | No | Enable main channel mode (affects login behavior). |
+| MAIN_CHANNEL | No | Enable main channel mode (used by the status ban worker). |
 | AUTO_FOLLOW_ENABLED | No | Enable/disable env-configured auto-follow for newly registered users (`true`/`false`). Used when no dashboard auto-follow list is configured for this instance. |
 | AUTO_FOLLOW_ACCOUNTS | No | Comma-separated list of accounts to auto-follow on registration when no dashboard list is configured. An enabled dashboard list takes precedence; a disabled list turns auto-follow off. |
 | WELCOME_EMAIL_DISABLED | No | Disable welcome email for newly registered users (`true` disables sending). |
+
+## Signup restrictions
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| ALLOWED_SIGNUP_EMAIL_DOMAIN | No | Comma-separated email domains allowed to sign up. All domains are allowed if not set. |
+
+## Cross-instance push notifications
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| CROSS_INSTANCE_PUSH_TARGET_URL | No | Full URL of the partner instance's `/api/v1/cross_instance_push` endpoint. Sending is enabled only when this and the secret are both set. |
+| CROSS_INSTANCE_PUSH_SECRET | Yes (if used) | Secret shared with the partner instance, used for outbound and inbound push requests. |
+
+## For You timeline
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| FOR_YOU_TIMELINE_ENABLED | No | Enable the For You timeline behaviour (`true`/`false`). |
+| FOR_YOU_TIMELINE_CHANNELS | No | Comma-separated channel usernames that also boost through the custom boost bot. |
+
+## Status reactions
+
+| Variable | Required | Description |
+| --- | --- | --- |
+| PATCHWORK_STATUS_REACTION_NAMES | No | Comma-separated emoji allowed as status reactions (default: 👍,❤️,😂,😮,😠). |
+| PATCHWORK_STATUS_REACTION_EMOJI_LIMIT | No | Maximum emoji reactions (default: 5). |
 
 ## Custom relay and instances timeline
 
@@ -161,9 +167,3 @@ RedisConnection.with do |redis|
   puts redis.zrevrange(key, 0, 10)
 end
 ```
-
-## WordPress integration
-
-| Variable | Required | Description |
-| --- | --- | --- |
-| WORDPRESS_URL | No | WordPress instance URL (auto-added to config.hosts if set). |

@@ -16,21 +16,6 @@ mk:
       greeting: Почитуван/а %{name},
       instruction: 'Вашиот OTP код за верификација на сметка е:'
       note: Ако не сте го побарале ова, игнорирајте го овој е-маил
-  login_service:
-    errors:
-      invalid_credentials: Невалидни податоци. Обидете се повторно
-      unauthorized_access: Немате пристап за најава
-      channel_not_created: Невалидни податоци. Проверете дали сте креирале канал
-      account_deleted: Вашата сметка е веќе избришана
-      invalid_role_access: "%{role} нема дозвола за најава"
-      deactivated_channel: Вашиот канал е деактивиран. Контактирајте поддршка
-      two_factor_enabled: Двофакторната автентикација е овозможена. Ве молиме најавете
-        се преку веб-интерфејсот
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Обидете се повторно. Невалидни податоци од beebee.io
-      registration_required: 'Молиме регистрирајте локална сметка. податоци: %{data}'
-      connection_error: 'Грешка при поврзување со услугата за членство: %{error}'
   api:
     errors:
       unauthorized: Немате дозвола да ја извршите оваа акција
@@ -59,16 +44,12 @@ mk:
         email_not_found: Е-поштата не е пронајдена!
         email_invalid: Невалиден формат на е-пошта
         email_taken: Е-поштата веќе е искористена
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Ажурирањето на е-поштата не успеа
         password_unmatch: Лозинките не се совпаѓаат
         password_update_fail: Ажурирањето на лозинката не успеа
         otp_invalid: Невалиден OTP!
-        register_not_allow: Немате дозвола за регистрација!
         missing_field: Недостасуваат задолжителни полиња
         password_incorrect: Тековната лозинка е неточна
-        username_taken: Корисничкото име веќе е искористено
       messages:
         password_updated: Лозинката е ажурирана
     domain:

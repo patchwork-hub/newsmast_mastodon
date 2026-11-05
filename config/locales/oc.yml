@@ -16,22 +16,6 @@ oc:
       greeting: Car/Chèra %{name},
       instruction: 'Vòstre còdi OTP de verificacion de compte es :'
       note: Se demandètz pas aquò, ignoratz aqueste corrièl
-  login_service:
-    errors:
-      invalid_credentials: Identificants invalids. Tornatz ensajar
-      unauthorized_access: Avètz pas accès per vos connectar
-      channel_not_created: Identificants invalids. Asseguratz-vos d'aver creat un
-        canal
-      account_deleted: Vòstre compte es ja suprimit
-      invalid_role_access: "%{role} es pas autorizat a se connectar"
-      deactivated_channel: Vòstre canal es desactivat. Contactatz lo supòrt
-      two_factor_enabled: L'autentificacion a dos factors es activada. Vos pregam
-        de vos connectar via l'interfàcia web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: Sètz pas autorizat a realizar aquesta accion
@@ -60,16 +44,12 @@ oc:
         email_not_found: Corrièl pas trobat!
         email_invalid: Format de corrièl invalid
         email_taken: Lo corrièl es ja utilizat
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: La mesa a jorn del corrièl a fracassat
         password_unmatch: Los senhals correspondon pas
         password_update_fail: La mesa a jorn del senhal a fracassat
         otp_invalid: OTP invalid!
-        register_not_allow: Sètz pas autorizat a vos enregistrar!
         missing_field: Campos obligatòris mancan
         password_incorrect: Lo senhal actual es incorrècte
-        username_taken: Nom d'utilizaire ja utilizat
       messages:
         password_updated: Lo senhal es estat mes a jorn
     domain:

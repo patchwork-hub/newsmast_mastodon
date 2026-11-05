@@ -16,22 +16,6 @@ sk:
       greeting: Vážený/á %{name},
       instruction: 'Váš overovací OTP kód účtu je:'
       note: Ak ste o to nepožiadali, ignorujte tento e-mail
-  login_service:
-    errors:
-      invalid_credentials: Neplatné prihlasovacie údaje. Skúste to znova
-      unauthorized_access: Nemáte prístup na prihlásenie
-      channel_not_created: Neplatné prihlasovacie údaje. Uistite sa, že ste vytvorili
-        kanál
-      account_deleted: Váš účet už bol odstránený
-      invalid_role_access: "%{role} nemá povolenie na prihlásenie"
-      deactivated_channel: Váš kanál je deaktivovaný. Kontaktujte podporu
-      two_factor_enabled: Dvojfaktorové overenie je povolené. Prihláste sa prosím
-        cez webové rozhranie
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Skúste to znova. Neplatné prihlasovacie údaje z beebee.io
-      registration_required: 'Prosím zaregistrujte lokálny účet. údaje: %{data}'
-      connection_error: 'Chyba pripojenia k službe členstva: %{error}'
   api:
     errors:
       unauthorized: Nemáte oprávnenie vykonať túto akciu
@@ -60,16 +44,12 @@ sk:
         email_not_found: E-mail nebol nájdený!
         email_invalid: Neplatný formát e-mailu
         email_taken: E-mail je už použitý
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Aktualizácia e-mailu zlyhala
         password_unmatch: Heslá sa nezhodujú
         password_update_fail: Aktualizácia hesla zlyhala
         otp_invalid: Neplatné OTP!
-        register_not_allow: Nemáte povolenie na registráciu!
         missing_field: Chýbajú povinné polia
         password_incorrect: Aktuálne heslo je nesprávne
-        username_taken: Používateľské meno je už použité
       messages:
         password_updated: Heslo bolo aktualizované
     domain:

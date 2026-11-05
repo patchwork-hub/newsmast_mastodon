@@ -16,21 +16,6 @@ ms:
       greeting: Saudara %{name},
       instruction: 'Kod OTP pengesahan akaun anda ialah:'
       note: Jika anda tidak meminta ini, sila abaikan emel ini
-  login_service:
-    errors:
-      invalid_credentials: Kelayakan tidak sah. Sila cuba lagi
-      unauthorized_access: Anda tidak mempunyai akses untuk log masuk
-      channel_not_created: Kelayakan tidak sah. Pastikan anda telah membuat saluran
-      account_deleted: Akaun anda telah dipadamkan
-      invalid_role_access: "%{role} tidak dibenarkan untuk log masuk"
-      deactivated_channel: Saluran anda dinyahaktifkan. Sila hubungi sokongan
-      two_factor_enabled: Pengesahan dua faktor diaktifkan. Sila log masuk melalui
-        antara muka web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Sila cuba lagi. Kelayakan tidak sah daripada beebee.io
-      registration_required: 'Sila daftarkan akaun tempatan. data: %{data}'
-      connection_error: 'Ralat menyambung ke perkhidmatan keahlian: %{error}'
   api:
     errors:
       unauthorized: Anda tidak dibenarkan untuk melakukan tindakan ini
@@ -59,16 +44,12 @@ ms:
         email_not_found: E-mel tidak dijumpai!
         email_invalid: Format e-mel tidak sah
         email_taken: E-mel sudah digunakan
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Kemas kini e-mel gagal
         password_unmatch: Kata laluan tidak sepadan
         password_update_fail: Kemas kini kata laluan gagal
         otp_invalid: OTP tidak sah!
-        register_not_allow: Anda tidak dibenarkan untuk mendaftar!
         missing_field: Medan yang diperlukan tiada
         password_incorrect: Kata laluan semasa tidak betul
-        username_taken: Nama pengguna sudah digunakan
       messages:
         password_updated: Kata laluan telah dikemas kini
     domain:

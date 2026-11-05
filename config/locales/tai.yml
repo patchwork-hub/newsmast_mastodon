@@ -16,22 +16,6 @@ tai:
       greeting: Dear %{name},
       instruction: 'Your account verification OTP code is as below:'
       note: If you didn't request this, please ignore this email
-  login_service:
-    errors:
-      invalid_credentials: Invalid credentials. Please try again
-      unauthorized_access: You don't have access to login
-      channel_not_created: Invalid credentials. Please make sure you've created a
-        channel
-      account_deleted: Your account is already deleted
-      invalid_role_access: "%{role} isn't allowed to access login"
-      deactivated_channel: Your channel is deactivated. Please contact support
-      two_factor_enabled: Two-factor authentication is enabled. Please login with
-        the web interface
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: You are not authorized to perform this action
@@ -60,16 +44,12 @@ tai:
         email_not_found: Email not found!
         email_invalid: Invalid email format
         email_taken: Email has already been taken
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: The email update was unsuccessful
         password_unmatch: Password unmatch
         password_update_fail: The password update was unsuccessful
         otp_invalid: Invalid OTP!
-        register_not_allow: You're not allowed to register!
         missing_field: Missing required fields
         password_incorrect: Current password is incorrect
-        username_taken: Username has already been taken
       messages:
         password_updated: The password has been updated
     domain:

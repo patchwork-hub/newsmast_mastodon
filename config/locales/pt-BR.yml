@@ -16,21 +16,6 @@ pt-BR:
       greeting: Caro(a) %{name},
       instruction: 'Seu código OTP de verificação de conta é:'
       note: Se você não solicitou isso, por favor ignore este e-mail
-  login_service:
-    errors:
-      invalid_credentials: Credenciais inválidas. Por favor, tente novamente
-      unauthorized_access: Você não tem permissão para fazer login
-      channel_not_created: Credenciais inválidas. Certifique-se de ter criado um canal
-      account_deleted: Sua conta já foi excluída
-      invalid_role_access: "%{role} não tem permissão para fazer login"
-      deactivated_channel: Seu canal está desativado. Entre em contato com o suporte
-      two_factor_enabled: A autenticação de dois fatores está habilitada. Por favor,
-        faça login pela interface web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Por favor, tente novamente. Credenciais inválidas de beebee.io
-      registration_required: 'Por favor, registre uma conta local. dados: %{data}'
-      connection_error: 'Erro ao conectar ao serviço de associação: %{error}'
   api:
     errors:
       unauthorized: Você não está autorizado a realizar esta ação
@@ -60,16 +45,12 @@ pt-BR:
         email_not_found: E-mail não encontrado!
         email_invalid: Formato de e-mail inválido
         email_taken: E-mail já está em uso
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: A atualização do e-mail falhou
         password_unmatch: As senhas não coincidem
         password_update_fail: A atualização da senha falhou
         otp_invalid: OTP inválido!
-        register_not_allow: Você não tem permissão para se registrar!
         missing_field: Campos obrigatórios ausentes
         password_incorrect: A senha atual está incorreta
-        username_taken: Nome de usuário já está em uso
       messages:
         password_updated: A senha foi atualizada
     domain:

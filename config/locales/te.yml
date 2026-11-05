@@ -16,21 +16,6 @@ te:
       greeting: ప్రియమైన %{name},
       instruction: 'మీ ఖాతా ధృవీకరణ OTP కోడ్:'
       note: మీరు ఇది అభ్యర్థించకపోతే, దయచేసి ఈ ఇమెయిల్‌ను నిర్లక్ష్యం చేయండి
-  login_service:
-    errors:
-      invalid_credentials: చెల్లని వివరాలు. దయచేసి మళ్లీ ప్రయత్నించండి
-      unauthorized_access: మీకు లాగిన్ చేయడానికి అనుమతి లేదు
-      channel_not_created: చెల్లని వివరాలు. మీరు ఛానల్ సృష్టించారో లేదో నిర్ధారించుకోండి
-      account_deleted: మీ ఖాతా ఇప్పటికే తొలగించబడింది
-      invalid_role_access: "%{role} లాగిన్ చేయడానికి అనుమతి లేదు"
-      deactivated_channel: మీ ఛానల్ నిలిపివేయబడింది. సహాయానికి సంప్రదించండి
-      two_factor_enabled: రెండు-కారకాల ప్రమాణీకరణ ప్రారంభించబడింది. దయచేసి వెబ్ ఇంటర్‌ఫేస్
-        ద్వారా లాగిన్ అవ్వండి
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: దయచేసి మళ్లీ ప్రయత్నించండి. beebee.io నుండి చెల్లని వివరాలు
-      registration_required: 'దయచేసి స్థానిక ఖాతాను రిజిస్టర్ చేయండి. డేటా: %{data}'
-      connection_error: 'సదస్యత్వ సేవకు కనెక్ట్ చేయడంలో తప్పు: %{error}'
   api:
     errors:
       unauthorized: మీకు ఈ చర్యను చేయడానికి అనుమతి లేదు
@@ -59,16 +44,12 @@ te:
         email_not_found: ఇమెయిల్ కనుగొనబడలేదు!
         email_invalid: చెల్లని ఇమెయిల్ ఫార్మాట్
         email_taken: ఇమెయిల్ ఇప్పటికే తీసుకోబడింది
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: ఇమెయిల్ నవీకరణ విఫలమైంది
         password_unmatch: పాస్‌వర్డ్‌లు సరిపోలడం లేదు
         password_update_fail: పాస్‌వర్డ్ నవీకరణ విఫలమైంది
         otp_invalid: చెల్లని OTP!
-        register_not_allow: మీకు నమోదు చేసుకోవడానికి అనుమతి లేదు!
         missing_field: అవసరమైన ఫీల్డ్‌లు లేవు
         password_incorrect: ప్రస్తుత పాస్‌వర్డ్ తప్పు
-        username_taken: వినియోగదారు పేరు ఇప్పటికే తీసుకోబడింది
       messages:
         password_updated: పాస్‌వర్డ్ నవీకరించబడింది
     domain:

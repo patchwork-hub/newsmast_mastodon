@@ -16,23 +16,6 @@ lt:
       greeting: Gerb. %{name},
       instruction: 'Jūsų paskyros patvirtinimo OTP kodas yra:'
       note: Jei to neprašėte, ignoruokite šį el. laišką
-  login_service:
-    errors:
-      invalid_credentials: Neteisingi prisijungimo duomenys. Bandykite dar kartą
-      unauthorized_access: Jūs neturite teisės prisijungti
-      channel_not_created: Neteisingi prisijungimo duomenys. Įsitikinkite, kad sukūrėte
-        kanalą
-      account_deleted: Jūsų paskyra jau ištrinta
-      invalid_role_access: "%{role} neturi teisės prisijungti"
-      deactivated_channel: Jūsų kanalas išjungtas. Susisiekite su palaikymu
-      two_factor_enabled: Dviejų veiksnių autentifikavimas įjungtas. Prisijunkite
-        per žiniatinklio sąsają
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Bandykite dar kartą. Neteisingi prisijungimo duomenys iš
-        beebee.io
-      registration_required: 'Prašome užregistruoti vietinę paskyrą. duomenys: %{data}'
-      connection_error: 'Klaida jungiantis prie narių paslaugos: %{error}'
   api:
     errors:
       unauthorized: Jūs neturite teisės atlikti šio veiksmo
@@ -61,16 +44,12 @@ lt:
         email_not_found: El. paštas nerastas!
         email_invalid: Neteisingas el. pašto formatas
         email_taken: El. paštas jau naudojamas
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: El. pašto atnaujinimas nepavyko
         password_unmatch: Slaptažodžiai nesutampa
         password_update_fail: Slaptažodžio atnaujinimas nepavyko
         otp_invalid: Neteisingas OTP!
-        register_not_allow: Jūs neturite teisės registruotis!
         missing_field: Trūksta privalomų laukų
         password_incorrect: Dabartinis slaptažodis neteisingas
-        username_taken: Vartotojo vardas jau naudojamas
       messages:
         password_updated: Slaptažodis atnaujintas
     domain:

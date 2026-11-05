@@ -20,7 +20,6 @@ NewsmastMastodon::Engine.routes.draw do
           get  :request_otp, to: "custom_passwords#request_otp"
           post :change_password, to: "custom_passwords#change_password"
           post :change_email, to: "custom_passwords#change_email"
-          post :bristol_cable_sign_in, to: "custom_passwords#bristol_cable_sign_in"
         end
       end
 
@@ -34,17 +33,6 @@ NewsmastMastodon::Engine.routes.draw do
       end
 
       resources :user_locales, only: [ :create ]
-
-      post "civicrm_role_assign", to: "civicrm_role_assignments#create"
-
-      resources :channels, only: [] do
-        collection do
-          get :starter_packs_channels
-        end
-        member do
-          get :starter_packs_detail
-        end
-      end
 
       namespace :patchwork do
         resources :alttext_settings, only: [ :index ] do
@@ -76,16 +64,6 @@ NewsmastMastodon::Engine.routes.draw do
       end
 
       post "/delete_account", to: "accounts#delete_account"
-
-      namespace :accounts do
-        get  "leicester_notification", to: "patchwork_settings#leicester_news_notification"
-        post "leicester_notification", to: "patchwork_settings#update_leicester_news_notification"
-        post "subscribe_leicester", to: "ghost_subscriptions#manage_subscription"
-
-        # Receive new article notifications
-        get  "article_notifications", to: "patchwork_settings#article_notifications"
-        post "article_notifications", to: "patchwork_settings#update_article_notifications"
-      end
 
       # --- custom_feeds ---
       namespace :timelines do
@@ -127,9 +105,6 @@ NewsmastMastodon::Engine.routes.draw do
 
       post   "patchwork/relays",     to: "relays#create"
       delete "patchwork/relays/:id", to: "relays#destroy"
-
-      post "ghost_webhooks",     to: "webhooks#handle_ghost"
-      post "wordpress_webhooks", to: "webhooks#handle_wordpress"
 
       # Inbound cross-instance push notifications from a trusted partner instance
       post "cross_instance_push", to: "cross_instance_push#create"

@@ -22,7 +22,7 @@ Examples:
 
 ## Prerequisites
 
-The plugin requires Ruby `>= 3.3.0, < 4.1.0`, a matching Mastodon service version, and (depending on intended use) may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard).
+The plugin requires Ruby `>= 3.3.0, < 4.1.0`, a matching Mastodon service version, and (depending on intended use) may also require Newsmast Dashboard.
 
 ## Installation
 
@@ -36,9 +36,6 @@ The gem is a standard Rails engine. It changes Mastodon behavior at runtime by:
   controllers (see `config/initializers/prepend_concerns.rb`);
 - including model concerns into `Account`, `Status`, `User`, and other host
   models;
-- replacing Mastodon's core Chewy search indexes (`AccountsIndex`,
-  `StatusesIndex`, `PublicStatusesIndex`) with its own namespaced definitions
-  while preserving the upstream Elasticsearch index names;
 - shipping additional migrations, frontend components, and API controllers that
   mount onto the host.
 

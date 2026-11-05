@@ -230,14 +230,12 @@ jobs:
         run: |
           bundle exec rspec \
             spec/models/newsmast_mastodon/server_setting_spec.rb \
-            spec/models/newsmast_mastodon/wait_list_spec.rb \
-            spec/models/newsmast_mastodon/patchwork_setting_spec.rb \
             spec/models/newsmast_mastodon/notification_token_spec.rb \
             spec/models/newsmast_mastodon/community_spec.rb \
             --format documentation
 
   # Upgrade-safety gates. These are static checks (no DB/services needed) that
-  # protect every Mastodon upgrade cycle — see docs/internal/mastodon-upgrade/RUNBOOK.md.
+  # protect every Mastodon upgrade cycle.
   compatibility:
     runs-on: ubuntu-latest
     timeout-minutes: 15

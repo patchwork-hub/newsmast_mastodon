@@ -84,19 +84,4 @@ RSpec.describe "CustomPasswords", type: :request do
 
     expect(response.status).to be_between(200, 422)
   end
-
-  it "POST /api/v1/custom_passwords/bristol_cable_sign_in authenticates via Bristol Cable" do
-    require_host!
-    # Ensure a Doorkeeper::Application exists (controller calls Doorkeeper::Application.first)
-    Fabricate(:application) unless Doorkeeper::Application.exists?
-    post "/api/v1/custom_passwords/bristol_cable_sign_in",
-      params: {
-        username: "bc_#{SecureRandom.hex(4)}",
-        email: "bc_#{SecureRandom.hex(4)}@example.com",
-        password: "wrongpass"
-      }
-
-    # Returns error or token depending on Bristol Cable service; route must exist
-    expect(response.status).to be_between(200, 422)
-  end
 end

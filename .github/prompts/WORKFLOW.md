@@ -62,7 +62,7 @@ The model saying "done" is not done.
 - Save the plan, then clean up (see below).
 - Then close the task.
 
-**Plan and progress files are scratch.** `plan.md` and `progress.md` are gitignored (see `.gitignore.copilot-snippet`) and never committed.
+**Plan and progress files are scratch.** `plan.md` and `progress.md` are gitignored (see `.gitignore`) and never committed.
 
 **Capture the plan at the review / PR handoff — while the file still exists.** When you finish building and open the PR:
 - **Paste `plan.md` into the backlog ticket** (as a comment). Do this now, not at ticket close — the scratch file gets deleted, so grab it while it is still on disk. The ticket is the durable record of what was built and why; it lives with the requirement, the discussion, and the PR link.

@@ -33,8 +33,7 @@ module NewsmastMastodon
 
       message = "[newsmast_mastodon] host Mastodon version mismatch: " \
                 "gem targets #{required} but host reports #{actual}. " \
-                "Pin the gem version that matches this Mastodon release " \
-                "(see docs/internal/mastodon-upgrade/RUNBOOK.md)."
+                "Pin the gem version that matches this Mastodon release."
 
       if defined?(Rails) && Rails.env.production?
         abort(message)
@@ -87,26 +86,6 @@ module NewsmastMastodon
       "#{config.root}/app/validators"
     ]
     config.autoload_paths = autoload_paths.uniq
-
-    # --- Ghost & WordPress webhook host allowlisting ---
-    initializer "newsmast_mastodon.extend_allowed_hosts" do |app|
-      allowed_hosts = []
-
-      if ENV.values_at("GHOST_URL", "GHOST_WEBHOOK_TARGET_URL", "GHOST_WEBHOOK_SECRET").all?(&:present?)
-        allowed_hosts << ENV["GHOST_URL"]
-      end
-
-      if ENV["WORDPRESS_URL"].present?
-        allowed_hosts << ENV["WORDPRESS_URL"]
-      end
-
-      allowed_hosts.each do |host|
-        clean_host = host.gsub(%r{^https?://}, "").split("/").first
-        hosts = Array(app.config.hosts).dup
-        hosts << clean_host unless hosts.include?(clean_host)
-        app.config.hosts = hosts
-      end
-    end
 
     # --- Chewy autoload exclusion ---
     initializer "newsmast_mastodon.exclude_chewy_autoload", before: :set_autoload_paths do |app|

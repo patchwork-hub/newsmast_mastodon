@@ -16,21 +16,6 @@ ca:
       greeting: Benvolgut/da %{name},
       instruction: 'El teu codi OTP de verificació del compte és:'
       note: Si no has sol·licitat això, ignora aquest correu electrònic
-  login_service:
-    errors:
-      invalid_credentials: Credencials no vàlides. Torna-ho a provar
-      unauthorized_access: No tens accés per iniciar sessió
-      channel_not_created: Credencials no vàlides. Assegura't d'haver creat un canal
-      account_deleted: El teu compte ja ha estat eliminat
-      invalid_role_access: "%{role} no té permís per iniciar sessió"
-      deactivated_channel: El teu canal està desactivat. Contacta amb el suport
-      two_factor_enabled: L'autenticació de dos factors està activada. Si us plau,
-        inicieu sessió amb la interfície web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Torna-ho a provar. Credencials no vàlides de beebee.io
-      registration_required: 'Si us plau, registra un compte local. dades: %{data}'
-      connection_error: 'Error en connectar amb el servei de membres: %{error}'
   api:
     errors:
       unauthorized: No estàs autoritzat a realitzar aquesta acció
@@ -60,16 +45,12 @@ ca:
         email_not_found: Correu electrònic no trobat!
         email_invalid: Format de correu electrònic no vàlid
         email_taken: El correu electrònic ja està en ús
-        membership_not_eligible: El registre només està obert als membres bàsics,
-          l'equip CSIDNet i els membres de suport
         email_update_fail: L'actualització del correu electrònic no ha tingut èxit
         password_unmatch: Les contrasenyes no coincideixen
         password_update_fail: L'actualització de la contrasenya no ha tingut èxit
         otp_invalid: OTP no vàlid!
-        register_not_allow: No tens permís per registrar-te!
         missing_field: Falten camps obligatoris
         password_incorrect: La contrasenya actual és incorrecta
-        username_taken: El nom d'usuari ja està en ús
       messages:
         password_updated: La contrasenya s'ha actualitzat
     domain:

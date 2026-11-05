@@ -22,17 +22,6 @@ ActiveRecord::Schema.define do
   add_index :server_settings, :name, if_not_exists: true
   add_index :server_settings, :parent_id, if_not_exists: true
 
-  create_table :patchwork_wait_lists, if_not_exists: true do |t|
-    t.bigint :account_id
-    t.string :invitation_code
-    t.string :email
-    t.string :description
-    t.integer :channel_type
-    t.timestamps null: false
-  end
-  add_index :patchwork_wait_lists, :invitation_code, unique: true, if_not_exists: true
-  add_index :patchwork_wait_lists, :account_id, unique: true, if_not_exists: true
-
   create_table :patchwork_settings, if_not_exists: true do |t|
     t.bigint :account_id
     t.integer :app_name

@@ -16,20 +16,6 @@ zh-Hant:
       greeting: 親愛的 %{name}，
       instruction: 您的帳戶驗證OTP代碼如下：
       note: 如果您沒有請求此操作，請忽略此郵件
-  login_service:
-    errors:
-      invalid_credentials: 憑據無效，請重試
-      unauthorized_access: 您沒有登入權限
-      channel_not_created: 憑據無效，請確保您已建立頻道
-      account_deleted: 您的帳戶已被刪除
-      invalid_role_access: "%{role} 不允許登入"
-      deactivated_channel: 您的頻道已被停用。請聯繫客服
-      two_factor_enabled: 已啟用雙重要素驗證。請透過網頁介面登入
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: 請重試。來自 beebee.io 的憑據無效
-      registration_required: 請註冊本地帳戶。資料：%{data}
-      connection_error: 連線至會員服務時發生錯誤：%{error}
   api:
     errors:
       unauthorized: 您無權執行此操作
@@ -58,16 +44,12 @@ zh-Hant:
         email_not_found: 電子郵件未找到！
         email_invalid: 電子郵件格式無效
         email_taken: 電子郵件已被使用
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: 電子郵件更新失敗
         password_unmatch: 密碼不相符
         password_update_fail: 密碼更新失敗
         otp_invalid: OTP無效！
-        register_not_allow: 您不允許註冊！
         missing_field: 缺少必填欄位
         password_incorrect: 目前密碼錯誤
-        username_taken: 使用者名稱已被使用
       messages:
         password_updated: 密碼已更新
     domain:

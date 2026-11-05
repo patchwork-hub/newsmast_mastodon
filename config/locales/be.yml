@@ -16,22 +16,6 @@ be:
       greeting: Паважаны %{name},
       instruction: 'Ваш код OTP для пацверджання акаўнта:'
       note: Калі вы не запытвалі гэта, праігнаруйце гэты ліст
-  login_service:
-    errors:
-      invalid_credentials: Няправільныя дадзеныя. Паспрабуйце яшчэ раз
-      unauthorized_access: У вас няма доступу для ўваходу
-      channel_not_created: Няправільныя дадзеныя. Пераканайцеся, што вы стварылі канал
-      account_deleted: Ваш акаўнт ужо выдалены
-      invalid_role_access: "%{role} не мае доступу для ўваходу"
-      deactivated_channel: Ваш канал дэактываваны. Звярніцеся ў падтрымку
-      two_factor_enabled: Двухфактарная аўтэнтыфікацыя ўключана. Калі ласка, увайдзіце
-        праз вэб-інтэрфейс
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Паспрабуйце яшчэ раз. Няправільныя дадзеныя з beebee.io
-      registration_required: 'Калі ласка, зарэгіструйце лакальны акаўнт. дадзеныя:
-        %{data}'
-      connection_error: 'Памылка падключэння да сэрвісу членства: %{error}'
   api:
     errors:
       unauthorized: У вас няма дазволу на выкананне гэтай дзеяння
@@ -60,16 +44,12 @@ be:
         email_not_found: Электронная пошта не знойдзена!
         email_invalid: Няправільны фармат электроннай пошты
         email_taken: Электронная пошта ўжо занята
-        membership_not_eligible: Рэгістрацыя адкрыта толькі для асноўных членаў, каманды
-          CSIDNet і членаў падтрымкі
         email_update_fail: Абнаўленне электроннай пошты не атрымалася
         password_unmatch: Паролі не супадаюць
         password_update_fail: Абнаўленне пароля не атрымалася
         otp_invalid: Няправільны OTP!
-        register_not_allow: Вам не дазволена рэгістравацца!
         missing_field: Адсутнічаюць неабходныя палі
         password_incorrect: Бягучы пароль няправільны
-        username_taken: Імя карыстальніка ўжо занята
       messages:
         password_updated: Пароль абноўлены
     domain:

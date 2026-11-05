@@ -16,22 +16,6 @@ cy:
       greeting: Annwyl %{name},
       instruction: 'Eich cod OTP dilysu cyfrif yw:'
       note: Os nad ydych wedi gofyn am hyn, anwybyddwch yr e-bost hwn
-  login_service:
-    errors:
-      invalid_credentials: Cynadleddau annilys. Ceisiwch eto
-      unauthorized_access: Nid oes gennych fynediad i fewngofnodi
-      channel_not_created: Cynadleddau annilys. Gwnewch yn siŵr eich bod wedi creu
-        sianel
-      account_deleted: Mae eich cyfrif eisoes wedi'i ddileu
-      invalid_role_access: Nid oes gan %{role} ganiatâd i fewngofnodi
-      deactivated_channel: Mae eich sianel wedi'i analluogi. Cysylltwch â chefnogaeth
-      two_factor_enabled: Mae dilysu dau ffactor wedi'i alluogi. Mewngofnodwch trwy'r
-        rhyngwyneb gwe
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Ceisiwch eto. Cynadleddau annilys o beebee.io
-      registration_required: 'Cofrestrwch gyfrif lleol. data: %{data}'
-      connection_error: 'Gwall wrth gysylltu â gwasanaeth aelodaeth: %{error}'
   api:
     errors:
       unauthorized: Nid ydych wedi'ch awdurdodi i gyflawni'r weithred hon
@@ -61,16 +45,12 @@ cy:
         email_not_found: Heb ddod o hyd i e-bost!
         email_invalid: Fformat e-bost annilys
         email_taken: Mae'r e-bost eisoes wedi'i gymryd
-        membership_not_eligible: Mae cofrestru yn agored i aelodau Craidd, Tîm CSIDNet,
-          ac aelodau Cefnogwyr yn unig
         email_update_fail: Methodd diweddaru'r e-bost
         password_unmatch: Nid yw'r cyfrineiriau'n cyfateb
         password_update_fail: Methodd diweddaru'r cyfrinair
         otp_invalid: OTP annilys!
-        register_not_allow: Nid oes gennych ganiatâd i gofrestru!
         missing_field: Mae meysydd gofynnol ar goll
         password_incorrect: Mae'r cyfrinair presennol yn anghywir
-        username_taken: Mae'r enw defnyddiwr eisoes wedi'i gymryd
       messages:
         password_updated: Diweddarwyd y cyfrinair
     domain:

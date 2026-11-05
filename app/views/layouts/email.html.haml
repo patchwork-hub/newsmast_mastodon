@@ -221,16 +221,9 @@
         %tr
           %td.horizontal-line{colspan: "100%"}
             %hr/
-        -# %tr
-        -#   %td.socials{align: "center", valign: "middle"}
-        -#     %img.insta{src: "https://newsmast-assets.s3.eu-west-2.amazonaws.com/instagram.png", alt: "Newmast Instagram"}
-        -#     %img.youtube{src: "https://newsmast-assets.s3.eu-west-2.amazonaws.com/youtube.png", alt: "Newmast Youtube"}
-        -#     %img.linkedin{src: "https://newsmast-assets.s3.eu-west-2.amazonaws.com/linkedin.png", alt: "Newmast Linkedin"}
         %tr
           %td.copyright{align: "center", valign: "middle"}
             © #{ENV['MAIL_SENDER_NAME']} #{Time.zone.now.year}. All rights reserved.
-            - if ENV['LOCAL_DOMAIN'] == 'mo-me.social'
-              %a{href: "https://mediarevolution.org/", style: "color: #000000 !important; text-decoration: none"} Media Revolution
         - if ENV['PRIVACY_POLICY_URL'].present? && ENV['TERMS_AND_CONDITIONS_URL'].present? && ENV['PRIVACY_POLICY_URL'].blank? == false && ENV['TERMS_AND_CONDITIONS_URL'].blank? == false
           %tr
             %td.terms{align: "center", valign: "middle"}

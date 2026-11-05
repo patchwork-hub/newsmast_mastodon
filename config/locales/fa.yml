@@ -16,21 +16,6 @@ fa:
       greeting: کاربر گرامی %{name}،
       instruction: 'کد OTP تأیید حساب شما به شرح زیر است:'
       note: اگر این درخواست را نداده‌اید، لطفاً این ایمیل را نادیده بگیرید
-  login_service:
-    errors:
-      invalid_credentials: اطلاعات نامعتبر. لطفاً دوباره تلاش کنید
-      unauthorized_access: شما اجازه ورود ندارید
-      channel_not_created: اطلاعات نامعتبر. لطفاً مطمئن شوید که یک کانال ایجاد کرده‌اید
-      account_deleted: حساب شما قبلاً حذف شده است
-      invalid_role_access: "%{role} اجازه ورود ندارد"
-      deactivated_channel: کانال شما غیرفعال است. لطفاً با پشتیبانی تماس بگیرید
-      two_factor_enabled: احراز هویت دو مرحله‌ای فعال است. لطفاً از طریق رابط وب وارد
-        شوید
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: لطفاً دوباره تلاش کنید. اطلاعات نامعتبر از beebee.io
-      registration_required: 'لطفاً حساب محلی ثبت کنید. داده‌ها: %{data}'
-      connection_error: 'خطا در اتصال به سرویس عضویت: %{error}'
   api:
     errors:
       unauthorized: شما مجاز به انجام این عملیات نیستید
@@ -59,16 +44,12 @@ fa:
         email_not_found: ایمیل پیدا نشد!
         email_invalid: فرمت ایمیل نامعتبر است
         email_taken: ایمیل قبلاً استفاده شده است
-        membership_not_eligible: ثبت نام فقط برای اعضای اصلی، تیم CSIDNet و اعضای
-          حامی باز است
         email_update_fail: به‌روزرسانی ایمیل موفق نبود
         password_unmatch: رمز عبور مطابقت ندارد
         password_update_fail: به‌روزرسانی رمز عبور موفق نبود
         otp_invalid: OTP نامعتبر!
-        register_not_allow: شما اجازه ثبت‌نام ندارید!
         missing_field: فیلدهای مورد نیاز وجود ندارد
         password_incorrect: رمز عبور فعلی اشتباه است
-        username_taken: نام کاربری قبلاً استفاده شده است
       messages:
         password_updated: رمز عبور به‌روزرسانی شد
     domain:

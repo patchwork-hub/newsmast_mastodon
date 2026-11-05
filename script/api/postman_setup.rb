@@ -10,12 +10,8 @@ require "fileutils"
 BASE_URL = ENV.fetch("BASE_URL", "http://localhost:3000").chomp("/")
 ACCESS_TOKEN = ENV.fetch("ACCESS_TOKEN", "")
 PLATFORM_TYPE = ENV.fetch("PLATFORM_TYPE", "ios")
-STARTER_PACK_SOURCE = ENV.fetch("STARTER_PACK_SOURCE", "twt")
-APP_NAME = ENV.fetch("APP_NAME", "")
 LINK_PREVIEW_URL = ENV.fetch("LINK_PREVIEW_URL", "https://example.com")
 RELAY_INBOX_URL = ENV.fetch("RELAY_INBOX_URL", "https://relay.example.com/inbox")
-WORDPRESS_AUTH_TOKEN = ENV.fetch("WORDPRESS_AUTH_TOKEN", "")
-GHOST_SIGNATURE = ENV.fetch("GHOST_SIGNATURE", "sha256=example,t=1710000000")
 
 OUT_PATH = ENV.fetch("POSTMAN_ENV_OUTPUT_FILE", File.expand_path("../../tmp/newman.generated.env.json", __dir__))
 
@@ -77,17 +73,6 @@ def fetch_verify_credentials
   [ account_id.to_s, username ]
 end
 
-def fetch_channel_id
-  response = request("get", "/api/v1/channels/starter_packs_channels", query: { starter_pack_source: STARTER_PACK_SOURCE })
-  return "" unless response.code.to_i == 200
-
-  payload = parse_json(response)
-  first = payload.is_a?(Array) ? payload.first : nil
-  id = first.is_a?(Hash) ? (first["id"] || first["channel_id"]) : nil
-  log("#{response.code}", "Fetched starter packs channels")
-  id.to_s
-end
-
 def create_drafted_status
   body = {
     status: "API smoke draft #{Time.now.utc.iso8601}",
@@ -117,7 +102,6 @@ def create_relay
 end
 
 account_id, username = fetch_verify_credentials
-channel_id = fetch_channel_id
 
 drafted_status_id = create_drafted_status
 relay_id = create_relay
@@ -126,11 +110,8 @@ vars = {
   "base_url" => BASE_URL,
   "access_token" => ACCESS_TOKEN,
   "custom_password_id" => "",
-  "channel_id" => channel_id,
   "platform_type" => PLATFORM_TYPE,
   "account_id" => account_id,
-  "starter_pack_source" => STARTER_PACK_SOURCE,
-  "app_name" => APP_NAME,
   "target_account_id" => account_id,
   "max_id" => "",
   "since_id" => "",
@@ -142,9 +123,7 @@ vars = {
   "drafted_status_id" => drafted_status_id,
   "link_preview_url" => LINK_PREVIEW_URL,
   "relay_id" => relay_id,
-  "relay_inbox_url" => RELAY_INBOX_URL,
-  "ghost_signature" => GHOST_SIGNATURE,
-  "wordpress_auth_token" => WORDPRESS_AUTH_TOKEN
+  "relay_inbox_url" => RELAY_INBOX_URL
 }
 
 json = {

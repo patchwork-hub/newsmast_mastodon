@@ -10,9 +10,7 @@ RSpec.describe NewsmastMastodon::Concerns::AccountsCreation do
   end
 
   before do
-    allow(NewsmastMastodon::CivicrmRoleAssignmentWorker).to receive(:perform_async)
     allow(ENV).to receive(:fetch).and_call_original
-    allow(ENV).to receive(:fetch).with("CSID_ROLE_ASSIGNMENT_ENABLED", "false").and_return("true")
     allow(ENV).to receive(:fetch).with("LOCAL_DOMAIN", nil).and_return("example.test")
   end
 
@@ -25,40 +23,5 @@ RSpec.describe NewsmastMastodon::Concerns::AccountsCreation do
       expect(controller.send(:signup_reason, "   ")).to eq("Signing up via example.test App")
       expect(controller.send(:signup_reason, nil)).to eq("Signing up via example.test App")
     end
-  end
-
-  it "enqueues role assignment for the newly created user" do
-    token = instance_double("Doorkeeper::AccessToken", resource_owner_id: 42)
-
-    controller.send(:enqueue_role_assignment, token)
-
-    expect(NewsmastMastodon::CivicrmRoleAssignmentWorker).to have_received(:perform_async).with(42)
-  end
-
-  it "does not enqueue when role assignment is disabled" do
-    allow(ENV).to receive(:fetch).with("CSID_ROLE_ASSIGNMENT_ENABLED", "false").and_return("false")
-    token = instance_double("Doorkeeper::AccessToken", resource_owner_id: 42)
-
-    controller.send(:enqueue_role_assignment, token)
-
-    expect(NewsmastMastodon::CivicrmRoleAssignmentWorker).not_to have_received(:perform_async)
-  end
-
-  it "does not enqueue without a resource owner" do
-    token = instance_double("Doorkeeper::AccessToken", resource_owner_id: nil)
-
-    controller.send(:enqueue_role_assignment, token)
-
-    expect(NewsmastMastodon::CivicrmRoleAssignmentWorker).not_to have_received(:perform_async)
-  end
-
-  it "logs and continues when enqueue fails" do
-    token = instance_double("Doorkeeper::AccessToken", resource_owner_id: 42)
-    enqueue_error = Class.new(StandardError)
-    allow(NewsmastMastodon::CivicrmRoleAssignmentWorker).to receive(:perform_async).and_raise(enqueue_error)
-    allow(Rails.logger).to receive(:error)
-
-    expect { controller.send(:enqueue_role_assignment, token) }.not_to raise_error
-    expect(Rails.logger).to have_received(:error).with("CiviCRM role assignment enqueue failed: #{enqueue_error}")
   end
 end

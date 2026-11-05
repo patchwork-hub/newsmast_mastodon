@@ -10,7 +10,6 @@ module NewsmastMastodon::Api::V1
     before_action :set_user, only: [ :update, :verify_otp, :request_otp ]
 
     include AccountableConcern if defined?(AccountableConcern)
-    include NonChannelHelper
     layout "email"
 
     def create
@@ -61,12 +60,8 @@ module NewsmastMastodon::Api::V1
         return render_result({}, "api.account.errors.otp_invalid", :unprocessable_entity)
       end
 
-      waitlist_entry = is_non_channel? ? nil : find_waitlist_entry
-      @can_register = registration_allowed?(waitlist_entry)
-      return render_result({}, "api.account.errors.register_not_allow", :unprocessable_entity) unless @can_register
-
       ActiveRecord::Base.transaction do
-        handle_user_confirmation(waitlist_entry)
+        handle_user_confirmation()
         handle_email_change if change_email?
       end
 
@@ -122,7 +117,6 @@ module NewsmastMastodon::Api::V1
           otp_secret: generate_otp_token,
           confirmed_at: nil
         )
-        update_bot_email(new_email: new_email) unless is_non_channel?
         log_action :change_email, @user
 
         # Revoke all access tokens and destroy sessions
@@ -136,27 +130,6 @@ module NewsmastMastodon::Api::V1
       render_result({}, "api.account.errors.email_update_fail", :unprocessable_entity)
     end
 
-    def bristol_cable_sign_in
-      account = Account.where(username: params[:username])
-      if account.exists?
-        return render_result({}, "api.account.errors.username_taken", :unprocessable_entity)
-      end
-
-      account = account.first_or_initialize(username: params[:username])
-      account.save(validate: false)
-
-      @user = User.where(email: params[:email])
-      if @user.exists?
-        return render_result({}, "api.account.errors.email_taken", :unprocessable_entity)
-      end
-
-      @user = @user.first_or_initialize(email: params[:email], password: params[:password], password_confirmation: params[:password], confirmed_at: Time.now.utc, role: UserRole.find_by(name: ""), account: account, agreement: true, approved: true)
-      @user.save!
-      @user.approve!
-
-      render json: generate_access_token
-    end
-
     private
 
     def password_params
@@ -164,7 +137,7 @@ module NewsmastMastodon::Api::V1
     end
 
     def verify_otp_params
-      params.permit(:id, :otp_secret, :is_reset_password, :is_change_email, :invitation_code, :skip_waitlist, :email)
+      params.permit(:id, :otp_secret, :is_reset_password, :is_change_email, :invitation_code, :email)
     end
 
     def set_user
@@ -209,27 +182,15 @@ module NewsmastMastodon::Api::V1
         created_at: access_token.created_at.to_i }
     end
 
-    def registration_allowed?(waitlist_entry)
-      return true if reset_password? || change_email?
-
-      return true if skip_waitlist? || params[:invitation_code].blank? || is_non_channel?
-
-      waitlist_entry.present?
-    end
-
     def generate_otp_token
       SecureRandom.random_number(10_000).to_s.rjust(4, "0")
-    end
-
-    def skip_waitlist?
-      truthy_param?(verify_otp_params[:skip_waitlist])
     end
 
     def truthy_param?(key)
       ActiveModel::Type::Boolean.new.cast(key)
     end
 
-    def handle_user_confirmation(waitlist_entry)
+    def handle_user_confirmation
       # This stage is known as the user was just registered
       # If confirmation_sent_at is present, that account wasn't confirmed yet!
       if @user.confirmation_sent_at.present?
@@ -237,7 +198,6 @@ module NewsmastMastodon::Api::V1
         @user.skip_confirmation!
         @user.prepare_new_user!
         @user.update!(otp_secret: nil, confirmed_at: Time.current, confirmation_sent_at: nil, confirmation_token: nil, approved: true)
-        create_useage_wait_list(waitlist_entry) if @can_register
       else
         @user.update!(otp_secret: nil)
       end
@@ -253,28 +213,6 @@ module NewsmastMastodon::Api::V1
       @user.approved =  true
       @user.confirmation_sent_at = nil
       @user.save!
-    end
-
-    def find_waitlist_entry
-      return nil unless Object.const_defined?("NewsmastMastodon::WaitList")
-
-      return nil unless defined?(NewsmastMastodon::WaitList) && NewsmastMastodon::WaitList.respond_to?(:find_by)
-
-      NewsmastMastodon::WaitList.find_by(invitation_code: verify_otp_params[:invitation_code], used: false)
-    end
-
-    def create_useage_wait_list(waitlist_entry)
-      waitlist_entry.update!(used: true, account_id: @user.account.id, confirmed_at: Time.current) if waitlist_entry.present?
-    end
-
-    def update_bot_email(new_email: nil)
-      return unless Object.const_defined?("NewsmastMastodon::CommunityAdmin")
-
-      if defined?(NewsmastMastodon::CommunityAdmin) && NewsmastMastodon::CommunityAdmin.respond_to?(:find_by)
-        community_admin = NewsmastMastodon::CommunityAdmin.find_by(account_id: @user&.account&.id)
-
-        community_admin&.update!(email: new_email)
-      end
     end
   end
 end

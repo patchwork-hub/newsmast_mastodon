@@ -16,21 +16,6 @@ an:
       greeting: Querido/a %{name},
       instruction: 'O tuyo código OTP de verificación d''a cuenta ye:'
       note: Si no has solicitau isto, por favor ignora iste correu
-  login_service:
-    errors:
-      invalid_credentials: Credencials no validas. Torna a prebar
-      unauthorized_access: No tienes acceso ta iniciar sesión
-      channel_not_created: Credencials no validas. Assegura-te d'haber creau un canal
-      account_deleted: A tuya cuenta ya ye eliminada
-      invalid_role_access: "%{role} no tiene permiso ta iniciar sesión"
-      deactivated_channel: O tuyo canal ye dezactivau. Contacta con o soporte
-      two_factor_enabled: L'autenticación de dos factores ye activata. Por favor inicia
-        sesión con a interfaz web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Torna a prebar. Credencials no validas de beebee.io
-      registration_required: 'Por favor, rechistra una cuenta local. datos: %{data}'
-      connection_error: 'Error en connectar-se con o servicio de miembros: %{error}'
   api:
     errors:
       unauthorized: No yes autorizaudo ta fer ista acción
@@ -59,16 +44,12 @@ an:
         email_not_found: Correo no trobato!
         email_invalid: Formato de correo no valido
         email_taken: O correo ya ye en uso
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: A actualización d'o correo ha fallau
         password_unmatch: As contraseñas no coinciden
         password_update_fail: A actualización d'a contraseña ha fallau
         otp_invalid: OTP no valido!
-        register_not_allow: No tienes permiso ta rexistra-te!
         missing_field: Faltan campos requeritos
         password_incorrect: A contraseña actual ye incorrecta
-        username_taken: O nombre d'usuario ya ye en uso
       messages:
         password_updated: A contraseña s'ha actualizau
     domain:

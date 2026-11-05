@@ -92,7 +92,7 @@ module NewsmastMastodon
 
     # Save extracted metadata to PreviewCard table.
     def save_preview_card(attributes)
-      [@url, @original_url.to_s].uniq.each do |candidate_url|
+      [ @url, @original_url.to_s ].uniq.each do |candidate_url|
         next if candidate_url.blank?
 
         card = PreviewCard.find_or_initialize_by(url: candidate_url)

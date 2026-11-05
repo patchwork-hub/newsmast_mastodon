@@ -16,21 +16,6 @@ lad:
       greeting: Kerido/a %{name},
       instruction: 'El kod de verifikasyon OTP de tu kuenta es:'
       note: Si no pedites esto, por favor ignora este email
-  login_service:
-    errors:
-      invalid_credentials: Kredensiales invalidas. Intenta de nuevo
-      unauthorized_access: No tienes akeso para entrar
-      channel_not_created: Kredensiales invalidas. Asegurate ke kreaste un kanal
-      account_deleted: Tu kuenta ya es eliminada
-      invalid_role_access: "%{role} no tiene permisu para entrar"
-      deactivated_channel: Tu kanal es desaktivado. Kontakta el suport
-      two_factor_enabled: La autentifikasyon de dos faktores está aktivada. Merkad
-        entrar kon la interfaz web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Please try again. Invalid credentials from beebee.io
-      registration_required: 'Please register account locally. data: %{data}'
-      connection_error: 'Error connecting to membership service: %{error}'
   api:
     errors:
       unauthorized: No tienes permisu para hazer esta akzion
@@ -59,16 +44,12 @@ lad:
         email_not_found: Imail no enkontrado!
         email_invalid: Formato de imail invalido
         email_taken: Imail ya es uzado
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: La aktualizasion del imail no tuvo exito
         password_unmatch: Las kontraseñas no korespondan
         password_update_fail: La aktualizasion de la kontraseña no tuvo exito
         otp_invalid: OTP invalido!
-        register_not_allow: No tienes permisu para registrarte!
         missing_field: Faltan kampos requeridos
         password_incorrect: La kontraseña aktual es inkorekta
-        username_taken: El nombre de uzario ya es uzado
       messages:
         password_updated: La kontraseña fue aktualizada
     domain:

@@ -16,22 +16,6 @@ hu:
       greeting: Kedves %{name},
       instruction: 'A fiók megerősítő OTP kódod:'
       note: Ha nem te kérted ezt, kérjük, hagyd figyelmen kívül ezt az e-mailt
-  login_service:
-    errors:
-      invalid_credentials: Érvénytelen hitelesítő adatok. Próbáld újra
-      unauthorized_access: Nincs jogosultságod bejelentkezni
-      channel_not_created: Érvénytelen hitelesítő adatok. Győződj meg róla, hogy létrehoztál
-        egy csatornát
-      account_deleted: A fiókod már törölve lett
-      invalid_role_access: "%{role} nem jogosult bejelentkezni"
-      deactivated_channel: A csatornád deaktiválva van. Lépj kapcsolatba a támogatással
-      two_factor_enabled: A kétfaktoros hitelesítés engedélyezett. Kérjük, jelentkezzen
-        be a webes felületen keresztül
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Próbáld újra. Érvénytelen hitelesítő adatok a beebee.io-tól
-      registration_required: 'Kérjük, regisztrálj helyi fiókot. adatok: %{data}'
-      connection_error: 'Hiba a tagsági szolgáltatáshoz való csatlakozás során: %{error}'
   api:
     errors:
       unauthorized: Nincs jogosultságod végrehajtani ezt a műveletet
@@ -60,16 +44,12 @@ hu:
         email_not_found: Az e-mail nem található!
         email_invalid: Érvénytelen e-mail formátum
         email_taken: Az e-mail már foglalt
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Az e-mail frissítése sikertelen
         password_unmatch: A jelszavak nem egyeznek
         password_update_fail: A jelszó frissítése sikertelen
         otp_invalid: Érvénytelen OTP!
-        register_not_allow: Nincs jogosultságod regisztrálni!
         missing_field: Hiányzó kötelező mezők
         password_incorrect: A jelenlegi jelszó helytelen
-        username_taken: A felhasználónév már foglalt
       messages:
         password_updated: A jelszó frissítve lett
     domain:

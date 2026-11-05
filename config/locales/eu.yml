@@ -16,21 +16,6 @@ eu:
       greeting: Jauna/Andre %{name},
       instruction: 'Zure kontuaren egiaztapeneko OTP kodea hau da:'
       note: Hau eskatu ez baduzu, mesedez, ez ikusi egin mezu honi
-  login_service:
-    errors:
-      invalid_credentials: Baliogabeko kredentzialak. Saiatu berriro
-      unauthorized_access: Ez duzu saioa hasteko baimenik
-      channel_not_created: Baliogabeko kredentzialak. Ziurtatu kanal bat sortu duzula
-      account_deleted: Zure kontua dagoeneko ezabatuta dago
-      invalid_role_access: "%{role}k ez du saioa hasteko baimenik"
-      deactivated_channel: Zure kanala desaktibatuta dago. Jarri harremanetan laguntzarekin
-      two_factor_enabled: Bi faktoreko autentifikazioa gaituta dago. Mesedez, saioa
-        hasi web-interfazearen bidez
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Saiatu berriro. Baliogabeko kredentzialak beebee.io-tik
-      registration_required: 'Mesedez, erregistratu kontu lokal bat. datuak: %{data}'
-      connection_error: 'Errorea kide zerbitzuarekin konektatzean: %{error}'
   api:
     errors:
       unauthorized: Ez duzu ekintza hau egiteko baimenik
@@ -59,16 +44,12 @@ eu:
         email_not_found: E-posta ez da aurkitu!
         email_invalid: E-posta formatu baliogabea
         email_taken: E-posta dagoeneko erabilita dago
-        membership_not_eligible: Izen-ematea Oinarrizko kideentzat, CSIDNet Team eta
-          Supporter kideentzat bakarrik dago zabalik
         email_update_fail: E-posta eguneratzea huts egin du
         password_unmatch: Pasahitzak ez datoz bat
         password_update_fail: Pasahitza eguneratzea huts egin du
         otp_invalid: OTP baliogabea!
-        register_not_allow: Ez duzu erregistratzeko baimenik!
         missing_field: Beharrezko eremuak falta dira
         password_incorrect: Uneko pasahitza ez da zuzena
-        username_taken: Erabiltzaile izena dagoeneko erabilita dago
       messages:
         password_updated: Pasahitza eguneratu da
     domain:

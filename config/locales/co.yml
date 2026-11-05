@@ -16,21 +16,6 @@ co:
       greeting: Caru %{name},
       instruction: 'U vostru codice OTP di verifica di u contu hè:'
       note: Se ùn avete micca dumandatu questu, ignorate stu mail
-  login_service:
-    errors:
-      invalid_credentials: Credenziali invalide. Per piacè pruvate torna
-      unauthorized_access: Ùn avete micca accessu per accede
-      channel_not_created: Credenziali invalide. Assicuratevi d'avè creatu un canale
-      account_deleted: U vostru contu hè digià statu eliminatu
-      invalid_role_access: "%{role} ùn hè micca permessu d'accede"
-      deactivated_channel: U vostru canale hè disattivatu. Cuntattate u supportu
-      two_factor_enabled: L'autentificazione à dui fattori hè attivata. Per piacè
-        accede cù l'interfaccia web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Pruvate torna. Credenziali invalide da beebee.io
-      registration_required: 'Registrate un contu lucale. dati: %{data}'
-      connection_error: 'Errore di cunnessione à u serviziu di membri: %{error}'
   api:
     errors:
       unauthorized: Ùn site micca autorizatu à fà questa azzione
@@ -59,16 +44,12 @@ co:
         email_not_found: Email micca trovu!
         email_invalid: Formato email invalidu
         email_taken: L'email hè dighjà adupratu
-        membership_not_eligible: A registrazione hè aperta solu à i membri Core, a
-          squadra CSIDNet è i membri Supporter
         email_update_fail: L'aghjurnamentu di l'email ùn hà micca riesciutu
         password_unmatch: E password ùn currispondenu
         password_update_fail: L'aghjurnamentu di a password ùn hà micca riesciutu
         otp_invalid: OTP invalidu!
-        register_not_allow: Ùn site micca permessu di registràvi!
         missing_field: Campi richiesti mancanti
         password_incorrect: A password attuale hè sbagliata
-        username_taken: U nome d'utilizatore hè dighjà adupratu
       messages:
         password_updated: A password hè stata aggiornata
     domain:

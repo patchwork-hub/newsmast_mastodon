@@ -16,22 +16,6 @@ fi:
       greeting: Hyvä %{name},
       instruction: 'Tilisi vahvistuksen OTP-koodi on:'
       note: Jos et pyytänyt tätä, jätä tämä sähköposti huomiotta
-  login_service:
-    errors:
-      invalid_credentials: Virheelliset tunnistetiedot. Yritä uudelleen
-      unauthorized_access: Sinulla ei ole oikeutta kirjautua sisään
-      channel_not_created: Virheelliset tunnistetiedot. Varmista, että olet luonut
-        kanavan
-      account_deleted: Tilisi on jo poistettu
-      invalid_role_access: "%{role} ei saa kirjautua sisään"
-      deactivated_channel: Kanavasi on deaktivoitu. Ota yhteyttä tukeen
-      two_factor_enabled: Kaksivaiheinen todennus on käytössä. Kirjaudu sisään verkkokäyttöliittymän
-        kautta
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Yritä uudelleen. Virheelliset tunnistetiedot beebee.io:sta
-      registration_required: 'Rekisteröi paikallinen tili. tiedot: %{data}'
-      connection_error: 'Virhe yhdistäessä jäsenpalveluun: %{error}'
   api:
     errors:
       unauthorized: Sinulla ei ole oikeutta suorittaa tätä toimintoa
@@ -60,16 +44,12 @@ fi:
         email_not_found: Sähköpostia ei löytynyt!
         email_invalid: Virheellinen sähköpostimuoto
         email_taken: Sähköposti on jo käytössä
-        membership_not_eligible: Rekisteröityminen on avoin vain Core-jäsenille, CSIDNet
-          Teamille ja tukijajäsenille
         email_update_fail: Sähköpostin päivitys epäonnistui
         password_unmatch: Salasanat eivät täsmää
         password_update_fail: Salasanan päivitys epäonnistui
         otp_invalid: Virheellinen OTP!
-        register_not_allow: Sinulla ei ole oikeutta rekisteröityä!
         missing_field: Pakolliset kentät puuttuvat
         password_incorrect: Nykyinen salasana on väärä
-        username_taken: Käyttäjänimi on jo käytössä
       messages:
         password_updated: Salasana on päivitetty
     domain:

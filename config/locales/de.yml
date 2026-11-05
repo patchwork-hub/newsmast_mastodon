@@ -16,22 +16,6 @@ de:
       greeting: Lieber %{name},
       instruction: 'Dein OTP-Code zur Kontoverifizierung lautet:'
       note: Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail
-  login_service:
-    errors:
-      invalid_credentials: Ungültige Zugangsdaten. Bitte versuche es erneut
-      unauthorized_access: Du hast keinen Zugriff zum Einloggen
-      channel_not_created: Ungültige Zugangsdaten. Bitte stelle sicher, dass du einen
-        Kanal erstellt hast
-      account_deleted: Dein Konto wurde bereits gelöscht
-      invalid_role_access: "%{role} ist nicht zum Einloggen berechtigt"
-      deactivated_channel: Dein Kanal ist deaktiviert. Bitte kontaktiere den Support
-      two_factor_enabled: Zwei-Faktor-Authentifizierung ist aktiviert. Bitte melde
-        dich über die Weboberfläche an
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Bitte versuche es erneut. Ungültige Zugangsdaten von beebee.io
-      registration_required: 'Bitte registriere ein lokales Konto. Daten: %{data}'
-      connection_error: 'Fehler beim Verbinden mit dem Mitgliedschaftsdienst: %{error}'
   api:
     errors:
       unauthorized: Du bist nicht berechtigt, diese Aktion auszuführen
@@ -60,16 +44,12 @@ de:
         email_not_found: E-Mail nicht gefunden!
         email_invalid: Ungültiges E-Mail-Format
         email_taken: E-Mail ist bereits vergeben
-        membership_not_eligible: Die Registrierung steht nur Core-Mitgliedern, CSIDNet-Team-
-          und Supporter-Mitgliedern offen
         email_update_fail: Die E-Mail-Aktualisierung war nicht erfolgreich
         password_unmatch: Passwörter stimmen nicht überein
         password_update_fail: Die Passwortaktualisierung war nicht erfolgreich
         otp_invalid: Ungültiges OTP!
-        register_not_allow: Du bist nicht berechtigt, dich zu registrieren!
         missing_field: Erforderliche Felder fehlen
         password_incorrect: Aktuelles Passwort ist falsch
-        username_taken: Benutzername ist bereits vergeben
       messages:
         password_updated: Das Passwort wurde aktualisiert
     domain:

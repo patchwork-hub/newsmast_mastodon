@@ -16,22 +16,6 @@ da:
       greeting: Kære %{name},
       instruction: 'Din OTP-kode til kontobekræftelse er:'
       note: Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail
-  login_service:
-    errors:
-      invalid_credentials: Ugyldige legitimationsoplysninger. Prøv igen
-      unauthorized_access: Du har ikke adgang til at logge ind
-      channel_not_created: Ugyldige legitimationsoplysninger. Sørg for, at du har
-        oprettet en kanal
-      account_deleted: Din konto er allerede blevet slettet
-      invalid_role_access: "%{role} har ikke tilladelse til at logge ind"
-      deactivated_channel: Din kanal er deaktiveret. Kontakt supporten
-      two_factor_enabled: To-faktor-godkendelse er aktiveret. Log venligst ind via
-        webgrænsefladen
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Prøv igen. Ugyldige legitimationsoplysninger fra beebee.io
-      registration_required: 'Opret venligst en lokal konto. data: %{data}'
-      connection_error: 'Fejl ved forbindelse til medlemstjeneste: %{error}'
   api:
     errors:
       unauthorized: Du er ikke autoriseret til at udføre denne handling
@@ -60,16 +44,12 @@ da:
         email_not_found: E-mail ikke fundet!
         email_invalid: Ugyldigt e-mailformat
         email_taken: E-mailen er allerede taget
-        membership_not_eligible: Registrering er kun åben for kernemedlemmer, CSIDNet
-          Team og Supportermedlemmer
         email_update_fail: Opdatering af e-mailen mislykkedes
         password_unmatch: Adgangskoderne stemmer ikke overens
         password_update_fail: Opdatering af adgangskoden mislykkedes
         otp_invalid: Ugyldig OTP!
-        register_not_allow: Du har ikke tilladelse til at registrere dig!
         missing_field: Påkrævede felter mangler
         password_incorrect: Nuværende adgangskode er forkert
-        username_taken: Brugernavnet er allerede taget
       messages:
         password_updated: Adgangskoden er blevet opdateret
     domain:

@@ -16,23 +16,6 @@ ro:
       greeting: Dragă %{name},
       instruction: 'Codul tău OTP de verificare a contului este:'
       note: Dacă nu ai solicitat acest lucru, ignoră acest e-mail
-  login_service:
-    errors:
-      invalid_credentials: Date de autentificare invalide. Încearcă din nou
-      unauthorized_access: Nu ai acces pentru autentificare
-      channel_not_created: Date de autentificare invalide. Asigură-te că ai creat
-        un canal
-      account_deleted: Contul tău a fost deja șters
-      invalid_role_access: "%{role} nu are permisiunea de a se autentifica"
-      deactivated_channel: Canalul tău este dezactivat. Contactează suportul
-      two_factor_enabled: Autentificarea cu doi factori este activată. Vă rugăm să
-        vă conectați prin interfața web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Încearcă din nou. Date de autentificare invalide de la
-        beebee.io
-      registration_required: 'Creează un cont local. date: %{data}'
-      connection_error: 'Eroare la conectarea la serviciul de membru: %{error}'
   api:
     errors:
       unauthorized: Nu ești autorizat să efectuezi această acțiune
@@ -62,16 +45,12 @@ ro:
         email_not_found: E-mailul nu a fost găsit!
         email_invalid: Format de e-mail invalid
         email_taken: E-mailul este deja folosit
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Actualizarea e-mailului a eșuat
         password_unmatch: Parolele nu se potrivesc
         password_update_fail: Actualizarea parolei a eșuat
         otp_invalid: OTP invalid!
-        register_not_allow: Nu ai permisiunea să te înregistrezi!
         missing_field: Câmpuri obligatorii lipsă
         password_incorrect: Parola curentă este incorectă
-        username_taken: Numele de utilizator este deja folosit
       messages:
         password_updated: Parola a fost actualizată
     domain:

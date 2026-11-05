@@ -16,22 +16,6 @@ pt:
       greeting: Caro(a) %{name},
       instruction: 'O código OTP de verificação da sua conta é o seguinte:'
       note: Se você não solicitou isso, por favor ignore este e-mail
-  login_service:
-    errors:
-      invalid_credentials: Credenciais inválidas. Por favor, tente novamente
-      unauthorized_access: Você não tem acesso para fazer login
-      channel_not_created: Credenciais inválidas. Por favor, certifique-se de que
-        você criou um canal
-      account_deleted: Sua conta já foi excluída
-      invalid_role_access: "%{role} não tem permissão para fazer login"
-      deactivated_channel: O seu canal está desativado. Entre em contato com o suporte
-      two_factor_enabled: A autenticação de dois fatores está ativada. Por favor,
-        faça login pela interface web
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Por favor, tente novamente. Credenciais inválidas de beebee.io
-      registration_required: 'Por favor, registe uma conta local. dados: %{data}'
-      connection_error: 'Erro ao conectar ao serviço de associação: %{error}'
   api:
     errors:
       unauthorized: Não está autorizado a realizar esta ação
@@ -60,16 +44,12 @@ pt:
         email_not_found: Email não encontrado!
         email_invalid: Formato de email inválido
         email_taken: Este email já está a ser utilizado
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: A atualização do email não foi bem-sucedida
         password_unmatch: As senhas não correspondem
         password_update_fail: A atualização da senha não foi bem-sucedida
         otp_invalid: OTP inválido!
-        register_not_allow: Não tem permissão para se registar!
         missing_field: Campos obrigatórios em falta
         password_incorrect: A senha atual está incorreta
-        username_taken: O nome de usuário já está em uso
       messages:
         password_updated: A senha foi atualizada
     domain:

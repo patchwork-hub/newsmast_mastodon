@@ -146,7 +146,6 @@ end
 # ---------------------------------------------------------------------------
 
 require File.expand_path("../../app/helpers/brand_color_helper", __dir__) unless defined?(::BrandColorHelper)
-require File.expand_path("../../app/helpers/non_channel_helper", __dir__) unless defined?(::NonChannelHelper)
 require File.expand_path("../../app/helpers/patchwork_helper", __dir__) unless defined?(::PatchworkHelper)
 unless defined?(MASTODON_ROOT)
   require File.expand_path("../../app/mailers/custom_passwords_mailer", __dir__) unless defined?(::CustomPasswordsMailer)
@@ -163,7 +162,6 @@ end
 # that specs describing e.g. `NewsmastMastodon::BrandColorHelper` resolve.
 module NewsmastMastodon
   BrandColorHelper              = ::BrandColorHelper              unless const_defined?(:BrandColorHelper, false)
-  NonChannelHelper              = ::NonChannelHelper              unless const_defined?(:NonChannelHelper, false)
   PatchworkHelper               = ::PatchworkHelper               unless const_defined?(:PatchworkHelper, false)
   LocalOnlyPosts                = ::LocalOnlyPosts                unless const_defined?(:LocalOnlyPosts, false)
   LongPost                      = ::LongPost                      unless const_defined?(:LongPost, false)

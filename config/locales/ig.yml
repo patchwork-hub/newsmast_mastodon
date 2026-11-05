@@ -16,20 +16,6 @@ ig:
       greeting: Ndewo %{name},
       instruction: 'Koodu OTP nkwenye akaụntụ gị bụ:'
       note: Ọ bụrụ na ị rụghị arịrịọ a, biko leghara email a anya
-  login_service:
-    errors:
-      invalid_credentials: Akwụkwọ ikike ezighi ezi. Biko gbalịa ọzọ
-      unauthorized_access: Ị nweghị ikike ịbanye
-      channel_not_created: Akwụkwọ ikike ezighi ezi. Jide n'aka na ị mepụtara ọwa
-      account_deleted: Akaụntụ gị ehichapụla
-      invalid_role_access: "%{role} enyiereghị ikike ịbanye"
-      deactivated_channel: Ọwa gị kwụsịrị. Kpọtụrụ nkwado
-      two_factor_enabled: Ngosi abụọ nwere ike. Biko banye site na njikọ weebụ
-  bristolcable_login_service:
-    errors:
-      invalid_credentials: Biko gbalịa ọzọ. Akwụkwọ ikike ezighi ezi site na beebee.io
-      registration_required: 'Biko debanye aha akaụntụ mpaghara. data: %{data}'
-      connection_error: 'Njehie ịjikọ na ọrụ ndị otu: %{error}'
   api:
     errors:
       unauthorized: Ị nweghị ikike ime ihe a
@@ -58,16 +44,12 @@ ig:
         email_not_found: Enweghị email a hụrụ!
         email_invalid: Ụdị email ezighi ezi
         email_taken: Email adịlarị
-        membership_not_eligible: Registration is only open to Core members, CSIDNet
-          Team, and Supporter members
         email_update_fail: Emelitere email adịghị eme
         password_unmatch: Okwuntughe adịghị agbanwe
         password_update_fail: Emelitere okwuntughe adịghị eme
         otp_invalid: OTP ezighi ezi!
-        register_not_allow: Ị nweghị ikike idebanye aha!
         missing_field: Ebe a chọrọ adịghị
         password_incorrect: Okwuntughe ugbu a ezighi ezi
-        username_taken: Aha njirimara adịlarị
       messages:
         password_updated: Emelitere okwuntughe
     domain:

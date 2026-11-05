@@ -3,8 +3,6 @@
 
 module NewsmastMastodon
   class CustomNotificationService < BaseService
-    include NonChannelHelper
-
     def call(recipient, notification)
       notification_tokens = NewsmastMastodon::NotificationToken.where(account_id: recipient.id)
       local_push_enabled = notification_tokens.present? && !notification_tokens.any? { |token| token.mute }
