@@ -13,17 +13,6 @@ tracks the target Mastodon version and `N` is the gem patch level).
 - `NewsmastMastodon::ReblogChannelsWorker` now builds post URLs from `LOCAL_DOMAIN` instead of a hardcoded host.
 - Documented the signup restriction, cross-instance push, For You timeline, and status reaction environment variables, and added Mastodon attribution to `NOTICE`.
 
-### Removed
-
-- Removed instance-specific behaviour for individual `LOCAL_DOMAIN` values from the public feed and the email layout.
-- Removed `NewsmastMastodon::LoginService`, `NewsmastMastodon::WaitList`, the `invitation_code` and `skip_waitlist` signup parameters, and the unused `login_service`, `bristolcable_login_service`, `register_not_allow`, and `username_taken` translations.
-- Removed the internal upgrade documents under `docs/internal/`.
-- Removed the starter pack channels API (`GET /api/v1/channels/starter_packs_channels` and `GET /api/v1/channels/:id/starter_packs_detail`), its controller, and the bundled starter pack data under `config/data/`.
-- Removed the Leicester and article notification settings API (`GET`/`POST /api/v1/accounts/leicester_notification` and `GET`/`POST /api/v1/accounts/article_notifications`) and the Ghost member subscription API (`POST /api/v1/accounts/subscribe_leicester`).
-- Removed CiviCRM role assignment: `POST /api/v1/civicrm_role_assign`, role assignment during signup, `NewsmastMastodon::CivicrmRoleAssignmentWorker`, `NewsmastMastodon::CivicrmRoleCheckService`, and the `newsmast_mastodon:backfill_csid_roles` rake task. The `CSID_ROLE_ASSIGNMENT_ENABLED` environment variable no longer has any effect.
-- Removed Ghost and WordPress article push notifications: `POST /api/v1/ghost_webhooks`, `POST /api/v1/wordpress_webhooks`, their services and workers, the `ghost:*` rake tasks, the Ghost and WordPress host allowlisting, the `NewsmastMastodon::PatchworkSetting` model, and the `jwt` runtime dependency. The `patchwork_settings` table and its migration are kept.
-- Removed the CiviCRM membership check from signup, `NewsmastMastodon::CivicrmMembershipCheckService`, the `newsmast_mastodon:backfill_csid_badge_fields` and `newsmast_mastodon:remove_csid_badge_fields` rake tasks, and the `api.account.errors.membership_not_eligible` translations. The `CSID_MEMBERSHIP_CHECK_ENABLED`, `CSID_MEMBERSHIP_ALLOWLIST_EMAILS`, `CIVICRM_BASE_URL`, and `CIVICRM_AUTH_TOKEN` environment variables no longer have any effect.
-
 ## [4.6.5.1] - 2026-08-21
 
 ### Changed
