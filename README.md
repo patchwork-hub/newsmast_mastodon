@@ -22,7 +22,7 @@ Examples:
 
 ## Prerequisites
 
-The plugin requires Ruby `>= 3.3.0, < 4.1.0`, a matching Mastodon service version, and (depending on intended use) may also require Newsmast Dashboard.
+The plugin requires Ruby `>= 3.3.0, < 4.1.0`, a matching Mastodon service version, and (depending on intended use) may also require [Newsmast Dashboard](https://github.com/TheNewsmastFoundation/newsmast-dashboard).
 
 ## Installation
 
