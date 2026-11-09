@@ -96,6 +96,11 @@ module NewsmastMastodon
       }
       data.merge!(conversation_request: "true") if notification_request.present?
 
+      # iOS app icon badge. Sent in `data` so it also travels through the
+      # cross-instance push; FirebaseNotificationService maps it to apns.payload.aps.badge.
+      badge = NewsmastMastodon::UnreadNotificationCountService.call(recipient)
+      data.merge!(badge: badge.to_s) unless badge.nil?
+
       # ios & android
       ios_android_devices = notification_tokens.where.not(platform_type: "huawei").pluck(:notification_token)
 

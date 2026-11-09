@@ -107,4 +107,44 @@ RSpec.describe NewsmastMastodon::FirebaseNotificationService, type: :service do
     expect(result).to be_nil
     expect(Rails.logger).to have_received(:error).with(/Exception sending notification: token expired/)
   end
+
+  def capture_payload_for(data)
+    stub_const("NewsmastMastodon::FirebaseNotificationService::BASE_URL", "https://fcm.googleapis.com/v1/projects/test/messages:send")
+    stub_const("NewsmastMastodon::FirebaseNotificationService::FILE_NAME", "firebase.json")
+
+    allow(File).to receive(:exist?).and_return(true)
+    allow(File).to receive(:open).and_return(StringIO.new("{}"))
+
+    creds = instance_double("GoogleCreds")
+    allow(creds).to receive(:fetch_access_token!).and_return({ "access_token" => "abc123" })
+    stub_const("Google::Auth::ServiceAccountCredentials", class_double("Google::Auth::ServiceAccountCredentials", make_creds: creds))
+
+    response = instance_double("HTTPartyResponse", success?: true, body: "ok")
+    captured_body = nil
+    allow(described_class).to receive(:post) do |_url, **kwargs|
+      captured_body = kwargs[:body]
+      response
+    end
+
+    described_class.send_notification("tok", "Patchwork", "Hello", data)
+    JSON.parse(captured_body)
+  end
+
+  it "adds the APNs badge and sound when data includes a badge count" do
+    parsed = capture_payload_for({ noti_type: :favourite, badge: "3" })
+
+    expect(parsed.dig("message", "apns", "payload", "aps")).to eq("badge" => 3, "sound" => "default")
+    expect(parsed.dig("message", "data", "badge")).to eq("3")
+  end
+
+  it "supports a string-keyed badge (cross-instance data)" do
+    parsed = capture_payload_for({ "noti_type" => "follow", "badge" => "0" })
+
+    expect(parsed.dig("message", "apns", "payload", "aps", "badge")).to eq(0)
+  end
+
+  it "omits the APNs block when no valid badge is present" do
+    expect(capture_payload_for({ a: "1" })["message"]).not_to have_key("apns")
+    expect(capture_payload_for({ badge: "abc" })["message"]).not_to have_key("apns")
+  end
 end

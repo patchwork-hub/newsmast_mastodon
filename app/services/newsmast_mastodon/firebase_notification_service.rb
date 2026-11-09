@@ -46,16 +46,19 @@ module NewsmastMastodon
           "Content-Type" => "application/json"
         }
 
-        payload = {
-          message: {
-            token: token,
-            notification: {
-              title: title,
-              body: body
-            },
-            data: data
-          }
-        }.to_json
+        message = {
+          token: token,
+          notification: {
+            title: title,
+            body: body
+          },
+          data: data
+        }
+
+        badge = badge_from(data)
+        message[:apns] = { payload: { aps: { badge: badge, sound: "default" } } } unless badge.nil?
+
+        payload = { message: message }.to_json
         response = post(BASE_URL, headers: headers, body: payload)
 
         Rails.logger.error("Error sending notification: #{response.body}") unless response.success?
@@ -73,6 +76,15 @@ module NewsmastMastodon
       end
 
       private
+
+      # Reads the unread count from data["badge"] / data[:badge]; nil if absent or not a non-negative integer.
+      def badge_from(data)
+        raw = data.is_a?(Hash) ? (data[:badge] || data["badge"]) : nil
+        value = Integer(raw.to_s, 10)
+        value.negative? ? nil : value
+      rescue ArgumentError, TypeError
+        nil
+      end
 
       def fetch_access_token(service_account_file)
         now = Time.current.to_i
