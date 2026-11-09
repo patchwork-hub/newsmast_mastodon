@@ -10,6 +10,7 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
     end
 
     stub_const("Status", status_class)
+    allow(NewsmastMastodon::UnreadNotificationCountService).to receive(:call).and_return(3)
   end
 
   def build_notification_tokens_chain(tokens)
@@ -126,6 +127,42 @@ RSpec.describe NewsmastMastodon::CustomNotificationService, type: :service do
       "Patchwork App",
       "Bob followed you",
       hash_including("noti_type" => "follow", "destination_id" => "3")
+    )
+  end
+
+  it "includes the unread notification count as badge in local and cross-instance pushes" do
+    token = instance_double("NotificationToken", notification_token: "device-1", mute: false)
+    token_chain = build_notification_tokens_chain([ token ])
+
+    notification_token_class = Class.new { def self.where(*); end }
+    stub_const("NewsmastMastodon::NotificationToken", notification_token_class)
+    allow(NewsmastMastodon::NotificationToken).to receive(:where).with(account_id: 2).and_return(token_chain)
+
+    account_class = Class.new { def self.find(*); end }
+    stub_const("Account", account_class)
+    allow(Account).to receive(:find).with(3).and_return(instance_double("Account", username: "bob"))
+
+    allow(I18n).to receive(:t).with("notification_mailer.follow.subject", name: "bob").and_return("Bob followed you")
+    allow(ENV).to receive(:[]).and_call_original
+    allow(ENV).to receive(:[]).with("NOTIFICATION_SENDER_NAME").and_return("Patchwork App")
+    allow(ENV).to receive(:[]).with("CROSS_INSTANCE_PUSH_TARGET_URL").and_return("https://instance-b.example/api/v1/cross_instance_push")
+    allow(ENV).to receive(:[]).with("CROSS_INSTANCE_PUSH_SECRET").and_return("shared-secret")
+
+    allow(NewsmastMastodon::UnreadNotificationCountService).to receive(:call).and_return(7)
+    allow(NewsmastMastodon::FirebaseNotificationService).to receive(:send_notification)
+    allow(NewsmastMastodon::CrossInstancePushDeliveryWorker).to receive(:perform_async)
+
+    recipient = instance_double("Recipient", id: 2, username: "recipient")
+    notification = instance_double("Notification", type: :follow, from_account_id: 3, activity_id: 9, account_id: 2)
+
+    described_class.new.call(recipient, notification)
+
+    expect(NewsmastMastodon::UnreadNotificationCountService).to have_received(:call).with(recipient)
+    expect(NewsmastMastodon::FirebaseNotificationService).to have_received(:send_notification).with(
+      "device-1", "Patchwork App", "Bob followed you", hash_including(badge: "7")
+    )
+    expect(NewsmastMastodon::CrossInstancePushDeliveryWorker).to have_received(:perform_async).with(
+      "recipient", "Patchwork App", "Bob followed you", hash_including("badge" => "7")
     )
   end
 
