@@ -8,6 +8,12 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.7.5.0] - 2026-11-09
+
+### Changed
+
+- Bumped compatibility contract to Mastodon 4.7.5 (`VERSION = "4.7.5.0"`, `mastodon_version_requirement = "4.7.5"`).
+
 ## [4.6.5.1] - 2026-08-21
 
 ### Changed
