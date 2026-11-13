@@ -5,6 +5,7 @@ module NewsmastMastodon
     include Sidekiq::Worker
 
     ROLE_NAMES_BY_GROUP_ID = {
+      NewsmastMastodon::CivicrmRoleCheckService::FELLOWS_GROUP_ID => "Fellows",
       15 => "Committee member",
       16 => "WG member",
       3 => "Staff"

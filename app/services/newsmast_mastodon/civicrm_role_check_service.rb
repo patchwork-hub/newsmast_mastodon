@@ -11,7 +11,14 @@ module NewsmastMastodon
     class TransientFailure < StandardError; end
 
     CONTACT_GET_PATH = "/civicrm/ajax/api4/Contact/get"
+    RELATIONSHIP_GET_PATH = "/civicrm/ajax/api4/Relationship/get"
     GROUP_IDS_IN_PRIORITY_ORDER = [ 15, 16, 3 ].freeze
+
+    # "Fellows" is not a CiviCRM group: membership is an active relationship
+    # with the Fellows contact. FELLOWS_GROUP_ID is the Result#group_id used for it.
+    FELLOWS_GROUP_ID = :fellows
+    FELLOWS_CONTACT_ID = 992
+    FELLOWS_DISPLAY_NAME = "Fellows"
 
     Result = Struct.new(:values, :group_id, :transient_error, keyword_init: true)
 
@@ -23,23 +30,18 @@ module NewsmastMastodon
     def call
       return empty_result unless force_remote? || feature_enabled?
       return empty_result if @email.blank? || !config_present?
+      
+      fellows_values = fetch_values(RELATIONSHIP_GET_PATH, fellows_request_params)
+      return transient_failure_result if fellows_values.nil?
+
+      fellows_values = fellows_values.select { |value| fellows_relationship?(value) }
+      if fellows_values.any?
+        return Result.new(values: fellows_values, group_id: FELLOWS_GROUP_ID, transient_error: false)
+      end
 
       GROUP_IDS_IN_PRIORITY_ORDER.each do |group_id|
-        response = self.class.get(
-          endpoint_url,
-          headers: request_headers,
-          query: { params: request_params(group_id).to_json }
-        )
-        response_body = response.respond_to?(:body) ? normalize_utf8(response.body) : ""
-
-        unless response.success?
-          Rails.logger.error("CiviCRM role check failed: status=#{response.code}")
-          return transient_failure_result
-        end
-
-        body = response.parsed_response
-        body = parse_response_body(response_body) unless body.is_a?(Hash)
-        values = response_values(body)
+        values = fetch_values(CONTACT_GET_PATH, request_params(group_id))
+        return transient_failure_result if values.nil?
         next if values.empty?
 
         return Result.new(values: values, group_id: group_id, transient_error: false)
@@ -52,6 +54,32 @@ module NewsmastMastodon
     end
 
     private
+
+    # Returns the response "values" array, or nil when the request failed.
+    def fetch_values(path, params)
+      response = self.class.get(
+        "#{base_url}#{path}",
+        headers: request_headers,
+        query: { params: params.to_json }
+      )
+      response_body = response.respond_to?(:body) ? normalize_utf8(response.body) : ""
+
+      unless response.success?
+        Rails.logger.error("CiviCRM role check failed: status=#{response.code}")
+        return nil
+      end
+
+      body = response.parsed_response
+      body = parse_response_body(response_body) unless body.is_a?(Hash)
+      response_values(body)
+    end
+
+    def fellows_relationship?(value)
+      return false unless value.is_a?(Hash)
+
+      value["contact_id_b"].to_s == FELLOWS_CONTACT_ID.to_s &&
+        value["contact_id_b.display_name"] == FELLOWS_DISPLAY_NAME
+    end
 
     def force_remote?
       @force_remote
@@ -81,10 +109,6 @@ module NewsmastMastodon
       ENV.fetch("CIVICRM_AUTH_TOKEN", nil).to_s.strip.gsub(/\A'+|'+\z/, "")
     end
 
-    def endpoint_url
-      "#{base_url}#{CONTACT_GET_PATH}"
-    end
-
     def request_headers
       {
         "accept" => "application/json, text/plain, */*",
@@ -112,6 +136,26 @@ module NewsmastMastodon
           [ "is_deleted", "=", false ],
           [ "email.email", "=", @email ],
           [ "groups", "IN", [ group_id ] ]
+        ]
+      }
+    end
+
+    def fellows_request_params
+      {
+        select: [
+          "id",
+          "relationship_type_id",
+          "contact_id_a",
+          "contact_id_a.display_name",
+          "contact_id_a.email_primary.email",
+          "contact_id_b",
+          "contact_id_b.display_name",
+          "contact_id_b.email_primary.email"
+        ],
+        where: [
+          [ "OR", [ [ "contact_id_a", "=", FELLOWS_CONTACT_ID ], [ "contact_id_b", "=", FELLOWS_CONTACT_ID ] ] ],
+          [ "OR", [ [ "contact_id_a.email_primary.email", "=", @email ], [ "contact_id_b.email_primary.email", "=", @email ] ] ],
+          [ "is_active", "=", true ]
         ]
       }
     end

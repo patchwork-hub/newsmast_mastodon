@@ -27,6 +27,16 @@ RSpec.describe NewsmastMastodon::CivicrmRoleAssignmentWorker, type: :worker do
     expect(eligible_users).to have_received(:update_all).with(role_id: 9, updated_at: kind_of(ActiveSupport::TimeWithZone))
   end
 
+  it "maps the Fellows relationship to the fellows role" do
+    allow(result).to receive(:group_id).and_return(:fellows)
+    allow(UserRole).to receive(:where).with("LOWER(name) = ?", "fellows").and_return(role_scope)
+
+    described_class.new.perform(42)
+
+    expect(UserRole).to have_received(:where).with("LOWER(name) = ?", "fellows")
+    expect(eligible_users).to have_received(:update_all).with(role_id: 9, updated_at: kind_of(ActiveSupport::TimeWithZone))
+  end
+
   it "maps group 16 to the working group role" do
     allow(result).to receive(:group_id).and_return(16)
     allow(UserRole).to receive(:where).with("LOWER(name) = ?", "wg member").and_return(role_scope)
