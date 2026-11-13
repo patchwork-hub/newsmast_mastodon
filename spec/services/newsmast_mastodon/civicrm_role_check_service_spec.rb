@@ -21,7 +21,7 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
 
   it "checks remotely when forced while disabled" do
     allow(ENV).to receive(:fetch).with("CSID_ROLE_ASSIGNMENT_ENABLED", "false").and_return("false")
-    allow(described_class).to receive(:get).and_return(api_response(values: contact_values))
+    stub_api_responses(api_response(values: contact_values))
 
     result = described_class.new("member@example.org", force_remote: true).call
 
@@ -35,7 +35,6 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
     result = service.call
 
     expect(result.to_h).to eq(values: contact_values, group_id: 15, transient_error: false)
-    expect(described_class).to have_received(:get).once
     expect(@requested_group_ids).to eq([ 15 ])
   end
 
@@ -49,9 +48,47 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
   end
 
   it "returns no group when neither response contains a contact" do
-    allow(described_class).to receive(:get).and_return(api_response(values: []), api_response(values: []))
+    stub_api_responses(api_response(values: []), api_response(values: []), api_response(values: []))
 
     expect(service.call.values).to be_empty
+    expect(@requested_group_ids).to eq([ 15, 16, 3 ])
+  end
+
+  it "returns the Fellows role first without checking groups" do
+    stub_api_responses(fellows: api_response(values: fellows_values))
+
+    result = service.call
+
+    expect(result.to_h).to eq(values: fellows_values, group_id: :fellows, transient_error: false)
+    expect(@requested_group_ids).to be_empty
+    expect(@fellows_params.fetch("where")).to eq(
+      [
+        [ "OR", [ [ "contact_id_a", "=", 992 ], [ "contact_id_b", "=", 992 ] ] ],
+        [ "OR", [
+          [ "contact_id_a.email_primary.email", "=", "member@example.org" ],
+          [ "contact_id_b.email_primary.email", "=", "member@example.org" ]
+        ] ],
+        [ "is_active", "=", true ]
+      ]
+    )
+  end
+
+  it "falls back to groups when the relationship is not with the Fellows contact" do
+    other = fellows_values.map { |value| value.merge("contact_id_b" => 993) }
+    renamed = fellows_values.map { |value| value.merge("contact_id_b.display_name" => "Alumni") }
+    stub_api_responses(api_response(values: contact_values), fellows: api_response(values: other + renamed))
+
+    expect(service.call.group_id).to eq(15)
+  end
+
+  it "marks a failed Fellows check as transient without checking groups" do
+    failed_response = instance_double("HTTParty::Response", success?: false, code: 503, body: "unavailable")
+    stub_api_responses(fellows: failed_response)
+
+    result = service.call
+
+    expect(result.transient_error).to be(true)
+    expect(@requested_group_ids).to be_empty
   end
 
   it "returns empty values when the response omits the values key" do
@@ -61,20 +98,20 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
       parsed_response: { "count" => 0, "countFetched" => 0 },
       body: ""
     )
-    allow(described_class).to receive(:get).and_return(response)
+    stub_api_responses(response, response, response, fellows: response)
 
     expect(service.call.values).to be_empty
   end
 
   it "marks API failures as transient so the worker can retry" do
     failed_response = instance_double("HTTParty::Response", success?: false, code: 503, body: "unavailable")
-    allow(described_class).to receive(:get).and_return(failed_response)
+    stub_api_responses(failed_response)
 
     result = service.call
 
     expect(result.values).to be_empty
     expect(result.transient_error).to be(true)
-    expect(described_class).to have_received(:get).once
+    expect(@requested_group_ids).to eq([ 15 ])
   end
 
   def api_response(values:)
@@ -97,12 +134,34 @@ RSpec.describe NewsmastMastodon::CivicrmRoleCheckService, type: :service do
     ]
   end
 
-  def stub_api_responses(*responses)
+  def fellows_values
+    [
+      {
+        "id" => 260,
+        "relationship_type_id" => 19,
+        "contact_id_a" => 160,
+        "contact_id_a.display_name" => "Member Example",
+        "contact_id_a.email_primary.email" => "member@example.org",
+        "contact_id_b" => 992,
+        "contact_id_b.display_name" => "Fellows",
+        "contact_id_b.email_primary.email" => nil
+      }
+    ]
+  end
+
+  # Positional responses answer the group (Contact/get) requests in order;
+  # the Fellows (Relationship/get) request gets `fellows`, empty by default.
+  def stub_api_responses(*responses, fellows: api_response(values: []))
     @requested_group_ids = []
-    allow(described_class).to receive(:get) do |_url, options|
+    allow(described_class).to receive(:get) do |url, options|
       params = JSON.parse(options.fetch(:query).fetch(:params))
-      @requested_group_ids << params.fetch("where").last.last.first
-      responses.shift
+      if url.end_with?("/Relationship/get")
+        @fellows_params = params
+        fellows
+      else
+        @requested_group_ids << params.fetch("where").last.last.first
+        responses.shift
+      end
     end
   end
 end
