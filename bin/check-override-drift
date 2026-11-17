@@ -22,7 +22,7 @@ GEM_ROOT      = File.expand_path("..", __dir__)
 MANIFEST_PATH = File.join(GEM_ROOT, "config", "override_baselines.yml")
 
 MANIFEST_HEADER = <<~HEADER
-  # Baselines for the frontend/view files that newsmast_mastodon *overrides* in
+  # Baselines for the frontend/view/Chewy files that newsmast_mastodon *overrides* in
   # the host Mastodon app (see lib/tasks/newsmast_mastodon/install.rake).
   #
   # `bin/check-override-drift` compares the SHA-256 of the host's *current*
