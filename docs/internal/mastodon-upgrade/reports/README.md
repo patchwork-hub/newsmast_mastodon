@@ -10,3 +10,5 @@ what was merged, which migrations ran, test results, and the go/no-go decision.
 | Cycle              | Report                                       |
 | ------------------ | -------------------------------------------- |
 | v4.5.11 → v4.6.3   | [report-4.6.3.md](./report-4.6.3.md) |
+| v4.6.3 → v4.6.5    | [report-4.6.5.md](./report-4.6.5.md) |
+| v4.6.5 → v4.6.10   | [report-4.6.10.md](./report-4.6.10.md) |

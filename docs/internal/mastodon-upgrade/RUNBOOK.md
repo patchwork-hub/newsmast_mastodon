@@ -224,8 +224,19 @@ it before touching the gem, and record the result in the report.
 
    | Gem module | Overrides | Upstream source |
    | --- | --- | --- |
-   | `NewsmastMastodon::Concerns::DraftStatusService` | `PostStatusService#call`, `#preprocess_attributes!` | `app/services/post_status_service.rb` |
    | `NewsmastMastodon::Concerns::AccountsCreation` | `Api::V1::AccountsController#create` | `app/controllers/api/v1/accounts_controller.rb` |
+   | `NewsmastMastodon::Overrides::PostStatusServiceExtension` | `PostStatusService#postprocess_status!`, `#status_attributes` | `app/services/post_status_service.rb` |
+   | `NewsmastMastodon::Overrides::ExtendedAccountStatusesFilter` | `AccountStatusesFilter#results` | `app/lib/account_statuses_filter.rb` |
+   | `NewsmastMastodon::Concerns::OverridePrepareNewUser` | `User#prepare_new_user!` | `app/models/user.rb` |
+
+   `DraftStatusService` was refactored into `super`-calling hooks in 4.6.10.0
+   and is no longer a full copy of `PostStatusService#call`. Note that
+   `before_action`s on an overridden controller action still run, so upstream
+   fixes in those callbacks are inherited.
+
+   Also check **callback ordering**: gem `class_eval`/`before_action`
+   additions run *after* upstream callbacks unless they use
+   `prepend_before_action`.
 
    Prefer refactoring these into small `super`-calling hooks when touched.
 
@@ -308,11 +319,33 @@ Every **Needs fix** row becomes a Phase C task.
 
 ## Phase D — Database and boot (host)
 
+0. Install first. The gem's installation guard
+   (`lib/newsmast_mastodon/installation_guard.rb`) refuses to boot the app,
+   including `db:migrate`, until the install marker and copied files exist:
+
+   ```bash
+   RAILS_ENV=development bin/rails newsmast_mastodon:install
+   ```
+
+   Check that the target database is really at `FROM_VERSION`:
+   `bin/rails db:migrate:status | grep 'NO FILE'` must be empty on the new
+   snapshot. Entries there mean the DB was migrated by a newer Mastodon. Use
+   a different DB, or load the base branch's schema into a scratch DB:
+
+   ```bash
+   git show <BASE_BRANCH>:db/schema.rb > /tmp/schema-base.rb
+   DB_NAME=<scratch_db> bin/rails db:create
+   DB_NAME=<scratch_db> SCHEMA=/tmp/schema-base.rb bin/rails db:schema:load
+   ```
+
 1. Apply migrations against a **staging clone first**:
 
    ```bash
    bin/rails db:migrate
    ```
+
+   Then `git diff <BASE_BRANCH> -- db/schema.rb` should show only changes
+   caused by new upstream or gem migrations in this range.
 
    > No migration files may be added to the host repo. All schema changes
    > ship from the gem engine and must be idempotent.
@@ -327,10 +360,9 @@ Every **Needs fix** row becomes a Phase C task.
    All gem migrations must be idempotent (`if_not_exists` / `column_exists?` /
    `table_exists?`); the `migration_guard_spec` enforces this in CI.
 
-3. Install gem-shipped Chewy indexes and frontend overrides:
+3. Build the frontend with the gem overrides installed in step 0:
 
    ```bash
-   bin/rails newsmast_mastodon:install
    yarn build:development   # or build:production
    ```
 

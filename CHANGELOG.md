@@ -8,6 +8,53 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.6.10.0] - Unreleased
+
+First gem release for Mastodon 4.6.10. Supersedes the `4.6.5.2`/`4.6.5.3`
+version strings that were set on the development branch but never tagged or
+published; their changes are listed here.
+
+### Upgrade notes
+
+- No new gem migrations. Mastodon 4.6.6–4.6.10 ship no core migrations.
+- Re-run `bin/rails newsmast_mastodon:install` after upgrading (no vendored
+  file changed upstream, but the install step is required on a fresh
+  4.6.10 snapshot).
+- Host Ruby is now 4.0.9 (within the supported `>= 3.3.0, < 4.1.0` range).
+
+### Added
+
+- Cross-instance push notification system and unread notification count in push payloads.
+- Auto-follow of default accounts, configurable via environment and dashboard (`newsmast_mastodon:auto_follow` task).
+- CiviCRM role assignment API/worker (`CSID_ROLE_ASSIGNMENT_ENABLED`), including the Fellows role.
+- Email branding task for header/footer logos (`newsmast_mastodon:email_branding`).
+- Task to remove CSID badge fields from accounts.
+- Direct-message attachment translations for multiple languages.
+- `spec/compatibility/override_manifest_spec.rb`: fails CI when a file installed by `newsmast_mastodon:install` is missing from `config/override_baselines.yml`.
+
+### Changed
+
+- Bumped compatibility contract to Mastodon 4.6.10 (`VERSION = "4.6.10.0"`, `mastodon_version_requirement = "4.6.10"`).
+- `NewsmastMastodon::Concerns::DraftStatusService` no longer copies `PostStatusService#call`; draft support is now a set of `super`-calling hooks (`preprocess_attributes!`, `process_status!`, `postprocess_status!`, `bump_potential_friendship!`, `idempotency_duplicate`). Upstream's idempotency lock and duplicate handling now apply to drafts and normal posts.
+- Gem CI host-integration default ref is now `patchwork-mastodon-4.6.10`, on Ruby 4.0.9.
+- Chewy index overrides (`accounts_index.rb`, `statuses_index.rb`, `public_statuses_index.rb`) are now tracked by the override drift manifest.
+
+### Fixed
+
+- Double-submitting a post with the same `Idempotency-Key` no longer bypasses upstream's redis lock (the gem's `#call` copy predated it), so concurrent requests can no longer create duplicate posts. Picks up upstream fix #40439.
+- Repeating a draft request with the same `Idempotency-Key` now returns the existing draft instead of raising `ActiveRecord::RecordNotFound`.
+- Drafts silently dropped by Antispam no longer raise `NoMethodError` (`patchwork_drafted_status` typo).
+- `bin/rails newsmast_mastodon:install` now runs on a fresh host. The installation guard didn't recognise the task under `bin/rails` because Rails has already consumed `ARGV` by then, so it blocked the very task it asks you to run. It now also checks `Rake.application.top_level_tasks`.
+- Admin dashboard/reports: anonymous visitors are redirected to sign-in again instead of getting a 403 from upstream's new admin permission check (GHSA-62j4-hvj7-px3f). Authentication now runs via `prepend_before_action`.
+- Long-post character limit handling and auto-update of the max characters in the web UI.
+- Signup reason handling in account creation; reblogs scope method name in account statuses filter.
+- Favourite/mention handling in `CustomNotificationService`; token management in `FirebaseNotificationService`.
+
+### Security (upstream, verified compatible)
+
+- GHSA-288h-6j8h-6x5j (ActivityPub identifier verification), GHSA-vx32-x96w-qq65 (2FA password bypass for LDAP/PAM/SSO), GHSA-vgm8-frgh-rh2v (JSON-LD DoS), GHSA-62j4-hvj7-px3f (disabled staff admin API access): no gem override shadows the fixed code. See `docs/internal/mastodon-upgrade/reports/report-4.6.10.md`.
+- `POST /api/v1/accounts` is now blocked when `SSO_ACCOUNT_SIGN_UP` is set (upstream #40681); the gem's `AccountsCreation#create` override sits behind upstream's `check_enabled_registrations` and inherits this.
+
 ## [4.6.5.1] - 2026-08-21
 
 ### Changed

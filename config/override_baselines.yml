@@ -1,4 +1,4 @@
-# Baselines for the frontend/view files that newsmast_mastodon *overrides* in
+# Baselines for the frontend/view/Chewy files that newsmast_mastodon *overrides* in
 # the host Mastodon app (see lib/tasks/newsmast_mastodon/install.rake).
 #
 # `bin/check-override-drift` compares the SHA-256 of the host's *current*
@@ -35,3 +35,12 @@ overrides:
 - path: app/javascript/mastodon/features/compose/containers/federated_dropdown_container.js
   upstream: false
   baseline_sha256:
+- path: app/chewy/accounts_index.rb
+  upstream: true
+  baseline_sha256: 04c40f2115ffd8be2df6974502231f18f451a1ee41a23d8e28748980d51dfbcc
+- path: app/chewy/statuses_index.rb
+  upstream: true
+  baseline_sha256: 6c1d0973c72e90185fd99f06c4e58d1d355350c0c5ab277418b1c1ec874ad7d6
+- path: app/chewy/public_statuses_index.rb
+  upstream: true
+  baseline_sha256: d4d4d30a9c8876db92510ddb0572135e729c3d06ecddf939361254330f1fdd55
