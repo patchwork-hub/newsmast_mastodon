@@ -100,9 +100,12 @@ Rails.application.config.to_prepare do
   # end
 
   # --- Admin controllers: require authentication ---
+  # Must run before upstream's `require_moderator_or_admin_permissions`
+  # (Admin::BaseController, Mastodon >= 4.6.7 / GHSA-62j4-hvj7-px3f), otherwise
+  # anonymous visitors get a bare 403 instead of the sign-in redirect.
   [ Admin::DashboardController, Admin::ReportsController ].each do |controller|
     controller.class_eval do
-      before_action :authenticate_user!
+      prepend_before_action :authenticate_user!
     end
   end
 end
