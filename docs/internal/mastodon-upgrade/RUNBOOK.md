@@ -107,16 +107,16 @@ belongs on short-lived branches that merge into `mastodon-X.Y.Z` before release.
 ## Release intake (update at the start of each cycle — copy into your report)
 
 ```
-FROM_VERSION:    4.6.5
-TO_VERSION:      4.6.10
-TARGET_TAG:      https://github.com/mastodon/mastodon/releases/tag/v4.6.10
-BASE_BRANCH:     patchwork-mastodon-4.6.5
-UPGRADE_BRANCH:  patchwork-mastodon-4.6.10
+FROM_VERSION:    4.6.10
+TO_VERSION:      4.7.6
+TARGET_TAG:      https://github.com/mastodon/mastodon/releases/tag/v4.7.6
+BASE_BRANCH:     patchwork-mastodon-4.6.10
+UPGRADE_BRANCH:  patchwork-mastodon-4.7.6
 CORE_REMOTE:     https://github.com/mastodon/mastodon.git
 GEM_REPO:        https://github.com/patchwork-hub/newsmast_mastodon
-GEM_BASE_BRANCH: mastodon-4.6.5.3   # latest gem branch for FROM_VERSION (or main if merged)
-GEM_DEV_BRANCH:  mastodon-4.6.10    # mastodon-<TO_VERSION>
-GEM_VERSION:     4.6.10.0           # released gem version pinned by the host
+GEM_BASE_BRANCH: mastodon-4.6.10   # latest gem branch for FROM_VERSION (or main if merged)
+GEM_DEV_BRANCH:  mastodon-4.7.6    # mastodon-<TO_VERSION>
+GEM_VERSION:     4.7.6.0           # released gem version pinned by the host
 HOST_MODIFICATION_POLICY: upstream snapshot + generated gem artifacts only;
                           all customization ships via newsmast_mastodon
 ```
