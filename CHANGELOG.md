@@ -8,6 +8,29 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+## [4.7.6.0] - Unreleased
+
+First gem release for Mastodon 4.7.6.
+
+### Added
+
+- Compatibility coverage for Mastodon 4.7.6 runtime, auth, migration, Chewy,
+  frontend, and view behavior.
+
+### Changed
+
+- Bumped compatibility contract to Mastodon 4.7.6.
+- Updated the gem CI host-integration default to
+  `patchwork-mastodon-4.7.6`.
+- Re-based vendored frontend and view overrides onto Mastodon 4.7.6 upstream
+  files while preserving Newsmast fork behavior.
+
+### Upgrade notes
+
+- Re-run `bin/rails newsmast_mastodon:install` after upgrading.
+- Run `bin/rails db:migrate` and rebuild frontend assets.
+- Ruby 4.0.10 and Node 24.19 are the target Mastodon 4.7.6 runtimes.
+
 ## [4.6.10.0] - Unreleased
 
 First gem release for Mastodon 4.6.10. Supersedes the `4.6.5.2`/`4.6.5.3`

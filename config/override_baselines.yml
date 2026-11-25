@@ -13,7 +13,7 @@
 overrides:
 - path: app/javascript/mastodon/actions/compose.js
   upstream: true
-  baseline_sha256: 8e8cff529f8a7f558e5c7b5b9a2dd59147f1b6f3f866d4729b60aa2675ed044b
+  baseline_sha256: 24e0a3d28d3e2146204ae164c9830d7287a45cc61e07a093e02f0bb67669f9de
 - path: app/javascript/mastodon/reducers/compose.js
   upstream: true
   baseline_sha256: 8fdc9afafd85e13153c97bb4145e883ed800e301c98fc653099dbd30817ab067
@@ -22,10 +22,10 @@ overrides:
   baseline_sha256: ec4c0f5a6d0978dc2d242ed564f2955e8a93d3260caae8958061569add91b1a2
 - path: app/javascript/mastodon/features/compose/containers/compose_form_container.js
   upstream: true
-  baseline_sha256: 5bee446d2ab7bc7750a738d45989ad3e64e6d71bff0179c1c50ea3ecdab8c21a
+  baseline_sha256: f3089a47c1d189115bede74bda1309fe2d5fe8bad227a970d5aa9047544fe39e
 - path: app/javascript/mastodon/features/status/components/detailed_status.tsx
   upstream: true
-  baseline_sha256: 801549e92449732bd05275e88c9410b50b02e269798b3ee609d72fc70c3afbac
+  baseline_sha256: 173d1c13e69608367f50c3ddc3db3217012b4fb53ee219ff402c3cd37c996307
 - path: app/views/admin/shared/_status.html.haml
   upstream: true
   baseline_sha256: 5c928d24ca0bbb0a53179c52349a0539e51b7086f5b6d2d3be99220b7ee06793
