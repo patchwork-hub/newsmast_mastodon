@@ -4,6 +4,8 @@ require "rails_helper"
 require File.expand_path("../../app/serializers/long_post/instance_serializer_extension", __dir__)
 
 RSpec.describe LongPost::InstanceSerializerExtension, type: :serializer do
+  include_context "with the dashboard server_settings.key column"
+
   let(:serializer) do
     serializer_class = Class.new do
       def configuration
