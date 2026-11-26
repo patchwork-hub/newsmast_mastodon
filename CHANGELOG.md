@@ -8,6 +8,17 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+### Changed
+
+- CI host-integration job now defaults to the `patchwork-mastodon-4.6.5` host branch, matching the gem's 4.6.5 compatibility contract.
+- Rewrote `RELEASE.md` as the v4.6.5.0 release notes with gem-pin upgrade steps.
+
+### Removed
+
+- Removed the commented-out Sidekiq scheduler registration block from `lib/newsmast_mastodon/engine.rb`.
+- Removed the empty `NewsmastMastodon::ApplicationHelper`.
+- Removed `.gitignore.copilot-snippet`; its `plan.md`/`progress.md` entries now live in `.gitignore`.
+
 ## [4.6.5.0] - 2026-08-10
 
 ### Added
