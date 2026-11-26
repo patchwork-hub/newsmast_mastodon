@@ -33,6 +33,7 @@ Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and l
 - Release workflow no longer waits for RubyGems propagation.
 - Bumped `ruby/setup-ruby` to v1.342.0 so CI can install Ruby 4.0.10, which Mastodon 4.7.6 requires.
 - Fixed RuboCop layout offenses (array bracket spacing, trailing whitespace and newlines) that failed `lint`.
+- `spec/spec_helper.rb` works with SimpleCov 1.x (bundled by Mastodon 4.7.6), which removed `SimpleCov.running`, so host-mode specs load again.
 - Replaced the Markdown issue templates with YAML issue forms and added `.github/labels.yml`.
 
 ## [4.7.6.0] - Unreleased
