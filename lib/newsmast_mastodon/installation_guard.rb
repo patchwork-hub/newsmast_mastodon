@@ -40,9 +40,17 @@ module NewsmastMastodon
 
     def install_task_running?
       return true if $PROGRAM_NAME.to_s.include?("rake")
-      return true if $PROGRAM_NAME.to_s.include?("rails") && ARGV.any? { |arg| arg.include?("newsmast_mastodon:install") }
+      # `bin/rails <task>` hands the task to Rake without leaving it in ARGV,
+      # so also check the tasks Rake was asked to run.
+      return true if rake_top_level_tasks.any? { |task| task.to_s.include?("newsmast_mastodon:install") }
 
       ARGV.any? { |arg| arg.include?("newsmast_mastodon:install") }
+    end
+
+    def rake_top_level_tasks
+      return [] unless defined?(Rake) && Rake.respond_to?(:application)
+
+      Array(Rake.application.top_level_tasks)
     end
   end
 end

@@ -28,7 +28,7 @@ module NewsmastMastodon
             user_check_passes    = user_toggle_required ? check_alt_text_enabled? : true
           end
 
-          is_valid_content_type? && check_user_desc? && local_or_reblogged_status? && user_check_passes
+          is_valid_content_type? && check_user_desc? && locally_authored? && user_check_passes
         end
 
         def check_alt_text_enabled?
@@ -44,17 +44,11 @@ module NewsmastMastodon
           IMAGE_ALLOW_TYPES.include?(file_content_type)
         end
 
-        def local_or_reblogged_status?
+        def locally_authored?
           return true if remote_url.blank?
+          return false if status_id.blank?
 
-          if status_id.present?
-            status = self.status
-            return true if status.local? || status.reply?
-
-            status.reblog? && status.account.domain.nil?
-          else
-            false
-          end
+          status&.local? || false
         end
       end
 
