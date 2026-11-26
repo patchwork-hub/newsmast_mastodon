@@ -12,6 +12,7 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 - CI host-integration job now defaults to the `patchwork-mastodon-4.6.5` host branch, matching the gem's 4.6.5 compatibility contract.
 - Rewrote `RELEASE.md` as the v4.6.5.0 release notes with gem-pin upgrade steps.
+- Bumped the development-only `puma` dependency from `~> 7.1.0` to `~> 8.0.4` to clear `bundler-audit` advisories and match the host's Puma 8.x line. No effect on host installs; Mastodon resolves its own Puma.
 
 ### Removed
 
