@@ -16,7 +16,7 @@ version** (`X.Y.Z.N` for Mastodon `X.Y.Z`), so any developer running Mastodon
 > prepended concerns, vendored frontend/Chewy overrides). The host app only
 > *consumes* a released, version-pinned gem. Keeping the runbook next to the
 > contract it describes prevents the two from drifting apart.
-
+>
 > **Host modification policy:** `patchwork-mastodon` is treated as an
 > upstream snapshot. The host upgrade branch is created directly from the
 > upstream release tag and contains **no hand-written Patchwork/Newsmast
@@ -106,7 +106,7 @@ belongs on short-lived branches that merge into `mastodon-X.Y.Z` before release.
 
 ## Release intake (update at the start of each cycle — copy into your report)
 
-```
+```text
 FROM_VERSION:    4.6.10
 TO_VERSION:      4.7.6
 TARGET_TAG:      https://github.com/mastodon/mastodon/releases/tag/v4.7.6
