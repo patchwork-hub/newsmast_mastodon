@@ -15,7 +15,7 @@ on:
         description: "Host Mastodon ref (branch/tag/SHA)"
         required: false
         type: string
-        default: "patchwork-mastodon-demo-4.6.3"
+        default: "patchwork-mastodon-4.6.5"
       host_integration_profile:
         description: "Host integration mode"
         required: false
@@ -274,7 +274,7 @@ jobs:
         uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
         with:
           repository: ${{ github.event.inputs.host_mastodon_repo || 'patchwork-hub/patchwork-mastodon' }}
-          ref: ${{ github.event.inputs.host_mastodon_ref || 'patchwork-mastodon-demo-4.6.3' }}
+          ref: ${{ github.event.inputs.host_mastodon_ref || 'patchwork-mastodon-4.6.5' }}
           token: ${{ github.token }}
           path: host
           persist-credentials: false
