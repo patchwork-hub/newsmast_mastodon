@@ -11,7 +11,7 @@ This repository uses multiple CI jobs for quality, compatibility, and security.
 | `CI` | `test-postgres-subset` | Validates targeted model specs against real Postgres schema bootstrap. | Postgres + Redis services; Ruby 3.4. |
 | `CI` | `compatibility` | Runs upgrade-safety and version-sync compatibility specs. | Ruby 3.4. |
 | `CI` | `override-drift` | Compares the upstream files the gem overrides with upstream Mastodon at the gem's target version (`config/override_baselines.yml`). | Runs on every PR and push; no services. |
-| `CI` | `host-integration` | Installs this checkout into upstream Mastodon at the target version, runs `newsmast_mastodon:install` and the gem's migrations, then runs the full spec suite in host mode. | Postgres + Redis services; host's Ruby version. Runs on every PR and push. |
+| `CI` | `host-integration` | Installs this checkout into upstream Mastodon at the target version, runs `newsmast_mastodon:install` and the gem's migrations, re-runs them with `newsmast_mastodon:repair_migrations` to check they can run twice, then runs the full spec suite in host mode. | Postgres + Redis services; host's Ruby version. Runs on every PR and push. |
 | `CI` | `ci-ok` | Aggregates required CI jobs into one stable merge gate. | Runs after required CI jobs complete. |
 | `Security` | `dependency-review` | Detects risky dependency changes. | Pull requests, and pushes to main (compares the commit before the push with the pushed commit). |
 | `Security` | `bundler-audit` | Scans resolved gem dependencies against RubySec advisories. | PR, push to main, and weekly schedule. |

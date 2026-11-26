@@ -413,6 +413,18 @@ jobs:
         # (NewsmastMastodon::SchemaLoadMigrations), so no extra step is needed.
         run: bin/rails db:prepare
 
+      - name: Re-run the gem's migrations on the migrated database
+        working-directory: host
+        # The repair task removes the gem's versions and replays its
+        # migrations, so this fails if a migration can't run twice. Afterwards
+        # every migration must be recorded as up again.
+        run: |
+          bin/rails newsmast_mastodon:repair_migrations
+          if bin/rails db:migrate:status | grep -E '^\s*down\s'; then
+            echo "::error::Migrations are pending after newsmast_mastodon:repair_migrations"
+            exit 1
+          fi
+
       - name: Run gem specs in host mode
         working-directory: gem
         env:
