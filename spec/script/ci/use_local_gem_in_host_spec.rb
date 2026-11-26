@@ -159,6 +159,26 @@ RSpec.describe "script/ci/use_local_gem_in_host.rb" do
     expect(bundler_groups(output)).to eq([ :default ])
   end
 
+  it "keeps a ternary valid when the entry is its true arm" do
+    output = rewrite(<<~RUBY)
+      ENV["NEWSMAST"] ? gem("newsmast_mastodon") : gem("pg")
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("ENV[\"NEWSMAST\"] ? nil : gem(\"pg\")\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
+  it "keeps a ternary valid when the entry is its false arm" do
+    output = rewrite(<<~RUBY)
+      ENV["SKIP"] ? gem("pg") : gem("newsmast_mastodon", "~> 4.6")
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("ENV[\"SKIP\"] ? gem(\"pg\") : nil\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
   it "keeps a top-level entry in place when another entry is in a group" do
     output = rewrite(<<~RUBY)
       group :production do

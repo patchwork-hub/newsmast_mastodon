@@ -420,7 +420,10 @@ jobs:
         # every migration must be recorded as up again.
         run: |
           bin/rails newsmast_mastodon:repair_migrations
-          if bin/rails db:migrate:status | grep -E '^\s*down\s'; then
+          # A standalone assignment, so a failing status command fails the
+          # step (errexit doesn't apply inside an `if` condition).
+          status=$(bin/rails db:migrate:status)
+          if grep -E '^\s*down\s' <<< "$status"; then
             echo "::error::Migrations are pending after newsmast_mastodon:repair_migrations"
             exit 1
           fi

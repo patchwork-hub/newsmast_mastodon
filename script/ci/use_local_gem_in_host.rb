@@ -70,8 +70,18 @@ def removal_for(node, ancestors)
     parents = parents.drop(2)
   end
 
-  text = parents.first.is_a?(Prism::StatementsNode) ? "" : "nil"
-  [ target.location.start_offset, target.location.end_offset, text ]
+  statement = parents.first.is_a?(Prism::StatementsNode) && !ternary_arm?(parents[1], parents[2])
+  [ target.location.start_offset, target.location.end_offset, statement ? "" : "nil" ]
+end
+
+# Whether a StatementsNode under `parent` is an arm of `cond ? a : b`, which
+# needs an expression even when it is the only thing in the arm.
+def ternary_arm?(parent, grandparent)
+  case parent
+  when Prism::IfNode then parent.if_keyword_loc.nil?
+  when Prism::ElseNode then grandparent.is_a?(Prism::IfNode) && grandparent.if_keyword_loc.nil?
+  else false
+  end
 end
 
 calls = newsmast_gem_calls(result.value).sort_by { |node, _| node.location.start_offset }
