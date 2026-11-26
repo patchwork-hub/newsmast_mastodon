@@ -31,6 +31,8 @@ Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and l
 - `changelog-policy` and `dependency-review` also run on pushes to `main`.
 - Host-mode specs load the engine correctly, and the previously skipped serializer/validator specs run against real records.
 - Release workflow no longer waits for RubyGems propagation.
+- Bumped `ruby/setup-ruby` to v1.342.0 so CI can install Ruby 4.0.10, which Mastodon 4.7.6 requires.
+- Fixed RuboCop layout offenses (array bracket spacing, trailing whitespace and newlines) that failed `lint`.
 - Replaced the Markdown issue templates with YAML issue forms and added `.github/labels.yml`.
 
 ## [4.7.6.0] - Unreleased
