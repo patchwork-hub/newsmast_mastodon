@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "zlib"
+
 module NewsmastMastodon
   # Runs this gem's migrations right after a database is built from the host's
   # schema file.
@@ -44,10 +46,22 @@ module NewsmastMastodon
         versions = context.migrations.map(&:version)
         return if versions.empty?
 
-        recorded = pool.schema_migration.versions & versions.map(&:to_s)
-        recorded.each { |version| pool.schema_migration.delete_version(version) }
+        # Hold Rails' migration lock from removing the versions until the
+        # migrations have run, so a concurrent repair or db:migrate can't
+        # remove versions this run has just restored. context.migrate takes the
+        # same lock again on the same connection, which advisory locks allow.
+        with_migration_lock(ActiveRecord::Tasks::DatabaseTasks.migration_connection) do
+          recorded = pool.schema_migration.versions & versions.map(&:to_s)
+          recorded.each { |version| pool.schema_migration.delete_version(version) }
 
-        context.migrate
+          context.migrate
+        end
+      end
+
+      # The advisory lock ActiveRecord::Migrator takes for this database
+      # (see Migrator#generate_migrator_advisory_lock_id).
+      def migration_lock_id(connection)
+        ActiveRecord::Migrator::MIGRATOR_SALT * Zlib.crc32(connection.current_database)
       end
 
       # The gem's migration directories, but only when the host app actually
@@ -69,6 +83,21 @@ module NewsmastMastodon
       end
 
       private
+
+      def with_migration_lock(connection)
+        return yield unless connection.advisory_locks_enabled?
+
+        lock_id = migration_lock_id(connection)
+        raise ActiveRecord::ConcurrentMigrationError unless connection.get_advisory_lock(lock_id)
+
+        begin
+          yield
+        ensure
+          unless connection.release_advisory_lock(lock_id)
+            raise ActiveRecord::ConcurrentMigrationError, ActiveRecord::ConcurrentMigrationError::RELEASE_LOCK_FAILED_MESSAGE
+          end
+        end
+      end
 
       def primary?(db_config)
         return true unless db_config.respond_to?(:name)

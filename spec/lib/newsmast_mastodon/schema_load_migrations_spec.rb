@@ -85,6 +85,73 @@ RSpec.describe NewsmastMastodon::SchemaLoadMigrations do
     expect(connection.table_exists?(table)).to be(false)
   end
 
+  describe "migration lock" do
+    let(:migration_connection) { ActiveRecord::Tasks::DatabaseTasks.migration_connection }
+
+    it "uses the same advisory lock id as ActiveRecord::Migrator" do
+      skip "the database adapter has no current_database" unless migration_connection.respond_to?(:current_database)
+
+      migrator = ActiveRecord::Migrator.new(:up, [], pool.schema_migration, pool.internal_metadata)
+
+      expect(described_class.migration_lock_id(migration_connection))
+        .to eq(migrator.send(:generate_migrator_advisory_lock_id))
+    end
+
+    it "holds the lock while removing recorded versions and running the migrations" do
+      pool.schema_migration.create_version(version)
+      held = 0
+      max_held = 0
+      allow(described_class).to receive(:migration_lock_id).and_return(42)
+      allow_any_instance_of(ActiveRecord::Migrator).to receive(:generate_migrator_advisory_lock_id).and_return(42)
+      allow(migration_connection).to receive(:advisory_locks_enabled?).and_return(true)
+      allow(migration_connection).to receive(:get_advisory_lock).with(42) { held += 1; max_held = [ max_held, held ].max; true }
+      allow(migration_connection).to receive(:release_advisory_lock) { held -= 1; true }
+      allow_any_instance_of(ActiveRecord::SchemaMigration).to receive(:delete_version).and_wrap_original do |original, *args|
+        expect(held).to be_positive
+        original.call(*args)
+      end
+
+      described_class.run!(primary_config)
+
+      # Released again, and Rails' migrator re-acquired it on the same
+      # connection while the repair held it.
+      expect(held).to eq(0)
+      expect(max_held).to eq(2)
+      expect(connection.table_exists?(table)).to be(true)
+      expect(pool.schema_migration.versions).to include(version)
+    end
+
+    it "leaves recorded versions alone when another process holds the lock" do
+      pool.schema_migration.create_version(version)
+      allow(described_class).to receive(:migration_lock_id).and_return(42)
+      allow(migration_connection).to receive_messages(advisory_locks_enabled?: true, get_advisory_lock: false)
+
+      expect { described_class.run!(primary_config) }.to raise_error(ActiveRecord::ConcurrentMigrationError)
+      expect(pool.schema_migration.versions).to include(version)
+      expect(connection.table_exists?(table)).to be(false)
+    end
+
+    it "waits for a real concurrent session holding the migration lock" do
+      skip "the database has no advisory locks" unless migration_connection.advisory_locks_enabled?
+
+      pool.schema_migration.create_version(version)
+      other_session = pool.checkout
+      lock_id = described_class.migration_lock_id(other_session)
+      expect(other_session.get_advisory_lock(lock_id)).to be(true)
+
+      begin
+        expect { described_class.run!(primary_config) }.to raise_error(ActiveRecord::ConcurrentMigrationError)
+        expect(pool.schema_migration.versions).to include(version)
+      ensure
+        other_session.release_advisory_lock(lock_id)
+        pool.checkin(other_session)
+      end
+
+      described_class.run!(primary_config)
+      expect(connection.table_exists?(table)).to be(true)
+    end
+  end
+
   # Goes through ActiveRecord's real schema load (the path db:setup,
   # db:prepare and db:schema:load take) instead of calling run! directly.
   describe "ActiveRecord::Tasks::DatabaseTasks.load_schema" do
