@@ -113,6 +113,52 @@ RSpec.describe "script/ci/use_local_gem_in_host.rb" do
     expect(bundler_groups(output)).to eq([ :default ])
   end
 
+  it "removes an entry with a postfix if together with its condition" do
+    output = rewrite(<<~RUBY)
+      gem "pg"
+      gem "newsmast_mastodon", "~> 4.6" if ENV["NEWSMAST"]
+      gem "rails"
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("gem \"pg\"\n\ngem \"rails\"\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
+  it "removes an entry with a postfix unless together with its condition" do
+    output = rewrite(<<~RUBY)
+      gem "newsmast_mastodon",
+          git: "https://example.org/newsmast_mastodon.git" unless ENV["SKIP_NEWSMAST"]
+      gem "rails"
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("\ngem \"rails\"\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
+  it "removes a postfix-conditional entry inside a group" do
+    output = rewrite(<<~RUBY)
+      group :production do
+        gem "newsmast_mastodon" if ENV["NEWSMAST"] # Newsmast features
+        gem "pg"
+      end
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("group :production do\n   # Newsmast features\n  gem \"pg\"\nend\n\n#{entry}\n")
+  end
+
+  it "keeps an expression valid when the entry is part of it" do
+    output = rewrite(<<~RUBY)
+      ENV["NEWSMAST"] && gem("newsmast_mastodon")
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("ENV[\"NEWSMAST\"] && nil\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
   it "keeps a top-level entry in place when another entry is in a group" do
     output = rewrite(<<~RUBY)
       group :production do

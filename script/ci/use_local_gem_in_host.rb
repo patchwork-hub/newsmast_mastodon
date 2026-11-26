@@ -32,43 +32,74 @@ source = File.binread(gemfile)
 result = Prism.parse(source)
 abort("Host Gemfile does not parse: #{result.errors.map(&:message).join("; ")}") unless result.success?
 
-# Finds top-level-style `gem "newsmast_mastodon", ...` calls anywhere in the
-# file (including inside `group`, `platforms` or `if` blocks).
-class NewsmastGemCalls < Prism::Visitor
-  attr_reader :calls
-
-  def initialize
-    @calls = []
-    super
-  end
-
-  def visit_call_node(node)
+# Finds `gem "newsmast_mastodon", ...` calls anywhere in the file (including
+# inside `group`, `platforms` or `if` blocks), with the nodes enclosing each.
+def newsmast_gem_calls(node, ancestors = [], found = [])
+  if node.is_a?(Prism::CallNode)
     first_arg = node.arguments&.arguments&.first
     if node.receiver.nil? && node.name == :gem && first_arg.is_a?(Prism::StringNode) &&
        first_arg.unescaped == "newsmast_mastodon"
-      @calls << node
+      found << [ node, ancestors ]
     end
+  end
 
-    super
+  node.compact_child_nodes.each { |child| newsmast_gem_calls(child, ancestors + [ node ], found) }
+  found
+end
+
+# A modifier `if`/`unless` (`gem "x" if cond`), as opposed to a block form or
+# a ternary.
+def modifier_condition?(node)
+  case node
+  when Prism::IfNode then node.if_keyword_loc && node.end_keyword_loc.nil?
+  when Prism::UnlessNode then node.end_keyword_loc.nil?
+  else false
   end
 end
 
-visitor = NewsmastGemCalls.new
-result.value.accept(visitor)
-calls = visitor.calls.sort_by { |node| node.location.start_offset }
+# The source range to remove for a call, and what to put there. A call guarded
+# by a modifier condition is removed together with the condition, since
+# ` if cond` on its own isn't valid Ruby. Where the call isn't a statement of
+# its own (`a && gem ...`), it becomes `nil` so the expression still parses.
+def removal_for(node, ancestors)
+  target = node
+  parents = ancestors.reverse
+  while (statements = parents.first).is_a?(Prism::StatementsNode) && statements.body.size == 1 &&
+        modifier_condition?(parents[1])
+    target = parents[1]
+    parents = parents.drop(2)
+  end
+
+  text = parents.first.is_a?(Prism::StatementsNode) ? "" : "nil"
+  [ target.location.start_offset, target.location.end_offset, text ]
+end
+
+calls = newsmast_gem_calls(result.value).sort_by { |node, _| node.location.start_offset }
 
 # Only an entry directly in the Gemfile body is kept in place. One inside a
-# block (`group :production do`, `platforms`, `if ...`) may be excluded by
-# BUNDLE_WITHOUT or a condition, so it is removed and the local entry is added
-# at the top level instead.
+# block (`group :production do`, `platforms`, `if ...`) or behind a condition
+# may be excluded by BUNDLE_WITHOUT or that condition, so it is removed and the
+# local entry is added at the top level instead.
 top_level = result.value.statements.body
-in_place = calls.find { |node| top_level.include?(node) }
+in_place, = calls.find { |node, _| top_level.include?(node) }
+
+edits = calls.map do |node, ancestors|
+  if node.equal?(in_place)
+    [ node.location.start_offset, node.location.end_offset, replacement ]
+  else
+    removal_for(node, ancestors)
+  end
+end
+
+# Drop an edit that lies inside another one's range (the outer edit already
+# covers it), then edit from the end so earlier offsets stay valid.
+edits = edits.reject do |start, finish, _|
+  edits.any? { |other_start, other_finish, _| other_start <= start && finish <= other_finish && [ other_start, other_finish ] != [ start, finish ] }
+end
 
 output = source.dup
-# Edit from the end so earlier offsets stay valid.
-calls.reverse_each do |node|
-  location = node.location
-  output[location.start_offset...location.end_offset] = node.equal?(in_place) ? replacement.b : "".b
+edits.uniq { |start, finish, _| [ start, finish ] }.sort_by { |start, _, _| -start }.each do |start, finish, text|
+  output[start...finish] = text.b
 end
 
 output << "\n" unless output.empty? || output.end_with?("\n")
