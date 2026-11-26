@@ -22,7 +22,7 @@ Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and l
 - `LongPost::DraftedStatusSerializer` now removes `application_id` from `params` (the jsonb column returns string keys, so it was always included).
 - `NewsmastMastodon::ServerSetting.get_long_post` prefers the Dashboard's `server_settings.key = "long_posts"` row when that column exists.
 - Alt-text eligibility in `NewsmastMastodon::Concerns::MediaAttachmentConcern` is nil-safe when the parent status has been deleted. Renamed `#local_or_reblogged_status?` to `#locally_authored?`.
-- `NewsmastMastodon::ReblogChannelsWorker` builds post URLs from `LOCAL_DOMAIN` instead of the hardcoded `channel.org`.
+- `NewsmastMastodon::ReblogChannelsWorker` builds post URLs from the server's web domain (`WEB_DOMAIN`, falling back to `LOCAL_DOMAIN`) instead of the hardcoded `channel.org`.
 - Fixed test data leaking between examples on Postgres, and added `server_settings.key` to the Postgres CI bootstrap and the dummy schema.
 
 ### Changed

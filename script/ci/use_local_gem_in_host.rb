@@ -13,7 +13,9 @@
 # The Gemfile is parsed with Prism, so an entry whose options continue on later
 # lines (including across blank lines and comments, or after a trailing
 # comment such as `gem "newsmast_mastodon", # pinned`) is replaced as a whole.
-# Further entries for the gem are removed.
+# Further entries for the gem are removed, and an entry nested in a block (such
+# as `group :production`, which CI excludes with BUNDLE_WITHOUT) is replaced by
+# a top-level one.
 
 require "prism"
 
@@ -55,19 +57,25 @@ visitor = NewsmastGemCalls.new
 result.value.accept(visitor)
 calls = visitor.calls.sort_by { |node| node.location.start_offset }
 
+# Only an entry directly in the Gemfile body is kept in place. One inside a
+# block (`group :production do`, `platforms`, `if ...`) may be excluded by
+# BUNDLE_WITHOUT or a condition, so it is removed and the local entry is added
+# at the top level instead.
+top_level = result.value.statements.body
+in_place = calls.find { |node| top_level.include?(node) }
+
 output = source.dup
-# Edit from the end so earlier offsets stay valid. The first entry becomes the
-# path entry; any later ones are removed.
-calls.each_with_index.reverse_each do |node, index|
+# Edit from the end so earlier offsets stay valid.
+calls.reverse_each do |node|
   location = node.location
-  output[location.start_offset...location.end_offset] = index.zero? ? replacement.b : "".b
+  output[location.start_offset...location.end_offset] = node.equal?(in_place) ? replacement.b : "".b
 end
 
 output << "\n" unless output.empty? || output.end_with?("\n")
-output << "\n#{replacement}\n".b if calls.empty?
+output << "\n#{replacement}\n".b unless in_place
 
 rewritten = Prism.parse(output)
 abort("Rewritten Gemfile does not parse: #{rewritten.errors.map(&:message).join("; ")}") unless rewritten.success?
 
 File.binwrite(gemfile, output)
-puts "Host Gemfile now uses newsmast_mastodon from #{gem_path}#{calls.empty? ? " (appended)" : ""}"
+puts "Host Gemfile now uses newsmast_mastodon from #{gem_path}#{in_place ? "" : " (added at the top level)"}"

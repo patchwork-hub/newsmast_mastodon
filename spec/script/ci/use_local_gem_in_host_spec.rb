@@ -79,15 +79,64 @@ RSpec.describe "script/ci/use_local_gem_in_host.rb" do
     expect(output).to eq("#{entry}\ngem \"pg\"\n")
   end
 
-  it "replaces an entry inside a group block and keeps a trailing comment" do
+  it "moves an entry out of a production group so a test bundle includes it" do
     output = rewrite(<<~RUBY)
+      source "https://rubygems.org"
       group :production do
         gem 'newsmast_mastodon', '4.6.5.1' # Newsmast features
       end
     RUBY
 
     expect_valid_ruby(output)
-    expect(output).to eq("group :production do\n  #{entry} # Newsmast features\nend\n")
+    expect(output).to eq(<<~RUBY)
+      source "https://rubygems.org"
+      group :production do
+         # Newsmast features
+      end
+
+      #{entry}
+    RUBY
+
+    # Host integration bundles with BUNDLE_WITHOUT=development:production.
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
+  it "moves an entry out of a conditional block" do
+    output = rewrite(<<~RUBY)
+      if ENV["NEWSMAST"]
+        gem "newsmast_mastodon"
+      end
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to end_with("end\n\n#{entry}\n")
+    expect(bundler_groups(output)).to eq([ :default ])
+  end
+
+  it "keeps a top-level entry in place when another entry is in a group" do
+    output = rewrite(<<~RUBY)
+      group :production do
+        gem "newsmast_mastodon", "4.6.5.1"
+      end
+      gem "newsmast_mastodon", "~> 4.6"
+      gem "pg"
+    RUBY
+
+    expect_valid_ruby(output)
+    expect(output).to eq("group :production do\n  \nend\n#{entry}\ngem \"pg\"\n")
+  end
+
+  # The groups Bundler assigns to newsmast_mastodon when evaluating the Gemfile.
+  def bundler_groups(gemfile)
+    require "bundler"
+
+    Dir.mktmpdir do |dir|
+      path = File.join(dir, "Gemfile")
+      File.write(path, gemfile.gsub(gem_root, dir))
+      dsl = Bundler::Dsl.new
+      dsl.eval_gemfile(path)
+      dsl.dependencies.find { |dependency| dependency.name == "newsmast_mastodon" }&.groups
+    end
   end
 
   it "keeps the first entry and removes later ones" do
