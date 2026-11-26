@@ -45,6 +45,7 @@ HOST_MODIFICATION_POLICY: upstream snapshot + generated gem artifacts only;
 | `app/controllers/concerns/auth/sign_in_token_authentication_concern.rb` | gem custom session/auth behavior | New upstream concern in 4.7.6 | Needs verification |
 | `app/chewy/*.rb` | install-time Chewy copies | No changed upstream index file names detected | Compatible |
 | compose action/container/status detail | install-time frontend copies | Upstream files changed; gem copies re-based onto 4.7.6 | Fixed |
+| federated dropdown | gem-only install-time frontend copy | Mastodon 4.7.6 removed `react-overlays/Overlay` dependency | Fixed |
 | `app/views/admin/shared/_status.html.haml` | install-time view copy | No diff detected in range | Compatible |
 
 ## Gem host surfaces
