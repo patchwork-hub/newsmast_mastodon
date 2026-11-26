@@ -7,8 +7,6 @@ import classNames from 'classnames';
 
 import { injectIntl } from '@/mastodon/components/intl';
 
-import Overlay from 'react-overlays/Overlay';
-
 import LinkIcon from '@/material-icons/400-24px/link.svg?react';
 import LinkOffIcon from '@/material-icons/400-24px/link_off.svg?react';
 import { DropdownSelector } from 'mastodon/components/dropdown_selector';
@@ -55,7 +53,6 @@ class FederatedDropdown extends PureComponent {
 
     this.state = {
       open: false,
-      placement: 'bottom',
     };
   }
 
@@ -96,13 +93,9 @@ class FederatedDropdown extends PureComponent {
 
   findTarget = () => this.target;
 
-  handleOverlayEnter = (state) => {
-    this.setState({ placement: state.placement });
-  };
-
   render() {
     const { federated, container, disabled, intl } = this.props;
-    const { open, placement } = this.state;
+    const { open } = this.state;
 
     const stringValue = federated ? 'federated' : 'local_only';
     const valueOption = this.options.find((item) => item.value === stringValue) || this.options[0];
@@ -123,31 +116,16 @@ class FederatedDropdown extends PureComponent {
           <span className='dropdown-button__label'>{valueOption.text}</span>
         </button>
 
-        <Overlay
-          show={open}
-          offset={[5, 5]}
-          placement={placement}
-          flip
-          target={this.findTarget}
-          container={container}
-          popperConfig={{
-            strategy: 'fixed',
-            onFirstUpdate: this.handleOverlayEnter,
-          }}
-        >
-          {({ props, placement }) => (
-            <div {...props}>
-              <div className={`dropdown-animation privacy-dropdown__dropdown ${placement}`}>
-                <DropdownSelector
-                  items={this.options}
-                  value={stringValue}
-                  onClose={this.handleClose}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-          )}
-        </Overlay>
+        {open && (
+          <div className='dropdown-animation privacy-dropdown__dropdown bottom'>
+            <DropdownSelector
+              items={this.options}
+              value={stringValue}
+              onClose={this.handleClose}
+              onChange={this.handleChange}
+            />
+          </div>
+        )}
       </div>
     );
   }
