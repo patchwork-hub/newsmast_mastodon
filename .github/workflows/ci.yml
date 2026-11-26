@@ -288,9 +288,15 @@ jobs:
         working-directory: gem
         run: ruby bin/check-override-drift "${GITHUB_WORKSPACE}/host"
 
+      - name: Point host bundle at this gem checkout
+        run: bash gem/script/ci/use_local_gem_in_host.sh configure host gem
+
       - name: Install host dependencies
         working-directory: host
         run: bundle install
+
+      - name: Verify host resolves newsmast_mastodon from this checkout
+        run: bash gem/script/ci/use_local_gem_in_host.sh verify host gem
 
       - name: Run gem specs against host Mastodon
         working-directory: gem
@@ -377,9 +383,15 @@ jobs:
         with:
           ruby-version: "4.0.5"
 
+      - name: Point host bundle at this gem checkout
+        run: bash gem/script/ci/use_local_gem_in_host.sh configure host gem
+
       - name: Install host dependencies
         working-directory: host
         run: bundle install
+
+      - name: Verify host resolves newsmast_mastodon from this checkout
+        run: bash gem/script/ci/use_local_gem_in_host.sh verify host gem
 
       - name: Prepare host test database
         working-directory: host

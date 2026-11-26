@@ -8,6 +8,10 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+### Fixed
+
+- The `host-integration` and `host-integration-full` CI jobs now run against the gem checkout under test. Before, the host bundle loaded `newsmast_mastodon` from the git branch pinned in the host `Gemfile`. A Bundler local override (`script/ci/use_local_gem_in_host.sh`) now points the host at the checkout, and a verify step fails the job if the host resolves the gem from anywhere else.
+
 ## [4.6.5.0] - 2026-08-10
 
 ### Added
