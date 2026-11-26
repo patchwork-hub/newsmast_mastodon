@@ -1,0 +1,95 @@
+# Repository labels.
+#
+# This file is the reference list of labels used by issue forms, CI and
+# automation. It isn't synced automatically. To create or update a label, a
+# maintainer can run, for example:
+#
+#   gh label create "no-changelog" --color ededed \
+#     --description "Skip the changelog-policy check for non-behavioral changes" --force
+
+# --- Used by CI and automation (must exist) ---
+
+- name: no-changelog
+  color: ededed
+  description: Skip the changelog-policy check for non-behavioral changes
+  # Read by the changelog-policy job in .github/workflows/ci.yml.
+
+- name: "status: approved"
+  color: 0e8a16
+  description: Triaged and accepted; added to the project board
+  # Read by .github/workflows/add-to-project.yml.
+
+- name: needs-triage
+  color: fbca04
+  description: New issue waiting for a maintainer to review
+  # Applied by the issue forms in .github/ISSUE_TEMPLATE/.
+
+# --- Type ---
+
+- name: bug
+  color: d73a4a
+  description: Something isn't working
+
+- name: enhancement
+  color: a2eeef
+  description: New feature or request
+
+- name: documentation
+  color: 0075ca
+  description: Improvements or additions to documentation
+
+- name: question
+  color: d876e3
+  description: Further information is requested
+
+- name: security
+  color: b60205
+  description: Security hardening or a fix for a disclosed vulnerability
+
+- name: breaking-change
+  color: b60205
+  description: Changes behavior in a way that needs migration steps
+
+# --- Release and upgrade ---
+
+- name: release
+  color: 5319e7
+  description: Prepares or publishes a gem release
+
+- name: mastodon-upgrade
+  color: 6364ff
+  description: Tracks a new upstream Mastodon version
+
+# --- Dependabot ---
+
+- name: dependencies
+  color: 0366d6
+  description: Pull requests that update a dependency file
+
+- name: github_actions
+  color: "000000"
+  description: Pull requests that update GitHub Actions code
+
+# --- Resolution ---
+
+- name: duplicate
+  color: cfd3d7
+  description: This issue or pull request already exists
+
+- name: invalid
+  color: e4e669
+  description: This doesn't seem right
+
+- name: wontfix
+  color: ffffff
+  description: This will not be worked on
+
+# --- Contributors ---
+
+- name: good first issue
+  color: 7057ff
+  description: Good for newcomers
+
+- name: help wanted
+  color: "008672"
+  description: Extra attention is needed

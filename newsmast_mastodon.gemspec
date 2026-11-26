@@ -50,7 +50,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "simplecov",                 "~> 0.22.0"
   spec.add_development_dependency "pg",                        "~> 1.6.0"
   spec.add_development_dependency "debug",                     "~> 1.11.0"
-  spec.add_development_dependency "puma",                      "~> 8.0.4"
+  spec.add_development_dependency "puma",                      "~> 7.2", ">= 7.2.3"
   spec.add_development_dependency "sidekiq",                   "~> 8.1.0"
   spec.add_development_dependency "sqlite3",                   "~> 2.1"
   spec.add_development_dependency "rubocop-rails-omakase"

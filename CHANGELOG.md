@@ -8,17 +8,38 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and later).
+
+### Security
+
+- Re-pinned `actions/attest-build-provenance` (release workflow) and `github/codeql-action` to verified release commits. zizmor now runs its online audits, so unverifiable pins fail `lint-workflows`.
+- Bumped the development dependency `puma` to `~> 7.2, >= 7.2.3` to resolve `bundler-audit` advisories.
+
+### Fixed
+
+- Creating a database from the host's `db/schema.rb` (`db:setup`, `db:prepare`, `db:schema:load`, `db:reset`, `mastodon:setup`) now runs the gem's migrations. Existing databases affected by this can run `bin/rails newsmast_mastodon:repair_migrations`.
+- `bin/rails newsmast_mastodon:install` no longer fails on a fresh host: the installation guard now recognises the task when `bin/rails` hands it to Rake.
+- `LongPost::DraftedStatusSerializer` now removes `application_id` from `params` (the jsonb column returns string keys, so it was always included).
+- `NewsmastMastodon::ServerSetting.get_long_post` prefers the Dashboard's `server_settings.key = "long_posts"` row when that column exists.
+- Alt-text eligibility in `NewsmastMastodon::Concerns::MediaAttachmentConcern` is nil-safe when the parent status has been deleted. Renamed `#local_or_reblogged_status?` to `#locally_authored?`.
+- `NewsmastMastodon::ReblogChannelsWorker` builds post URLs from the server's web domain (`WEB_DOMAIN`, falling back to `LOCAL_DOMAIN`) instead of the hardcoded `channel.org`.
+- Fixed test data leaking between examples on Postgres, and added `server_settings.key` to the Postgres CI bootstrap and the dummy schema.
+
 ### Changed
 
-- CI host-integration job now defaults to the `patchwork-mastodon-4.6.5` host branch, matching the gem's 4.6.5 compatibility contract.
-- Rewrote `RELEASE.md` as the v4.6.5.0 release notes with gem-pin upgrade steps.
-- Bumped the development-only `puma` dependency from `~> 7.1.0` to `~> 8.0.4` to clear `bundler-audit` advisories and match the host's Puma 8.x line. No effect on host installs; Mastodon resolves its own Puma.
+- `host-integration` runs on every pull request and push against upstream Mastodon at the target version, and the override drift check has its own `override-drift` job.
+- `changelog-policy` and `dependency-review` also run on pushes to `main`.
+- Host-mode specs load the engine correctly, and the previously skipped serializer/validator specs run against real records.
+- Release workflow no longer waits for RubyGems propagation.
+- Replaced the Markdown issue templates with YAML issue forms and added `.github/labels.yml`.
+- Rewrote `RELEASE.md` as the v4.6.5.0 release notes, with gem-pin upgrade steps.
+- Replaced the placeholder `4.6.4.0` versioning example in `CONTRIBUTING.md` with `4.6.5.0`.
 
 ### Removed
 
 - Removed the commented-out Sidekiq scheduler registration block from `lib/newsmast_mastodon/engine.rb`.
 - Removed the empty `NewsmastMastodon::ApplicationHelper`.
-- Removed `.gitignore.copilot-snippet`; its `plan.md`/`progress.md` entries now live in `.gitignore`.
+- Removed `.gitignore.copilot-snippet`. Its `plan.md`/`progress.md` entries are now in `.gitignore`.
 
 ## [4.6.5.0] - 2026-08-10
 

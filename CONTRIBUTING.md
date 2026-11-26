@@ -75,7 +75,13 @@ Common types: `feat`, `fix`, `refactor`, `perf`, `docs`, `test`, `chore`,
 
 ## Reporting bugs or requesting features
 
-Please use the GitHub issue templates under `.github/ISSUE_TEMPLATE/`.
+Please use the **Bug report** or **Feature request** issue forms (defined in
+`.github/ISSUE_TEMPLATE/`). Blank issues are disabled.
+
+Labels used by issues, CI and automation are listed in
+[`.github/labels.yml`](.github/labels.yml). Maintainers can add the
+`no-changelog` label to a pull request to skip the changelog check for
+non-behavioral changes.
 For security-sensitive issues, see [`SECURITY.md`](SECURITY.md) instead of
 opening a public issue.
 

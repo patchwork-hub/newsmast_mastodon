@@ -71,6 +71,13 @@ module NewsmastMastodon
       end
     end
 
+    # --- Run the gem's migrations after a schema load (see SchemaLoadMigrations) ---
+    initializer "newsmast_mastodon.schema_load_migrations" do
+      ActiveSupport.on_load(:active_record) do
+        NewsmastMastodon::SchemaLoadMigrations.install!
+      end
+    end
+
     # --- Mount routes at "/" ---
     initializer "newsmast_mastodon.load_routes" do |app|
       app.routes.prepend do
