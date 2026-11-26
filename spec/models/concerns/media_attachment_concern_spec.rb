@@ -14,7 +14,7 @@ RSpec.describe NewsmastMastodon::Concerns::MediaAttachmentConcern, type: :model 
         def after_save(*); end
       end
 
-      attr_accessor :file_content_type, :description, :status_id, :remote_url
+      attr_accessor :file_content_type, :description, :status_id, :remote_url, :status
 
       def initialize(content_type: nil, description: nil)
         @file_content_type = content_type
@@ -45,5 +45,44 @@ RSpec.describe NewsmastMastodon::Concerns::MediaAttachmentConcern, type: :model 
     instance = host_class.new(content_type: "image/jpeg", description: "existing alt text")
     # check_user_desc? returns false when description is present, so can_generate_alt? should be false
     expect(instance.can_generate_alt?).to be false
+  end
+
+  describe "#locally_authored?" do
+    it "returns true for locally uploaded media" do
+      instance = host_class.new
+      instance.remote_url = ""
+      expect(instance.locally_authored?).to be true
+    end
+
+    it "returns false for remote media not attached to any status" do
+      instance = host_class.new
+      instance.remote_url = "https://remote.example/media.jpg"
+      instance.status_id = nil
+      expect(instance.locally_authored?).to be false
+    end
+
+    it "returns true for remote media attached to a local status" do
+      instance = host_class.new
+      instance.remote_url = "https://remote.example/media.jpg"
+      instance.status_id = 1
+      instance.status = instance_double("Status", local?: true)
+      expect(instance.locally_authored?).to be true
+    end
+
+    it "returns false for remote media attached to a remote status" do
+      instance = host_class.new
+      instance.remote_url = "https://remote.example/media.jpg"
+      instance.status_id = 1
+      instance.status = instance_double("Status", local?: false)
+      expect(instance.locally_authored?).to be false
+    end
+
+    it "returns false instead of raising when the status has been deleted" do
+      instance = host_class.new
+      instance.remote_url = "https://remote.example/media.jpg"
+      instance.status_id = 1
+      instance.status = nil
+      expect(instance.locally_authored?).to be false
+    end
   end
 end

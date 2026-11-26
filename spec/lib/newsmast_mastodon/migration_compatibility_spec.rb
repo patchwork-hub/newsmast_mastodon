@@ -23,6 +23,7 @@ RSpec.describe NewsmastMastodon::MigrationCompatibility do
   around do |example|
     created_table = false
     created_target_column = false
+    created_new_tables = []
 
     unless connection.table_exists?(TARGET_COLUMN_TABLE)
       connection.create_table(TARGET_COLUMN_TABLE) { |t| t.timestamps null: true }
@@ -34,14 +35,19 @@ RSpec.describe NewsmastMastodon::MigrationCompatibility do
       created_target_column = true
     end
 
+    # Only create (and later drop) the tables that don't already exist, so a
+    # real Mastodon host keeps its own collections tables.
     TARGET_NEW_TABLES.each do |table_name|
-      connection.create_table(table_name) { |t| t.timestamps null: true } unless connection.table_exists?(table_name)
+      next if connection.table_exists?(table_name)
+
+      connection.create_table(table_name) { |t| t.timestamps null: true }
+      created_new_tables << table_name
     end
 
     example.run
   ensure
     connection.drop_table(NON_TARGET_TABLE) if connection.table_exists?(NON_TARGET_TABLE)
-    TARGET_NEW_TABLES.each do |table_name|
+    Array(created_new_tables).each do |table_name|
       connection.drop_table(table_name) if connection.table_exists?(table_name)
     end
     connection.remove_column(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN) if connection.column_exists?(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN)
@@ -62,8 +68,12 @@ RSpec.describe NewsmastMastodon::MigrationCompatibility do
   it "raises duplicate errors for non-target columns" do
     connection.add_column(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN, :integer) unless connection.column_exists?(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN)
 
+    # The savepoint keeps PostgreSQL's aborted-transaction state from leaking
+    # into the cleanup that runs after the example.
     expect do
-      migration.add_column(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN, :integer)
+      connection.transaction(requires_new: true) do
+        migration.add_column(TARGET_COLUMN_TABLE, NON_TARGET_COLUMN, :integer)
+      end
     end.to raise_error(ActiveRecord::StatementInvalid)
   end
 
@@ -79,7 +89,9 @@ RSpec.describe NewsmastMastodon::MigrationCompatibility do
     connection.create_table(NON_TARGET_TABLE) { |t| t.timestamps null: true } unless connection.table_exists?(NON_TARGET_TABLE)
 
     expect do
-      migration.create_table(NON_TARGET_TABLE) { |t| t.timestamps null: true }
+      connection.transaction(requires_new: true) do
+        migration.create_table(NON_TARGET_TABLE) { |t| t.timestamps null: true }
+      end
     end.to raise_error(ActiveRecord::StatementInvalid)
   end
 end
