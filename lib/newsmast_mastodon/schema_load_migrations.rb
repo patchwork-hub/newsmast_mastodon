@@ -51,13 +51,21 @@ module NewsmastMastodon
       end
 
       # The gem's migration directories, but only when the host app actually
-      # runs them (they are appended to the app's db/migrate paths by the
-      # engine, which isn't the case inside the gem's own dummy app).
+      # runs them: the engine appends them to the app's db/migrate paths, and
+      # the app must be Mastodon. The gem's own dummy app also gets the paths
+      # appended, but the migrations need Mastodon (lib/mastodon/migration_helpers),
+      # so replaying them there would fail.
       def migration_paths
+        return [] unless mastodon_host?
+
         engine_paths = NewsmastMastodon::Engine.paths["db/migrate"].existent
         app_paths = Rails.application.config.paths["db/migrate"].expanded
 
         engine_paths & app_paths
+      end
+
+      def mastodon_host?
+        Rails.root.join("lib", "mastodon", "migration_helpers.rb").file?
       end
 
       private

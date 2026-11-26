@@ -5,10 +5,17 @@
 #
 # Usage: ruby script/ci/use_local_gem_in_host.rb <host_root> <gem_root>
 #
-# Replaces the `gem "newsmast_mastodon", ...` entry in <host_root>/Gemfile
-# (including options continued on following lines) with a `path:` entry, or
-# appends one if the host doesn't list the gem. Run `bundle install` afterwards
-# with frozen mode off so the lockfile is re-resolved.
+# Replaces the `gem "newsmast_mastodon", ...` entry in <host_root>/Gemfile with
+# a `path:` entry, or appends one if the host doesn't list the gem. Run
+# `bundle install` afterwards with frozen mode off so the lockfile is
+# re-resolved.
+#
+# The Gemfile is parsed with Prism, so an entry whose options continue on later
+# lines (including across blank lines and comments, or after a trailing
+# comment such as `gem "newsmast_mastodon", # pinned`) is replaced as a whole.
+# Further entries for the gem are removed.
+
+require "prism"
 
 host_root, gem_root = ARGV
 abort("Usage: #{$PROGRAM_NAME} <host_root> <gem_root>") if host_root.to_s.empty? || gem_root.to_s.empty?
@@ -17,30 +24,50 @@ gemfile = File.join(host_root, "Gemfile")
 abort("Host Gemfile not found: #{gemfile}") unless File.file?(gemfile)
 
 gem_path = File.expand_path(gem_root)
-replacement = "gem \"newsmast_mastodon\", path: #{gem_path.inspect}\n"
+replacement = "gem \"newsmast_mastodon\", path: #{gem_path.inspect}"
 
-lines = File.readlines(gemfile)
-output = []
-replaced = false
-skipping_continuation = false
+source = File.binread(gemfile)
+result = Prism.parse(source)
+abort("Host Gemfile does not parse: #{result.errors.map(&:message).join("; ")}") unless result.success?
 
-lines.each do |line|
-  if skipping_continuation
-    skipping_continuation = line.rstrip.end_with?(",")
-    next
+# Finds top-level-style `gem "newsmast_mastodon", ...` calls anywhere in the
+# file (including inside `group`, `platforms` or `if` blocks).
+class NewsmastGemCalls < Prism::Visitor
+  attr_reader :calls
+
+  def initialize
+    @calls = []
+    super
   end
 
-  if line =~ /\A\s*gem\s+["']newsmast_mastodon["']/
-    output << replacement unless replaced
-    replaced = true
-    skipping_continuation = line.rstrip.end_with?(",")
-    next
-  end
+  def visit_call_node(node)
+    first_arg = node.arguments&.arguments&.first
+    if node.receiver.nil? && node.name == :gem && first_arg.is_a?(Prism::StringNode) &&
+       first_arg.unescaped == "newsmast_mastodon"
+      @calls << node
+    end
 
-  output << line
+    super
+  end
 end
 
-output << "\n#{replacement}" unless replaced
+visitor = NewsmastGemCalls.new
+result.value.accept(visitor)
+calls = visitor.calls.sort_by { |node| node.location.start_offset }
 
-File.write(gemfile, output.join)
-puts "Host Gemfile now uses newsmast_mastodon from #{gem_path}#{replaced ? "" : " (appended)"}"
+output = source.dup
+# Edit from the end so earlier offsets stay valid. The first entry becomes the
+# path entry; any later ones are removed.
+calls.each_with_index.reverse_each do |node, index|
+  location = node.location
+  output[location.start_offset...location.end_offset] = index.zero? ? replacement.b : "".b
+end
+
+output << "\n" unless output.empty? || output.end_with?("\n")
+output << "\n#{replacement}\n".b if calls.empty?
+
+rewritten = Prism.parse(output)
+abort("Rewritten Gemfile does not parse: #{rewritten.errors.map(&:message).join("; ")}") unless rewritten.success?
+
+File.binwrite(gemfile, output)
+puts "Host Gemfile now uses newsmast_mastodon from #{gem_path}#{calls.empty? ? " (appended)" : ""}"
