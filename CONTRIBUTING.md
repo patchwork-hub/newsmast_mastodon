@@ -105,7 +105,7 @@ Examples:
 - `4.5.11.0` -> first release targeting Mastodon `4.5.11`.
 - `4.5.11.1` -> gem-only bugfix release targeting Mastodon `4.5.11`.
 - `4.6.3.0` -> first release targeting Mastodon `4.6.3`.
-- `4.6.4.0` -> first release targeting the next Mastodon compatibility line.
+- `4.6.5.0` -> first release targeting Mastodon `4.6.5`.
 
 `newsmast_mastodon.gemspec` metadata (`mastodon_version_requirement`) must
 match `X.Y.Z`, while `lib/newsmast_mastodon/version.rb` must contain `X.Y.Z.N`.

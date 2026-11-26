@@ -32,6 +32,14 @@ Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and l
 - Host-mode specs load the engine correctly, and the previously skipped serializer/validator specs run against real records.
 - Release workflow no longer waits for RubyGems propagation.
 - Replaced the Markdown issue templates with YAML issue forms and added `.github/labels.yml`.
+- Rewrote `RELEASE.md` as the v4.6.5.0 release notes, with gem-pin upgrade steps.
+- Replaced the placeholder `4.6.4.0` versioning example in `CONTRIBUTING.md` with `4.6.5.0`.
+
+### Removed
+
+- Removed the commented-out Sidekiq scheduler registration block from `lib/newsmast_mastodon/engine.rb`.
+- Removed the empty `NewsmastMastodon::ApplicationHelper`.
+- Removed `.gitignore.copilot-snippet`. Its `plan.md`/`progress.md` entries are now in `.gitignore`.
 
 ## [4.6.5.0] - 2026-08-10
 

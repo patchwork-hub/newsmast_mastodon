@@ -13,3 +13,7 @@
 /coverage/
 Gemfile.lock
 /vendor/bundle/
+
+# Copilot workflow scratch files (local per-ticket notes, never commit)
+plan.md
+progress.md
