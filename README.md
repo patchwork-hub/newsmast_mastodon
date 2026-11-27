@@ -49,6 +49,11 @@ The gem is a standard Rails engine. It changes Mastodon behavior at runtime by:
 This lets any Mastodon host install the gem and receive the same behavior that
 was previously maintained as inline fork patches.
 
+New servers can also create the database from Mastodon's schema
+(`bin/rails db:setup`, `db:prepare` or `mastodon:setup`). The gem runs its own
+migrations right after the schema is loaded, so its tables and columns are
+created either way.
+
 ## Documentation
 
 See [https://github.com/TheNewsmastFoundation/documentation/blob/main/newsmast-mastodon/configuration.md](https://github.com/TheNewsmastFoundation/documentation/blob/main/newsmast-mastodon/configuration.md)

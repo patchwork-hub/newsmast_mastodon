@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/patchwork-hub/newsmast_mastodon/blob/main/SECURITY.md
+    about: Please report security issues privately. Don't open a public issue.
+  - name: Installation and configuration docs
+    url: https://github.com/TheNewsmastFoundation/documentation/tree/main/newsmast-mastodon
+    about: Check the setup and configuration guides before opening an issue.
+  - name: Bugs in Mastodon itself
+    url: https://github.com/mastodon/mastodon/issues
+    about: If the problem also happens without this gem installed, report it to Mastodon.
