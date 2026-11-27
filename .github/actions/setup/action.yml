@@ -9,17 +9,32 @@ inputs:
     description: Enable bundler cache
     required: false
     default: "true"
+  working-directory:
+    description: Directory containing the Gemfile (and .ruby-version when ruby-version is ".ruby-version")
+    required: false
+    default: "."
+  extra-packages:
+    description: Additional apt packages to install (space-separated)
+    required: false
+    default: ""
 runs:
   using: composite
   steps:
     - name: Install native dependencies
       shell: bash
+      env:
+        EXTRA_PACKAGES: ${{ inputs.extra-packages }}
       run: |
         sudo apt-get update
         sudo apt-get install -y pkg-config libidn11-dev || sudo apt-get install -y pkg-config libidn-dev
+        if [ -n "$EXTRA_PACKAGES" ]; then
+          # shellcheck disable=SC2086
+          sudo apt-get install -y $EXTRA_PACKAGES
+        fi
 
     - name: Set up Ruby
       uses: ruby/setup-ruby@d45b1a4e94b71acab930e56e79c6aa188764e7f9 # v1.316.0
       with:
         ruby-version: ${{ inputs.ruby-version }}
         bundler-cache: ${{ inputs.bundler-cache }}
+        working-directory: ${{ inputs.working-directory }}

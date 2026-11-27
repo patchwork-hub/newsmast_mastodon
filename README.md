@@ -19,6 +19,7 @@ Examples:
 - `4.6.5` is for Mastodon `4.6.5`.
 - `4.6.5.0` is the first gem release for Mastodon `4.6.5`.
 - `4.6.5.1` is a gem-only patch release, still for Mastodon `4.6.5`.
+- `4.6.5.3` is a gem-only patch release, still for Mastodon `4.6.5`. It is a development version and has not been tagged or published; `4.6.10.0` supersedes it.
 
 ## Prerequisites
 
@@ -44,6 +45,11 @@ The gem is a standard Rails engine. It changes Mastodon behavior at runtime by:
 
 This lets any Mastodon host install the gem and receive the same behavior that
 was previously maintained as inline fork patches.
+
+New servers can also create the database from Mastodon's schema
+(`bin/rails db:setup`, `db:prepare` or `mastodon:setup`). The gem runs its own
+migrations right after the schema is loaded, so its tables and columns are
+created either way.
 
 ## Documentation
 

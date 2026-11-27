@@ -34,17 +34,36 @@ RSpec.describe "Concern prepends", type: :integration do
     expect(FanOutOnWriteService.ancestors).to include(NewsmastMastodon::Concerns::FanOutOnWriteConcern)
   end
 
-  it "replaces host Chewy index classes with the engine's definitions" do
-    require_host!
-    expect(AccountsIndex).to be(NewsmastMastodon::AccountsIndex)
-    expect(StatusesIndex).to be(NewsmastMastodon::StatusesIndex)
-    expect(PublicStatusesIndex).to be(NewsmastMastodon::PublicStatusesIndex)
+  # `bin/rails newsmast_mastodon:install` copies the engine's Chewy indexes
+  # into the host's app/chewy, renamed to the upstream top-level classes.
+  let(:chewy_index_files) do
+    {
+      "AccountsIndex" => "accounts_index.rb",
+      "StatusesIndex" => "statuses_index.rb",
+      "PublicStatusesIndex" => "public_statuses_index.rb"
+    }
   end
 
-  it "preserves upstream Chewy index names when the engine overrides the class" do
+  it "loads the host Chewy index classes from the files installed by the engine" do
     require_host!
-    expect(NewsmastMastodon::AccountsIndex.index_name).to eq("accounts_index")
-    expect(NewsmastMastodon::StatusesIndex.index_name).to eq("statuses_index")
-    expect(NewsmastMastodon::PublicStatusesIndex.index_name).to eq("public_statuses_index")
+
+    chewy_index_files.each do |class_name, file|
+      installed = Rails.root.join("app/chewy", file)
+      engine_source = File.read(NewsmastMastodon::Engine.root.join("app/chewy/newsmast_mastodon", file))
+      expected = engine_source.gsub(/class\s+NewsmastMastodon::(\w+Index)\s+</, 'class \\1 <')
+
+      expect(File.read(installed)).to eq(expected), "#{installed} is not the installed engine index; run newsmast_mastodon:install"
+      index_class = Object.const_get(class_name)
+      expect(index_class).to be < Chewy::Index
+      expect(Object.const_source_location(class_name).first).to eq(installed.to_s)
+    end
+  end
+
+  it "keeps the upstream Chewy index names so existing indexes are reused" do
+    require_host!
+
+    expect(AccountsIndex.base_name).to eq("accounts")
+    expect(StatusesIndex.base_name).to eq("statuses")
+    expect(PublicStatusesIndex.base_name).to eq("public_statuses")
   end
 end

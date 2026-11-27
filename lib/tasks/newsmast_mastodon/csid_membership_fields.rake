@@ -5,7 +5,7 @@ namespace :newsmast_mastodon do
   task remove_csid_badge_fields: :environment do
     dry_run = ActiveModel::Type::Boolean.new.cast(ENV.fetch("DRY_RUN", "true"))
     batch_size = [ ENV.fetch("BATCH_SIZE", "200").to_i, 1 ].max
-    scope = Account.where("fields @> ?", [{ name: "CSID Badge" }].to_json)
+    scope = Account.where("fields @> ?", [ { name: "CSID Badge" } ].to_json)
     total = scope.count
     removed_accounts = 0
     removed_fields = 0

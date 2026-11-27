@@ -30,7 +30,7 @@ module NewsmastMastodon
     def call
       return empty_result unless force_remote? || feature_enabled?
       return empty_result if @email.blank? || !config_present?
-      
+
       fellows_values = fetch_values(RELATIONSHIP_GET_PATH, fellows_request_params)
       return transient_failure_result if fellows_values.nil?
 
