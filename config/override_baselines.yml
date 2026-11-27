@@ -1,4 +1,4 @@
-# Baselines for the frontend/view files that newsmast_mastodon *overrides* in
+# Baselines for the frontend/view/Chewy files that newsmast_mastodon *overrides* in
 # the host Mastodon app (see lib/tasks/newsmast_mastodon/install.rake).
 #
 # `bin/check-override-drift` compares the SHA-256 of the host's *current*
@@ -13,25 +13,34 @@
 overrides:
 - path: app/javascript/mastodon/actions/compose.js
   upstream: true
-  baseline_sha256: 9b3c6d878e1de5d2f6f7ce92595d66bec4acf2725553e8ae08d0413c6f47ffa6
+  baseline_sha256: 24e0a3d28d3e2146204ae164c9830d7287a45cc61e07a093e02f0bb67669f9de
 - path: app/javascript/mastodon/reducers/compose.js
   upstream: true
-  baseline_sha256: 1f79bc5ca8522a0a2d83b3dcd48783288b5ccd0b8c2bd711a40e5f91a3f2e73f
+  baseline_sha256: 8fdc9afafd85e13153c97bb4145e883ed800e301c98fc653099dbd30817ab067
 - path: app/javascript/mastodon/features/compose/components/compose_form.jsx
   upstream: true
-  baseline_sha256: 0ed11e19f121428c223de194cce5eb087211c6e59d4bc43be93ce1ff4f72e6e0
+  baseline_sha256: ec4c0f5a6d0978dc2d242ed564f2955e8a93d3260caae8958061569add91b1a2
 - path: app/javascript/mastodon/features/compose/containers/compose_form_container.js
   upstream: true
-  baseline_sha256: f68e1e6be89ada235a7e54346760dd976f9fc60fa5f180872c1531a51bf3ed01
+  baseline_sha256: f3089a47c1d189115bede74bda1309fe2d5fe8bad227a970d5aa9047544fe39e
 - path: app/javascript/mastodon/features/status/components/detailed_status.tsx
   upstream: true
-  baseline_sha256: f4691e14d8fe1da920fc3aa45a4814770f68858b64f5b3aa10d814581fba8418
+  baseline_sha256: 173d1c13e69608367f50c3ddc3db3217012b4fb53ee219ff402c3cd37c996307
 - path: app/views/admin/shared/_status.html.haml
   upstream: true
-  baseline_sha256: 39f81ce24f9bae216e8eeea8c1d49b223e51618373ca3162363e2ab50a8bd712
+  baseline_sha256: 5c928d24ca0bbb0a53179c52349a0539e51b7086f5b6d2d3be99220b7ee06793
 - path: app/javascript/mastodon/features/compose/components/federated_dropdown.jsx
   upstream: false
   baseline_sha256:
 - path: app/javascript/mastodon/features/compose/containers/federated_dropdown_container.js
   upstream: false
   baseline_sha256:
+- path: app/chewy/accounts_index.rb
+  upstream: true
+  baseline_sha256: 04c40f2115ffd8be2df6974502231f18f451a1ee41a23d8e28748980d51dfbcc
+- path: app/chewy/statuses_index.rb
+  upstream: true
+  baseline_sha256: 6c1d0973c72e90185fd99f06c4e58d1d355350c0c5ab277418b1c1ec874ad7d6
+- path: app/chewy/public_statuses_index.rb
+  upstream: true
+  baseline_sha256: d4d4d30a9c8876db92510ddb0572135e729c3d06ecddf939361254330f1fdd55

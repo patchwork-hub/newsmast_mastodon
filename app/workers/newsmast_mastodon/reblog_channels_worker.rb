@@ -52,9 +52,16 @@ module NewsmastMastodon
       false
     end
 
+    # The post's URL on this server (also for federated posts, so the boost
+    # service resolves it here). Uses the web host, which differs from
+    # LOCAL_DOMAIN when the server sets WEB_DOMAIN.
     def fetch_post_url
       username = @status.account.pretty_acct
-      "https://channel.org/@#{username}/#{@status.id}"
+      "https://#{web_domain}/@#{username}/#{@status.id}"
+    end
+
+    def web_domain
+      Rails.configuration.x.web_domain.presence || ENV["WEB_DOMAIN"].presence || ENV.fetch("LOCAL_DOMAIN", nil)
     end
   end
 end

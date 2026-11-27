@@ -22,11 +22,11 @@ RSpec.describe "newsmast_mastodon:remove_csid_badge_fields" do
     account = double("Account")
     allow(account).to receive(:[]).with(:fields).and_return(fields)
     scope = double("Account scope", count: 1)
-    allow(scope).to receive(:find_in_batches).with(batch_size: 200).and_yield([account])
+    allow(scope).to receive(:find_in_batches).with(batch_size: 200).and_yield([ account ])
     account_class = Class.new do
       def self.where(*) = nil
     end
-    allow(account_class).to receive(:where).with("fields @> ?", [{ name: "CSID Badge" }].to_json).and_return(scope)
+    allow(account_class).to receive(:where).with("fields @> ?", [ { name: "CSID Badge" } ].to_json).and_return(scope)
     stub_const("Account", account_class)
     expect(account).to receive(:update_columns).with(hash_including(fields: fields.drop(1), updated_at: anything))
 

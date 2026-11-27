@@ -3,6 +3,8 @@
 require "rails_helper"
 
 RSpec.describe NewsmastMastodon::ServerSetting, type: :model do
+  include_context "with the dashboard server_settings.key column"
+
   it "validates presence of :name" do
     setting = NewsmastMastodon::ServerSetting.new(name: nil)
     expect(setting).not_to be_valid

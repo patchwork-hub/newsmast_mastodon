@@ -4,8 +4,8 @@ This document explains how to get help and where to report different issue types
 
 ## Where to report
 
-- Bugs: open a GitHub issue using `.github/ISSUE_TEMPLATE/bug_report.md`.
-- Feature requests: open a GitHub issue using `.github/ISSUE_TEMPLATE/feature_request.md`.
+- Bugs: open a GitHub issue with the **Bug report** form.
+- Feature requests: open a GitHub issue with the **Feature request** form.
 - Security vulnerabilities: follow `SECURITY.md` and report privately to
   <akp@binarylab.io>.
 - Conduct issues: follow `CODE_OF_CONDUCT.md` reporting guidance.

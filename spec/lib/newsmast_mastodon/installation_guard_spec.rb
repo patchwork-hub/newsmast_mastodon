@@ -31,6 +31,36 @@ RSpec.describe NewsmastMastodon::InstallationGuard do
     ARGV.replace(original_argv)
   end
 
+  it "skips the guard for `bin/rails newsmast_mastodon:install` (ARGV already consumed by Rake)" do
+    original_program_name = $PROGRAM_NAME
+    original_argv = ARGV.dup
+    $PROGRAM_NAME = "bin/rails"
+    ARGV.replace([])
+    allow(described_class).to receive(:rake_top_level_tasks).and_return([ "newsmast_mastodon:install" ])
+
+    expect do
+      described_class.ensure_installed!(rails_root: @rails_root)
+    end.not_to raise_error
+  ensure
+    $PROGRAM_NAME = original_program_name
+    ARGV.replace(original_argv)
+  end
+
+  it "still raises for other `bin/rails` tasks on an uninstalled host" do
+    original_program_name = $PROGRAM_NAME
+    original_argv = ARGV.dup
+    $PROGRAM_NAME = "bin/rails"
+    ARGV.replace([])
+    allow(described_class).to receive(:rake_top_level_tasks).and_return([ "db:migrate" ])
+
+    expect do
+      described_class.ensure_installed!(rails_root: @rails_root)
+    end.to raise_error(NewsmastMastodon::InstallationError)
+  ensure
+    $PROGRAM_NAME = original_program_name
+    ARGV.replace(original_argv)
+  end
+
   it "allows boot when the marker and required files are present" do
     FileUtils.mkdir_p(@rails_root.join("app/chewy"))
     FileUtils.mkdir_p(@rails_root.join("app/javascript/mastodon/actions"))
