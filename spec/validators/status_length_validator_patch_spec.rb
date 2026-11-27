@@ -4,6 +4,8 @@ require "rails_helper"
 require File.expand_path("../../app/validators/long_post/status_length_validator_patch", __dir__)
 
 RSpec.describe LongPost::StatusLengthValidatorPatch, type: :validator do
+  include_context "with the dashboard server_settings.key column"
+
   let(:validator) do
     validator_class = Class.new(ActiveModel::Validator) do
       def countable_length(text)
