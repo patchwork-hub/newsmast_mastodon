@@ -8,6 +8,53 @@ tracks the target Mastodon version and `N` is the gem patch level).
 
 ## [Unreleased]
 
+Ported the hardening from TheNewsmastFoundation/newsmast-mastodon (4.6.5.1 and later).
+
+### Security
+
+- Re-pinned `actions/attest-build-provenance` (release workflow) and `github/codeql-action` to verified release commits. zizmor now runs its online audits, so unverifiable pins fail `lint-workflows`.
+- Bumped the development dependency `puma` to `~> 7.2, >= 7.2.3` to resolve `bundler-audit` advisories.
+
+### Fixed
+
+- Creating a database from the host's `db/schema.rb` (`db:setup`, `db:prepare`, `db:schema:load`, `db:reset`, `mastodon:setup`) now runs the gem's migrations. Existing databases affected by this can run `bin/rails newsmast_mastodon:repair_migrations`.
+- `bin/rails newsmast_mastodon:install` no longer fails on a fresh host: the installation guard now recognises the task when `bin/rails` hands it to Rake.
+- `LongPost::DraftedStatusSerializer` now removes `application_id` from `params` (the jsonb column returns string keys, so it was always included).
+- `NewsmastMastodon::ServerSetting.get_long_post` prefers the Dashboard's `server_settings.key = "long_posts"` row when that column exists.
+- Alt-text eligibility in `NewsmastMastodon::Concerns::MediaAttachmentConcern` is nil-safe when the parent status has been deleted. Renamed `#local_or_reblogged_status?` to `#locally_authored?`.
+- `NewsmastMastodon::ReblogChannelsWorker` builds post URLs from the server's web domain (`WEB_DOMAIN`, falling back to `LOCAL_DOMAIN`) instead of the hardcoded `channel.org`.
+- Fixed test data leaking between examples on Postgres, and added `server_settings.key` to the Postgres CI bootstrap and the dummy schema.
+
+### Changed
+
+- `host-integration` runs on every pull request and push against upstream Mastodon at the target version, and the override drift check has its own `override-drift` job.
+- `changelog-policy` and `dependency-review` also run on pushes to `main`.
+- Host-mode specs load the engine correctly, and the previously skipped serializer/validator specs run against real records.
+- Release workflow no longer waits for RubyGems propagation.
+- Replaced the Markdown issue templates with YAML issue forms and added `.github/labels.yml`.
+- Fixed RuboCop layout offenses (array bracket spacing, trailing whitespace and newlines) that failed `lint`, and added the `4.6.5.3` README and CHANGELOG entries the version-sync check requires.
+
+## [4.6.5.3] - Unreleased
+
+Development version for Mastodon 4.6.5. It has not been tagged or published;
+`4.6.10.0` (on `mastodon-4.6.10`) supersedes it and lists the same changes.
+
+### Added
+
+- Cross-instance push notification system and unread notification count in push payloads.
+- Auto-follow of default accounts, configurable via environment and dashboard (`newsmast_mastodon:auto_follow` task).
+- CiviCRM role assignment API/worker (`CSID_ROLE_ASSIGNMENT_ENABLED`), including the Fellows role.
+- Email branding task for header/footer logos (`newsmast_mastodon:email_branding`).
+- Task to remove CSID badge fields from accounts.
+- Direct-message attachment translations for multiple languages.
+- Relay feed generation.
+
+### Fixed
+
+- Long-post character limit handling and auto-update of the max characters in the web UI.
+- Signup reason handling in account creation; reblogs scope method name in account statuses filter.
+- Favourite/mention handling in `CustomNotificationService`; token management in `FirebaseNotificationService`.
+
 ## [4.6.5.1] - 2026-08-21
 
 ### Changed

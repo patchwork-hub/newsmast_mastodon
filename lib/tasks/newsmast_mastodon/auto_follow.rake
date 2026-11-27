@@ -3,7 +3,7 @@
 namespace :newsmast_mastodon do
   namespace :auto_follow do
     desc "Import AUTO_FOLLOW_* environment settings into the dashboard for LOCAL_DOMAIN"
-    task :import_env, [:dry_run] => :environment do |_task, args|
+    task :import_env, [ :dry_run ] => :environment do |_task, args|
       local_domain = ENV["LOCAL_DOMAIN"].to_s.strip
       abort "LOCAL_DOMAIN must be set to import auto-follow settings." if local_domain.blank?
 
