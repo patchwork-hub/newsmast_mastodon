@@ -16,6 +16,7 @@ ActiveRecord::Schema[8.0].define(version: 0) do
 
   # Engine-owned tables (no foreign keys to Mastodon host tables)
   create_table "server_settings", force: :cascade do |t|
+    t.string   "key"
     t.string   "name"
     t.string   "optional_value"
     t.boolean  "value"

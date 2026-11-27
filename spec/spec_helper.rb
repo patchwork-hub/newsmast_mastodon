@@ -3,12 +3,23 @@
 # SimpleCov must be required before any application code so it can track
 # line coverage for the whole engine.
 require "simplecov"
+
+# SimpleCov 1.x (bundled by Mastodon 4.7 hosts) removed `SimpleCov.running`, so
+# fall back to Ruby's own Coverage state to avoid starting coverage twice.
+simplecov_running =
+  if SimpleCov.respond_to?(:running)
+    SimpleCov.running
+  else
+    require "coverage"
+    Coverage.running?
+  end
+
 SimpleCov.start "rails" do
   add_filter "/spec/"
   add_filter "/test/"
   # CI can raise this gradually without breaking local contributor workflows.
   minimum_coverage ENV.fetch("COVERAGE_MINIMUM", "0").to_i
-end unless SimpleCov.running
+end unless simplecov_running
 
 # NOTE: newsmast_mastodon is loaded by the dummy app environment (via rails_helper),
 # not here — requiring it before Rails would skip the engine due to the
