@@ -11,6 +11,7 @@ ActiveRecord::Schema.verbose = false
 
 ActiveRecord::Schema.define do
   create_table :server_settings, if_not_exists: true do |t|
+    t.string :key
     t.string :name
     t.string :optional_value
     t.boolean :value
@@ -19,6 +20,7 @@ ActiveRecord::Schema.define do
     t.datetime :deleted_at
     t.timestamps null: false
   end
+  add_column :server_settings, :key, :string, if_not_exists: true
   add_index :server_settings, :name, if_not_exists: true
   add_index :server_settings, :parent_id, if_not_exists: true
 

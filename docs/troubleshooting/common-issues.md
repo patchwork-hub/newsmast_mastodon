@@ -1,5 +1,19 @@
 # Troubleshooting
 
+## Missing newsmast_mastodon tables or columns
+
+Errors such as `relation "server_settings" does not exist` or
+`unknown attribute 'alttext_enabled' for User` mean the gem's migrations are
+recorded as run but never ran. Older versions of the gem had this problem when
+the database was created from Mastodon's `db/schema.rb` (`db:setup`,
+`db:prepare`, `db:schema:load` or `mastodon:setup`) instead of `db:migrate`.
+
+Upgrade the gem, then re-run its migrations. They only create what is missing:
+
+```bash
+RAILS_ENV=production bin/rails newsmast_mastodon:repair_migrations
+```
+
 ## Commit fails with GPG signing error
 
 If commit signing is enabled but GPG is not configured correctly, commits can

@@ -21,6 +21,10 @@ RSpec.describe 'NewsmastMastodon Api V1 Accounts Registration Membership', type:
   it 'POST /api/v1/accounts returns 422 when membership check fails' do
     require_host!
 
+    # Mastodon defaults to closed registrations (`registrations_mode: 'none'`),
+    # which makes `check_enabled_registrations` return 403 before our create.
+    Setting.registrations_mode = 'open'
+
     failure_message = I18n.t('api.account.errors.membership_not_eligible')
     invalid_result = NewsmastMastodon::CivicrmMembershipCheckService::Result.new(valid?: false, error_message: failure_message)
     membership_service = instance_double('NewsmastMastodon::CivicrmMembershipCheckService', call: invalid_result)

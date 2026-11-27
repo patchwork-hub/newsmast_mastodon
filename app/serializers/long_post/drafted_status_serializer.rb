@@ -10,6 +10,7 @@ class LongPost::DraftedStatusSerializer < ActiveModel::Serializer
   end
 
   def params
-    object.params.without(:application_id)
+    # jsonb params come back with string keys, so drop both forms.
+    object.params.to_h.except("application_id", :application_id)
   end
 end

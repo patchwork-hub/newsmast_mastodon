@@ -15,13 +15,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # Runs on pull requests and on pushes to main. A push compares the commit
+  # before the push with the pushed commit; scheduled runs have no change set.
   dependency-review:
-    if: ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.event_name == 'pull_request' || (github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000') }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: false
 
@@ -29,13 +31,15 @@ jobs:
         uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
         with:
           fail-on-severity: high
+          base-ref: ${{ github.event_name == 'push' && github.event.before || '' }}
+          head-ref: ${{ github.event_name == 'push' && github.sha || '' }}
 
   bundler-audit:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: false
 
@@ -63,7 +67,7 @@ jobs:
       ZIZMOR_VERSION: "1.16.3"
     steps:
       - name: Checkout code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: false
 
@@ -81,9 +85,13 @@ jobs:
           ./actionlint -color
 
       - name: Run zizmor
+        env:
+          # A token enables zizmor's online audits, including impostor-commit
+          # (pinned SHAs that aren't reachable in the action's own repository).
+          GH_TOKEN: ${{ github.token }}
         run: |
           python3 -m pip install --user --disable-pip-version-check "zizmor==${ZIZMOR_VERSION}"
-          ~/.local/bin/zizmor .github/workflows
+          ~/.local/bin/zizmor .github/workflows .github/actions
 
   codeql:
     runs-on: ubuntu-latest
@@ -94,17 +102,17 @@ jobs:
       security-events: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         with:
           persist-credentials: false
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3
+        uses: github/codeql-action/init@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
         with:
           languages: ruby
 
       - name: Autobuild
-        uses: github/codeql-action/autobuild@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3
+        uses: github/codeql-action/autobuild@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
 
       - name: Perform CodeQL analysis
-        uses: github/codeql-action/analyze@641a925cfafe92d0fdf8b239ba4053e3f8d99d6d # v3
+        uses: github/codeql-action/analyze@915412ff23e8b7659517e607487dbeae018f2934 # v4.39.5
